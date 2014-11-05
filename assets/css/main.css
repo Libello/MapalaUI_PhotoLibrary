@@ -1,0 +1,282 @@
+body {
+  padding-top: 50px;
+}
+
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+.starter-template-home {
+  padding: 70px 0px;
+  text-align: center;
+}
+
+#logged_in_as {
+	width: 220px;
+	padding-top: 20px;
+	padding-bottom: 10px;
+	vertical-align: center; 
+}
+
+textarea {
+   resize: none;
+}
+
+@font-face {
+    font-family: 'Little Snorlax';
+    src: ("../fonts/Little Snorlax.ttf")
+}
+
+@font-face {
+    font-family: 'ATypewriterForMe';
+    src: url("../fonts/ATypewriterForMe.ttf")
+}
+
+@font-face {
+    font-family: 'Lobster 1.4';
+    src: url("../fonts/Lobster 1.4.otf")
+}
+
+.btn {
+	background-color: transparent;
+}
+
+.btn .glyphicon:hover {
+	color: black;
+	background-color: transparent;
+}
+
+/*BUTTON*/
+
+.btn-default {
+	background-color: #cc0000;
+	color: white;
+}
+.btn-default:hover{
+	background-color: #101010;
+	color: white;
+}
+
+
+
+
+.navbar {
+	background-color: #cc0000;
+	border-color: #cc0000;
+}
+
+.navbar-brand {
+	padding-top: 5px;
+}
+
+.nav {
+	height: 85px;
+	padding-top: 15px;
+	font-family: 'ATypewriterForMe';
+	color: white;
+}
+
+#nav_name {
+	color: white;
+}
+
+.active #nav_name {
+	background-color: #101010;
+	height: 90px;
+	color: white;
+}
+
+.active #nav_name:hover{
+	background-color: #101010;
+	height: 90px;
+	color: #cc0000;
+}
+
+#nav_name:hover {
+	color: #101010;
+}
+
+.col-lg-2 {
+	color: white;
+	padding-top: 0px;
+	padding-bottom: 3px;
+	padding-right: 0px;
+}
+
+.col-lg-3{
+	padding-right: 0px;
+	padding-top: 0px;
+}
+
+
+.carousel-inner .item img {
+  width: 1200px;
+  height: 570px;
+  margin: 0 auto;
+}
+
+
+
+.container_marketing {
+	background-color: #101010;
+	padding-left: 50px;
+	padding-top: 50px;
+	padding-right: 50px;
+	padding-bottom: 50px;
+}
+
+
+
+#feature_header {
+	font-family: 'Lobster 1.4';
+	color: #b6a77f;
+}
+
+#feature_detail {
+	font-family: 'ATypewriterForMe';
+	color: white;
+}
+
+#btn-featuredetail {
+	color: #cc0000;
+	font-weight: bold;
+}
+
+
+#categories_header {
+	font-family: 'Lobster 1.4';
+	color: #cc0000;
+}
+
+#photo_detail_form {
+	text-align: left;
+}
+
+
+
+#about_jumbotron {
+	font-family: 'Little Snorlax';
+	font-size: 120px;
+}
+
+#about_detail {
+	font-family: 'ATypewriterForMe';
+	font-size: 17px;
+}
+
+.panel-title {
+	font-family: 'Lobster 1.4';
+	font-size: 25px;
+	color: #cc0000;
+}
+
+.panel {
+	text-align: left;
+}
+
+.media-heading {
+	color: #cc0000;
+	font-weight: bold;
+}
+
+#contact_header {
+	font-family: 'Lobster 1.4';
+	color: #cc0000;
+}
+
+#about, #contact_mapalaui, #contact_creators {
+	text-align: left;
+}
+
+
+
+
+#adminlogin_header {
+	font-family: 'Lobster 1.4';
+	font-size: 50px;
+}
+
+#admin_form .col-sm-8 {
+	padding-left: 393px;
+	font-family: 'ATypewriterForMe';
+}
+
+
+
+
+
+
+.col-sm-2 #field_search {
+	text-align: right;
+}
+
+
+
+#search_guest .col-sm-2 {
+	text-align: right;
+}
+
+#search_header {
+	font-family: 'Lobster 1.4';
+	text-align: left;
+	color: #cc0000;
+}
+
+#photodata_search {
+	padding-top: 10px;
+}
+
+.search_result {
+	text-align: left;
+	padding-left: 100px;
+}
+
+#btn-photodetail {
+	color: #cc0000;
+}
+
+
+
+#search_result .col-sm-2 {
+	text-align: right;
+}
+
+#search_result .col-sm-9 {
+	text-align: left;
+}
+
+
+#result_fieldname {
+	font-weight: bold;
+	text-align: left;
+}
+
+#result_fieldcontent {
+	text-align: left;
+}
+
+#img-result {
+	cursor: zoom-in;
+}
+
+.panel-title:hover {
+	outline-color: none;
+	border-color: none;
+	border-bottom: none;
+}
+
+
+
+
+#admin_name {
+	padding-bottom: 20px;
+}
+
+
+#footer {
+	padding-top: 15px;
+	padding-bottom: 10px;
+	font-family: 'ATypewriterForMe';
+	text-align: center;
+}

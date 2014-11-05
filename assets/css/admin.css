@@ -1,0 +1,219 @@
+body {
+  padding-top: 50px;
+}
+
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+
+textarea {
+   resize: none;
+}
+
+@font-face {
+	font-family: 'AGENCYR';
+	src: url("../fonts/AGENCYR.ttf");
+}
+
+
+.navbar {
+	font-family: 'AGENCYR';
+	font-size: 21px;
+	background-color: #0F0F0F;
+	border-width: 0px;
+	padding-bottom: 23px;
+	padding-top: 5px;
+	text-align: left;
+}
+
+.active #nav-name {
+	background-color: #0F0F0F;
+}
+
+.navbar-brand {
+	padding-left: 0px;
+	padding-top: 0px;
+}
+
+#masterdata_header {
+	text-align: left;
+	font-family: 'AGENCYR';
+	font-weight: bold;
+}
+/*FORM DATA FOTO BARU*/
+#formtitle {
+	color: #cc0000;
+	font-family: 'AGENCYR';
+	font-weight: bold;
+	font-size: 95px;
+}
+
+#formdetail {
+	font-family: 'AGENCYR';
+	font-size: 21px;
+}
+
+#btn_modal {
+	text-align: left;
+	padding-left: 190px;
+	padding-bottom: 10px;
+}
+
+#btn_modalmasterdata {
+	text-align: left;
+	padding-left: 0px;
+}
+
+#btn_modal:hover {
+	background-color: none;
+	color: none;
+}
+
+#btn_modalfinish {
+	text-align: right;
+}
+
+#btn_modaldelete {
+	text-align: center;
+}
+
+#btn_modal_insert {
+	text-align: left;
+	padding-left: 190px;
+	padding-bottom: 0px;
+}
+
+#attachphoto {
+	text-align: left;
+	font-weight: bold;
+}
+
+tr:hover {
+	background-color: #f0f0f0;
+}
+
+.checkbox {
+	text-align: left;
+}
+
+
+label {
+	font-weight: bold;
+}
+
+.btn {
+	font-family: 'AGENCYR';
+	font-size: 17px;
+}
+
+.radio {
+	text-align: left;
+}
+
+#if_explanation {
+	padding-left: 10px;
+	text-align: left;
+	font-weight: bold;
+	font-size: 11px;
+
+}
+
+#if_explanation_modal {
+	text-align: center;
+	font-size: 11px;
+
+}
+
+
+/*BUTTON*/
+.btn{
+	background-color: #cc0000;
+	color: white;
+}
+.btn:hover{
+	background-color: #101010;
+	color: white;
+}
+
+#btn-close {
+	background-color: #887c7c;
+	color: white;
+}
+
+
+#btn-save {
+	background-color: #403a3a;
+	color: white;
+}
+
+
+#done {
+	font-family: 'Lobster 1.4';
+	font-size: 50px;
+	font-weight: bold;
+}
+
+
+
+/*LIST DATA FOTO*/
+#photodata_search {
+	text-align: left;
+	padding-left: 0px;
+}
+
+#photodata_button {
+	text-align: left;
+}
+
+
+#table_header {
+	background-color: #101010;
+	color: white;
+	font-weight: bold;
+}
+td {
+    text-align: left;
+}
+
+ 
+#btn-edit {
+	background-color: transparent;
+}
+
+#btn-edit-master {
+	background-color: #cc0000;
+	color: white;
+}
+
+#btn-edit-master:hover {
+	background-color: none;
+	color: none;
+}
+
+
+.grid h4 {
+    margin: 0;
+    padding: 0;
+    color: #101010;
+}
+ 
+.grid span:before {
+    content: 'oleh ';
+}
+
+
+.modal-title {
+	font-family: 'AGENCYR';
+	font-size: 25px;
+	font-weight: bold;
+}
+
+
+
+#footer {
+	padding-top: 15px;
+	padding-bottom: 10px;
+	text-align: center;
+}
