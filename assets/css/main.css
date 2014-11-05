@@ -185,8 +185,17 @@ textarea {
 	color: #cc0000;
 }
 
+#contact_please {
+	font-family: 'ATypewriterForMe';
+	color: #101010;
+}
+
 #about, #contact_mapalaui, #contact_creators {
 	text-align: left;
+}
+
+#contact_creator {
+	padding-left: 20px;
 }
 
 

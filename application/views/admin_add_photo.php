@@ -58,29 +58,57 @@
         <p class="lead" id="formdetail">Masukkan detail foto pada form di bawah ini.</p>
         <hr>
 
-        <!--Form Photo ID, Title, Photographer-->
-        <form class="form-horizontal" role="form">
+        
+        <form class="form-horizontal" role="form" name="add_photo">
+          <!--Field ID-->
           <div class="form-group">
             <label for="photo_id" class="col-sm-2 control-label">Photo ID</label>
-            <div class="col-sm-9">
-              <input type="text" class="form-control" name="photo_id" placeholder="Kode Kegiatan/Tahun/No.Foto">
+            <div class="col-sm-2 photoid_1">
+              <input type="text" class="form-control" name="photo_id" placeholder="Kode Kegiatan" required autofocus>
+            </div>
+
+            <div class="slash">
+              <div class="col-sm-1" id="slash">
+                /
+              </div>
+            </div>
+
+            <div class="col-sm-1 photoid">
+              <input type="text" class="form-control" name="photo_id" placeholder="Tahun" required>
+            </div>
+
+            <div class="slash">
+              <div class="col-sm-1" id="slash">
+                /
+              </div>
+            </div>
+
+            <div class="col-sm-2 photoid">
+              <input type="text" class="form-control" name="photo_id" placeholder="No Foto" required>
+            </div>
+
+            <div class="col-sm-4 photoid">
+              <div id="if_explanation">*Format ID harus KODE KEGIATAN/TAHUN/NO.FOTO<br>serta dicantumkan & disamakan dengan ID file foto asli</div>
             </div>
           </div>
 
+          <!--Field Title-->
           <div class="form-group">
             <label for="title" class="col-sm-2 control-label">Title</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" name="photo_title" placeholder="Judul foto">
+              <input type="text" class="form-control" name="photo_title" placeholder="Judul foto" required>
             </div>
           </div>
 
+          <!--Select Photographer-->
           <div class="form-group">
             <label for="photographer" class="col-sm-2 control-label">Photographer</label>
             <div class="col-sm-3">
               <select class="form-control" name="photographer">
+                <option value="unknown">Unknown</option>
                 <?php
                   foreach ($photographerlist as $row){
-                    echo "<option>";
+                    echo "<option value=".$row['id'].">";
                       echo $row['name'];
                     echo "</option>";
                   }
@@ -88,13 +116,338 @@
             </select>
             </div>
           </div>
-        </form>
+          
+          <!--Button Add Photographer-->
+          <div class="form-group">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-1">
+              <button type="button" class="btn" data-toggle="modal" data-target="#photographer_modal" id="btn_modal">
+                <span class="glyphicon glyphicon-plus"></span>Add Photographer
+              </button>
+            </div>
+          </div>
 
-        <!--Button Photographer Modal-->
-        <div id="btn_modal">
-          <button class="btn" data-toggle="modal" data-target="#photographer_modal">
-              <span class="glyphicon glyphicon-plus"></span> Add Photographer
+          <!--Field Format-->
+          <div class="form-group">
+            <label for="format" class="col-sm-2 control-label">Format</label>
+            <div class="col-sm-3">
+              <div class="checkbox">
+                <input type="checkbox" name="format1"> Digital
+              </div>
+              <div class="checkbox">
+                <input type="checkbox" name="format2"> Repro / Scan
+              </div>
+              <div class="checkbox">
+                <input type="checkbox" name="format3"> Print
+              </div>
+            </div>
+          </div>
+
+          <!--Field Size-->
+          <div class="form-group">
+            <label for="format" class="col-sm-2 control-label">Size</label>
+            <div class="col-sm-3">
+              <input type="text" class="form-control" name="size" placeholder="Ukuran atau dimensi foto">
+            </div>
+          </div>
+
+          <!--Field Color-->
+          <div class="form-group">
+            <label for="format" class="col-sm-2 control-label">Color</label>
+            <div class="col-sm-3">
+            <select class="form-control" name="color">
+              <option>Color</option>
+              <option>Black & White</option>
+              <option>Sephia</option>
+            </select>
+            </div>
+          </div>
+
+          <!--Select Event-->
+          <div class="form-group">
+            <label for="event" class="col-sm-2 control-label">Event</label>
+            <div class="col-sm-9">
+              <select class="form-control" name="event">
+                <option value="-">...</option>
+                <?php
+                  foreach ($eventlist as $row){
+                    echo "<option value=".$row['id'].">";
+                      echo $row['name'];
+                    echo "</option>";
+                  }
+                ?>
+            </select>
+            </div>
+          </div>
+
+          <!--Button Add Event-->
+          <div class="form-group">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-1">
+              <button type="button" class="btn" data-toggle="modal" data-target="#event_modal" id="btn_modal">
+                <span class="glyphicon glyphicon-plus"></span>Add Event
+              </button>
+            </div>
+          </div>
+
+          <!--Checkbox Activity-->
+          <div class="form-group">
+            <label for="activity" class="col-sm-2 control-label">Activity</label>
+            <div class="col-sm-3">
+              <select class="form-control" name="category">
+                <option>Climbing</option>
+                <option>Rafting</option>
+                <option>Caving</option>
+                <option>Diving</option>
+                <option>Paragliding</option>
+                <option>Mountaineering</option>
+                <option>Sailing</option>
+                <option>BKP</option>
+                <option>Others</option>
+              </select>
+            </div>
+          </div>
+
+          <!--Taken Date-->
+          <div class="form-group">
+            <label for="photo_date" class="col-sm-2 control-label">Taken Date</label>
+            <div class="col-sm-1">
+              <select class="form-control" name="taken_date">
+                <option value="dd">dd</option>
+                <option disabled>──</option>
+                <?php for ($i = 1; $i <= 31; $i++) : ?>
+                  <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                <?php endfor; ?>
+              </select>
+            </div>
+            <div class="col-sm-2">
+              <select class="form-control" name="taken_month">
+                <option value="mm">month</option>
+                <option disabled>────────────</option>
+                <option>January</option>
+                <option>February</option>
+                <option>March</option>
+                <option>April</option>
+                <option>May</option>
+                <option>June</option>
+                <option>July</option>
+                <option>August</option>
+                <option>September</option>
+                <option>October</option>
+                <option>November</option>
+                <option>December</option>
+              </select>
+            </div>
+            <div class="col-sm-2">
+              <select class="form-control" name="taken_year">
+                <option value="yyyy">year</option>
+                <option disabled>───</option>
+                <?php for ($i = 2017; $i >= 1964; $i--) : ?>
+                  <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                <?php endfor; ?>
+              </select>
+            </div>
+          </div>
+
+          <!--Taken Location-->
+          <div class="form-group">
+            <label for="coverage" class="col-sm-2 control-label">Taken Location (Specific)</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" name="photo_location" placeholder="Lokasi dalam foto secara detail: misalnya 'Sungai Lariang', bukan 'Sulawesi Tengah'">
+            </div>
+          </div>
+
+          <!--Field Photo Description-->
+          <div class="form-group">
+            <label for="description" class="col-sm-2 control-label">Photo Description</label>
+            <div class="col-sm-9">
+              <textarea class="form-control" rows="3" name="photo_description" placeholder="Penjelasan foto: misalnya 'Tim pengarungan sedang melakukan istirahat di hari ketiga sembari mereparasi perahu'"></textarea>
+            </div>
+          </div>
+
+          <!--Button Insert Photo-->
+          <div class="form-group">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-1">
+              <button type="button" class="btn" data-toggle="modal" data-target="#insert-photo_modal" id="btn_modal">
+                Insert Photo
+              </button>
+            </div>
+          </div>
+
+          <!--Button Other Format Location-->
+          <div class="form-group">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-1">
+              <button type="button" class="btn" data-toggle="modal" data-target="#otherlocation_modal" id="btn_modal">
+                Other Format Location
+              </button>
+            </div>
+          </div>
+
+          <!--Select Editor-->
+          <div class="form-group">
+            <label for="editor" class="col-sm-2 control-label">Editor</label>
+            <div class="col-sm-3">
+              <select class="form-control" name="editor">
+                <option value="-">...</option>
+                <?php
+                  foreach ($editorlist as $row){
+                    echo "<option value=".$row['id'].">";
+                      echo $row['name'];
+                    echo "</option>";
+                  }
+                ?>
+            </select>
+            </div>
+          </div>
+
+          <!--Button Add Editor-->
+          <div class="form-group">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-1">
+              <button type="button" class="btn" data-toggle="modal" data-target="#editor_modal" id="btn_modal">
+                <span class="glyphicon glyphicon-plus"></span> Add Editor
+              </button>
+            </div>
+          </div>
+
+          <!--Repro Date-->
+          <div class="form-group">
+            <label for="repro_date" class="col-sm-2 control-label">Repro Date</label>
+            <div class="col-sm-1">
+              <select class="form-control" name="repro_date">
+                <option value="dd">dd</option>
+                <option disabled>──</option>
+                <?php for ($i = 1; $i <= 31; $i++) : ?>
+                  <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                <?php endfor; ?>
+              </select>
+            </div>
+            <div class="col-sm-2">
+              <select class="form-control" name="repro_month">
+                <option value="mm">month</option>
+                <option disabled>────────────</option>
+                <option>January</option>
+                <option>February</option>
+                <option>March</option>
+                <option>April</option>
+                <option>May</option>
+                <option>June</option>
+                <option>July</option>
+                <option>August</option>
+                <option>September</option>
+                <option>October</option>
+                <option>November</option>
+                <option>December</option>
+              </select>
+            </div>
+            <div class="col-sm-2">
+              <select class="form-control" name="repro_year">
+                <option value="yyyy">year</option>
+                <option disabled>───</option>
+                <?php for ($i = 2017; $i >= 1964; $i--) : ?>
+                  <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                <?php endfor; ?>
+              </select>
+            </div>
+          </div>
+
+          <!--Published On-->
+          <div class="form-group">
+            <label for="published_on" class="col-sm-2 control-label">Published On</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="related" placeholder="Jika foto pernah dipublikasikan, masukan tempat publikasi dalam kolom ini (nama & edisi koran, majalah, maupun link twitter, instagram, dll">
+            </div>
+          </div>
+          
+          <!--Published Date-->
+          <div class="form-group">
+            <label for="coverage" class="col-sm-2 control-label">Published Date</label>
+            <div class="col-sm-1">
+              <select class="form-control" name="published_date">
+                <option value="dd">dd</option>
+                <option disabled>──</option>
+                <?php for ($i = 1; $i <= 31; $i++) : ?>
+                  <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                <?php endfor; ?>
+              </select>
+            </div>
+            <div class="col-sm-2">
+              <select class="form-control" name="published_month">
+                <option value="mm">month</option>
+                <option disabled>────────────</option>
+                <option>January</option>
+                <option>February</option>
+                <option>March</option>
+                <option>April</option>
+                <option>May</option>
+                <option>June</option>
+                <option>July</option>
+                <option>August</option>
+                <option>September</option>
+                <option>October</option>
+                <option>November</option>
+                <option>December</option>
+              </select>
+            </div>
+            <div class="col-sm-2">
+              <select class="form-control" name="published_year">
+                <option value="yyyy">year</option>
+                <option disabled>───</option>
+                <?php for ($i = 2017; $i >= 1964; $i--) : ?>
+                  <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                <?php endfor; ?>
+              </select>
+            </div>
+          </div>
+
+          <!--Field Notes-->
+          <div class="form-group">
+            <label for="notes" class="col-sm-2 control-label">Notes</label>
+            <div class="col-sm-9">
+              <textarea class="form-control" rows="3" name="notes" placeholder="Catatan tambahan"></textarea>
+            </div>
+          </div>
+
+          <!--Field Tag-->
+          <div class="form-group">
+            <label for="tag" class="col-sm-2 control-label">Tag</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" name="tag" placeholder="Pisahkan dengan titik koma(;)">
+            </div>
+          </div>
+
+
+          <hr>
+
+          <p id="formdetail">Selesai? Silakan klik tombol berikut</p>
+
+          <div class="lead">
+            <button class="btn btn-default" type="submit" role="button">Save</button> <!--data-toggle="modal" data-target="#save_all"-->
+          </div>
+        </form>
+        <!-- Button trigger modal -->
+        <br>
+        <div id="close_button">
+          <button type="reset" class="btn" id="btn">
+            Reload
           </button>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="save_all" tabindex="-1" role="dialog" aria-labelledby="save_allLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="save_allLabel">Save</h4>
+              </div>
+              <div class="modal-body">
+                <h1 id="done">Done!</h1>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!--Photographer Modal-->
@@ -106,7 +459,7 @@
                 <h4 class="modal-title" id="photographerLabel">Photographer</h4>
               </div>
               <div class="modal-body">
-                <form class="form-horizontal" id="photographermodal" role="form" method="post" action="<?php echo site_url('/addPhotographer');?>/">
+                <form class="form-horizontal" id="photographermodal" role="form" method="post" action="<?php echo site_url('/addPhotographerAP');?>/">
                   <div class="form-group">
                     <label for="photographer_name" class="col-sm-3 control-label">Name</label>
                     <div class="col-sm-7">
@@ -158,65 +511,6 @@
           </div>
         </div>
         <!--Photographer Modal-->
-          
-        <!--Form Format, Size, Color, Event-->
-        <form class="form-horizontal" role="form">
-          <div class="form-group">
-            <label for="format" class="col-sm-2 control-label">Format</label>
-            <div class="col-sm-3">
-              <div class="checkbox">
-                <input type="checkbox"> Digital
-              </div>
-              <div class="checkbox">
-                <input type="checkbox"> Repro / Scan
-              </div>
-              <div class="checkbox">
-                <input type="checkbox"> Print
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="format" class="col-sm-2 control-label">Size</label>
-            <div class="col-sm-9">
-              <input type="text" class="form-control" name="size" placeholder="Ukuran atau dimensi foto: 4R, 2x3, 400x600, dll">
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="format" class="col-sm-2 control-label">Color</label>
-            <div class="col-sm-9">
-            <select class="form-control" name="color">
-              <option>Color</option>
-              <option>Black & White</option>
-              <option>Sephia</option>
-            </select>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="event" class="col-sm-2 control-label">Event</label>
-            <div class="col-sm-9">
-              <select class="form-control" name="event">
-                <option value="-">...</option>
-                <?php
-                  foreach ($eventlist as $row){
-                    echo "<option>";
-                      echo $row['name'];
-                    echo "</option>";
-                  }
-                ?>
-            </select>
-            </div>
-          </div>
-        </form>
-
-        <!--Button Event Modal-->
-        <div id="btn_modal">
-          <button class="btn" data-toggle="modal" data-target="#event_modal">
-              <span class="glyphicon glyphicon-plus"></span> Add Event
-          </button>
-        </div>
 
         <!--Event Modal-->
         <div class="modal fade" id="event_modal" tabindex="-1" role="dialog" aria-labelledby="eventLabel" aria-hidden="true">
@@ -298,103 +592,6 @@
         </div>
         <!--Event Modal-->
 
-        <!--Form Activity, Taken Date, Taken Location, Photo Description-->
-        <form class="form-horizontal" role="form">
-          <div class="form-group">
-            <label for="activity" class="col-sm-2 control-label">Activity</label>
-            <div class="col-sm-1">
-              <div class="checkbox">
-                <input type="checkbox"> Climbing
-              </div>
-              <div class="checkbox">
-                <input type="checkbox"> Rafting
-              </div>
-              <div class="checkbox">
-                <input type="checkbox"> Caving
-              </div>
-              <div class="checkbox">
-                <input type="checkbox"> Diving
-              </div>
-              <div class="checkbox">
-                <input type="checkbox"> Paragliding
-              </div>
-              <div class="checkbox">
-                <input type="checkbox"> Mountaineering
-              </div>
-              <div class="checkbox">
-                <input type="checkbox"> Sailing
-              </div>
-              <div class="checkbox">
-                <input type="checkbox"> BKP
-              </div>
-              <div class="checkbox">
-                <input type="checkbox"> Others
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="photo_date" class="col-sm-2 control-label">Taken Date</label>
-            <div class="col-sm-1">
-              <select class="form-control" name="taken_date">
-                <option value="dd">dd</option>
-                <option disabled>──</option>
-                <?php for ($i = 1; $i <= 31; $i++) : ?>
-                  <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                <?php endfor; ?>
-              </select>
-            </div>
-            <div class="col-sm-2">
-              <select class="form-control" name="taken_month">
-                <option value="mm">month</option>
-                <option disabled>────────────</option>
-                <option>January</option>
-                <option>February</option>
-                <option>March</option>
-                <option>April</option>
-                <option>May</option>
-                <option>June</option>
-                <option>July</option>
-                <option>August</option>
-                <option>September</option>
-                <option>October</option>
-                <option>November</option>
-                <option>December</option>
-              </select>
-            </div>
-            <div class="col-sm-2">
-              <select class="form-control" name="taken_year">
-                <option value="yyyy">year</option>
-                <option disabled>───</option>
-                <?php for ($i = 2017; $i >= 1964; $i--) : ?>
-                  <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                <?php endfor; ?>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="coverage" class="col-sm-2 control-label">Taken Location (Specific)</label>
-            <div class="col-sm-9">
-              <input type="text" class="form-control" name="photo_location" placeholder="Lokasi dalam foto secara detail: misalnya 'Sungai Lariang', bukan 'Sulawesi Tengah'">
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="description" class="col-sm-2 control-label">Photo Description</label>
-            <div class="col-sm-9">
-              <textarea class="form-control" rows="3" name="photo_description" placeholder="Penjelasan foto: misalnya 'Tim pengarungan sedang melakukan istirahat di hari ketiga sembari mereparasi perahu'"></textarea>
-            </div>
-          </div>
-        </form>
-
-        <!--Button Modal Insert Photo-->
-        <div id="btn_modal_insert">
-          <button class="btn" data-toggle="modal" data-target="#insert-photo_modal">
-              Insert Photo
-          </button>
-        </div>
-
         <!--Modal Insert Photo-->
         <div class="modal fade" id="insert-photo_modal" tabindex="-1" role="dialog" aria-labelledby="insertphotoLabel" aria-hidden="true">
           <div class="modal-dialog">
@@ -418,13 +615,6 @@
         </div>
         <br>
         <!---Modal Insert Photo-->
-
-        <!--Button Modal File Location-->
-        <div id="btn_modal">
-          <button class="btn" data-toggle="modal" data-target="#otherlocation_modal">
-              Other Format Location
-          </button>
-        </div><br>
 
         <!-- Modal File Location-->
         <div class="modal fade" id="otherlocation_modal" tabindex="-1" role="dialog" aria-labelledby="otherlocation_modalLabel" aria-hidden="true">
@@ -481,7 +671,7 @@
                         <option value="-">...</option>
                         <?php
                           foreach ($ownerlist as $row){
-                            echo "<option>";
+                            echo "<option value=".$row['id'].">";
                               echo $row['name'];
                             echo "</option>";
                           }
@@ -561,32 +751,6 @@
         </div>
         <!--Modal File Location-->
 
-        <!--Form Editor-->
-        <form class="form-horizontal" role="form">
-          <div class="form-group">
-            <label for="editor" class="col-sm-2 control-label">Editor</label>
-            <div class="col-sm-3">
-              <select class="form-control" name="editor">
-                <option value="-">...</option>
-                <?php
-                  foreach ($editorlist as $row){
-                    echo "<option>";
-                      echo $row['name'];
-                    echo "</option>";
-                  }
-                ?>
-            </select>
-            </div>
-          </div>
-        </form>
-
-        <!--Button Editor Modal-->
-        <div id="btn_modal">
-          <button class="btn" data-toggle="modal" data-target="#editor_modal">
-              <span class="glyphicon glyphicon-plus"></span> Add Editor
-          </button>
-        </div>
-
         <!--Editor Modal-->
         <div class="modal fade" id="editor_modal" tabindex="-1" role="dialog" aria-labelledby="editorLabel" aria-hidden="true">
           <div class="modal-dialog">
@@ -596,7 +760,7 @@
                 <h4 class="modal-title" id="editorLabel">Editor</h4>
               </div>
               <div class="modal-body">
-                <form class="form-horizontal" id="editormodal" role="form" method="post" action="<?php echo site_url('/addEditor');?>/">
+                <form class="form-horizontal" id="editormodal" role="form" method="post" action="<?php echo site_url('/addEditorAP');?>/">
                   <div class="form-group">
                     <label for="editor_name" class="col-sm-3 control-label">Name</label>
                     <div class="col-sm-7">
@@ -649,141 +813,6 @@
         </div>
         <!--Editor Modal-->
 
-        <!--Form Repro Date, Published On, Publish Date, Notes, Tag-->
-        <form class="form-horizontal" role="form">
-          <div class="form-group">
-            <label for="repro_date" class="col-sm-2 control-label">Repro Date</label>
-            <div class="col-sm-1">
-              <select class="form-control" name="repro_date">
-                <option value="dd">dd</option>
-                <option disabled>──</option>
-                <?php for ($i = 1; $i <= 31; $i++) : ?>
-                  <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                <?php endfor; ?>
-              </select>
-            </div>
-            <div class="col-sm-2">
-              <select class="form-control" name="repro_month">
-                <option value="mm">month</option>
-                <option disabled>────────────</option>
-                <option>January</option>
-                <option>February</option>
-                <option>March</option>
-                <option>April</option>
-                <option>May</option>
-                <option>June</option>
-                <option>July</option>
-                <option>August</option>
-                <option>September</option>
-                <option>October</option>
-                <option>November</option>
-                <option>December</option>
-              </select>
-            </div>
-            <div class="col-sm-2">
-              <select class="form-control" name="repro_year">
-                <option value="yyyy">year</option>
-                <option disabled>───</option>
-                <?php for ($i = 2017; $i >= 1964; $i--) : ?>
-                  <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                <?php endfor; ?>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="published_on" class="col-sm-2 control-label">Published On</label>
-            <div class="col-sm-9">
-              <input type="text" class="form-control" id="related" placeholder="Jika foto pernah dipublikasikan, masukan tempat publikasi dalam kolom ini (nama & edisi koran, majalah, maupun link twitter, instagram, dll">
-            </div>
-          </div>
-          
-          <div class="form-group">
-            <label for="coverage" class="col-sm-2 control-label">Published Date</label>
-            <div class="col-sm-1">
-              <select class="form-control" name="published_date">
-                <option value="dd">dd</option>
-                <option disabled>──</option>
-                <?php for ($i = 1; $i <= 31; $i++) : ?>
-                  <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                <?php endfor; ?>
-              </select>
-            </div>
-            <div class="col-sm-2">
-              <select class="form-control" name="published_month">
-                <option value="mm">month</option>
-                <option disabled>────────────</option>
-                <option>January</option>
-                <option>February</option>
-                <option>March</option>
-                <option>April</option>
-                <option>May</option>
-                <option>June</option>
-                <option>July</option>
-                <option>August</option>
-                <option>September</option>
-                <option>October</option>
-                <option>November</option>
-                <option>December</option>
-              </select>
-            </div>
-            <div class="col-sm-2">
-              <select class="form-control" name="published_year">
-                <option value="yyyy">year</option>
-                <option disabled>───</option>
-                <?php for ($i = 2017; $i >= 1964; $i--) : ?>
-                  <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                <?php endfor; ?>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="notes" class="col-sm-2 control-label">Notes</label>
-            <div class="col-sm-9">
-              <textarea class="form-control" rows="3" name="notes" placeholder="Catatan tambahan"></textarea>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="tag" class="col-sm-2 control-label">Tag</label>
-            <div class="col-sm-9">
-              <input type="text" class="form-control" name="tag" placeholder="Pisahkan dengan titik koma(;)">
-            </div>
-          </div>
-        </form>
-
-        <hr>
-
-        <p id="formdetail">Selesai? Silakan klik tombol berikut</p>
-        <!-- Button trigger modal -->
-        <br>
-        <div id="saveall_button">
-          <button type="submit" class="btn" id="btn" data-toggle="modal" data-target="#save_all">
-            Save
-          </button>
-        </div>
-        <br>
-        <div id="close_button">
-          <button type="reset" class="btn" id="btn">
-            Reload
-          </button>
-        </div>
-
-        <!-- Modal -->
-        <div class="modal fade" id="save_all" tabindex="-1" role="dialog" aria-labelledby="save_allLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="save_allLabel">Save</h4>
-              </div>
-              <div class="modal-body">
-                <h1 id="done">Done!</h1>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
 

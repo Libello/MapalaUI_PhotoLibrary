@@ -55,10 +55,23 @@ textarea {
 	font-size: 21px;
 }
 
-#btn_modal {
-	text-align: left;
-	padding-left: 190px;
-	padding-bottom: 10px;
+.slash .col-sm-1 {
+	width: 30px;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+#slash {
+	font-size: 23px;
+}
+
+.photoid_1 {
+	padding-right: 0px;
+}
+
+.photoid {
+	padding-left: 0px;
+	padding-right: 0px;
 }
 
 #btn_modalmasterdata {
@@ -66,7 +79,7 @@ textarea {
 	padding-left: 0px;
 }
 
-#btn_modal:hover {
+.btn .btn_moda:hover {
 	background-color: none;
 	color: none;
 }
@@ -77,12 +90,6 @@ textarea {
 
 #btn_modaldelete {
 	text-align: center;
-}
-
-#btn_modal_insert {
-	text-align: left;
-	padding-left: 190px;
-	padding-bottom: 0px;
 }
 
 #attachphoto {

@@ -113,7 +113,11 @@
                       </a>
                       <div class="media-body">
                         <h4 class="media-heading">Qatrunnada Fadhila</h4><hr>
-                        Mahasiswi Ilmu Perpustakaan Fakultas Ilmu Pengetahuan Budaya Universitas Indonesia 2010 sekaligus anggota Mapala UI BKP 2011 <i>"MASURIANSSSS!!!"</i> dengan nomor M-873-UI. <i>Dunno what to say, but thank's Mapala UI!</i> <b>Mapala UI Photo Library</b> merupakan proyek skripsi saya, semoga bermanfaat! <i>Anyway</i> berkat skripsi ini saya menjadi suka <i>coding</i> hihi :D<hr>
+                        Mahasiswi Ilmu Perpustakaan Fakultas Ilmu Pengetahuan Budaya Universitas Indonesia 2010 sekaligus anggota Mapala UI BKP 2011 
+                        <i>"MASURIANSSSS!!!"</i> dengan nomor M-873-UI.
+                        <i>Dunno what to say, but thank's Mapala UI!</i> <b>Mapala UI Photo Library</b> merupakan proyek skripsi saya, semoga bermanfaat! 
+                        <i>Anyway</i> berkat skripsi ini saya menjadi suka <i>coding</i> hihi :D
+                        <br>Dalam pembuatan MUIPL saya bertugas membuat konsep, seluruh interface dan beberapa bagian <i>back-end</i>.<hr>
                         qatrunnada.fadhila@gmail.com | <a href="http://www.twitter.com/nadafadhila">@nadafadhila</a>
                       </div>
                     </div>
@@ -132,7 +136,11 @@
                       </a>
                       <div class="media-body">
                         <h4 class="media-heading">Satria Ramadhan</h4><hr>
-                        Mahasiswa Fasilkom UI angkatan 2011 sekaligus anggota Mapala UI BKP 2012 dengan nomor M-877-UI ini merupakan orang yang selalu menjadi teman mengobrol dan bertanya macam-macam. Ia adalah orang pertama yang benar-benar mengajarkan saya <i>coding</i>, maka sekarang saya ngga cuma mengandalkan insting sok tahu lagi walaupun pada akhirnya tetap harus sok tahu hihi. Terima kasih banyak untuk segala bantuannya! Satria adalah orang yang paling banyak membantu di sini :)<hr>
+                        Mahasiswa Ilmu Komputer Fasilkom UI angkatan 2011 sekaligus anggota Mapala UI BKP 2012 dengan nomor M-877-UI ini 
+                        merupakan orang yang selalu menjadi teman mengobrol dan bertanya macam-macam. 
+                        Ia adalah orang pertama yang benar-benar mengenalkan saya <i>coding</i>, 
+                        sehingga sekarang saya ngga cuma mengandalkan insting sok tahu lagi walaupun pada akhirnya tetap harus sok tahu hihi. 
+                        Terima kasih banyak untuk segala bantuannya! Satria adalah orang yang paling banyak membantu di sini, terutama untuk urusan <i>back-end</i> :)<hr>
                         satriaramadhan93@gmail.com | <a href="http://www.twitter.com/satriaramadhn">@satriaramadhn</a>
                       </div>
                     </div>
@@ -179,19 +187,26 @@
             <hr>
           </div>
           <div class="tab-pane" id="contact_creators">
-            <h1 id="contact_header">Qatrunnada Fadhila</h1><br>
-            <img src="../assets/ico/mail3.png">  qatrunnada.fadhila@gmail.com<br>
-            <img src="../assets/ico/facebook2.png">  <a href="http://www.facebook.com/qatrunnadafadhila">Qatrunnada Fadhila</a><br>
-            <img src="../assets/ico/twitter2.png">  <a href="http://twitter.com/nadafadhila">@nadafadhila</a><br>
-            <img src="../assets/ico/tumblr2.png">  <a href="http://homokvcingiusnomaden.tumblr.com">Homokvcingius Nomaden</a><br>
             <br>
-            <hr>
-            <h1 id="contact_header">Satria Ramadhan</h1><br>
-            <img src="../assets/ico/mail3.png">  satriaramadhan93@gmail.com<br>
-            <img src="../assets/ico/facebook2.png">  <a href="http://www.facebook.com/satria.ramadhan.3956?fref=ts">Satria Ramadhan</a><br>
-            <img src="../assets/ico/twitter2.png">  <a href="http://twitter.com/satriaramadhn">@satriaramadhn</a><br>
-            <img src="../assets/ico/wordpress2.png">  <a href="http://abangiya.wordpress.com/">Abang Iya</a><br>
+            <h4 id="contact_please">Please kindly contact us at<b>...</b></h4>
+            <div id="contact_creator">
+              <h1 id="contact_header">Qatrunnada Fadhila</h1><br>
+              <img src="../assets/ico/mail3.png">  qatrunnada.fadhila@gmail.com<br>
+              <img src="../assets/ico/facebook2.png">  <a href="http://www.facebook.com/qatrunnadafadhila">Qatrunnada Fadhila</a><br>
+              <img src="../assets/ico/twitter2.png">  <a href="http://twitter.com/nadafadhila">@nadafadhila</a><br>
+              <img src="../assets/ico/tumblr2.png">  <a href="http://homokvcingiusnomaden.tumblr.com">Homokvcingius Nomaden</a><br>
+            </div>
             <br>
+            <h4 id="contact_please"><b>...</b>and<b>...</b></h4>
+            <div id="contact_creator">
+              <h1 id="contact_header">Satria Ramadhan</h1><br>
+              <img src="../assets/ico/mail3.png">  satriaramadhan93@gmail.com<br>
+              <img src="../assets/ico/facebook2.png">  <a href="http://www.facebook.com/satria.ramadhan.3956?fref=ts">Satria Ramadhan</a><br>
+              <img src="../assets/ico/twitter2.png">  <a href="http://twitter.com/satriaramadhn">@satriaramadhn</a><br>
+              <img src="../assets/ico/wordpress2.png">  <a href="http://abangiya.wordpress.com/">Abang Iya</a><br>
+              <br>
+            </div>
+            <h4 id="contact_please"><b>...</b>or with any other ways. Cheers! :)</h4>
             <hr>
           </div>
         </div>

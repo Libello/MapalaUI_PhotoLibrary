@@ -39,7 +39,7 @@
 */
 
 //Cover view route
-$route['404_override'] = '';
+$route['404_override'] = "guest_controller/view_404me";
 $route['default_controller'] = "guest_controller/view_cover_welcome";
 $route['guest_login'] = "guest_controller/view_cover_guest_login";
 $route['contact'] = "guest_controller/view_cover_contact";

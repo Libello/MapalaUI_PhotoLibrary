@@ -103,8 +103,8 @@
 
         <div id="photodata_button">
           <button class="btn" id="delete_button" data-toggle="modal" data-target="#deletedata_modal">Delete Selected Data</button>
-          <button class="btn" id="btn-save">Check All</button>
-          <button class="btn" id="btn-save">Uncheck All</button>
+          <input class="btn" id="btn-save" type="button" name="Check_All" value="Check All" onClick="CheckAll(document.photolist.check_list)">
+          <input class="btn" id="btn-save" type="button" name="Un_CheckAll" value="Uncheck All" onClick="UnCheckAll(document.photolist.check_list)">
           <button class="btn" id="btn-save">Export to CSV</button>
         </div>
         <br>
@@ -139,7 +139,7 @@
             foreach ($photolist as $row){
               echo "<tr>";
                 echo "<td>";
-                  echo "<form><input type='checkbox'></form>";
+                  echo "<form name='photolist' action='checkboxes.asp' method='post'><input type='checkbox' name='check_list'>";
                 echo "</td>";
                 echo "<td>";
                   echo "<a href=".site_url('/edit')."><button class='btn' id='btn-edit'><img src='../assets/ico/edit.png'></button></a>";
@@ -165,10 +165,13 @@
 
         <div id="photodata_button">
           <button class="btn" id="delete_button" data-toggle="modal" data-target="#deletedata_modal">Delete Selected Data</button>
-          <button class="btn" id="btn-save">Check All</button>
-          <button class="btn" id="btn-save">Uncheck All</button>
+          <input class="btn" id="btn-save" type="button" name="Check_All" value="Check All" onClick="CheckAll(document.photolist.check_list)">
+          <input class="btn" id="btn-save" type="button" name="Un_CheckAll" value="Uncheck All" onClick="UnCheckAll(document.photolist.check_list)">
           <button class="btn" id="btn-save">Export to CSV</button>
         </div>
+
+
+        
 
                 <div class="modal fade" id="photo_zoom" tabindex="-1" role="dialog" aria-hidden="true">
                   <div class="modal-dialog">
@@ -203,5 +206,18 @@
     <script src="<?php echo base_url('assets/js').'/jquery.min.js';?>"></script>
     <script src="<?php echo base_url('assets/js').'/bootstrap.min.js';?>"></script>
     <script src="<?php echo base_url('assets/js').'/docs.min.js';?>"></script>
+    <script LANGUAGE="JavaScript">
+      function CheckAll(chk)
+      {
+      for (i = 0; i < chk.length; i++)
+      chk[i].checked = true ;
+      }
+
+      function UnCheckAll(chk)
+      {
+      for (i = 0; i < chk.length; i++)
+      chk[i].checked = false ;
+      }
+    </script>
   </body>
 </html>
