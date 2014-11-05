@@ -1,4 +1,6 @@
 MapalaUI_PhotoLibrary
 =====================
 
-Perpustakaan Digital Koleksi Foto Mapala UI
+Proyek Perpustakaan Digital Koleksi Foto Mapala UI
+
+Project Master : Qatrunnada Fadhila
