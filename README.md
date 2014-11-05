@@ -1,4 +1,4 @@
 MapalaUI_PhotoLibrary
 =====================
 
-Perpustakaan Koleksi Foto Mapala UI
+Perpustakaan Digital Koleksi Foto Mapala UI
