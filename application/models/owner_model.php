@@ -13,6 +13,7 @@
       $query = $this->db->query('SELECT * FROM owner');
       return $query->result_array();
     }
+    
     public function insertOwner($data) {
       $owner_name = $data['owner_name'];
       $owner_phone = $data['owner_phone'];

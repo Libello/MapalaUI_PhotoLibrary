@@ -323,25 +323,31 @@
                             </div>
                           </div>
 
-                          <div class="col-sm-3"></div>
-                          <div class="col-sm-7" id="if_explanation">*Period diisi dengan tahun berlangsungnya kegiatan</div><br>
-
                           <div class="form-group">
-                            <label for="event_location" class="col-sm-3 control-label">Category</label>
+                            <label for="category" class="col-sm-3 control-label">Category</label>
                             <div class="col-sm-7">
-                            <select class="form-control" name="category">
-                              <option>Climbing</option>
-                              <option>Rafting</option>
-                              <option>Caving</option>
-                              <option>Diving</option>
-                              <option>Paragliding</option>
-                              <option>Mountaineering</option>
-                              <option>Sailing</option>
-                              <option>BKP</option>
-                              <option>Others</option>
-                            </select>
+                            <div class="form-group">
+                              <div class="col-sm-1"></div>
+                              <div class="col-sm-3">
+                                <div class="checkbox">
+                                  <input type="checkbox" name="category" value="climbing"> Climbing
+                                  <input type="checkbox" name="category" value="rafting"> Rafting
+                                  <input type="checkbox" name="category" value="caving"> Caving
+                                  <input type="checkbox" name="category" value="diving"> Diving
+                                  <input type="checkbox" name="category" value="sailing"> Sailing
+                                </div>
+                              </div>
+                              <div class="col-sm-2">
+                                <div class="checkbox">
+                                  <input type="checkbox" name="category" value="mountaineering"> Mountaineering
+                                  <input type="checkbox" name="category" value="paragliding"> Paragliding
+                                  <input type="checkbox" name="category" value="BKP"> BKP
+                                  <input type="checkbox" name="category" value="others"> Others
+                                </div>
+                              </div>
                           </div>
                           </div>
+                        </div>
 
                           <hr>
 

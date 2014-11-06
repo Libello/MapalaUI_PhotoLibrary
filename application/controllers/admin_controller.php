@@ -156,7 +156,7 @@ class admin_controller extends CI_Controller {
 	    	$photographer = $this->photographer_model->getPhotographerById($photo['id_photographer']);
 			$photolist[$count]['photographer'] = $photographer['name'];
 	    	$photolist[$count]['image'] = $photo['photo_upload'];
-	    	$photolist[$count]['title'] = $photo['title'];
+	    	$photolist[$count]['title'] = $photo['format'].'/'.$photo['title'];
 	    	$photolist[$count]['format'] = $photo['format'];
 	    	$photolist[$count]['last_update'] = $photo['last_update'];
 	    	$count++;
@@ -356,6 +356,20 @@ class admin_controller extends CI_Controller {
 
 			if($success) {
 				redirect(site_url('add_photo'));
+			}
+	    } else {
+	    	show_404();
+	    }
+	}
+	public function addNewPhoto() {
+		if(!empty($_POST)){
+			$data = $this->input->post();
+			$this->load->model('photo_model');
+			$success = $this->photo_model->insertNewPhoto($data);
+
+			if($success) {
+				$errmes['message'] = 'Add New Photo Success';
+				load_view('admin_addphoto_success',$errmes);
 			}
 	    } else {
 	    	show_404();

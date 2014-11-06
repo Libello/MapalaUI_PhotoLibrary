@@ -59,12 +59,12 @@
         <hr>
 
         
-        <form class="form-horizontal" role="form" name="add_photo">
+        <form class="form-horizontal" role="form" name="add_photo" method="post" action="<?php echo site_url('/addNewPhoto');?>/">
           <!--Field ID-->
           <div class="form-group">
             <label for="photo_id" class="col-sm-2 control-label">Photo ID</label>
             <div class="col-sm-2 photoid_1">
-              <input type="text" class="form-control" name="photo_id" placeholder="Kode Kegiatan" required autofocus>
+              <input type="text" class="form-control" name="photo_idKeg" placeholder="Kode Kegiatan" required autofocus>
             </div>
 
             <div class="slash">
@@ -74,7 +74,7 @@
             </div>
 
             <div class="col-sm-1 photoid">
-              <input type="text" class="form-control" name="photo_id" placeholder="Tahun" required>
+              <input type="text" class="form-control" name="photo_idThn" placeholder="Tahun" required>
             </div>
 
             <div class="slash">
@@ -84,7 +84,7 @@
             </div>
 
             <div class="col-sm-2 photoid">
-              <input type="text" class="form-control" name="photo_id" placeholder="No Foto" required>
+              <input type="text" class="form-control" name="photo_idNo" placeholder="No Foto" required>
             </div>
 
             <div class="col-sm-4 photoid">
@@ -96,7 +96,7 @@
           <div class="form-group">
             <label for="title" class="col-sm-2 control-label">Title</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" name="photo_title" placeholder="Judul foto" required>
+              <input type="text" class="form-control" name="title" placeholder="Judul foto" required>
             </div>
           </div>
 
@@ -132,13 +132,13 @@
             <label for="format" class="col-sm-2 control-label">Format</label>
             <div class="col-sm-3">
               <div class="checkbox">
-                <input type="checkbox" name="format1"> Digital
+                <input type="checkbox" name="format" value="digital"> Digital
               </div>
               <div class="checkbox">
-                <input type="checkbox" name="format2"> Repro / Scan
+                <input type="checkbox" name="format" value="repro/scan"> Repro / Scan
               </div>
               <div class="checkbox">
-                <input type="checkbox" name="format3"> Print
+                <input type="checkbox" name="format" value="print"> Print
               </div>
             </div>
           </div>
@@ -156,9 +156,9 @@
             <label for="format" class="col-sm-2 control-label">Color</label>
             <div class="col-sm-3">
             <select class="form-control" name="color">
-              <option>Color</option>
-              <option>Black & White</option>
-              <option>Sephia</option>
+              <option value="color">Color</option>
+              <option value="b&w">Black & White</option>
+              <option value="sephia">Sephia</option>
             </select>
             </div>
           </div>

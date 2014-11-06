@@ -69,6 +69,7 @@ $route['addEditor'] = "admin_controller/addEditor";
 $route['addEvent'] = "admin_controller/addEvent";
 $route['addOwner'] = "admin_controller/addOwner";
 //modal +add dalam halaman Add Photo
+$route['addNewPhoto'] = "admin_controller/addNewPhoto";
 $route['addPhotographerAP'] = "admin_controller/addPhotographerAP";
 $route['addEditorAP'] = "admin_controller/addEditorAP";
 $route['addEventAP'] = "admin_controller/addEventAP";
