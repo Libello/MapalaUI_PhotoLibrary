@@ -35,6 +35,7 @@
         <br>
         <br>
 
+        <h1 id='adminlogin_header'>You're cool!</h1>
         <?php
           if($message != null) {
             echo "<h1 id='adminlogin_header'>$message</h1>"; 

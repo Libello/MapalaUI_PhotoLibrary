@@ -105,7 +105,6 @@
             <label for="photographer" class="col-sm-2 control-label">Photographer</label>
             <div class="col-sm-3">
               <select class="form-control" name="photographer">
-                <option value="unknown">Unknown</option>
                 <?php
                   foreach ($photographerlist as $row){
                     echo "<option value=".$row['id'].">";
@@ -195,15 +194,15 @@
             <label for="activity" class="col-sm-2 control-label">Activity</label>
             <div class="col-sm-3">
               <select class="form-control" name="category">
-                <option>Climbing</option>
-                <option>Rafting</option>
-                <option>Caving</option>
-                <option>Diving</option>
-                <option>Paragliding</option>
-                <option>Mountaineering</option>
-                <option>Sailing</option>
-                <option>BKP</option>
-                <option>Others</option>
+                <option value="climbing">Climbing</option>
+                <option value="rafting">Rafting</option>
+                <option value="caving">Caving</option>
+                <option value="diving">Diving</option>
+                <option value="paragliding">Paragliding</option>
+                <option value="mountaineering">Mountaineering</option>
+                <option value="sailing">Sailing</option>
+                <option value="BKP">BKP</option>
+                <option value="others">Others</option>
               </select>
             </div>
           </div>
@@ -253,7 +252,7 @@
           <div class="form-group">
             <label for="coverage" class="col-sm-2 control-label">Taken Location (Specific)</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" name="photo_location" placeholder="Lokasi dalam foto secara detail: misalnya 'Sungai Lariang', bukan 'Sulawesi Tengah'">
+              <input type="text" class="form-control" name="taken_location" placeholder="Lokasi dalam foto secara detail: misalnya 'Sungai Lariang', bukan 'Sulawesi Tengah'">
             </div>
           </div>
 
@@ -357,7 +356,7 @@
           <div class="form-group">
             <label for="published_on" class="col-sm-2 control-label">Published On</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" id="related" placeholder="Jika foto pernah dipublikasikan, masukan tempat publikasi dalam kolom ini (nama & edisi koran, majalah, maupun link twitter, instagram, dll">
+              <input type="text" class="form-control" name="published_on" placeholder="Jika foto pernah dipublikasikan, masukan tempat publikasi dalam kolom ini (nama & edisi koran, majalah, maupun link twitter, instagram, dll">
             </div>
           </div>
           
@@ -421,6 +420,8 @@
 
           <hr>
 
+          <!--TOMBOL SELESAI-->
+
           <p id="formdetail">Selesai? Silakan klik tombol berikut</p>
 
           <div class="lead">
@@ -435,8 +436,12 @@
           </button>
         </div>
 
+
+        <!--SEMUA MODAL ADA DI SINI-->
+
         <!-- Modal -->
-        <div class="modal fade" id="save_all" tabindex="-1" role="dialog" aria-labelledby="save_allLabel" aria-hidden="true">
+        <div class="modal fade" id="save_all" tabinde
+        x="-1" role="dialog" aria-labelledby="save_allLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
