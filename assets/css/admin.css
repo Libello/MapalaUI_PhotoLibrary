@@ -119,6 +119,14 @@ label {
 	text-align: left;
 }
 
+.required {
+	text-align: left;
+	font-weight: bolder;
+	padding-left: 0px;
+	font-size: 20px;
+	color: #cc0000;
+}
+
 #if_explanation {
 	padding-left: 10px;
 	text-align: left;

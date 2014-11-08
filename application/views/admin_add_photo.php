@@ -55,7 +55,8 @@
         <div class="top">
           <h1 id="formtitle">Data Foto Baru</h1>
         </div><br>
-        <p class="lead" id="formdetail">Masukkan detail foto pada form di bawah ini.</p>
+        <p class="lead" id="formdetail">Masukkan detail foto pada form di bawah ini.<br>
+        <p class="required">* = harus diisi</p>
         <hr>
 
         
@@ -96,9 +97,10 @@
           <!--Field Title-->
           <div class="form-group">
             <label for="title" class="col-sm-2 control-label">Judul</label>
-            <div class="col-sm-9">
+            <div class="col-sm-8">
               <input type="text" class="form-control" name="title" placeholder="Judul foto" required>
             </div>
+            <p class="col-sm-1 required">*</label>
           </div>
 
           <!--Select Photographer-->
@@ -115,12 +117,13 @@
                 ?>
             </select>
             </div>
+            <p class="col-sm-1 required">*</p>
           </div>
 
           <!--Field Format-->
           <div class="form-group">
             <label for="format" class="col-sm-2 control-label">Format</label>
-            <div class="col-sm-3">
+            <div class="col-sm-2">
               <div class="checkbox">
                 <input type="checkbox" name="format" value="digital"> Digital
               </div>
@@ -131,6 +134,7 @@
                 <input type="checkbox" name="format" value="print"> Tercetak
               </div>
             </div>
+            <p class="col-sm-1 required">*</p>
           </div>
 
           <!--Field Size-->
@@ -146,11 +150,12 @@
             <label for="format" class="col-sm-2 control-label">Warna</label>
             <div class="col-sm-3">
             <select class="form-control" name="color">
-              <option value="color">Berwarna</option>
-              <option value="b&w">Hitam & Putih</option>
+              <option value="berwarna">Berwarna</option>
+              <option value="hitam&putih">Hitam & Putih</option>
               <option value="sephia">Sephia</option>
             </select>
             </div>
+            <p class="col-sm-1 required">*</p>
           </div>
 
           <!--Select Event-->
@@ -170,22 +175,23 @@
             </div>
           </div>
 
-          <!--Checkbox Activity-->
+          <!--Checkbox Category-->
           <div class="form-group">
-            <label for="activity" class="col-sm-2 control-label">Kategori</label>
+            <label for="category" class="col-sm-2 control-label">Kategori</label>
             <div class="col-sm-3">
               <select class="form-control" name="category">
-                <option value="climbing">Panjat</option>
-                <option value="rafting">Arung Jeram</option>
-                <option value="caving">Telusur Gua</option>
-                <option value="diving">Selam</option>
-                <option value="paragliding">Paralayang</option>
-                <option value="mountaineering">Daki Gunung</option>
-                <option value="sailing">Layar</option>
+                <option value="panjat">Panjat</option>
+                <option value="arung jeram">Arung Jeram</option>
+                <option value="telusur gua">Telusur Gua</option>
+                <option value="selam">Selam</option>
+                <option value="paralayang">Paralayang</option>
+                <option value="daki gunung">Daki Gunung</option>
+                <option value="layar">Layar</option>
                 <option value="BKP">BKP</option>
-                <option value="others">Lainnya</option>
+                <option value="lainnya">Lainnya</option>
               </select>
             </div>
+            <p class="col-sm-1 required">*</p>
           </div>
 
           <!--Date Taken-->
@@ -193,7 +199,7 @@
             <label for="photo_date" class="col-sm-2 control-label">Tanggal Pengambilan Gambar</label>
             <div class="col-sm-1">
               <select class="form-control" name="taken_date">
-                <option value="dd">tgl</option>
+                <option value="tgl">tgl</option>
                 <option disabled>──</option>
                 <?php for ($i = 1; $i <= 31; $i++) : ?>
                   <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
@@ -204,18 +210,18 @@
               <select class="form-control" name="taken_month">
                 <option value="bln">bulan</option>
                 <option disabled>────────────</option>
-                <option>Januari</option>
-                <option>Februari</option>
-                <option>Maret</option>
-                <option>April</option>
-                <option>Mei</option>
-                <option>Juni</option>
-                <option>Juli</option>
-                <option>Augustus</option>
-                <option>September</option>
-                <option>Oktober</option>
-                <option>Nopember</option>
-                <option>Desember</option>
+                <option value="Januari">Januari</option>
+                <option value="Februari">Februari</option>
+                <option value="Maret">Maret</option>
+                <option value="April">April</option>
+                <option value="Mei">Mei</option>
+                <option value="Juni">Juni</option>
+                <option value="Juli">Juli</option>
+                <option value="Agustus">Augustus</option>
+                <option value="September">September</option>
+                <option value="Oktober">Oktober</option>
+                <option value="Nopember">Nopember</option>
+                <option value="Desember">Desember</option>
               </select>
             </div>
             <div class="col-sm-2">
@@ -290,18 +296,18 @@
               <select class="form-control" name="repro_month">
                 <option value="bln">bulan</option>
                 <option disabled>────────────</option>
-                <option>Januari</option>
-                <option>Februari</option>
-                <option>Maret</option>
-                <option>April</option>
-                <option>Mei</option>
-                <option>Juni</option>
-                <option>Juli</option>
-                <option>Augustus</option>
-                <option>September</option>
-                <option>Oktober</option>
-                <option>Nopember</option>
-                <option>Desember</option>
+                <option value="Januari">Januari</option>
+                <option value="Februari">Februari</option>
+                <option value="Maret">Maret</option>
+                <option value="April">April</option>
+                <option value="Mei">Mei</option>
+                <option value="Juni">Juni</option>
+                <option value="Juli">Juli</option>
+                <option value="Agustus">Augustus</option>
+                <option value="September">September</option>
+                <option value="Oktober">Oktober</option>
+                <option value="Nopember">Nopember</option>
+                <option value="Desember">Desember</option>
               </select>
             </div>
             <div class="col-sm-2">
@@ -339,18 +345,18 @@
               <select class="form-control" name="published_month">
                 <option value="bln">bulan</option>
                 <option disabled>────────────</option>
-                <option>Januari</option>
-                <option>Februari</option>
-                <option>Maret</option>
-                <option>April</option>
-                <option>Mei</option>
-                <option>Juni</option>
-                <option>Juli</option>
-                <option>Augustus</option>
-                <option>September</option>
-                <option>Oktober</option>
-                <option>Nopember</option>
-                <option>Desember</option>
+                <option value="Januari">Januari</option>
+                <option value="Februari">Februari</option>
+                <option value="Maret">Maret</option>
+                <option value="April">April</option>
+                <option value="Mei">Mei</option>
+                <option value="Juni">Juni</option>
+                <option value="Juli">Juli</option>
+                <option value="Agustus">Augustus</option>
+                <option value="September">September</option>
+                <option value="Oktober">Oktober</option>
+                <option value="Nopember">Nopember</option>
+                <option value="Desember">Desember</option>
               </select>
             </div>
             <div class="col-sm-2">

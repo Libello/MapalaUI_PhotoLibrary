@@ -325,29 +325,39 @@
 
                           <div class="form-group">
                             <label for="category" class="col-sm-3 control-label">Kategori</label>
+                            <div class="col-sm-1"></div>
                             <div class="col-sm-7">
                             <div class="form-group">
-                              <div class="col-sm-1"></div>
-                              <div class="col-sm-3">
-                                <div class="checkbox">
-                                  <input type="checkbox" name="category" value="climbing"> Panjat
-                                  <input type="checkbox" name="category" value="rafting"> Arung Jeram
-                                  <input type="checkbox" name="category" value="caving"> Telusur Gua
-                                  <input type="checkbox" name="category" value="diving"> Selam
-                                  <input type="checkbox" name="category" value="sailing"> Layar
-                                </div>
+                              <div class="checkbox">
+                                <input type="checkbox" name="category" value="climbing"> Panjat</input>
                               </div>
-                              <div class="col-sm-2">
-                                <div class="checkbox">
-                                  <input type="checkbox" name="category" value="mountaineering"> Daki Gunung
-                                  <input type="checkbox" name="category" value="paragliding"> Paralayang
-                                  <input type="checkbox" name="category" value="BKP"> BKP
-                                  <input type="checkbox" name="category" value="others"> Lainnya
-                                </div>
+                              <div class="checkbox">
+                                <input type="checkbox" name="category" value="rafting"> Arung Jeram</input>
                               </div>
+                              <div class="checkbox">
+                                <input type="checkbox" name="category" value="caving"> Telusur Gua</input>
+                              </div>
+                              <div class="checkbox">
+                                <input type="checkbox" name="category" value="diving"> Selam</input>
+                              </div>
+                              <div class="checkbox">
+                                <input type="checkbox" name="category" value="sailing"> Layar</input>
+                              </div>
+                              <div class="checkbox">
+                                <input type="checkbox" name="category" value="mountaineering"> Daki Gunung</input>
+                              </div>
+                              <div class="checkbox">
+                                <input type="checkbox" name="category" value="paragliding"> Paralayang</input>
+                              </div>
+                              <div class="checkbox">
+                                <input type="checkbox" name="category" value="BKP"> BKP</input>
+                              </div>
+                              <div class="checkbox">
+                                <input type="checkbox" name="category" value="others"> Lainnya</input>
+                              </div>
+                            </div>
+                            </div>
                           </div>
-                          </div>
-                        </div>
 
                           <hr>
 
