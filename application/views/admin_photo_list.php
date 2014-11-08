@@ -60,7 +60,7 @@
         <br>
         <p class="lead" id="formdetail">Daftar foto yang telah dimasukkan dalam database.</p>
         <hr>
-        <form class="form-horizontal" id="search" role="form" method="post" action="<?php echo site_url('/doSearch');?>/">
+        <form class="form-horizontal" id="search" role="form" method="post" action="<?php echo site_url('/photo_list');?>/">
           <div class="form-group" id="photodata_search">
             <label for="Search" class="col-sm-1 control-label">Search:</label>
               <div class="col-sm-4">

@@ -92,7 +92,6 @@ class guest_controller extends CI_Controller {
 		    	$photolist[$count]['last_update'] = $photo['last_update'];
 		    	$count++;
 		    }
-
 			load_view_admin('admin_photo_list',array('photolist' => $photolist));
 		}
 	}

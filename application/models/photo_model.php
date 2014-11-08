@@ -30,8 +30,13 @@
         $this->db->query('CREATE OR REPLACE VIEW viewformat AS SELECT * FROM viewactivity WHERE format='.$this->db->escape($data['format']).'');
       }
 
-      $query = $this->db->query('SELECT * FROM viewformat WHERE '.$data['field'].'='.$this->db->escape($data['inputtext']).'');
-      
+      if($data['field'] == 'all') {
+        $query = $this->db->query('SELECT * FROM viewformat WHERE INSTR('.$data['field'].', '.$this->db->escape($data['inputtext']).') > 0');
+      }
+      else {
+        $query = $this->db->query('SELECT * FROM viewformat WHERE INSTR('.$data['field'].', '.$this->db->escape($data['inputtext']).') > 0');
+      }
+
       return $query->result_array();
     }
 

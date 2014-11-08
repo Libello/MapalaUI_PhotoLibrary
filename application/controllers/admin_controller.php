@@ -146,9 +146,25 @@ class admin_controller extends CI_Controller {
 	}
 
 	public function view_photo_list() {
+
 		$this->load->model('photo_model');
 		$this->load->model('photographer_model');
-	    $data_photo = $this->photo_model->getAllPhoto();
+		$data_photo = null;
+
+		if(!empty($_POST)) {
+			$data = $this->input->post();
+			$searchBy = $data['field'];
+			if($searchBy == 'all') {
+				$data_photo = $this->photo_model->searchPhoto($data);
+			}
+			else {
+				$data_photo = $this->photo_model->searchBy($data);
+			}
+		}
+		else {
+			$data_photo = $this->photo_model->getAllPhoto();
+		}
+	    
 	    $photolist = array();
 	    $count = 0;
 
