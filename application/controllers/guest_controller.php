@@ -63,4 +63,30 @@ class guest_controller extends CI_Controller {
 		load_view('Sukses',array());
 	}
 
+	//Fungsi pencarian foto
+	public function searchPhoto() {
+		if(!empty($_POST)) {
+			$data = $this->input->post();
+			$this->load->model('photo_model');
+			$data_photo = $this->photo_model->searchPhoto($data);
+
+			$photolist = array();
+		    $count = 0;
+
+		    foreach ($data_photo as $photo) {
+		    	$photographer = $this->photographer_model->getPhotographerById($photo['id_photographer']);
+				$photolist[$count]['photographer'] = $photographer['name'];
+		    	$photolist[$count]['image'] = $photo['photo_upload'];
+		    	$photolist[$count]['title'] = $photo['title'];
+		    	$photolist[$count]['format'] = $photo['format'];
+		    	$photolist[$count]['last_update'] = $photo['last_update'];
+		    	$count++;
+		    }
+
+			load_view_admin('admin_photo_list',array('photolist' => $photolist));
+			
+
+		}
+	}
+
 }

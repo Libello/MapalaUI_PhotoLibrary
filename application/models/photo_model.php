@@ -14,6 +14,40 @@
       return $query->result_array();
     }
 
+    public function searchPhoto($data) {
+      $format = null;
+      $color = null;
+      $activity = null;
+
+      if($data['format'] == all) {
+        $format ='CREATE VIEW format AS SELECT * from photo_record';
+      } 
+      else {
+        $format ='CREATE VIEW format AS SELECT * from photo_record WHERE format='.$this->db->escape($format).'LIMIT 1';  
+      }
+      if($data['color'] == all) {
+        $color ='CREATE VIEW color AS SELECT * from format';
+      } 
+      else {
+        $color = 'CREATE VIEW color AS SELECT * from format WHERE format='.$this->db->escape($format).'LIMIT 1';  
+      }
+      if($data['activity'] == all) {
+        $activity ='SELECT * from color';
+      } 
+      else {
+        $activity = 'SELECT * from color WHERE format='.$this->db->escape($format).'LIMIT 1';  
+      }
+
+      $this->db->query($format);
+      $this->db->query($color);
+      $query = $this->db->query($activity);
+
+      $this->db->query('DROP VIEW format');
+      $this->db->query('DROP VIEW color');
+
+      return $query->result_array();
+    }
+
     public function insertNewPhoto($data) {
       $photo_id = $data['photo_idKeg'].'/'.$data['photo_idThn'].'/'.$data['photo_idNo'];
       $title = $data['title'];

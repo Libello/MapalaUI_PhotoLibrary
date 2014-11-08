@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 23, 2014 at 12:00 PM
+-- Generation Time: Nov 07, 2014 at 08:59 AM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
 --
 
 INSERT INTO `ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
-('4cf10c446767970a7148582ccab7711e', '::1', 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.101 Safari/537.36 OPR/25.0.1614.50', 1414058102, 'a:2:{s:9:"user_data";s:0:"";s:7:"idGuest";i:6;}');
+('cf01e5dbed0a660dc744d8ffe15e0fd7', '::1', 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36', 1415333437, 'a:2:{s:9:"user_data";s:0:"";s:7:"idGuest";i:4;}');
 
 -- --------------------------------------------------------
 
@@ -67,11 +67,21 @@ INSERT INTO `ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activ
 --
 
 CREATE TABLE IF NOT EXISTS `editor` (
-`id_editor` int(5) NOT NULL,
+`id_editor` int(11) NOT NULL,
   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `membership` enum('Mapala UI','Not - Mapala UI') CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `no.M` varchar(5) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `membership` enum('Mapala UI','Non - Mapala UI') CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `no.M` varchar(5) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
+
+--
+-- Dumping data for table `editor`
+--
+
+INSERT INTO `editor` (`id_editor`, `name`, `membership`, `no.M`) VALUES
+(1, 'Nada (editor)', 'Mapala UI', '873'),
+(16, 'Sukri', 'Non - Mapala UI', '-'),
+(17, 'Joni', 'Non - Mapala UI', '-'),
+(18, 'Topi', 'Non - Mapala UI', '-');
 
 -- --------------------------------------------------------
 
@@ -80,21 +90,25 @@ CREATE TABLE IF NOT EXISTS `editor` (
 --
 
 CREATE TABLE IF NOT EXISTS `event` (
-`id_event` int(5) NOT NULL,
+`id_event` int(11) NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `location` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `start_year` year(4) DEFAULT NULL,
-  `end_year` year(4) DEFAULT NULL,
+  `location` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `start_year` varchar(4) COLLATE utf8_unicode_ci NOT NULL,
+  `end_year` varchar(4) COLLATE utf8_unicode_ci NOT NULL,
   `category` enum('climbing','rafting','caving','diving','paragliding','mountaineering','sailing','BKP','others') COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `event`
 --
 
 INSERT INTO `event` (`id_event`, `name`, `location`, `start_year`, `end_year`, `category`) VALUES
-(1, 'Arung Jeram Sungai Lariang dan Telusur Taman Nasional Lore Lindu (TNLL)', 'Sulawesi Tengah', 2014, 2014, 'climbing'),
-(2, 'Perjalanan Panjang Gunung Masurai dan Bakti Sosial Mapala UI Berbagi', 'Jambi', 2012, 2012, 'climbing');
+(2, 'Perjalanan Panjang Gunung Masurai dan Bakti Sosial Mapala UI Berbagi', 'Jambi', '2012', '2012', 'mountaineering'),
+(3, 'Half Marathon 2014', 'UI Depok', '2014', '2014', 'others'),
+(4, 'BKP 2011', 'Depok-Jambi', '2011', '2012', 'BKP'),
+(8, 'BKP 2012', 'Jawa Barat-Yogyakarta', '2012', '2012', 'BKP'),
+(9, 'Duduk di Perpus Sambil Bersenandung', 'Perpustakaan UI', '2014', '2014', 'others'),
+(10, 'UI Bookfest', 'Depok', '2014', '2014', 'others');
 
 -- --------------------------------------------------------
 
@@ -105,21 +119,19 @@ INSERT INTO `event` (`id_event`, `name`, `location`, `start_year`, `end_year`, `
 CREATE TABLE IF NOT EXISTS `guest_log` (
 `id` int(5) NOT NULL,
   `login_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `name` varchar(255) NOT NULL,
-  `institution` varchar(255) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=25 ;
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `institution` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `guest_log`
 --
 
 INSERT INTO `guest_log` (`id`, `login_time`, `name`, `institution`) VALUES
-(19, '2014-10-23 08:15:31', 'Joni Ganteng', 'Klub Meong Smi'),
-(20, '2014-10-23 08:15:59', 'Mama Meong', 'Klub Meong Dpk'),
-(21, '2014-10-23 08:16:42', 'Adik Jessica Alba', 'Washington'),
-(22, '2014-10-23 08:17:32', 'Qatrunnada Fadhila', 'FIB UI'),
-(23, '2014-10-23 08:17:49', 'Satria Ramadhan', 'Fasilkom UI'),
-(24, '2014-10-23 09:55:21', 'satria', 'sasasa');
+(1, '2014-10-27 08:34:31', 'nada', 'kukusan'),
+(2, '2014-10-29 09:50:14', 'nada', 'nada'),
+(3, '2014-11-04 03:37:53', 'admin', 'admin'),
+(4, '2014-11-07 04:11:28', 'nada', 'Depok');
 
 -- --------------------------------------------------------
 
@@ -128,11 +140,18 @@ INSERT INTO `guest_log` (`id`, `login_time`, `name`, `institution`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `owner` (
-`id_owner` int(5) NOT NULL,
-  `name` int(11) NOT NULL,
-  `phone` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `address` text COLLATE utf8_unicode_ci
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+`id_owner` int(11) NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `phone` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `address` text COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `owner`
+--
+
+INSERT INTO `owner` (`id_owner`, `name`, `phone`, `address`) VALUES
+(1, 'Nada (owner)', '08987572633', 'Kukusan, Depok');
 
 -- --------------------------------------------------------
 
@@ -141,11 +160,21 @@ CREATE TABLE IF NOT EXISTS `owner` (
 --
 
 CREATE TABLE IF NOT EXISTS `photographer` (
-`id_photographer` int(5) NOT NULL,
+`id_photographer` int(11) NOT NULL,
   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `membership` enum('Mapala UI','Not - Mapala UI') CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `no.M` int(5) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `membership` enum('Mapala UI','Non - Mapala UI') CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `no.M` int(5) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=34 ;
+
+--
+-- Dumping data for table `photographer`
+--
+
+INSERT INTO `photographer` (`id_photographer`, `name`, `membership`, `no.M`) VALUES
+(29, 'Comi', 'Mapala UI', 873),
+(31, 'Bonny', 'Non - Mapala UI', 0),
+(32, 'Toto', 'Non - Mapala UI', 0),
+(33, 'Lulu', 'Non - Mapala UI', 0);
 
 -- --------------------------------------------------------
 
@@ -154,31 +183,46 @@ CREATE TABLE IF NOT EXISTS `photographer` (
 --
 
 CREATE TABLE IF NOT EXISTS `photo_record` (
-`id` int(11) NOT NULL,
+  `id_photo` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `id_photographer` int(11) NOT NULL,
-  `type` set('digital','print','repro/scan') CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `size` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `format` set('digital','repro/scan','print') CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `size` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `color` enum('color','b&w','sephia') CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `event` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `activity` set('climbing','rafting','caving','diving','mountaineering','paragliding','sailing','BKP','others') CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `year` year(4) DEFAULT NULL,
-  `place` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `detail` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
-  `notes` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
-  `editor` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `repro_year` year(4) DEFAULT NULL,
-  `publication` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `publishing year` year(4) DEFAULT NULL,
-  `photo_upload` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `file_location_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `file_location_detail1` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `file_location_detail2` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `file_location_detail3` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `file_location_detail4` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `tag` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `id_event` int(11) NOT NULL,
+  `category` set('climbing','rafting','caving','diving','mountaineering','paragliding','sailing','BKP','others') CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `taken_date` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `taken_location` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `description` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `id_editor` int(11) NOT NULL,
+  `repro_date` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `published_on` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `published_date` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `photo_upload` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `location_HDD_name` varchar(255) NOT NULL,
+  `location_HDD_folder` varchar(255) NOT NULL,
+  `location_sekret_album` varchar(255) NOT NULL,
+  `id_owner` int(11) NOT NULL,
+  `location_notes` text NOT NULL,
+  `notes` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `tag` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `photo_record`
+--
+
+INSERT INTO `photo_record` (`id_photo`, `title`, `id_photographer`, `format`, `size`, `color`, `id_event`, `category`, `taken_date`, `taken_location`, `description`, `id_editor`, `repro_date`, `published_on`, `published_date`, `photo_upload`, `location_HDD_name`, `location_HDD_folder`, `location_sekret_album`, `id_owner`, `location_notes`, `notes`, `tag`, `last_update`) VALUES
+('asas/asas/asasas', 'asasasa', 0, 'print', '', 'color', 0, 'climbing', 'dd/mm/yyyy', '', '', 0, 'dd/mm/yyyy', '', 'dd/mm/yyyy', '', '', '', '', 0, '', '', '', '2014-11-06 06:38:12'),
+('Lalalala/2014/232323', 'Liat-liat Brosur Wing Stop', 31, 'digital', '', 'b&w', 0, 'others', '7/November/2014', 'Gedung 7 FIB UI', '', 0, 'dd/mm/yyyy', '', 'dd/mm/yyyy', '', '', '', '', 0, '', '', '', '2014-11-07 03:42:05'),
+('Lalalann/2014/232323', 'Liat-liat Brosur Wing Stop', 31, 'digital', '', 'b&w', 0, 'others', '7/November/2014', 'Gedung 7 FIB UI', '', 0, 'dd/mm/yyyy', '', 'dd/mm/yyyy', '', '', '', '', 0, '', '', '', '2014-11-07 03:43:08'),
+('LRG/2014/00000001', 'Duduk-duduk di Warung Desa Tuare', 0, 'digital', '', 'color', 4, 'others', '4/March/2014', 'Warung Bu Susi', 'Orang yang sedang duduk di warung bernama Sasa, Sisi dan Sosis', 16, '6/September/2014', '', 'dd/mm/yyyy', '', '', '', '', 0, '', 'Fotonya harus dibayangin sendiri', '', '2014-11-06 06:29:48'),
+('LRG/2014/0000003', 'Duduk-duduk di Pinggir Sungai', 0, 'digital', '', 'color', 4, 'others', '4/March/2014', 'Warung Bu Susi', 'Orang yang sedang duduk di pinggir sungai bernama Lulu', 16, '6/September/2014', '', 'dd/mm/yyyy', '', '', '', '', 0, '', 'Fotonya harus dibayangin sendiri', '', '2014-11-06 06:32:29'),
+('MSR/2012/00001', 'Contoh Judul Foto', 0, 'digital,repro/scan', '', 'color', 2, 'mountaineering', '', '', '', 0, '', '', '', '', '', '', '', 0, '', '', '', '2014-10-27 07:54:40'),
+('q/q/aaa', 'q', 0, 'repro/scan', '', 'color', 0, 'climbing', 'dd/mm/yyyy', '', '', 0, 'dd/mm/yyyy', '', 'dd/mm/yyyy', '', '', '', '', 0, '', '', '', '2014-11-06 06:37:29'),
+('q/q/q', 'q', 0, 'repro/scan', '', 'color', 0, 'climbing', 'dd/mm/yyyy', '', '', 0, 'dd/mm/yyyy', '', 'dd/mm/yyyy', '', '', '', '', 0, '', '', '', '2014-11-06 06:35:09'),
+('SAT/2014/00001', 'Satria Lagi Tidur Nih', 29, 'digital', '', '', 0, 'others', '', '', '', 0, '', '', '', '', '', '', '', 0, '', '', '', '2014-10-27 09:47:51');
 
 --
 -- Indexes for dumped tables
@@ -230,7 +274,7 @@ ALTER TABLE `photographer`
 -- Indexes for table `photo_record`
 --
 ALTER TABLE `photo_record`
- ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id_photo`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -245,32 +289,27 @@ MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14102;
 -- AUTO_INCREMENT for table `editor`
 --
 ALTER TABLE `editor`
-MODIFY `id_editor` int(5) NOT NULL AUTO_INCREMENT;
+MODIFY `id_editor` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `event`
 --
 ALTER TABLE `event`
-MODIFY `id_event` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `id_event` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `guest_log`
 --
 ALTER TABLE `guest_log`
-MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
+MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `owner`
 --
 ALTER TABLE `owner`
-MODIFY `id_owner` int(5) NOT NULL AUTO_INCREMENT;
+MODIFY `id_owner` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `photographer`
 --
 ALTER TABLE `photographer`
-MODIFY `id_photographer` int(5) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `photo_record`
---
-ALTER TABLE `photo_record`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id_photographer` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=34;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

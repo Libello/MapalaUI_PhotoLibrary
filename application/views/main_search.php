@@ -83,50 +83,44 @@
 
     <div class="container">
       <div class="starter-template">
-
-
-
-
-
-
-
+        
         <h1 id="search_header">Search</h1><hr>
 
-        <div class="form-group" id="search_guest">
+        <div class="form-group" id="search_guest" method="post" action="">
 
           <label for="format" class="col-sm-2 control-label">Format:</label>
             <div class="col-sm-2">
-              <select class="form-control" id="format">
-                <option>Any Format</option>
-                <option>Digital</option>
-                <option>Repro / Scan</option>
-                <option>Print</option>
+              <select class="form-control" id="format" name="format">
+                <option value="all">Any Format</option>
+                <option value="digital">Digital</option>
+                <option value="reproscan">Repro / Scan</option>
+                <option value="print">Print</option>
               </select>
             </div><br><br>
 
           <label for="color" class="col-sm-2 control-label">Color:</label>
             <div class="col-sm-2">
-              <select class="form-control" id="color">
-                <option>Any Color</option>
-                <option>Color</option>
-                <option>Black & White</option>
-                <option>Sephia</option>
+              <select class="form-control" id="color" name="color">
+                <option value="all">Any Color</option>
+                <option value="color">Color</option>
+                <option value="blackwhite">Black & White</option>
+                <option value="sephia">Sephia</option>
               </select>
             </div><br><br>
 
             <label for="activity" class="col-sm-2 control-label">Activity:</label>
             <div class="col-sm-2">
-              <select class="form-control" id="activity">
-                <option>All Activities</option>
-                <option>Climbing</option>
-                <option>Rafting</option>
-                <option>Caving</option>
-                <option>Diving</option>
-                <option>Paragliding</option>
-                <option>Mountaineering</option>
-                <option>Sailing</option>
-                <option>BKP</option>
-                <option>Others</option>
+              <select class="form-control" id="activity" name="activity">
+                <option value="all">All Activities</option>
+                <option value="climbing">Climbing</option>
+                <option value="rafting">Rafting</option>
+                <option value="caving">Caving</option>
+                <option value="diving">Diving</option>
+                <option value="paragliding">Paragliding</option>
+                <option value="mountaineering">Mountaineering</option>
+                <option value="sailing">Sailing</option>
+                <option value="bkp">BKP</option>
+                <option value="others">Others</option>
               </select>
             </div><br><br>
             
