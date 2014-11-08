@@ -85,10 +85,9 @@
       <div class="starter-template">
         
         <h1 id="search_header">Search</h1><hr>
-
-        <div class="form-group" id="search_guest" method="post" action="">
-
-          <label for="format" class="col-sm-2 control-label">Format:</label>
+        <form class="form-horizontal" id="search" role="form" method="post" action="<?php echo site_url('/doSearch');?>/">
+          <div class="form-group" id="search_guest">
+            <label for="format" class="col-sm-2 control-label">Format:</label>
             <div class="col-sm-2">
               <select class="form-control" id="format" name="format">
                 <option value="all">Any Format</option>
@@ -98,7 +97,7 @@
               </select>
             </div><br><br>
 
-          <label for="color" class="col-sm-2 control-label">Color:</label>
+            <label for="color" class="col-sm-2 control-label">Color:</label>
             <div class="col-sm-2">
               <select class="form-control" id="color" name="color">
                 <option value="all">Any Color</option>
@@ -123,7 +122,7 @@
                 <option value="others">Others</option>
               </select>
             </div><br><br>
-            
+              
             <div class="col-sm-2">
               <select class="form-control" id="search_field">
                 <option>All Fields</option>
@@ -142,10 +141,9 @@
                 <option>not</option>
               </select>
             </div>
-        </div><br>
+          </div><br>
 
-        <div class="form-group" id="photodata_search">
-          
+          <div class="form-group" id="photodata_search">
             <div class="col-sm-2">
               <select class="form-control" id="search_field">
                 <option>All Field</option>
@@ -164,10 +162,9 @@
                 <option>not</option>
               </select>
             </div>
-        </div><br>
+          </div><br>
 
-        <div class="form-group" id="photodata_search">
-            
+          <div class="form-group" id="photodata_search">  
             <div class="col-sm-2">
               <select class="form-control" id="search_field">
                 <option>All Field</option>
@@ -186,10 +183,9 @@
                 <option>not</option>
               </select>
             </div>
-        </div><br>
+          </div><br>
 
-        <div class="form-group" id="photodata_search">
-          
+          <div class="form-group" id="photodata_search">
             <div class="col-sm-2">
               <select class="form-control" id="search_field">
                 <option>All Field</option>
@@ -204,7 +200,8 @@
             <div class="col-sm-2">
               <button type="submit" class="btn btn-default">Submit</button>
             </div>
-        </div>
+          </div>
+        </form>
 
         <br>
 
@@ -247,8 +244,6 @@
           </div>
         </div>
 
-
-
         <!-- Modal -->
         <div class="modal fade" id="img-result_modal" tabindex="-1" role="dialog" aria-labelledby="img-result_modalLabel" aria-hidden="true">
           <div class="modal-dialog">
@@ -260,27 +255,8 @@
           </div>
         </div>
 
-
       </div>
     </div>
-
-
-
-
-
-
-
-
-
-        
-
-
-
-
-
-
-
-
         
     <hr>
 

@@ -62,6 +62,7 @@ $route['doAdminLogin'] = "admin_controller/validate";
 $route['doGuestLogin'] = "guest_controller/doLogin";
 $route['logout'] = "admin_controller/logout";
 $route['guestToAdmin'] = "admin_controller/guestToAdmin";
+$route['doSearch'] = "guest_controller/searchPhoto";
 //modal +add dalam halaman Master Data
 $route['addPhotographer'] = "admin_controller/addPhotographer";
 //$route['deletePhotographer/:num'] = "admin_controller/deletePhotographer/$id"; <--katanya error

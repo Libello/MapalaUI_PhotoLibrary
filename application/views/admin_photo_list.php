@@ -37,7 +37,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="<?php echo site_url('/home');?>"><img src="../assets/ico/home(admin).png" width="130px"></a>
+          <a class="navbar-brand" href="<?php echo site_url('/home');?>"><img src="<?php echo base_url('assets/ico').'/home(admin).png';?>" width="130px"></a>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -60,44 +60,47 @@
         <br>
         <p class="lead" id="formdetail">Daftar foto yang telah dimasukkan dalam database.</p>
         <hr>
-
-        <div class="form-group" id="photodata_search">
-          <label for="Search" class="col-sm-1 control-label">Search:</label>
-            <div class="col-sm-4"><input type="text" class="form-control"></div>
-            <div class="col-sm-2">
-              <select class="form-control" id="search_option">
-                <option>All Fields</option>
-                <option>Title</option>
-                <option>Photographer</option>
-                <option>Event</option>
-                <option>Year</option>
-                <option>Location</option>
-              </select>
-            </div>
-            <div class="col-sm-2">
-              <select class="form-control" id="search_option">
-                <option>All Activities</option>
-                <option>Climbing</option>
-                <option>Rafting</option>
-                <option>Caving</option>
-                <option>Diving</option>
-                <option>Paragliding</option>
-                <option>Mountaineering</option>
-                <option>Sailing</option>
-                <option>BKP</option>
-                <option>Others</option>
-              </select>
-            </div>
-            <div class="col-sm-2">
-              <select class="form-control" id="search_option">
-                <option>Any Format</option>
-                <option>Digital</option>
-                <option>Repro / Scan</option>
-                <option>Print</option>
-              </select>
-            </div>
-            <button class="btn" id="btn-save">Search</button>
-        </div>
+        <form class="form-horizontal" id="search" role="form" method="post" action="<?php echo site_url('/doSearch');?>/">
+          <div class="form-group" id="photodata_search">
+            <label for="Search" class="col-sm-1 control-label">Search:</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" name="inputtext">
+              </div>
+              <div class="col-sm-2">
+                <select class="form-control" id="search_option" name="field">
+                  <option value="all">All Fields</option>
+                  <option value="title">Title</option>
+                  <option value="photographer">Photographer</option>
+                  <option value="event">Event</option>
+                  <option value="year">Year</option>
+                  <option value="location">Location</option>
+                </select>
+              </div>
+              <div class="col-sm-2">
+                <select class="form-control" id="search_option" name="activity">
+                  <option value="all">All Activities</option>
+                  <option value="climbing">Climbing</option>
+                  <option value="rafting">Rafting</option>
+                  <option value="caving">Caving</option>
+                  <option value="diving">Diving</option>
+                  <option value="paragliding">Paragliding</option>
+                  <option value="mountaineering">Mountaineering</option>
+                  <option value="sailing">Sailing</option>
+                  <option value="BKP">BKP</option>
+                  <option value="others">Others</option>
+                </select>
+              </div>
+              <div class="col-sm-2">
+                <select class="form-control" id="search_option" name="format">
+                  <option value="all">Any Format</option>
+                  <option value="digital">Digital</option>
+                  <option value="reproscan">Repro / Scan</option>
+                  <option value="print">Print</option>
+                </select>
+              </div>
+              <button class="btn" id="btn-save" type="submit">Search</button>
+          </div>
+        </form>
         <hr>
         <br>
 

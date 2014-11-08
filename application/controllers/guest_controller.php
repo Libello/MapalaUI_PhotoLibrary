@@ -68,7 +68,29 @@ class guest_controller extends CI_Controller {
 		if(!empty($_POST)) {
 			$data = $this->input->post();
 			$this->load->model('photo_model');
-			$data_photo = $this->photo_model->searchPhoto($data);
+			$this->load->model('photographer_model');
+
+			$data_photo = null;
+
+			$searchBy = $data['field'];
+			if($searchBy == 'all') {
+				$data_photo = $this->photo_model->searchPhoto($data);
+			}
+			else if($searchBy == 'title') {
+				$data_photo = $this->photo_model->searchByTitle($data);
+			}
+			else if($searchBy == 'photographer') {
+				$data_photo = $this->photo_model->searchByPhotographer($data);
+			}
+			else if($searchBy == 'event') {
+				$data_photo = $this->photo_model->searchByEvent($data);
+			}
+			else if($searchBy == 'year') {
+				$data_photo = $this->photo_model->searchByYear($data);
+			}
+			else if($searchBy == 'location') {
+				$data_photo = $this->photo_model->searchByLocation($data);
+			}
 
 			$photolist = array();
 		    $count = 0;
@@ -84,8 +106,6 @@ class guest_controller extends CI_Controller {
 		    }
 
 			load_view_admin('admin_photo_list',array('photolist' => $photolist));
-			
-
 		}
 	}
 
