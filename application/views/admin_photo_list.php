@@ -145,10 +145,10 @@
                   echo "<form name='photolist' action='checkboxes.asp' method='post'><input type='checkbox' name='check_list'>";
                 echo "</td>";
                 echo "<td>";
-                  echo "<a href=".site_url('/edit')."><button class='btn' id='btn-edit'><img src='../assets/ico/edit.png'></button></a>";
+                  echo "<a href=".site_url('/edit')."><button class='btn' id='btn-edit'><img src=".base_url('assets/ico').'/edit.png'."></button></a>";
                 echo "</td>";
                 echo "<td>";
-                  echo "<a class='pull-left' data-toggle='modal' data-target='#photo_zoom'><img class='media-object' src='../assets/img/Husky1.jpg' alt='contoh1' width='100px' id='img-result'></a>";
+                  echo "<a class='pull-left' data-toggle='modal' data-target='#photo_zoom'><img class='media-object' src=".base_url('assets/img').'/Husky1.jpg'." alt='contoh1' width='100px' id='img-result'></a>";
                 echo "</td>";
                 echo "<td class='grid'>";
                   echo "<h4><a href=".site_url('/detail').">".$row['title']."</a></h4>";

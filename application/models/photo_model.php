@@ -14,35 +14,25 @@
       return $query->result_array();
     }
 
-    public function searchByTitle($data) {
+    public function searchBy($data) {
       $this->load->database();
       if($data['activity'] == 'all') {
-        $this->db->query('CREATE VIEW viewactivity AS SELECT * FROM photo_record');
+        $this->db->query('CREATE OR REPLACE VIEW viewactivity AS SELECT * FROM photo_record');
       }
       else {
-        $this->db->query('CREATE VIEW viewactivity AS SELECT * FROM photo_record WHERE activity='.$this->db->escape($data['activity']).'');
-      }
-      if($data['format'] == 'all') {
-        $this->db->query('CREATE VIEW viewformat AS SELECT * FROM viewactivity');
-      }
-      else {
-        $this->db->query('CREATE VIEW viewformat AS SELECT * FROM viewactivity WHERE format='.$this->db->escape($data['format']).'');
+        $this->db->query('CREATE OR REPLACE VIEW viewactivity AS SELECT * FROM photo_record WHERE activity='.$this->db->escape($data['activity']).'');
       }
 
-      $query = $this->db->query('SELECT * FROM viewformat WHERE title='.$this->db->escape($data['inputtext']).'');
+      if($data['format'] == 'all') {
+        $this->db->query('CREATE OR REPLACE VIEW viewformat AS SELECT * FROM viewactivity');
+      }
+      else {
+        $this->db->query('CREATE OR REPLACE VIEW viewformat AS SELECT * FROM viewactivity WHERE format='.$this->db->escape($data['format']).'');
+      }
+
+      $query = $this->db->query('SELECT * FROM viewformat WHERE '.$data['field'].'='.$this->db->escape($data['inputtext']).'');
+      
       return $query->result_array();
-    }
-    public function searchByPhotographer($data) {
-      
-    }
-    public function searchByEvent($data) {
-      
-    }
-    public function searchByYear($data) {
-      
-    }
-    public function searchByLocation($data) {
-      
     }
 
     public function searchPhoto($data) {

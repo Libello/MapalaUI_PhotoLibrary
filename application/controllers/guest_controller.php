@@ -76,20 +76,8 @@ class guest_controller extends CI_Controller {
 			if($searchBy == 'all') {
 				$data_photo = $this->photo_model->searchPhoto($data);
 			}
-			else if($searchBy == 'title') {
-				$data_photo = $this->photo_model->searchByTitle($data);
-			}
-			else if($searchBy == 'photographer') {
-				$data_photo = $this->photo_model->searchByPhotographer($data);
-			}
-			else if($searchBy == 'event') {
-				$data_photo = $this->photo_model->searchByEvent($data);
-			}
-			else if($searchBy == 'year') {
-				$data_photo = $this->photo_model->searchByYear($data);
-			}
-			else if($searchBy == 'location') {
-				$data_photo = $this->photo_model->searchByLocation($data);
+			else {
+				$data_photo = $this->photo_model->searchBy($data);
 			}
 
 			$photolist = array();
