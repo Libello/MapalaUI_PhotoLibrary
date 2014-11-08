@@ -128,10 +128,19 @@ label {
 }
 
 #if_explanation_modal {
-	text-align: center;
 	font-size: 11px;
 
 }
+
+#other_location {
+	text-align: left;
+}
+
+#other_locationLabel {
+	font-weight: normal;
+	font-size: normal;
+}
+
 
 
 /*BUTTON*/

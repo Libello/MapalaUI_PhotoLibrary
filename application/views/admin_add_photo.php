@@ -60,6 +60,7 @@
 
         
         <form class="form-horizontal" role="form" name="add_photo" method="post" action="<?php echo site_url('/addNewPhoto');?>/">
+          
           <!--Field ID-->
           <div class="form-group">
             <label for="photo_id" class="col-sm-2 control-label">ID Foto</label>
@@ -373,7 +374,7 @@
 
           <!--Field Tag-->
           <div class="form-group">
-            <label for="tag" class="col-sm-2 control-label">Tagar?</label>
+            <label for="tag" class="col-sm-2 control-label">Tag</label>
             <div class="col-sm-9">
               <input type="text" class="form-control" name="tag" placeholder="Pisahkan dengan titik koma(;)">
             </div>
@@ -381,62 +382,88 @@
 
            <!--Field Other Format Location-->
            <div class="form-group">
-            <label for="tag" class="col-sm-2 control-label">Lokasi Foto Lainnya</label>
-            <div class="col-sm-9" id="other_location">
-              <p id="if_explanation_modal">Kolom ini diisi jika foto memiliki format tercetak atau dapat pula dijadikan tempat mencatat lokasi foto sebelum diunggah</p><br>
-              <div>
-              <b>HARD DISK</b>
-              <p id="if_explanation_modal">Diisi jika foto berada di hard disk Mapala UI</p>
-              </div>
-            
-              <div class="form-group">
-                <label for="harddisk_name" class="col-sm-3 control-label">Hard Disk Name</label>
-                <div class="col-sm-7">
-                  <input type="text" class="form-control" name="harddisk_name" placeholder="Nama hard disk">
+            <label for="tag" class="col-sm-2 control-label">Lokasi Lain</label>
+            <div class="col-sm-7" id="other_location">
+
+              <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                  <div class="panel-heading">
+                    <p id="if_explanation_modal">Kolom ini diisi jika foto memiliki duplikat, format tercetak, atau dapat pula dijadikan tempat mencatat lokasi foto sementara sebelum diunggah</p>
+                  </div>
+                  </a>
+                  <div id="collapseOne" class="panel-collapse collapse">
+                    <div class="panel-body">    
+                      <div>
+                        <b>HARD DISK</b>
+                        <p id="if_explanation_modal">Diisi jika foto berada di hard disk Mapala UI</p>
+                      </div>
+                    
+                      <div class="form-group">
+                        <label for="harddisk_name" class="col-sm-3 control-label" id="other_locationLabel">Nama Hard Disk</label>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control" name="HDD_name" placeholder="Nama hard disk">
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="HDD_folder" class="col-sm-3 control-label" id="other_locationLabel">Folder</label>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control" name="HDD_folder" placeholder="Nama folder">
+                        </div>
+                      </div>
+                      <hr>
+
+                      <div>
+                        <b>SEKRETARIAT</b>
+                        <p id="if_explanation_modal">Diisi jika foto tercetak berada di Sekretariat Mapala UI</p>   
+                      </div>
+
+                      <div class="form-group">
+                        <label for="sekretariat_album" class="col-sm-3 control-label" id="other_locationLabel">Nama Album</label>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control" name="sekretariat_album" placeholder="Nama album">
+                        </div>
+                      </div>
+                      <hr>
+
+                      <div>
+                        <b>LAINNYA</b>
+                        <p id="if_explanation_modal">Diisi jika foto berada di luar Sekretariat Mapala UI</p>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="owner" class="col-sm-3 control-label" id="other_locationLabel">Pemilik Foto</label>
+                        <div class="col-sm-8">
+                          <select class="form-control" name="owner">
+                            <option value="-">...</option>
+                            <?php
+                              foreach ($ownerlist as $row){
+                                echo "<option value=".$row['id'].">";
+                                  echo $row['name'];
+                                echo "</option>";
+                              }
+                            ?>
+                          </select>
+                        </div>
+                      </div>
+                      <hr>
+
+                      <div>
+                        <b>CATATAN</b>
+                        <p id="if_explanation_modal">Diisi dengan catatan terkait keberadaan foto</p>   
+                      </div>
+
+                      <div class="form-group">
+                        <div class="col-sm-12">
+                          <textarea class="form-control" rows="3" name="other_notes"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-                  <div class="form-group">
-                    <label for="harddisk_folder" class="col-sm-3 control-label">Folder</label>
-                    <div class="col-sm-7">
-                      <input type="text" class="form-control" name="harddisk_folder" placeholder="Nama folder">
-                    </div>
-                  </div>
-                  <hr>
-
-                  <div class="col-sm-3"></div>
-                  <div class="col-sm-7">
-                    <b>SEKRETARIAT</b>
-                    <p id="if_explanation_modal">Diisi jika foto tercetak berada di Sekretariat Mapala UI</p>   
-                  </div>            
-                  <div class="form-group">
-                    <label for="sekretariat_album" class="col-sm-3 control-label">Album Name</label>
-                    <div class="col-sm-7">
-                      <input type="text" class="form-control" name="sekretariat_album" placeholder="Nama album">
-                    </div>
-                  </div>
-                  <hr>
-
-                  <div class="col-sm-3"></div>
-                  <div class="col-sm-7">
-                    <b>OTHER</b>
-                    <p id="if_explanation_modal">Diisi jika foto berada di luar Sekretariat Mapala UI</p>
-                  </div>
-                  <div class="form-group">
-                    <label for="owner" class="col-sm-3 control-label">Owner</label>
-                    <div class="col-sm-7">
-                      <select class="form-control" name="owner">
-                        <option value="-">...</option>
-                        <?php
-                          foreach ($ownerlist as $row){
-                            echo "<option value=".$row['id'].">";
-                              echo $row['name'];
-                            echo "</option>";
-                          }
-                        ?>
-                      </select>
-                    </div>
-                  </div>
             </div>
           </div>
 
@@ -459,145 +486,6 @@
           </button>
         </div>
 
-
-        <!--SEMUA MODAL ADA DI SINI-->
-
-        
-
-        <!-- Modal File Location-->
-        <div class="modal fade" id="otherlocation_modal" tabindex="-1" role="dialog" aria-labelledby="otherlocation_modalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="otherlocation_modalLabel">Other Format Location</h4>
-              </div>
-              <div class="modal-body">
-                <form class="form-horizontal" role="form">
-                  <div class="col-sm-3"></div>
-                  <div class="col-sm-7">
-                    <b>HARD DISK</b>
-                    <p id="if_explanation_modal">Diisi jika foto berada di hard disk Mapala UI</p>
-                  </div>
-                  <div class="form-group">
-                    <label for="harddisk_name" class="col-sm-3 control-label">Hard Disk Name</label>
-                    <div class="col-sm-7">
-                      <input type="text" class="form-control" name="harddisk_name" placeholder="Nama hard disk">
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="harddisk_folder" class="col-sm-3 control-label">Folder</label>
-                    <div class="col-sm-7">
-                      <input type="text" class="form-control" name="harddisk_folder" placeholder="Nama folder">
-                    </div>
-                  </div>
-                  <hr>
-
-                  <div class="col-sm-3"></div>
-                  <div class="col-sm-7">
-                    <b>SEKRETARIAT</b>
-                    <p id="if_explanation_modal">Diisi jika foto tercetak berada di Sekretariat Mapala UI</p>   
-                  </div>            
-                  <div class="form-group">
-                    <label for="sekretariat_album" class="col-sm-3 control-label">Album Name</label>
-                    <div class="col-sm-7">
-                      <input type="text" class="form-control" name="sekretariat_album" placeholder="Nama album">
-                    </div>
-                  </div>
-                  <hr>
-
-                  <div class="col-sm-3"></div>
-                  <div class="col-sm-7">
-                    <b>OTHER</b>
-                    <p id="if_explanation_modal">Diisi jika foto berada di luar Sekretariat Mapala UI</p>
-                  </div>
-                  <div class="form-group">
-                    <label for="owner" class="col-sm-3 control-label">Owner</label>
-                    <div class="col-sm-7">
-                      <select class="form-control" name="owner">
-                        <option value="-">...</option>
-                        <?php
-                          foreach ($ownerlist as $row){
-                            echo "<option value=".$row['id'].">";
-                              echo $row['name'];
-                            echo "</option>";
-                          }
-                        ?>
-                      </select>
-                    </div>
-                  </div>
-                </form>
-
-                  <div class="col-sm-3"></div>
-                  <div class="col-sm-7">
-                    <div id="btn_modal">
-                      <button class="btn" data-toggle="modal" data-target="#owner_modal">
-                          <span class="glyphicon glyphicon-plus"></span> Add Owner
-                      </button>
-                    </div>
-                  </div>
-
-                <!--Owner Modal-->
-                <div class="modal fade" id="owner_modal" tabindex="-1" role="dialog" aria-labelledby="ownerLabel" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="ownerLabel">Owner</h4>
-                      </div>
-                      <div class="modal-body">
-                        <form class="form-horizontal" role="form" method="post" action="<?php echo site_url('/addOwnerAP');?>/">
-                          <div class="form-group">
-                            <label for="owner_name" class="col-sm-3 control-label">Name</label>
-                            <div class="col-sm-7">
-                              <input type="text" class="form-control" name="owner_name" required autofocus>
-                            </div>
-                          </div>
-
-                          <div class="form-group">
-                            <label for="owner_phone" class="col-sm-3 control-label">Phone</label>
-                            <div class="col-sm-7">
-                              <input type="text" class="form-control" name="owner_phone">
-                            </div>
-                          </div>
-
-                          <div class="form-group">
-                            <label for="owner_address" class="col-sm-3 control-label">Address</label>
-                            <div class="col-sm-7">
-                              <textarea class="form-control" rows="3" name="owner_address"></textarea>
-                            </div>
-                          </div>
-                        <hr>
-
-                          <div class="lead" id="btn_modalfinish">
-                            <button type="close" class="btn" id="btn-close" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn" id="btn-save">Save changes</button>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!--Owner Modal-->
-
-                <form class="form-horizontal" role="form">
-                  <div class="form-group">
-                    <label for="otherlocation_notes" class="col-sm-3 control-label">Notes</label>
-                    <div class="col-sm-7">
-                      <textarea class="form-control" rows="3" name="otherformat_notes" placeholder="Catatan terkait keberadaan foto"></textarea>
-                    </div>
-                  </div>
-                </form>
-              </div>
-              <div class="modal-footer">
-                <button type="close" class="btn" id="btn-close" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn" id="btn-save">Save changes</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--Modal File Location-->
 
         
 

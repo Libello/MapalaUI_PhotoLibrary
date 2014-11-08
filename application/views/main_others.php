@@ -100,11 +100,13 @@
             </div>
 
             <div class="panel-group" id="accordion">
-              <div class="panel panel-default"><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+              <div class="panel panel-default">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
                 <div class="panel-heading">
                   <h4 class="panel-title">Dibuat Oleh
                   </h4>
                 </div>
+                </a>
                 <div id="collapseOne" class="panel-collapse collapse">
                   <div class="panel-body">
                     <div class="media">
@@ -124,10 +126,12 @@
                   </div>
                 </div>
               </div>
-              <div class="panel panel-default"><a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+              <div class="panel panel-default">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
                 <div class="panel-heading">
                   <h4 class="panel-title">Dibantu Oleh</h4>
                 </div>
+              </a>
                 <div id="collapseTwo" class="panel-collapse collapse">
                   <div class="panel-body">
                     <div class="media">
@@ -147,10 +151,12 @@
                   </div>
                 </div>
               </div>
-              <div class="panel panel-default"><a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+              <div class="panel panel-default">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
                 <div class="panel-heading">
                   <h4 class="panel-title">Pembimbing Skripsi</h4>
                 </div>
+                </a>
                 <div id="collapseThree" class="panel-collapse collapse">
                   <div class="panel-body">
                     <div class="media">
