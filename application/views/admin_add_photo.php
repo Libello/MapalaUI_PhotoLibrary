@@ -477,14 +477,14 @@
           <div class="lead">
             <button class="btn btn-default" type="submit" role="button">Simpan</button> <!--data-toggle="modal" data-target="#save_all"-->
           </div>
+          <div id="close_button">
+            <button type="reset" class="btn" id="btn">
+              Muat Ulang
+            </button>
+          </div>
         </form>
         <!-- Button trigger modal -->
-        <br>
-        <div id="close_button">
-          <button type="reset" class="btn" id="btn">
-            Muat Ulang
-          </button>
-        </div>
+        
 
 
         

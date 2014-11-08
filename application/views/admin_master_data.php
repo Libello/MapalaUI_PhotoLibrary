@@ -59,10 +59,10 @@
 
         <br>
         <ul class="nav nav-tabs" role="tablist">
-          <li class="active"><a href="#photographer_tab" role="tab" data-toggle="tab">Photographer</a></li>
-          <li><a href="#event_tab" role="tab" data-toggle="tab">Event</a></li>
+          <li class="active"><a href="#photographer_tab" role="tab" data-toggle="tab">Fotografer</a></li>
+          <li><a href="#event_tab" role="tab" data-toggle="tab">Kegiatan</a></li>
           <li><a href="#editor_tab" role="tab" data-toggle="tab">Editor</a></li>
-          <li><a href="#owner_tab" role="tab" data-toggle="tab">Photo Owner</a></li>
+          <li><a href="#owner_tab" role="tab" data-toggle="tab">Pemilik Foto</a></li>
         </ul>
         <script type="text/javascript">
           $(".nav-tabs").click(function() {
@@ -73,18 +73,18 @@
 
         <div class="tab-content">
           <div class="tab-pane active" id="photographer_tab"><br>
-            <h1 id="masterdata_header">Photographer List</h1>
+            <h1 id="masterdata_header">Daftar Fotografer</h1>
             <div id="btn_modalmasterdata">
               <button class="btn" data-toggle="modal" data-target="#photographer_modal">
-                <span class="glyphicon glyphicon-plus"></span> Add Photographer
+                <span class="glyphicon glyphicon-plus"></span> Tambah Fotografer
               </button>
             </div><br>
             <table class="table">
               <tr id="table_header">
-                <td>Name</td>
-                <td>Membership</td>
+                <td>Nama</td>
+                <td>Keanggotaan</td>
                 <td>No. Mapala UI</td>
-                <td>Option</td>
+                <td>Pilihan</td>
               </tr>
               <?php
                 foreach ($photographerlist as $row){
@@ -128,10 +128,10 @@
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-body">
-                      <h1 id="done">Delete event?</h1>
+                      <h1 id="done">Hapus Fotografer?</h1>
                       <div class="lead" id="btn_modaldelete">
-                        <button type="close" class="btn" id="btn-close" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn" id="btn-save">Delete</button>
+                        <button type="close" class="btn" id="btn-close" data-dismiss="modal">Keluar</button>
+                        <button type="submit" class="btn" id="btn-save">Hapus</button>
                       </div>
                     </div>
                  </div>
@@ -145,19 +145,19 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="photographerLabel">Photographer</h4>
+                    <h4 class="modal-title" id="photographerLabel">Fotografer</h4>
                   </div>
                   <div class="modal-body">
                     <form class="form-horizontal" id="photographermodal" role="form" method="post" action="<?php echo site_url('/addPhotographer');?>/">
                       <div class="form-group">
-                        <label for="photographer_name" class="col-sm-3 control-label">Name</label>
+                        <label for="photographer_name" class="col-sm-3 control-label">Nama</label>
                         <div class="col-sm-7">
                           <input type="text" class="form-control" name="photographer_name" required autofocus>
                         </div>
                       </div>
 
                       <div class="form-group">
-                        <label for="photographer_membership" class="col-sm-3 control-label">Membership</label>
+                        <label for="photographer_membership" class="col-sm-3 control-label">Keanggotaan</label>
                         <div class="col-sm-7">
                           <div class="radio">
                             <label>
@@ -191,8 +191,8 @@
                       <hr>
 
                       <div class="lead" id="btn_modalfinish">
-                        <button type="close" class="btn" id="btn-close" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn" id="btn-save" onclick="return validatePhotographer();">Save changes</button>
+                        <button type="close" class="btn" id="btn-close" data-dismiss="modal">Keluar</button>
+                        <button type="submit" class="btn" id="btn-save" onclick="return validatePhotographer();">Simpan</button>
                       </div>
                     </form>
                   </div>
@@ -205,19 +205,19 @@
           
 
           <div class="tab-pane" id="event_tab"><br>
-            <h1 id="masterdata_header">Event List</h1>
+            <h1 id="masterdata_header">Daftar Kegiatan</h1>
             <div id="btn_modalmasterdata">
               <button class="btn" data-toggle="modal" data-target="#event_modal">
-                  <span class="glyphicon glyphicon-plus"></span> Add Event
+                  <span class="glyphicon glyphicon-plus"></span> Tambah Kegiatan
               </button>
             </div><br>
             <table class="table">
               <tr id="table_header">
-                <td>Event Name</td>
-                <td>Location</td>
-                <td>Period</td>
-                <td>Category</td>
-                <td>Option</td>
+                <td>Nama Kegiatan</td>
+                <td>Lokasi</td>
+                <td>Periode</td>
+                <td>Kategori</td>
+                <td>Pilihan</td>
               </tr>
 
                 <?php
@@ -249,7 +249,7 @@
                       echo '
                         <form method="post" action="admin_controller/deleteEvent/'.$row['id'].'/">
                           <a class="pull-left" data-toggle="modal" data-target="#event_modal">
-                              <button class="btn" id="btn-edit-master">Edit</button>
+                              <button class="btn" id="btn-edit-master">Ubah</button>
                           </a>
                           <button class="btn" id="btn-edit" data-toggle="modal" data-target="#deleteevent_modal"><img src="'.base_url('assets/ico/remove.png').'"></button>
                         </form>
@@ -265,10 +265,10 @@
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-body">
-                      <h1 id="done">Delete event?</h1>
+                      <h1 id="done">Hapus Kegiatan?</h1>
                       <div class="lead" id="btn_modaldelete">
-                        <button type="close" class="btn" id="btn-close" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn" id="btn-save">Delete</button>
+                        <button type="close" class="btn" id="btn-close" data-dismiss="modal">Keluar</button>
+                        <button type="submit" class="btn" id="btn-save">Hapus</button>
                       </div>
                     </div>
                  </div>
@@ -282,29 +282,29 @@
                     <div class="modal-content">
                       <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="eventLabel">Event</h4>
+                        <h4 class="modal-title" id="eventLabel">Kegiatan</h4>
                       </div>
                       <div class="modal-body">
                         <form class="form-horizontal" role="form" method="post" action="<?php echo site_url('/addEvent');?>/">
                           <div class="form-group">
-                            <label for="event_name" class="col-sm-3 control-label">Name</label>
+                            <label for="event_name" class="col-sm-3 control-label">Nama</label>
                             <div class="col-sm-7">
                               <input type="text" class="form-control" name="event_name" required autofocus>
                             </div>
                           </div>
 
                           <div class="form-group">
-                            <label for="event_location" class="col-sm-3 control-label">Location</label>
+                            <label for="event_location" class="col-sm-3 control-label">Lokasi</label>
                             <div class="col-sm-7">
                               <input type="text" class="form-control" name="location">
                             </div>
                           </div>
 
                           <div class="form-group">
-                            <label for="event_period" class="col-sm-3 control-label">Period</label>
+                            <label for="event_period" class="col-sm-3 control-label">Periode</label>
                             <div class="col-sm-3">
                               <select class="form-control" name="start_year">
-                                <option selected value="-">unknown</option>
+                                <option selected value="-">thn</option>
                                 <option disabled>───</option>
                                 <?php for ($i = 2017; $i >= 1960; $i--) : ?>
                                   <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
@@ -314,7 +314,7 @@
                             <div class="col-sm-1">s/d</div>
                             <div class="col-sm-3">
                               <select class="form-control" name="end_year">
-                                <option selected value="-">unknown</option>
+                                <option selected value="-">thn</option>
                                 <option disabled>───</option>
                                 <?php for ($i = 2017; $i >= 1960; $i--) : ?>
                                   <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
@@ -324,25 +324,25 @@
                           </div>
 
                           <div class="form-group">
-                            <label for="category" class="col-sm-3 control-label">Category</label>
+                            <label for="category" class="col-sm-3 control-label">Kategori</label>
                             <div class="col-sm-7">
                             <div class="form-group">
                               <div class="col-sm-1"></div>
                               <div class="col-sm-3">
                                 <div class="checkbox">
-                                  <input type="checkbox" name="category" value="climbing"> Climbing
-                                  <input type="checkbox" name="category" value="rafting"> Rafting
-                                  <input type="checkbox" name="category" value="caving"> Caving
-                                  <input type="checkbox" name="category" value="diving"> Diving
-                                  <input type="checkbox" name="category" value="sailing"> Sailing
+                                  <input type="checkbox" name="category" value="climbing"> Panjat
+                                  <input type="checkbox" name="category" value="rafting"> Arung Jeram
+                                  <input type="checkbox" name="category" value="caving"> Telusur Gua
+                                  <input type="checkbox" name="category" value="diving"> Selam
+                                  <input type="checkbox" name="category" value="sailing"> Layar
                                 </div>
                               </div>
                               <div class="col-sm-2">
                                 <div class="checkbox">
-                                  <input type="checkbox" name="category" value="mountaineering"> Mountaineering
-                                  <input type="checkbox" name="category" value="paragliding"> Paragliding
+                                  <input type="checkbox" name="category" value="mountaineering"> Daki Gunung
+                                  <input type="checkbox" name="category" value="paragliding"> Paralayang
                                   <input type="checkbox" name="category" value="BKP"> BKP
-                                  <input type="checkbox" name="category" value="others"> Others
+                                  <input type="checkbox" name="category" value="others"> Lainnya
                                 </div>
                               </div>
                           </div>
@@ -352,8 +352,8 @@
                           <hr>
 
                           <div class="lead" id="btn_modalfinish">
-                            <button type="close" class="btn" id="btn-close" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn" id="btn-save">Save changes</button>
+                            <button type="close" class="btn" id="btn-close" data-dismiss="modal">Keluar</button>
+                            <button type="submit" class="btn" id="btn-save">Simpan</button>
                           </div>
                         </form>
                       </div>
@@ -366,18 +366,18 @@
 
 
           <div class="tab-pane" id="editor_tab"><br>
-            <h1 id="masterdata_header">Editor List</h1>
+            <h1 id="masterdata_header">Daftar Editor</h1>
             <div id="btn_modalmasterdata">
               <button class="btn" data-toggle="modal" data-target="#editor_modal">
-                  <span class="glyphicon glyphicon-plus"></span> Add Editor
+                  <span class="glyphicon glyphicon-plus"></span> Tambah Editor
               </button>
             </div><br>
             <table class="table">
               <tr id="table_header">
-                <td>Name</td>
-                <td>Membership</td>
+                <td>Nama</td>
+                <td>Keanggotaan</td>
                 <td>No. Mapala UI</td>
-                <td>Option</td>
+                <td>Pilihan</td>
               </tr>
               <?php
                 foreach ($editorlist as $row){
@@ -400,7 +400,7 @@
                       echo '
                         <form method="post" action="admin_controller/deleteEditor/'.$row['id'].'/">
                           <a class="pull-left" data-toggle="modal" data-target="#editor_modal">
-                              <button class="btn" id="btn-edit-master">Edit</button>
+                              <button class="btn" id="btn-edit-master">Ubah</button>
                           </a>
                           <button class="btn" id="btn-edit" data-toggle="modal" data-target="#deleteeditor_modal" onclick="return confirm();"><img src="'.base_url('assets/ico/remove.png').'"></button>
                         </form>
@@ -422,11 +422,11 @@
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-body">
-                      <h1 id="done">Delete editor?</h1>
+                      <h1 id="done">Hapus editor?</h1>
                       <div class="lead" id="btn_modaldelete">
                         <form id="edit">
-                          <button type="close" class="btn" id="btn-close" data-dismiss="modal" onclick="return false;">Close</button>
-                          <button type="submit" class="btn" id="btn-save" onclick="return true;">Delete</button>
+                          <button type="close" class="btn" id="btn-close" data-dismiss="modal" onclick="return false;">Keluar</button>
+                          <button type="submit" class="btn" id="btn-save" onclick="return true;">Hapus</button>
                         </form>
                       </div>
                     </div>
@@ -447,14 +447,14 @@
                         <!-- action="<?php //echo site_url('/addEditor');?>/" -->
                         <form class="form-horizontal" id="editormodal" role="form" method="post" action="<?php echo site_url('/addEditor');?>">
                           <div class="form-group">
-                            <label for="editor_name" class="col-sm-3 control-label">Name</label>
+                            <label for="editor_name" class="col-sm-3 control-label">Nama</label>
                             <div class="col-sm-7">
                               <input type="text" class="form-control" name="editor_name" required autofocus>
                             </div>
                           </div>
 
                           <div class="form-group">
-                            <label for="editor_membership" class="col-sm-3 control-label">Membership</label>
+                            <label for="editor_membership" class="col-sm-3 control-label">Keanggotaan</label>
                             <div class="col-sm-7">
                               <div class="radio">
                                 <label>
@@ -488,8 +488,8 @@
                           <hr>
 
                           <div class="lead" id="btn_modalfinish">
-                            <button type="close" class="btn" id="btn-close" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn" id="btn-save" value="submit" onclick="return validateEditor();">Save changes</button>
+                            <button type="close" class="btn" id="btn-close" data-dismiss="modal">Keluar</button>
+                            <button type="submit" class="btn" id="btn-save" value="submit" onclick="return validateEditor();">Simpan</button>
                           </div>
                         </form>
                       </div>
@@ -502,18 +502,18 @@
 
 
           <div class="tab-pane" id="owner_tab"><br>
-            <h1 id="masterdata_header">Photo Owner List</h1>
+            <h1 id="masterdata_header">Daftar Pemilik Foto</h1>
             <div id="btn_modalmasterdata">
               <button class="btn" data-toggle="modal" data-target="#owner_modal">
-                  <span class="glyphicon glyphicon-plus"></span> Add Owner
+                  <span class="glyphicon glyphicon-plus"></span> Tambah Pemilik
               </button>
             </div><br>
             <table class="table">
               <tr id="table_header">
-                <td>Name</td>
-                <td>Phone</td>
-                <td>Address</td>
-                <td>Option</td>
+                <td>Nama</td>
+                <td>No. Telepon</td>
+                <td>Alamat</td>
+                <td>Pilihan</td>
               </tr>
 
                 <?php
@@ -540,7 +540,7 @@
                     echo "</td>";
                     echo "<td>";
                       echo '<a class="pull-left" data-toggle="modal" data-target="#owner_modal">
-                              <button class="btn" id="btn-edit-master">Edit</button>
+                              <button class="btn" id="btn-edit-master">Ubah</button>
                             </a>
                             <button class="btn" id="btn-edit" data-toggle="modal" data-target="#deleteowner_modal"><img src="'.base_url('assets/ico/remove.png').'"></button>';
                     echo "</td>";
@@ -554,10 +554,10 @@
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-body">
-                        <h1 id="done">Delete owner?</h1>
+                        <h1 id="done">Hapus pemilik foto?</h1>
                         <div class="lead" id="btn_modaldelete">
-                          <button type="close" class="btn" id="btn-close" data-dismiss="modal">Close</button>
-                          <button type="submit" class="btn" id="btn-save">Delete</button>
+                          <button type="close" class="btn" id="btn-close" data-dismiss="modal">Keluar</button>
+                          <button type="submit" class="btn" id="btn-save">Hapus</button>
                         </div>
                       </div>
                    </div>
@@ -571,26 +571,26 @@
                     <div class="modal-content">
                       <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="ownerLabel">Owner</h4>
+                        <h4 class="modal-title" id="ownerLabel">Pemilik Foto</h4>
                       </div>
                       <div class="modal-body">
                         <form class="form-horizontal" role="form" method="post" action="<?php echo site_url('/addOwner');?>/">
                           <div class="form-group">
-                            <label for="owner_name" class="col-sm-3 control-label">Name</label>
+                            <label for="owner_name" class="col-sm-3 control-label">Nama</label>
                             <div class="col-sm-7">
                               <input type="text" class="form-control" name="owner_name" required autofocus>
                             </div>
                           </div>
 
                           <div class="form-group">
-                            <label for="owner_phone" class="col-sm-3 control-label">Phone</label>
+                            <label for="owner_phone" class="col-sm-3 control-label">No. Telepon</label>
                             <div class="col-sm-7">
                               <input type="text" class="form-control" name="owner_phone">
                             </div>
                           </div>
 
                           <div class="form-group">
-                            <label for="owner_address" class="col-sm-3 control-label">Address</label>
+                            <label for="owner_address" class="col-sm-3 control-label">Alamat</label>
                             <div class="col-sm-7">
                               <textarea class="form-control" rows="3" name="owner_address"></textarea>
                             </div>
@@ -598,8 +598,8 @@
                         <hr>
 
                           <div class="lead" id="btn_modalfinish">
-                            <button type="close" class="btn" id="btn-close" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn" id="btn-save">Save changes</button>
+                            <button type="close" class="btn" id="btn-close" data-dismiss="modal">Keluar</button>
+                            <button type="submit" class="btn" id="btn-save">Simpan</button>
                           </div>
                         </form>
                       </div>
