@@ -41,11 +41,11 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a id="nav-name" href="<?php echo site_url('/photo_list');?>">Photo List</a></li>
-            <li><a id="nav-name" href="<?php echo site_url('/add_photo');?>">Add Photo</a></li>
+            <li><a id="nav-name" href="<?php echo site_url('/photo_list');?>">Daftar Foto</a></li>
+            <li><a id="nav-name" href="<?php echo site_url('/add_photo');?>">Tambah Foto</a></li>
             <li class="active"><a id="nav-name" href="<?php echo site_url('/master_data');?>">Master Data</a></li>
-            <li><a id="nav-name" href="<?php echo site_url('/guest_log');?>">Guest Log</a></li>
-            <li><a id="nav-name" href="<?php echo site_url('/logout');?>">Logout</a></li>
+            <li><a id="nav-name" href="<?php echo site_url('/guest_log');?>">Daftar Pengunjung</a></li>
+            <li><a id="nav-name" href="<?php echo site_url('/logout');?>">Keluar</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -112,7 +112,7 @@
                       echo '
                         <form method="post" action="admin_controller/deletePhotographer/'.$row['id'].'/">
                           <a class="pull-left" data-toggle="modal" data-target="#photographer_modal">
-                              <button class="btn" id="btn-edit-master">Edit</button>
+                              <button class="btn" id="btn-edit-master">Ubah</button>
                           </a>
                           <button class="btn" id="btn-edit" data-toggle="modal" data-target="#deletephotographer_modal"><img src="'.base_url('assets/ico/remove.png').'"></button>
                         </form>
@@ -329,31 +329,31 @@
                             <div class="col-sm-7">
                             <div class="form-group">
                               <div class="checkbox">
-                                <input type="checkbox" name="category" value="climbing"> Panjat</input>
+                                <input type="checkbox" name="category" value="panjat"> Panjat</input>
                               </div>
                               <div class="checkbox">
-                                <input type="checkbox" name="category" value="rafting"> Arung Jeram</input>
+                                <input type="checkbox" name="category" value="arung jeram"> Arung Jeram</input>
                               </div>
                               <div class="checkbox">
-                                <input type="checkbox" name="category" value="caving"> Telusur Gua</input>
+                                <input type="checkbox" name="category" value="telusur gua"> Telusur Gua</input>
                               </div>
                               <div class="checkbox">
-                                <input type="checkbox" name="category" value="diving"> Selam</input>
+                                <input type="checkbox" name="category" value="selam"> Selam</input>
                               </div>
                               <div class="checkbox">
-                                <input type="checkbox" name="category" value="sailing"> Layar</input>
+                                <input type="checkbox" name="category" value="layar"> Layar</input>
                               </div>
                               <div class="checkbox">
-                                <input type="checkbox" name="category" value="mountaineering"> Daki Gunung</input>
+                                <input type="checkbox" name="category" value="daki gunung"> Daki Gunung</input>
                               </div>
                               <div class="checkbox">
-                                <input type="checkbox" name="category" value="paragliding"> Paralayang</input>
+                                <input type="checkbox" name="category" value="paralayang"> Paralayang</input>
                               </div>
                               <div class="checkbox">
                                 <input type="checkbox" name="category" value="BKP"> BKP</input>
                               </div>
                               <div class="checkbox">
-                                <input type="checkbox" name="category" value="others"> Lainnya</input>
+                                <input type="checkbox" name="category" value="lainnya"> Lainnya</input>
                               </div>
                             </div>
                             </div>
@@ -635,7 +635,7 @@
 
     <div id="footer">
       <div class="container">
-        <p class="text-muted">Mapala UI Photo Library © 2014 by <a href="http://twitter.com/nadafadhila">@nadafadhila</a><br><a href="http://getbootstrap.com">Bootstrap</a></p>
+        <p class="text-muted">Mapala UI Photo Library © 2014 oleh <a href="http://twitter.com/nadafadhila">@nadafadhila</a><br><a href="http://getbootstrap.com">Bootstrap</a></p>
       </div>
     </div>
     <!-- /.container -->

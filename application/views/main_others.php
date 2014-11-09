@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="<?php echo base_url('assets/ico').'/favicon.png';?>">
 
-    <title>Mapala UI Photo Library</title>
+    <title>Tentang MUIPL</title>
 
     <!-- Bootstrap core CSS -->
     <link href="<?php echo base_url('assets/css').'/bootstrap.min.css';?>" rel="stylesheet">
@@ -42,16 +42,15 @@
           </div>
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-              <li><a id="nav_name" href="<?php echo site_url('/home');?>">Home</a></li>
-              <li><a id="nav_name" href="<?php echo site_url('/search');?>">Search</a></li>
-              <li><a id="nav_name" href="<?php echo site_url('/gallery');?>">Gallery</a></li>
-              <li><a id="nav_name" href="<?php echo site_url('/guestToAdmin');?>">Admin Page</a></li>
-              <li class="active"><a id="nav_name" href="<?php echo site_url('/others');?>">Others</a></li>
+              <li><a id="nav_name" href="<?php echo site_url('/home');?>">Beranda</a></li>
+              <li><a id="nav_name" href="<?php echo site_url('/search');?>">Penelusuran</a></li>
+              <li><a id="nav_name" href="<?php echo site_url('/gallery');?>">Galeri</a></li>
+              <li class="active"><a id="nav_name" href="<?php echo site_url('/others');?>">Tentang MUIPL</a></li>
               <form class="navbar-form navbar-left" role="search">
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Search">
+                  <input type="text" class="form-control" placeholder="Penelusuran sederhana">
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="submit" class="btn btn-default">Cari</button>
               </form>
             </ul>
           </div><!--/.nav-collapse -->
@@ -65,7 +64,8 @@
                     <span class=" glyphicon glyphicon-user"></span>
                   </button>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="<?php echo site_url('/logout');?>">Logout</a></li>
+                    <li><a href="<?php echo site_url('/photo_list');?>">Halaman Admin</a></li>
+                    <li><a href="<?php echo site_url('/logout');?>">Keluar</a></li>
                   </ul>
                 </li>
               </ul>
@@ -73,9 +73,9 @@
           </div>
           <div class="col-lg-3">
               <p class="nav navbar-nav" id="logged_in_as">
-                Logged in as <b><?php echo $name;?></b>
-                <br>from <?php echo $institution;?>
-              </p>                
+                Masuk sebagai <b><?php echo $name;?></b>
+                <br>dari <?php echo $institution;?>
+              </p>   
           </div><!--/.nav-collapse -->
         </div>
       </div>
@@ -86,9 +86,9 @@
 
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
-          <li class="active"><a href="#about" role="tab" data-toggle="tab">About this app</a></li>
-          <li><a href="#contact_mapalaui" role="tab" data-toggle="tab">Mapala UI contact</a></li>
-          <li><a href="#contact_creators" role="tab" data-toggle="tab">Creators contact</a></li>
+          <li class="active"><a href="#about" role="tab" data-toggle="tab">Tentang MUIPL</a></li>
+          <li><a href="#contact_mapalaui" role="tab" data-toggle="tab">Kontak Mapala UI</a></li>
+          <li><a href="#contact_creators" role="tab" data-toggle="tab">Kontak Pembuat MUIPL</a></li>
         </ul>
 
         <!-- Tab panes -->
@@ -96,7 +96,7 @@
           <div class="tab-pane active" id="about">
             <div class="jumbotron">
               <h1 id="about_jumbotron">Halloo!</h1>
-              <p id="about_detail"><b> Mapala UI Photo Library</b> merupakan sebuah aplikasi pengelolaan koleksi foto yang dibuat khusus untuk Organisasi Mahasiswa Pecinta Alam Universitas Indonesia atau Mapala UI. Dengan menggunakan aplikasi ini kamu dapat mencari dan melihat koleksi foto Mapala UI yang terdapat dalam <i>database</i>. Untuk menambah data foto, kamu harus menghubungi administrator.<br><br><b>Selamat menggunakan!</b></p>
+              <p id="about_detail"><b> Mapala UI Photo Library (MUIPL)</b> merupakan sebuah aplikasi pengelolaan koleksi foto yang dibuat khusus untuk Organisasi Mahasiswa Pecinta Alam Universitas Indonesia atau Mapala UI. Dengan menggunakan aplikasi ini kamu dapat mencari dan melihat koleksi foto Mapala UI yang terdapat dalam <i>database</i>. Untuk menambah data foto, kamu harus menghubungi administrator.<br><br><b>Selamat menggunakan!</b></p>
             </div>
 
             <div class="panel-group" id="accordion">
@@ -193,8 +193,6 @@
             <hr>
           </div>
           <div class="tab-pane" id="contact_creators">
-            <br>
-            <h4 id="contact_please">Please kindly contact us at<b>...</b></h4>
             <div id="contact_creator">
               <h1 id="contact_header">Qatrunnada Fadhila</h1><br>
               <img src="../assets/ico/mail3.png">  qatrunnada.fadhila@gmail.com<br>
@@ -203,7 +201,6 @@
               <img src="../assets/ico/tumblr2.png">  <a href="http://homokvcingiusnomaden.tumblr.com">Homokvcingius Nomaden</a><br>
             </div>
             <br>
-            <h4 id="contact_please"><b>...</b>and<b>...</b></h4>
             <div id="contact_creator">
               <h1 id="contact_header">Satria Ramadhan</h1><br>
               <img src="../assets/ico/mail3.png">  satriaramadhan93@gmail.com<br>
@@ -212,7 +209,6 @@
               <img src="../assets/ico/wordpress2.png">  <a href="http://abangiya.wordpress.com/">Abang Iya</a><br>
               <br>
             </div>
-            <h4 id="contact_please"><b>...</b>or with any other ways. Cheers! :)</h4>
             <hr>
           </div>
         </div>
@@ -241,7 +237,7 @@
 
     <div id="footer">
       <div class="container">
-        <p class="text-muted">Mapala UI Photo Library © 2014 by <a href="http://twitter.com/nadafadhila">@nadafadhila</a><br><a href="http://getbootstrap.com">Bootstrap</a></p>
+        <p class="text-muted">Mapala UI Photo Library © 2014 oleh <a href="http://twitter.com/nadafadhila">@nadafadhila</a><br><a href="http://getbootstrap.com">Bootstrap</a></p>
       </div>
     </div><!-- /.container -->
     <!-- Bootstrap core JavaScript

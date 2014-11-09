@@ -2,6 +2,12 @@
 
 class admin_controller extends CI_Controller {
 
+	function __construct()
+	{
+		parent::__construct();
+		$this->load->helper(array('form', 'url'));
+	}
+
 	/**
 	 * Berikut adalah fungsi-fungsi untuk memanggil view
 	 */
@@ -204,7 +210,7 @@ class admin_controller extends CI_Controller {
 			if($success) {
 				redirect(site_url('photo_list'));
 			} else {
-				$errmes['message'] = "Wrong name or password!";
+				$errmes['message'] = "Nama atau password salah!";
 				load_view('main_admin_login', $errmes);
 			}
 	    } else {
@@ -379,14 +385,31 @@ class admin_controller extends CI_Controller {
 	}
 	public function addNewPhoto() {
 		if(!empty($_POST)){
-			$data = $this->input->post();
-			$this->load->model('photo_model');
-			$success = $this->photo_model->insertNewPhoto($data);
+			//Set Upload Photo
+			$config['upload_path'] = './assets/foto';
+			$config['allowed_types'] = 'gif|jpg|png';
 
-			if($success) {
-				$errmes['message'] = 'Add new photo success';
-				load_view('admin_addphoto_success',$errmes);
+			$this->load->library('upload', $config);
+
+			if ( ! $this->upload->do_upload())
+			{
+				$message['message'] = array('error' => $this->upload->display_errors());
+				load_view('admin_addphoto_success',$message);
 			}
+			else
+			{
+				$datafoto = array('upload_data' => $this->upload->data());
+				$data = $this->input->post();
+				$data['filename'] = $datafoto['file_name'];
+				$this->load->model('photo_model');
+				$success = $this->photo_model->insertNewPhoto($data);
+				if($success) {
+					$errmes['message'] = 'Add new photo success';
+					load_view('admin_addphoto_success',$errmes);
+				}
+			}
+
+			
 	    } else {
 	    	show_404();
 	    }

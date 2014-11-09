@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="<?php echo base_url('assets/ico').'/favicon.png';?>">
 
-    <title>Mapala UI Photo Library</title>
+    <title>Beranda</title>
 
     <!-- Bootstrap core CSS -->
     <link href="<?php echo base_url('assets/css').'/bootstrap.min.css';?>" rel="stylesheet">
@@ -42,16 +42,15 @@
           </div>
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a id="nav_name" href="<?php echo site_url('/home');?>">Home</a></li>
-              <li><a id="nav_name" href="<?php echo site_url('/search');?>">Search</a></li>
-              <li><a id="nav_name" href="<?php echo site_url('/gallery');?>">Gallery</a></li>
-              <li><a id="nav_name" href="<?php echo site_url('/guestToAdmin');?>">Admin Page</a></li>
-              <li><a id="nav_name" href="<?php echo site_url('/others');?>">Others</a></li>
+              <li class="active"><a id="nav_name" href="<?php echo site_url('/home');?>">Beranda</a></li>
+              <li><a id="nav_name" href="<?php echo site_url('/search');?>">Penelusuran</a></li>
+              <li><a id="nav_name" href="<?php echo site_url('/gallery');?>">Galeri</a></li>
+              <li><a id="nav_name" href="<?php echo site_url('/others');?>">Tentang MUIPL</a></li>
               <form class="navbar-form navbar-left" role="search">
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Search">
+                  <input type="text" class="form-control" placeholder="Penelusuran sederhana">
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="submit" class="btn btn-default">Cari</button>
               </form>
             </ul>
           </div><!--/.nav-collapse -->
@@ -65,7 +64,8 @@
                     <span class="glyphicon glyphicon-user"></span>
                   </button>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a id="logout" href="<?php echo site_url('/logout');?>">Logout</a></li>
+                    <li><a id="logout" href="<?php echo site_url('/photo_list');?>">Halaman Admin</a></li>
+                    <li><a id="logout" href="<?php echo site_url('/logout');?>">Keluar</a></li>
                   </ul>
                 </li>
               </ul>
@@ -73,8 +73,8 @@
           </div>
           <div class="col-lg-3">
               <p class="nav navbar-nav" id="logged_in_as">
-                Logged in as <b><?php echo $name;?></b>
-                <br>from <?php echo $institution;?>
+                Masuk sebagai <b><?php echo $name;?></b>
+                <br>dari <?php echo $institution;?>
               </p>                
           </div><!--/.nav-collapse -->
         </div>
@@ -118,21 +118,21 @@
       <div class="row">
         <div class="col-lg-4">
           <a href="<?php echo site_url('/search');?>"><img class="img-circle" src="<?php echo base_url('assets/img').'/(1)search.png';?>" alt="Generic placeholder image"></a>
-          <h2 id="feature_header"><a href="<?php echo site_url('/search');?>">Advanced Search</a></h2>
+          <h2 id="feature_header"><a href="<?php echo site_url('/search');?>">Penelusuran Lanjutan</a></h2>
           <p id="feature_detail">Kamu dapat mencari foto berdasarkan judul, fotografer, aktivitas, tahun maupun ruas lainnya dengan memasukan kata kunci sesuai dengan kebutuhanmu.</p>
-          <p><a id="btn-featuredetail" href="<?php echo site_url('/search');?>" role="button">Search &raquo;</a></p>
+          <p><a id="btn-featuredetail" href="<?php echo site_url('/search');?>" role="button">Mulai Penelusuran &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
           <a href="<?php echo site_url('/gallery');?>"><img class="img-circle" src="<?php echo base_url('assets/img').'/(2)categories.png';?>" alt="Generic placeholder image"></a>
-          <h2 id="feature_header"><a href="<?php echo site_url('/gallery');?>">Photo Gallery</a></h2>
+          <h2 id="feature_header"><a href="<?php echo site_url('/gallery');?>">Galeri Foto</a></h2>
           <p id="feature_detail">Bingung dengan kata kunci? Lihat saja foto berdasarkan kategori yang telah disediakan.</p>
-          <p><a id="btn-featuredetail" href="<?php echo site_url('/gallery');?>" role="button">See categories &raquo;</a></p>
+          <p><a id="btn-featuredetail" href="<?php echo site_url('/gallery');?>" role="button">Lihat kategori &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
           <a href="<?php echo site_url('/others');?>"><img class="img-circle" src="<?php echo base_url('assets/img').'/(3)others.png';?>" alt="Generic placeholder image"></a>
-          <h2 id="feature_header"><a href="<?php echo site_url('/others');?>">About</a></h2>
+          <h2 id="feature_header"><a href="<?php echo site_url('/others');?>">Tentang MUIPL</a></h2>
           <p id="feature_detail">Ingin tahu asal mula Mapala UI Photo Library dan siapa yang membuatnya? Kamu bisa lihat di sini.</p>
-          <p><a id="btn-featuredetail" href="<?php echo site_url('/others');?>" role="button">Others &raquo;</a></p>
+          <p><a id="btn-featuredetail" href="<?php echo site_url('/others');?>" role="button">Tantang MUIPL &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
               
@@ -143,7 +143,7 @@
     
     <div id="footer">
       <div class="container">
-        <p class="text-muted">Mapala UI Photo Library © 2014 by <a id="link.footer" href="http://twitter.com/nadafadhila">@nadafadhila</a><br><a id="link.footer" href="http://getbootstrap.com">Bootstrap</a></p>
+        <p class="text-muted">Mapala UI Photo Library © 2014 oleh <a id="link.footer" href="http://twitter.com/nadafadhila">@nadafadhila</a><br><a id="link.footer" href="http://getbootstrap.com">Bootstrap</a></p>
       </div>
     </div><!-- /.container -->
     <!-- Bootstrap core JavaScript

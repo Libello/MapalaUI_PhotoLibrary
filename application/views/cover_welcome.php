@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="<?php echo base_url('assets/ico').'/favicon.png';?>">
 
-    <title>Welcome</title>
+    <title>Selamat Datang</title>
 
     <!-- Bootstrap core CSS -->
     <link href="<?php echo base_url('assets/css').'/bootstrap.min.css';?>" rel="stylesheet">
@@ -37,9 +37,9 @@
           <div class="masthead clearfix">
             <div class="inner">
               <ul class="nav masthead-nav">
-                <li class="active"><a href="<?php echo base_url();?>">Home</a></li>
-                <li><a href="<?php echo site_url('/guest_login');?>">Guest Login</a></li>
-                <li><a href="<?php echo site_url('/contact');?>">Contact</a></li>
+                <li class="active"><a href="<?php echo base_url();?>">Beranda</a></li>
+                <li><a href="<?php echo site_url('/guest_login');?>">Buku Tamu</a></li>
+                <li><a href="<?php echo site_url('/contact');?>">Kontak</a></li>
               </ul>
             </div>
           </div>
@@ -48,7 +48,7 @@
             <h1 class="cover-heading" id="hi">Mapala UI Photo Library</h1>
             <p class="detail">Hi, selamat datang di <b>Mapala UI Photo Library</b>!</p>
             <p class="lead">
-              <a href="<?php echo site_url('/guest_login');?>" class="btn btn btn-default">Guest</a>
+              <a href="<?php echo site_url('/guest_login');?>" class="btn btn btn-default">Tamu</a>
               <a href="<?php echo site_url('/admin_login');?>" class="btn btn btn-default">Admin</a>
             </p>
           </div>
@@ -57,7 +57,7 @@
 
           <div class="mastfoot">
             <div class="inner">
-              <p><b>Mapala UI Photo Library</b> © 2014 by <a href="http://www.twitter.com/nadafadhila">@nadafadhila</a><br><a href="http://getbootstrap.com">Bootstrap</a></p>
+              <p><b>Mapala UI Photo Library</b> © 2014 oleh <a href="http://www.twitter.com/nadafadhila">@nadafadhila</a><br><a href="http://getbootstrap.com">Bootstrap</a></p>
             </div>
           </div>
 

@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="<?php echo base_url('assets/ico').'/favicon.png';?>">
 
-    <title>Mapala UI Photo Library</title>
+    <title>Penelusuran</title>
 
     <!-- Bootstrap core CSS -->
     <link href="<?php echo base_url('assets/css').'/bootstrap.min.css';?>" rel="stylesheet">
@@ -42,16 +42,15 @@
           </div>
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-              <li><a id="nav_name" href="<?php echo site_url('/home');?>">Home</a></li>
-              <li class="active"><a id="nav_name" href="<?php echo site_url('/search');?>">Search</a></li>
-              <li><a id="nav_name" href="<?php echo site_url('/gallery');?>">Gallery</a></li>
-              <li><a id="nav_name" href="<?php echo site_url('/guestToAdmin');?>">Admin Page</a></li>
-              <li><a id="nav_name" href="<?php echo site_url('/others');?>">Others</a></li>
+              <li><a id="nav_name" href="<?php echo site_url('/home');?>">Beranda</a></li>
+              <li class="active"><a id="nav_name" href="<?php echo site_url('/search');?>">Penelusuran</a></li>
+              <li><a id="nav_name" href="<?php echo site_url('/gallery');?>">Galeri</a></li>
+              <li><a id="nav_name" href="<?php echo site_url('/others');?>">Tentang MUIPL</a></li>
               <form class="navbar-form navbar-left" role="search">
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Search">
+                  <input type="text" class="form-control" placeholder="Penelusuran sederhana">
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="submit" class="btn btn-default">Cari</button>
               </form>
             </ul>
           </div><!--/.nav-collapse -->
@@ -65,7 +64,16 @@
                     <span class=" glyphicon glyphicon-user"></span>
                   </button>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="<?php echo site_url('/logout');?>">Logout</a></li>
+                    <?php
+                      if($userId = 'admin') {
+                        echo '<li><a href="'.site_url('/photo_list').'">Halaman Admin</a></li>';
+                        echo '<li><a href="'.site_url('/logout').'">Keluar Admin</a></li>';
+                      }
+                      else { 
+                        echo '<li><a href="'.site_url('/logout').'">Keluar Aja</a></li>';
+                      }
+                    ?>
+                    
                   </ul>
                 </li>
               </ul>
@@ -73,8 +81,8 @@
           </div>
           <div class="col-lg-3">
               <p class="nav navbar-nav" id="logged_in_as">
-                Logged in as <b><?php echo $name;?></b>
-                <br>from <?php echo $institution;?>
+                Masuk sebagai <b><?php echo $name;?></b>
+                <br>dari <?php echo $institution;?>
               </p>                
           </div><!--/.nav-collapse -->
         </div>
@@ -83,90 +91,90 @@
 
     <div class="container">
       <div class="starter-template">
-        
-        <h1 id="search_header">Search</h1><hr>
+        <br>
+        <h1 id="search_header">Penelusuran Lanjutan</h1><hr>
         <form class="form-horizontal" id="search" role="form" method="post" action="<?php echo site_url('/doSearch');?>/">
           <div class="form-group" id="search_guest">
             <label for="format" class="col-sm-2 control-label">Format:</label>
             <div class="col-sm-2">
               <select class="form-control" id="format" name="format">
-                <option value="all">Any Format</option>
+                <option value="all">Semua</option>
                 <option value="digital">Digital</option>
                 <option value="reproscan">Repro / Scan</option>
-                <option value="print">Print</option>
+                <option value="print">Tercetak</option>
               </select>
             </div><br><br>
 
-            <label for="color" class="col-sm-2 control-label">Color:</label>
+            <label for="color" class="col-sm-2 control-label">Warna:</label>
             <div class="col-sm-2">
               <select class="form-control" id="color" name="color">
-                <option value="all">Any Color</option>
-                <option value="color">Color</option>
-                <option value="blackwhite">Black & White</option>
+                <option value="all">Semua</option>
+                <option value="color">Berwarna</option>
+                <option value="blackwhite">Hitam & Putih</option>
                 <option value="sephia">Sephia</option>
               </select>
             </div><br><br>
 
-            <label for="activity" class="col-sm-2 control-label">Activity:</label>
+            <label for="activity" class="col-sm-2 control-label">Kategori:</label>
             <div class="col-sm-2">
               <select class="form-control" id="activity" name="activity">
-                <option value="all">All Activities</option>
-                <option value="climbing">Climbing</option>
-                <option value="rafting">Rafting</option>
-                <option value="caving">Caving</option>
-                <option value="diving">Diving</option>
-                <option value="paragliding">Paragliding</option>
-                <option value="mountaineering">Mountaineering</option>
-                <option value="sailing">Sailing</option>
+                <option value="all">Semua</option>
+                <option value="climbing">Panjat</option>
+                <option value="rafting">Arung Jeram</option>
+                <option value="caving">Telusur Gua</option>
+                <option value="diving">Selam</option>
+                <option value="paragliding">Paralayang</option>
+                <option value="mountaineering">Daki Gunung</option>
+                <option value="sailing">Layar</option>
                 <option value="bkp">BKP</option>
-                <option value="others">Others</option>
+                <option value="others">Lainnya</option>
               </select>
             </div><br><br>
               
             <div class="col-sm-2">
-              <select class="form-control" id="search_field">
-                <option>All Fields</option>
-                <option selected>Title</option>
-                <option>Photographer</option>
-                <option>Event</option>
-                <option>Year</option>
-                <option>Location</option>
+              <select class="form-control">
+                <option>Semua</option>
+                <option selected>Judul</option>
+                <option>Fotografer</option>
+                <option>Kegiatan</option>
+                <option>Tahun</option>
+                <option>Lokasi</option>
               </select>
             </div>
             <div class="col-sm-4"><input type="text" class="form-control" placeholder="Search"></div>
             <div class="col-sm-2">
-              <select class="form-control" id="search_option">
+              <select class="form-control">
+                <option>dan</option>
+                <option>atau</option>
+                <option>bukan</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-2">
+              <select class="form-control">
+                <option>Semua</option>
+                <option>Judul</option>
+                <option selected>Fotografer</option>
+                <option>Kegiatan</option>
+                <option>Tahun</option>
+                <option>Lokasi</option>
+              </select>
+            </div>
+            <div class="col-sm-4"><input type="text" class="form-control" placeholder="Search"></div>
+            <div class="col-sm-2">
+              <select class="form-control">
                 <option>and</option>
                 <option>or</option>
                 <option>not</option>
               </select>
             </div>
-          </div><br>
+          </div>
 
-          <div class="form-group" id="photodata_search">
+          <div class="form-group">  
             <div class="col-sm-2">
-              <select class="form-control" id="search_field">
-                <option>All Field</option>
-                <option>Title</option>
-                <option selected>Photographer</option>
-                <option>Event</option>
-                <option>Year</option>
-                <option>Location</option>
-              </select>
-            </div>
-            <div class="col-sm-4"><input type="text" class="form-control" placeholder="Search"></div>
-            <div class="col-sm-2">
-              <select class="form-control" id="search_option">
-                <option>and</option>
-                <option>or</option>
-                <option>not</option>
-              </select>
-            </div>
-          </div><br>
-
-          <div class="form-group" id="photodata_search">  
-            <div class="col-sm-2">
-              <select class="form-control" id="search_field">
+              <select class="form-control">
                 <option>All Field</option>
                 <option>Title</option>
                 <option>Photographer</option>
@@ -177,17 +185,17 @@
             </div>
             <div class="col-sm-4"><input type="text" class="form-control" placeholder="Search"></div>
             <div class="col-sm-2">
-              <select class="form-control" id="search_option">
+              <select class="form-control">
                 <option>and</option>
                 <option>or</option>
                 <option>not</option>
               </select>
             </div>
-          </div><br>
+          </div>
 
-          <div class="form-group" id="photodata_search">
+          <div class="form-group">
             <div class="col-sm-2">
-              <select class="form-control" id="search_field">
+              <select class="form-control">
                 <option>All Field</option>
                 <option>Title</option>
                 <option>Photographer</option>
@@ -198,7 +206,7 @@
             </div>
             <div class="col-sm-4"><input type="text" class="form-control" placeholder="Search"></div>
             <div class="col-sm-2">
-              <button type="submit" class="btn btn-default">Submit</button>
+              <button type="submit" class="btn btn-default">Cari</button>
             </div>
           </div>
         </form>
@@ -208,7 +216,7 @@
 
 
 
-        <h1 id="search_header">Result</h1><hr>
+        <h1 id="search_header">Hasil Penelusuran</h1><hr>
         <div class="search_result">
           <div class="media">
             <a class="pull-left" data-toggle="modal" data-target="#img-result_modal">
@@ -263,7 +271,7 @@
 
     <div id="footer">
       <div class="container">
-        <p class="text-muted">Mapala UI Photo Library © 2014 by <a href="http://twitter.com/nadafadhila">@nadafadhila</a><br><a href="http://getbootstrap.com">Bootstrap</a></p>
+        <p class="text-muted">Mapala UI Photo Library © 2014 oleh <a href="http://twitter.com/nadafadhila">@nadafadhila</a><br><a href="http://getbootstrap.com">Bootstrap</a></p>
       </div>
     </div><!-- /.container -->
     <!-- Bootstrap core JavaScript

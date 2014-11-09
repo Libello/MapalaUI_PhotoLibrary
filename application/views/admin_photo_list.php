@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="<?php echo base_url('assets/ico').'/favicon.png';?>">
 
-    <title>Photo List</title>
+    <title>Daftar Foto</title>
 
     <!-- Bootstrap core CSS -->
     <link href="<?php echo base_url('assets/css').'/bootstrap.min.css';?>" rel="stylesheet">
@@ -41,11 +41,11 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a id="nav-name" href="<?php echo site_url('/photo_list');?>">Photo List</a></li>
-            <li><a id="nav-name" href="<?php echo site_url('/add_photo');?>">Add Photo</a></li>
+            <li class="active"><a id="nav-name" href="<?php echo site_url('/photo_list');?>">Daftar Foto</a></li>
+            <li><a id="nav-name" href="<?php echo site_url('/add_photo');?>">Tambah Foto</a></li>
             <li><a id="nav-name" href="<?php echo site_url('/master_data');?>">Master Data</a></li>
-            <li><a id="nav-name" href="<?php echo site_url('/guest_log');?>">Guest Log</a></li>
-            <li><a id="nav-name" href="<?php echo site_url('/logout');?>">Logout</a></li>
+            <li><a id="nav-name" href="<?php echo site_url('/guest_log');?>">Daftar Pengunjung</a></li>
+            <li><a id="nav-name" href="<?php echo site_url('/logout');?>">Keluar</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -62,53 +62,54 @@
         <hr>
         <form class="form-horizontal" id="search" role="form" method="post" action="<?php echo site_url('/photo_list');?>/">
           <div class="form-group" id="photodata_search">
-            <label for="Search" class="col-sm-1 control-label">Search:</label>
+            <label for="Search" class="col-sm-1 control-label">Cari:</label>
               <div class="col-sm-4">
                 <input type="text" class="form-control" name="inputtext">
               </div>
               <div class="col-sm-2">
                 <select class="form-control" id="search_option" name="field">
-                  <option value="all">All Fields</option>
-                  <option value="title">Title</option>
-                  <option value="photographer">Photographer</option>
-                  <option value="event">Event</option>
-                  <option value="year">Year</option>
-                  <option value="location">Location</option>
+                  <option value="all">Semua kolom</option>
+                  <option value="id">ID Foto</option>
+                  <option value="title">Judul</option>
+                  <option value="photographer">Fotografer</option>
+                  <option value="event">Kegiatan</option>
+                  <option value="year">Tahun</option>
+                  <option value="location">Lokasi Kegiatan</option>
                 </select>
               </div>
               <div class="col-sm-2">
                 <select class="form-control" id="search_option" name="activity">
-                  <option value="all">All Activities</option>
-                  <option value="climbing">Climbing</option>
-                  <option value="rafting">Rafting</option>
-                  <option value="caving">Caving</option>
-                  <option value="diving">Diving</option>
-                  <option value="paragliding">Paragliding</option>
-                  <option value="mountaineering">Mountaineering</option>
-                  <option value="sailing">Sailing</option>
+                  <option value="all">Semua Kategori</option>
+                  <option value="climbing">Panjat</option>
+                  <option value="rafting">Arung Jeram</option>
+                  <option value="caving">Telusur Gua</option>
+                  <option value="diving">Selam</option>
+                  <option value="paragliding">Paralayang</option>
+                  <option value="mountaineering">Daki Gunung</option>
+                  <option value="sailing">Layar</option>
                   <option value="BKP">BKP</option>
-                  <option value="others">Others</option>
+                  <option value="others">Lainnya</option>
                 </select>
               </div>
               <div class="col-sm-2">
                 <select class="form-control" id="search_option" name="format">
-                  <option value="all">Any Format</option>
+                  <option value="all">Semua Format</option>
                   <option value="digital">Digital</option>
                   <option value="reproscan">Repro / Scan</option>
-                  <option value="print">Print</option>
+                  <option value="print">Tercetak</option>
                 </select>
               </div>
-              <button class="btn" id="btn-save" type="submit">Search</button>
+              <button class="btn" id="btn-save" type="submit">Telusur</button>
           </div>
         </form>
         <hr>
         <br>
 
         <div id="photodata_button">
-          <button class="btn" id="delete_button" data-toggle="modal" data-target="#deletedata_modal">Delete Selected Data</button>
-          <input class="btn" id="btn-save" type="button" name="Check_All" value="Check All" onClick="CheckAll(document.photolist.check_list)">
-          <input class="btn" id="btn-save" type="button" name="Un_CheckAll" value="Uncheck All" onClick="UnCheckAll(document.photolist.check_list)">
-          <button class="btn" id="btn-save">Export to CSV</button>
+          <button class="btn" id="delete_button" data-toggle="modal" data-target="#deletedata_modal">Hapus Data Terpilih</button>
+          <input class="btn" id="btn-save" type="button" name="Check_All" value="Pilih Semua" onClick="CheckAll(document.photolist.check_list)">
+          <input class="btn" id="btn-save" type="button" name="Un_CheckAll" value="Kosongkan Semua" onClick="UnCheckAll(document.photolist.check_list)">
+          <button class="btn" id="btn-save">Ekspor dalam format CSV</button>
         </div>
         <br>
 
@@ -117,10 +118,10 @@
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-body">
-                      <h1 id="done">Delete selected data?</h1>
+                      <h1 id="done">Hapus data terpilih?</h1>
                       <div class="lead" id="btn_modaldelete">
-                        <button type="close" class="btn" id="btn-close" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn" id="btn-save">Delete</button>
+                        <button type="close" class="btn" id="btn-close" data-dismiss="modal">Keluar</button>
+                        <button type="submit" class="btn" id="btn-save">Hapus</button>
                       </div>
                     </div>
                  </div>
@@ -130,12 +131,12 @@
 
         <table class="table">
           <tr id="table_header">
-            <td>DELETE</td>
-            <td>EDIT</td>
-            <td>PHOTO</td>
-            <td>PHOTO TITLE</td>            
+            <td>Hapus</td>
+            <td>UBAH</td>
+            <td>FOTO</td>
+            <td>JUDUL FOTO</td>            
             <td>FORMAT</td>
-            <td>LAST UPDATE</td>
+            <td>PEMBARUAN TERAKHIR</td>
           </tr>
 
           <?php
@@ -167,10 +168,10 @@
         </table>
 
         <div id="photodata_button">
-          <button class="btn" id="delete_button" data-toggle="modal" data-target="#deletedata_modal">Delete Selected Data</button>
-          <input class="btn" id="btn-save" type="button" name="Check_All" value="Check All" onClick="CheckAll(document.photolist.check_list)">
-          <input class="btn" id="btn-save" type="button" name="Un_CheckAll" value="Uncheck All" onClick="UnCheckAll(document.photolist.check_list)">
-          <button class="btn" id="btn-save">Export to CSV</button>
+          <button class="btn" id="delete_button" data-toggle="modal" data-target="#deletedata_modal">Hapus Data Terpilih</button>
+          <input class="btn" id="btn-save" type="button" name="Check_All" value="Pilih Semua" onClick="CheckAll(document.photolist.check_list)">
+          <input class="btn" id="btn-save" type="button" name="Un_CheckAll" value="Kosongkan Semua" onClick="UnCheckAll(document.photolist.check_list)">
+          <button class="btn" id="btn-save">Ekspor dalam format CSV</button>
         </div>
 
 
@@ -199,7 +200,7 @@
 
     <div id="footer">
       <div class="container">
-        <p class="text-muted">Mapala UI Photo Library © 2014 by <a href="http://twitter.com/nadafadhila">@nadafadhila</a><br><a href="http://getbootstrap.com">Bootstrap</a></p>
+        <p class="text-muted">Mapala UI Photo Library © 2014 oleh <a href="http://twitter.com/nadafadhila">@nadafadhila</a><br><a href="http://getbootstrap.com">Bootstrap</a></p>
       </div>
     </div>
     <!-- /.container -->

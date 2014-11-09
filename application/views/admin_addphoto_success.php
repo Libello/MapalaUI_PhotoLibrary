@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="<?php echo base_url('assets/ico').'/favicon.png';?>">
 
-    <title>Success</title>
+    <title>Berhasil</title>
 
     <!-- Bootstrap core CSS -->
     <link href="<?php echo base_url('assets/css').'/bootstrap.min.css';?>" rel="stylesheet">
@@ -35,13 +35,13 @@
         <br>
         <br>
 
-        <h1 id='adminlogin_header'>You're cool!</h1>
+        <h1 id='adminlogin_header'>Selamat!</h1>
         <?php
           if($message != null) {
-            echo "<h1 id='adminlogin_header'>$message</h1>"; 
+            echo "<h1 id='adminlogin_header'>".print_r($message)."</h1>"; 
           }
         ?>
-        <br><br><h4><a href="<?php echo site_url('/add_photo');?>"><span class="glyphicon glyphicon-plus"></span> Add another photo</a>  |  <a href="<?php echo site_url('/photo_list');?>"><span class="glyphicon glyphicon-list-alt"></span> Go to "Photo List" page</a></h4>
+        <br><br><h4><a href="<?php echo site_url('/add_photo');?>"><span class="glyphicon glyphicon-plus"></span> Tambah data foto lainnya</a>  |  <a href="<?php echo site_url('/photo_list');?>"><span class="glyphicon glyphicon-list-alt"></span> Lihat daftar foto</a></h4>
 
       </div>
     </div>
@@ -61,7 +61,7 @@
 
     <div id="footer">
       <div class="container">
-        <p class="text-muted">Mapala UI Photo Library © 2014 by <a href="http://twitter.com/nadafadhila">@nadafadhila</a><br><a href="http://getbootstrap.com">Bootstrap</a></p>
+        <p class="text-muted">Mapala UI Photo Library © 2014 oleh <a href="http://twitter.com/nadafadhila">@nadafadhila</a><br><a href="http://getbootstrap.com">Bootstrap</a></p>
       </div>
     </div><!-- /.container -->
     <!-- Bootstrap core JavaScript

@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="<?php echo base_url('assets/ico').'/favicon.png';?>">
 
-    <title>Mapala UI Photo Library</title>
+    <title>Galeri</title>
 
     <!-- Bootstrap core CSS -->
     <link href="<?php echo base_url('assets/css').'/bootstrap.min.css';?>" rel="stylesheet">
@@ -42,16 +42,15 @@
           </div>
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-              <li><a id="nav_name" href="<?php echo site_url('/home');?>">Home</a></li>
-              <li><a id="nav_name" href="<?php echo site_url('/search');?>">Search</a></li>
-              <li class="active"><a id="nav_name" href="<?php echo site_url('/gallery');?>">Gallery</a></li>
-              <li><a id="nav_name" href="<?php echo site_url('/guestToAdmin');?>">Admin Page</a></li>
-              <li><a id="nav_name" href="<?php echo site_url('/others');?>">Others</a></li>
+              <li><a id="nav_name" href="<?php echo site_url('/home');?>">Beranda</a></li>
+              <li><a id="nav_name" href="<?php echo site_url('/search');?>">Penelusuran</a></li>
+              <li class="active"><a id="nav_name" href="<?php echo site_url('/gallery');?>">Galeri</a></li>
+              <li><a id="nav_name" href="<?php echo site_url('/others');?>">Tentang MUIPL</a></li>
               <form class="navbar-form navbar-left" role="search">
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Search">
+                  <input type="text" class="form-control" placeholder="Penelusuran sederhana">
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="submit" class="btn btn-default">Cari</button>
               </form>
             </ul>
           </div><!--/.nav-collapse -->
@@ -65,7 +64,8 @@
                     <span class=" glyphicon glyphicon-user"></span>
                   </button>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="<?php echo site_url('/logout');?>">Logout</a></li>
+                    <li><a href="<?php echo site_url('/photo_list');?>">Halaman Admin</a></li>
+                    <li><a href="<?php echo site_url('/logout');?>">Keluar</a></li>
                   </ul>
                 </li>
               </ul>
@@ -73,8 +73,8 @@
           </div>
           <div class="col-lg-3">
               <p class="nav navbar-nav" id="logged_in_as">
-                Logged in as <b><?php echo $name;?></b>
-                <br>from <?php echo $institution;?>
+                Masuk sebagai <b><?php echo $name;?></b>
+                <br>dari <?php echo $institution;?>
               </p>                
           </div><!--/.nav-collapse -->
         </div>
@@ -84,26 +84,26 @@
     <div class="container">
       <div class="starter-template">
         
-        <h1 id="search_header">Event</h1><hr>
+        <h1 id="search_header">Kegiatan</h1><hr>
         <div class="search_result">
           <div class="media">
             <div class="media-body">
               <a href="#" role="button"><h4 class="media-heading">Arung Jeram Sungai Lariang dan Telusur Taman Nasional Lore Lindu (TNLL)</h4></a>
               <p>Sulawesi Tengah | 2014 | Rafting | xxx foto</p>
-              <p><a id="btn-photodetail" href="#" role="button">See Album &raquo;</a></p>
+              <p><a id="btn-photodetail" href="#" role="button">Lihat album &raquo;</a></p>
             </div>
           </div>
           <div class="media">
             <div class="media-body">
               <a href="#" role="button"><h4 class="media-heading">Perjalanan Panjang Gunung Masurai dan Bakti Sosial Mapala UI Berbagi</h4></a>
               <p>Jambi | 2012 | BKP | xxx foto</p>
-              <p><a id="btn-photodetail" href="#" role="button">See Album &raquo;</a></p>
+              <p><a id="btn-photodetail" href="#" role="button">Lihat album &raquo;</a></p>
             </div>
           </div>
         </div>
         <br>
         <br>
-        <h1 id="search_header">Photo</h1><hr>
+        <h1 id="search_header">Foto</h1><hr>
 
         <div class="row">
           <div class="col-xs-6 col-md-3">
@@ -155,7 +155,7 @@
 
     <div id="footer">
       <div class="container">
-        <p class="text-muted">Mapala UI Photo Library © 2014 by <a href="http://twitter.com/nadafadhila">@nadafadhila</a><br><a href="http://getbootstrap.com">Bootstrap</a></p>
+        <p class="text-muted">Mapala UI Photo Library © 2014 oleh <a href="http://twitter.com/nadafadhila">@nadafadhila</a><br><a href="http://getbootstrap.com">Bootstrap</a></p>
       </div>
     </div><!-- /.container -->
     <!-- Bootstrap core JavaScript

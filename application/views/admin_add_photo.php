@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="<?php echo base_url('assets/ico').'/favicon.png';?>">
 
-    <title>Add New Photo Data</title>
+    <title>Tambah Data Foto Baru</title>
 
     <!-- Bootstrap core CSS -->
     <link href="<?php echo base_url('assets/css').'/bootstrap.min.css';?>" rel="stylesheet">
@@ -40,11 +40,11 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a id="nav-name" href="<?php echo site_url('/photo_list');?>">Photo List</a></li>
-            <li class="active"><a id="nav-name" href="<?php echo site_url('/add_photo');?>">Add Photo</a></li>
+            <li><a id="nav-name" href="<?php echo site_url('/photo_list');?>">Daftar Foto</a></li>
+            <li class="active"><a id="nav-name" href="<?php echo site_url('/add_photo');?>">Tambah Foto</a></li>
             <li><a id="nav-name" href="<?php echo site_url('/master_data');?>">Master Data</a></li>
-            <li><a id="nav-name" href="<?php echo site_url('/guest_log');?>">Guest Log</a></li>
-            <li><a id="nav-name" href="<?php echo site_url('/logout');?>">Logout</a></li>
+            <li><a id="nav-name" href="<?php echo site_url('/guest_log');?>">Daftar Pengunjung</a></li>
+            <li><a id="nav-name" href="<?php echo site_url('/logout');?>">Keluar</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -56,7 +56,7 @@
           <h1 id="formtitle">Data Foto Baru</h1>
         </div><br>
         <p class="lead" id="formdetail">Masukkan detail foto pada form di bawah ini.<br>
-        <p class="required">* = harus diisi</p>
+        * harus diisi</p>
         <hr>
 
         
@@ -131,7 +131,7 @@
                 <input type="checkbox" name="format" value="repro/scan"> Repro / Scan
               </div>
               <div class="checkbox">
-                <input type="checkbox" name="format" value="print"> Tercetak
+                <input type="checkbox" name="format" value="tercetak"> Tercetak
               </div>
             </div>
             <p class="col-sm-1 required">*</p>
@@ -196,7 +196,7 @@
 
           <!--Date Taken-->
           <div class="form-group">
-            <label for="photo_date" class="col-sm-2 control-label">Tanggal Pengambilan Gambar</label>
+            <label for="photo_date" class="col-sm-2 control-label">Tanggal Foto</label>
             <div class="col-sm-1">
               <select class="form-control" name="taken_date">
                 <option value="tgl">tgl</option>
@@ -237,7 +237,7 @@
 
           <!--Taken Location-->
           <div class="form-group">
-            <label for="coverage" class="col-sm-2 control-label">Lokasi Pengambilan Gambar (Spesifik)</label>
+            <label for="coverage" class="col-sm-2 control-label">Lokasi dalam Foto (Spesifik)</label>
             <div class="col-sm-9">
               <input type="text" class="form-control" name="taken_location" placeholder="Lokasi dalam foto secara detail: misalnya 'Sungai Lariang', bukan 'Sulawesi Tengah'">
             </div>
@@ -252,12 +252,12 @@
           </div>
 
           <!--Insert Photo-->
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label for="description" class="col-sm-2 control-label">Unggah Foto</label>
-            <div class="col-sm-9">
-              <input type="file" id="attach_photo">
-            </div>
-          </div>
+            <div class="col-sm-9"> -->
+              <input type="file" name="user_file">
+            <!-- </div>
+          </div> -->
            
 
           <!--Button Other Format Location-->
@@ -503,7 +503,7 @@
 
     <div id="footer">
       <div class="container">
-        <p class="text-muted">Mapala UI Photo Library © 2014 by <a href="http://twitter.com/nadafadhila">@nadafadhila</a><br><a href="http://getbootstrap.com">Bootstrap</a></p>
+        <p class="text-muted">Mapala UI Photo Library © 2014 oleh <a href="http://twitter.com/nadafadhila">@nadafadhila</a><br><a href="http://getbootstrap.com">Bootstrap</a></p>
       </div>
     </div>
     <!-- /.container -->

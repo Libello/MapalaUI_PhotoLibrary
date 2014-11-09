@@ -43,7 +43,7 @@
 
           <div class="mastfoot">
             <div class="inner">
-              <p><b>Mapala UI Photo Library</b> © 2014 by <a href="http://www.twitter.com/nadafadhila">@nadafadhila</a></p>
+              <p><b>Mapala UI Photo Library</b> © 2014 oleh <a href="http://www.twitter.com/nadafadhila">@nadafadhila</a></p>
             </div>
           </div>
 

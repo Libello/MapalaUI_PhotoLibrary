@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="<?php echo base_url('assets/ico').'/favicon.png';?>">
 
-    <title>Welcome</title>
+    <title>Buku Tamu</title>
 
     <!-- Bootstrap core CSS -->
     <link href="<?php echo base_url('assets/css').'/bootstrap.min.css';?>" rel="stylesheet">
@@ -37,9 +37,9 @@
           <div class="masthead clearfix">
             <div class="inner">
               <ul class="nav masthead-nav">
-                <li><a href="<?php echo base_url();?>">Home</a></li>
-                <li class="active"><a href="<?php echo site_url('/guest_login');?>">Guest Login</a></li>
-                <li><a href="<?php echo site_url('/contact');?>">Contact</a></li>
+                <li><a href="<?php echo base_url();?>">Beranda</a></li>
+                <li class="active"><a href="<?php echo site_url('/guest_login');?>">Buku Tamu</a></li>
+                <li><a href="<?php echo site_url('/contact');?>">Kontak</a></li>
               </ul>
             </div>
             <br>
@@ -50,24 +50,24 @@
           
 
           <div class="inner_cover">
-            <h1 id="guestlogin_header">Guest Book</h1>
-            <p class="detail">Tolong isi dengan <b>nama</b> dan <b>asal institusi/kota</b>-mu terlebih dahulu ya<br>sebelum mulai melihat koleksi :)</p>
+            <h1 id="guestlogin_header">Buku Tamu</h1>
+            <p class="detail">Tolong isi dengan <b>nama</b> dan <b>asal institusi/kota</b>-mu <br>terlebih dahulu ya sebelum mulai melihat koleksi :)</p>
             
             <form class="form-horizontal" id="guest_form" role="form" method="post" action="<?php echo site_url('/doGuestLogin');?>/">
               <div class="form-group">
                 <div class="col-sm-9">
-                  <input type="username" class="form-control" name="guest_name" placeholder="Name" required autofocus>
+                  <input type="username" class="form-control" name="guest_name" placeholder="Nama" required autofocus>
                 </div>
               </div>
 
               <div class="form-group">
                 <div class="col-sm-9">
-                  <input type="username" class="form-control" name="guest_institution" placeholder="Institution or City" required>
+                  <input type="username" class="form-control" name="guest_institution" placeholder="Institusi atau kota" required>
                 </div>
               </div>
         
               <div class="lead">
-                <button class="btn btn-default" type="submit" role="button">Submit</button>
+                <button class="btn btn-default" type="submit" role="button">Masuk</button>
               </div>
             </form>
           </div>
@@ -77,7 +77,7 @@
 
           <div class="mastfoot">
             <div class="inner">
-              <p><b>Mapala UI Photo Library</b> © 2014 by <a href="http://www.twitter.com/nadafadhila">@nadafadhila</a><br><a href="http://getbootstrap.com">Bootstrap</a></p>
+              <p><b>Mapala UI Photo Library</b> © 2014 oleh <a href="http://www.twitter.com/nadafadhila">@nadafadhila</a><br><a href="http://getbootstrap.com">Bootstrap</a></p>
             </div>
           </div>
 

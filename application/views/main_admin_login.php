@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="<?php echo base_url('assets/ico').'/favicon.png';?>">
 
-    <title>Administrator Login</title>
+    <title>Login Administrator</title>
 
     <!-- Bootstrap core CSS -->
     <link href="<?php echo base_url('assets/css').'/bootstrap.min.css';?>" rel="stylesheet">
@@ -35,11 +35,11 @@
         <br>
         <br>
 
-        <h1 id="adminlogin_header">Admin Login</h1>
+        <h1 id="adminlogin_header">Login Administrator</h1>
         <form class="form-horizontal" id="admin_form" role="form" method="post" action="<?php echo site_url('/doAdminLogin');?>/">
               <div class="form-group">
                 <div class="col-sm-8">
-                  <input type="username" class="form-control" name="admin_name" placeholder="Name" required autofocus>
+                  <input type="username" class="form-control" name="admin_name" placeholder="Nama" required autofocus>
                 </div>
               </div>
 
@@ -50,7 +50,7 @@
               </div>
               
               <div class="lead">
-                <button class="btn btn-default" type="submit" role="button">Login</button>
+                <button class="btn btn-default" type="submit" role="button">Masuk</button>
               </div>
         </form>
         <?php
@@ -58,7 +58,7 @@
             echo $message; 
           }
         ?>
-        <br><br><a href="#">Back to previous page</a>
+        <br><br><a href="<?php echo base_url();?>/">Kembali ke halaman awal</a>
       </div>
     </div>
 
@@ -71,7 +71,7 @@
 
     <div id="footer">
       <div class="container">
-        <p class="text-muted">Mapala UI Photo Library © 2014 by <a href="http://twitter.com/nadafadhila">@nadafadhila</a><br><a href="http://getbootstrap.com">Bootstrap</a></p>
+        <p class="text-muted">Mapala UI Photo Library © 2014 oleh <a href="http://twitter.com/nadafadhila">@nadafadhila</a><br><a href="http://getbootstrap.com">Bootstrap</a></p>
       </div>
     </div><!-- /.container -->
     <!-- Bootstrap core JavaScript

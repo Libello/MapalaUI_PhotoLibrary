@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="<?php echo base_url('assets/ico').'/favicon.png';?>">
 
-    <title>Guest Log</title>
+    <title>Daftar Pengunjung</title>
 
     <!-- Bootstrap core CSS -->
     <link href="<?php echo base_url('assets/css').'/bootstrap.min.css';?>" rel="stylesheet">
@@ -41,11 +41,11 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a id="nav-name" href="<?php echo site_url('/photo_list');?>">Photo List</a></li>
-            <li><a id="nav-name" href="<?php echo site_url('/add_photo');?>">Add Photo</a></li>
+            <li><a id="nav-name" href="<?php echo site_url('/photo_list');?>">Daftar Foto</a></li>
+            <li><a id="nav-name" href="<?php echo site_url('/add_photo');?>">Tambah Foto</a></li>
             <li><a id="nav-name" href="<?php echo site_url('/master_data');?>">Master Data</a></li>
-            <li class="active"><a id="nav-name" href="<?php echo site_url('/guest_log');?>">Guest Log</a></li>
-            <li><a id="nav-name" href="<?php echo site_url('/logout');?>">Logout</a></li>
+            <li class="active"><a id="nav-name" href="<?php echo site_url('/guest_log');?>">Daftar Pengunjung</a></li>
+            <li><a id="nav-name" href="<?php echo site_url('/logout');?>">Keluar</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -64,9 +64,9 @@
 
         <table class="table">
           <tr id="table_header">
-            <td>LOGIN TIME</td>
-            <td>NAME</td>
-            <td>INSTITUTION</td>
+            <td>WAKTU MASUK</td>
+            <td>NAMA</td>
+            <td>INSTITUSI / KOTA</td>
           </tr>
           <?php
             foreach ($guestlist as $row){
@@ -91,7 +91,7 @@
 
     <div id="footer">
       <div class="container">
-        <p class="text-muted">Mapala UI Photo Library © 2014 by <a href="http://twitter.com/nadafadhila">@nadafadhila</a><br><a href="http://getbootstrap.com">Bootstrap</a></p>
+        <p class="text-muted">Mapala UI Photo Library © 2014 oleh <a href="http://twitter.com/nadafadhila">@nadafadhila</a><br><a href="http://getbootstrap.com">Bootstrap</a></p>
       </div>
     </div>
     <!-- /.container -->
