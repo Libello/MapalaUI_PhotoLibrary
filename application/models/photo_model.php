@@ -17,7 +17,7 @@
     public function getPhotoById($id) {
       $this->load->database();
       $query = $this->db->query('SELECT * FROM photo_record WHERE id_photo = '.$this->db->escape($id).' LIMIT 1');
-      return $query->result_array();
+      return $query->row_array();
     }
 
     public function searchBy($data) {
