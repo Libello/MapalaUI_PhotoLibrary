@@ -59,9 +59,8 @@
         * harus diisi</p>
         <hr>
 
+        <form class="form-horizontal" role="form" name="add_photo" method="post" enctype="multipart/form-data" action="<?php echo site_url('/addNewPhoto');?>">
         
-        <form class="form-horizontal" role="form" name="add_photo" method="post" action="<?php echo site_url('/addNewPhoto');?>/">
-          
           <!--Field ID-->
           <div class="form-group">
             <label for="photo_id" class="col-sm-2 control-label">ID Foto</label>
@@ -135,14 +134,6 @@
               </div>
             </div>
             <p class="col-sm-1 required">*</p>
-          </div>
-
-          <!--Field Size-->
-          <div class="form-group">
-            <label for="format" class="col-sm-2 control-label">Ukuran</label>
-            <div class="col-sm-3">
-              <input type="text" class="form-control" name="size" placeholder="Ukuran atau dimensi foto">
-            </div>
           </div>
 
           <!--Field Color-->
@@ -252,12 +243,12 @@
           </div>
 
           <!--Insert Photo-->
-          <!-- <div class="form-group">
+          <div class="form-group">
             <label for="description" class="col-sm-2 control-label">Unggah Foto</label>
-            <div class="col-sm-9"> -->
-              <input type="file" name="user_file">
-            <!-- </div>
-          </div> -->
+            <div class="col-sm-9">
+              <input type="file" name="userfile">
+            </div>
+          </div>
            
 
           <!--Button Other Format Location-->

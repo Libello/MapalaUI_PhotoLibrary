@@ -154,14 +154,13 @@ class admin_controller extends CI_Controller {
 	public function view_photo_list() {
 
 		$this->load->model('photo_model');
-		$this->load->model('photographer_model');
 		$data_photo = null;
 
 		if(!empty($_POST)) {
 			$data = $this->input->post();
 			$searchBy = $data['field'];
 			if($searchBy == 'all') {
-				$data_photo = $this->photo_model->searchPhoto($data);
+				$data_photo = $this->photo_model->searchBy($data);
 			}
 			else {
 				$data_photo = $this->photo_model->searchBy($data);
@@ -175,8 +174,8 @@ class admin_controller extends CI_Controller {
 	    $count = 0;
 
 	    foreach ($data_photo as $photo) {
-	    	$photographer = $this->photographer_model->getPhotographerById($photo['id_photographer']);
-			$photolist[$count]['photographer'] = $photographer['name'];
+	    	$photolist[$count]['id'] = $photo['id_photo'];
+			$photolist[$count]['photographer'] = $photo['name_photographer'];
 	    	$photolist[$count]['image'] = $photo['photo_upload'];
 	    	$photolist[$count]['title'] = $photo['title'];
 	    	$photolist[$count]['format'] = $photo['format'];
@@ -398,10 +397,38 @@ class admin_controller extends CI_Controller {
 			}
 			else
 			{
-				$datafoto = array('upload_data' => $this->upload->data());
+				$datafoto = $this->upload->data();
 				$data = $this->input->post();
-				$data['filename'] = $datafoto['file_name'];
 				$this->load->model('photo_model');
+				$this->load->model('photographer_model');
+				$this->load->model('event_model');
+				$this->load->model('editor_model');
+				$this->load->model('owner_model');
+
+				$data['name_photographer'] = null;
+				$data['name_event'] = '-';
+				$data['name_editor'] = '-';
+				$data['name_owner'] = '-';
+				$data['userfile'] = $datafoto['file_name'];
+				$data['size'] = $datafoto['image_width'].'x'.$datafoto['image_height'];
+
+				if($data['photographer'] != null) {
+					$photographer = $this->photographer_model->getPhotographerById($data['photographer']);
+					$data['name_photographer'] = $photographer['name'];
+				}
+				if($data['event'] != '-') {
+					$event = $this->event_model->getEventById($data['event']);
+					$data['name_event'] = $event['name'];					
+				}
+				if($data['editor'] != '-') {
+					$editor = $this->editor_model->getEditorById($data['editor']);
+					$data['name_editor'] = $editor['name'];					
+				}
+				if($data['owner'] != '-') {
+					$owner = $this->owner_model->getOwnerById($data['owner']);
+					$data['name_owner'] = $owner['name'];
+				}
+				
 				$success = $this->photo_model->insertNewPhoto($data);
 				if($success) {
 					$errmes['message'] = 'Add new photo success';

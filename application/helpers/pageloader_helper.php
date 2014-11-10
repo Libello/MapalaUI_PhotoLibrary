@@ -27,6 +27,7 @@ if ( ! function_exists('load_view'))
         else {
           $data['name'] = 'admin';
           $data['institution'] = 'Mapala UI';
+          $data['status'] = 'admin';
         }
   		} 
       // Jika login sebagai guest, set username dan institution sesuai dengan isian saat login
@@ -38,6 +39,7 @@ if ( ! function_exists('load_view'))
     		$arr = $ci->guest_model->getGuestById($userId);
     		$data['name'] = $arr['name'];
         $data['institution'] = $arr['institution'];
+        $data['status'] = 'guest';
   		}
   		$ci->load->vars($data);
   		$ci->load->view($viewname);
