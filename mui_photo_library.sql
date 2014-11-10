@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2014 at 04:27 PM
+-- Generation Time: Nov 10, 2014 at 01:39 PM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
 --
 
 INSERT INTO `ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
-('14b34551a5c6295047eb6782e2adeaec', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.143 Safari/537.36', 1415632811, 'a:2:{s:9:"user_data";s:0:"";s:7:"idGuest";s:5:"admin";}');
+('802013a6361076b4e7d5f04360f9c650', '::1', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.143 Safari/537.36', 1415623025, 'a:2:{s:9:"user_data";s:0:"";s:7:"idGuest";s:5:"admin";}');
 
 -- --------------------------------------------------------
 
@@ -244,9 +244,9 @@ CREATE TABLE IF NOT EXISTS `photo_record` (
 
 INSERT INTO `photo_record` (`id_photo`, `title`, `id_photographer`, `name_photographer`, `format`, `size`, `color`, `id_event`, `name_event`, `category`, `taken_date`, `taken_location`, `description`, `notes`, `id_editor`, `name_editor`, `repro_date`, `published_on`, `published_date`, `photo_upload`, `location_HDD_name`, `location_HDD_folder`, `location_sekret_album`, `id_owner`, `name_owner`, `location_notes`, `tag`, `last_update`) VALUES
 ('908838_2014_8338', 'fjshs', 30, 'Satria', 'print', '35x66', 'sephia', 3, '', 'rafting', '15/Nopember/2000', 'Ciliwung', 'jdjdj', 'sjsjsj', 1, '', '16/Desember/2001', 'hdhjd', '18/Nopember/2001', '', '', '', '', 0, '', '', 'sss,sss', '2014-11-08 08:49:12'),
-('asa_asa_asa', 'asa', 30, 'Satria', 'digital', '', '', 0, '-', '', 'tgl/bln/thn', '', '', '', 0, '-', 'tgl/bln/thn', '', 'tgl/bln/thn', 'WIN_20140728_095252.JPG', '', '', '', 0, '-', '', '', '2014-11-10 08:33:28'),
-('MSR_2012_00001', 'Contoh Judul Foto', 30, 'Satria', 'digital,repro/scan', '', 'color', 2, '', 'mountaineering', '', '', '', '', 0, '', '', '', '', '', '', '', '', 0, '', '', '', '2014-10-27 07:54:40'),
-('SAT_2014_00001', 'Satria Lagi Tidur Nih', 30, 'Satria', 'digital', '', '', 0, '', 'others', '', '', '', '', 0, '', '', '', '', '', '', '', '', 0, '', '', '', '2014-10-27 09:47:51');
+('asa/asa/asa', 'asa', 30, 'Satria', 'digital', '', '', 0, '-', '', 'tgl/bln/thn', '', '', '', 0, '-', 'tgl/bln/thn', '', 'tgl/bln/thn', 'WIN_20140728_095252.JPG', '', '', '', 0, '-', '', '', '2014-11-10 08:33:28'),
+('MSR/2012/00001', 'Contoh Judul Foto', 30, 'Satria', 'digital,repro/scan', '', 'color', 2, '', 'mountaineering', '', '', '', '', 0, '', '', '', '', '', '', '', '', 0, '', '', '', '2014-10-27 07:54:40'),
+('SAT/2014/00001', 'Satria Lagi Tidur Nih', 30, 'Satria', 'digital', '', '', 0, '', 'others', '', '', '', '', 0, '', '', '', '', '', '', '', '', 0, '', '', '', '2014-10-27 09:47:51');
 
 -- --------------------------------------------------------
 
@@ -254,34 +254,6 @@ INSERT INTO `photo_record` (`id_photo`, `title`, `id_photographer`, `name_photog
 -- Stand-in structure for view `viewactivity`
 --
 CREATE TABLE IF NOT EXISTS `viewactivity` (
-`id_photo` varchar(255)
-,`title` varchar(255)
-,`id_photographer` int(11)
-,`name_photographer` varchar(255)
-,`format` set('digital','repro/scan','print')
-,`size` varchar(255)
-,`color` enum('color','b&w','sephia')
-,`id_event` int(11)
-,`name_event` varchar(255)
-,`category` set('climbing','rafting','caving','diving','mountaineering','paragliding','sailing','BKP','others')
-,`taken_date` varchar(255)
-,`taken_location` varchar(255)
-,`description` text
-,`notes` text
-,`id_editor` int(11)
-,`name_editor` varchar(255)
-,`repro_date` varchar(255)
-,`published_on` varchar(255)
-,`published_date` varchar(255)
-,`photo_upload` varchar(255)
-,`location_HDD_name` varchar(255)
-,`location_HDD_folder` varchar(255)
-,`location_sekret_album` varchar(255)
-,`id_owner` int(11)
-,`name_owner` varchar(255)
-,`location_notes` text
-,`tag` varchar(255)
-,`last_update` timestamp
 );
 -- --------------------------------------------------------
 
@@ -289,34 +261,6 @@ CREATE TABLE IF NOT EXISTS `viewactivity` (
 -- Stand-in structure for view `viewformat`
 --
 CREATE TABLE IF NOT EXISTS `viewformat` (
-`id_photo` varchar(255)
-,`title` varchar(255)
-,`id_photographer` int(11)
-,`name_photographer` varchar(255)
-,`format` set('digital','repro/scan','print')
-,`size` varchar(255)
-,`color` enum('color','b&w','sephia')
-,`id_event` int(11)
-,`name_event` varchar(255)
-,`category` set('climbing','rafting','caving','diving','mountaineering','paragliding','sailing','BKP','others')
-,`taken_date` varchar(255)
-,`taken_location` varchar(255)
-,`description` text
-,`notes` text
-,`id_editor` int(11)
-,`name_editor` varchar(255)
-,`repro_date` varchar(255)
-,`published_on` varchar(255)
-,`published_date` varchar(255)
-,`photo_upload` varchar(255)
-,`location_HDD_name` varchar(255)
-,`location_HDD_folder` varchar(255)
-,`location_sekret_album` varchar(255)
-,`id_owner` int(11)
-,`name_owner` varchar(255)
-,`location_notes` text
-,`tag` varchar(255)
-,`last_update` timestamp
 );
 -- --------------------------------------------------------
 
@@ -340,8 +284,7 @@ DROP TABLE IF EXISTS `format`;
 -- Structure for view `viewactivity`
 --
 DROP TABLE IF EXISTS `viewactivity`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `viewactivity` AS select `photo_record`.`id_photo` AS `id_photo`,`photo_record`.`title` AS `title`,`photo_record`.`id_photographer` AS `id_photographer`,`photo_record`.`name_photographer` AS `name_photographer`,`photo_record`.`format` AS `format`,`photo_record`.`size` AS `size`,`photo_record`.`color` AS `color`,`photo_record`.`id_event` AS `id_event`,`photo_record`.`name_event` AS `name_event`,`photo_record`.`category` AS `category`,`photo_record`.`taken_date` AS `taken_date`,`photo_record`.`taken_location` AS `taken_location`,`photo_record`.`description` AS `description`,`photo_record`.`notes` AS `notes`,`photo_record`.`id_editor` AS `id_editor`,`photo_record`.`name_editor` AS `name_editor`,`photo_record`.`repro_date` AS `repro_date`,`photo_record`.`published_on` AS `published_on`,`photo_record`.`published_date` AS `published_date`,`photo_record`.`photo_upload` AS `photo_upload`,`photo_record`.`location_HDD_name` AS `location_HDD_name`,`photo_record`.`location_HDD_folder` AS `location_HDD_folder`,`photo_record`.`location_sekret_album` AS `location_sekret_album`,`photo_record`.`id_owner` AS `id_owner`,`photo_record`.`name_owner` AS `name_owner`,`photo_record`.`location_notes` AS `location_notes`,`photo_record`.`tag` AS `tag`,`photo_record`.`last_update` AS `last_update` from `photo_record`;
+-- in use(#1356 - View 'mui_photo_library.viewactivity' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them)
 
 -- --------------------------------------------------------
 
@@ -349,8 +292,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- Structure for view `viewformat`
 --
 DROP TABLE IF EXISTS `viewformat`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `viewformat` AS select `viewactivity`.`id_photo` AS `id_photo`,`viewactivity`.`title` AS `title`,`viewactivity`.`id_photographer` AS `id_photographer`,`viewactivity`.`name_photographer` AS `name_photographer`,`viewactivity`.`format` AS `format`,`viewactivity`.`size` AS `size`,`viewactivity`.`color` AS `color`,`viewactivity`.`id_event` AS `id_event`,`viewactivity`.`name_event` AS `name_event`,`viewactivity`.`category` AS `category`,`viewactivity`.`taken_date` AS `taken_date`,`viewactivity`.`taken_location` AS `taken_location`,`viewactivity`.`description` AS `description`,`viewactivity`.`notes` AS `notes`,`viewactivity`.`id_editor` AS `id_editor`,`viewactivity`.`name_editor` AS `name_editor`,`viewactivity`.`repro_date` AS `repro_date`,`viewactivity`.`published_on` AS `published_on`,`viewactivity`.`published_date` AS `published_date`,`viewactivity`.`photo_upload` AS `photo_upload`,`viewactivity`.`location_HDD_name` AS `location_HDD_name`,`viewactivity`.`location_HDD_folder` AS `location_HDD_folder`,`viewactivity`.`location_sekret_album` AS `location_sekret_album`,`viewactivity`.`id_owner` AS `id_owner`,`viewactivity`.`name_owner` AS `name_owner`,`viewactivity`.`location_notes` AS `location_notes`,`viewactivity`.`tag` AS `tag`,`viewactivity`.`last_update` AS `last_update` from `viewactivity` where (`viewactivity`.`format` = 'print');
+-- in use(#1356 - View 'mui_photo_library.viewactivity' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them)
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
