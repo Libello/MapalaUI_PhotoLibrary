@@ -43,10 +43,10 @@
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
               <li class="active"><a id="nav_name" href="<?php echo site_url('/home');?>"><span class="glyphicon glyphicon-home"></span><br>Beranda</a></li>
-              <li><a id="nav_name" href="<?php echo site_url('/search');?>">Penelusuran</a></li>
-              <li><a id="nav_name" href="<?php echo site_url('/gallery');?>">Galeri</a></li>
-              <li><a id="nav_name" href="<?php echo site_url('/others');?>">Tentang MUIPL</a></li>
-              <form class="navbar-form navbar-left" role="search">
+              <li><a id="nav_name" href="<?php echo site_url('/search');?>"><br>Penelusuran<br></a></li>
+              <li><a id="nav_name" href="<?php echo site_url('/gallery');?>"><br>Galeri<br></a></li>
+              <li><a id="nav_name" href="<?php echo site_url('/others');?>"><br>Tentang MUIPL<br></a></li>
+              <form class="navbar-form navbar-left" role="search" id="simple_search">
                 <div class="form-group">
                   <input type="text" class="form-control" placeholder="Cari koleksi">
                 </div>
@@ -55,7 +55,7 @@
             </ul>
           </div><!--/.nav-collapse -->
         </div>
-        <div class="col-lg-2">
+        <div class="col-lg-2" id="loggedin_as">
           <div class="col-lg-3">
             <div class="collapse navbar-collapse">
               <ul class="nav navbar-nav">

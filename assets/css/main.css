@@ -66,36 +66,39 @@ textarea {
 	border-color: #cc0000;
 }
 
-.navbar-brand {
-	padding-top: 5px;
-}
-
 .nav {
 	height: 85px;
-	padding-top: 15px;
 	font-family: 'ATypewriterForMe';
 	color: white;
 }
 
+.navbar-brand {
+	padding-top: 10px;
+}
+
 #nav_name {
 	color: white;
+	text-align: center;
 }
 
 .active #nav_name {
 	background-color: #101010;
-	height: 90px;
 	color: white;
 	opacity: 0.9;
+	height: 80px;
 }
 
 .active #nav_name:hover{
-	background-color: #101010;
-	height: 90px;
 	color: white;
 }
 
-#nav_name:hover {
-	color: #101010;
+#simple_search {
+	padding-top: 20px;
+	padding-left: 30px;
+}
+
+#loggedin_as {
+	padding-top: 3px;
 }
 
 .col-lg-2 {
