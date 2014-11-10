@@ -39,8 +39,8 @@ class guest_controller extends CI_Controller {
 			show_404();
 		}
 		else {
-			$data['id_photo'] = str_replace("_", "/", $data_photo['id_photo']);
-			load_view('main_photo_detail', $data);
+			// $data['id_photo'] = str_replace("_", "/", $data_photo['id_photo']);
+			load_view('main_photo_detail', $data_photo);
 		}
 	
 	}

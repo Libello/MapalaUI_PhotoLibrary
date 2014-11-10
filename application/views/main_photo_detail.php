@@ -101,98 +101,98 @@
         <h1 id="search_header">Detail Foto</h1><hr>
 
         <form class="form-horizontal" role="form">
-          <img src="../assets/img/Husky1.jpg" width="1000px">
+          <img src=<?php echo base_url('assets/foto').'/'.$photo_upload ?> width="1000px">
 
           <hr>
           <div class="form-group" id="photo_detail_form">
             <label class="col-sm-2 control-label">ID Foto</label>
             <div class="col-sm-10">
-            <p class="form-control-static">: <?php echo $id_photo ?></p>
+            <p class="form-control-static">: <?php echo str_replace("_", "/", $id_photo) ?></p>
             </div>
             
             <label class="col-sm-2 control-label">Judul</label>
             <div class="col-sm-10">
-            <p class="form-control-static">: Ini adalah judul foto</p>
+            <p class="form-control-static">: <?php echo $title ?></p>
             </div>
 
             <label class="col-sm-2 control-label">Fotografer</label>
             <div class="col-sm-10">
-            <p class="form-control-static">: Qatrunnada Fadhila</p>
+            <p class="form-control-static">: <?php echo $name_photographer ?></p>
             </div>
 
             <label class="col-sm-2 control-label">Format</label>
             <div class="col-sm-10">
-            <p class="form-control-static">: Repro / Scan; Print</p>
+            <p class="form-control-static">: <?php echo $format ?></p>
             </div>
 
             <label class="col-sm-2 control-label">Ukuran</label>
             <div class="col-sm-10">
-            <p class="form-control-static">: 3 x 4</p>
+            <p class="form-control-static">: <?php echo $size ?></p>
             </div>
 
             <label class="col-sm-2 control-label">Warna</label>
             <div class="col-sm-10">
-            <p class="form-control-static">: Black & White</p>
+            <p class="form-control-static">: <?php echo $color ?></p>
             </div>
 
             <label class="col-sm-2 control-label">Kegiatan</label>
             <div class="col-sm-10">
-            <p class="form-control-static">: Perjalanan Panjang Gunung Masurai dan Bakti Sosial Mapala UI Berbagi</p>
+            <p class="form-control-static">: <?php echo $name_event ?></p>
             </div>
 
             <label class="col-sm-2 control-label">Kategori</label>
             <div class="col-sm-10">
-            <p class="form-control-static">: BKP; Mountaineering;</p>
+            <p class="form-control-static">: <?php echo $category ?></p>
             </div>
 
             <label class="col-sm-2 control-label">Tanggal Foto</label>
             <div class="col-sm-10">
-            <p class="form-control-static">: 01 Februari 2012</p>
+            <p class="form-control-static">: <?php echo $taken_date ?></p>
             </div>
 
             <label class="col-sm-2 control-label">Lokasi dalam Foto</label>
             <div class="col-sm-10">
-            <p class="form-control-static">: SDN Rantau Kermas</p>
+            <p class="form-control-static">: <?php echo $taken_location ?></p>
             </div>
 
             <label class="col-sm-2 control-label">Deskripsi Foto</label>
             <div class="col-sm-10">
-            <p class="form-control-static">: Anggota Mapala UI sedang melakukan penyuluhan perilaku hidup bersih dan sehat dengan mendemonstrasikan cara menggosok gigi</p>
+            <p class="form-control-static">: <?php echo $description ?></p>
             </div>
 
             <label class="col-sm-2 control-label">Editor</label>
             <div class="col-sm-10">
-            <p class="form-control-static">: Satria Ramadhan</p>
+            <p class="form-control-static">: <?php echo $name_editor ?></p>
             </div>
 
             <label class="col-sm-2 control-label">Tanggal Reproduksi</label>
             <div class="col-sm-10">
-            <p class="form-control-static">: 25 October 2014</p>
+            <p class="form-control-static">: <?php echo $repro_date ?></p>
             </div>
 
             <label class="col-sm-2 control-label">Pernah Dipublikasi</label>
             <div class="col-sm-10">
-            <p class="form-control-static">: http://twitter.com/Mapala_UI</p>
+            <p class="form-control-static">: <?php echo $published_on ?></p>
             </div>
 
             <label class="col-sm-2 control-label">Tanggal Publikasi</label>
             <div class="col-sm-10">
-            <p class="form-control-static">: Februari 2012</p>
+            <p class="form-control-static">: <?php echo $published_date ?></p>
             </div>
 
             <label class="col-sm-2 control-label">Catatan</label>
             <div class="col-sm-10">
-            <p class="form-control-static">: Catatan</p>
+            <p class="form-control-static">: <?php echo $notes ?></p>
             </div>
 
             <label class="col-sm-2 control-label">Tag</label>
             <div class="col-sm-10">
-            <p class="form-control-static">: PHBS; Bakti Sosial;</p>
+            <p class="form-control-static">: <?php echo $tag ?></p>
             </div>
 
             <label class="col-sm-2 control-label">Lokasi Foto</label>
             <div class="col-sm-10">
-            <p class="form-control-static">: PHBS; Bakti Sosial;</p>
+            <p class="form-control-static">: <?php echo $location_HDD_name.'; '.$location_HDD_folder.'; '.$location_sekret_album ?></p>
             </div>
           </div>
 
