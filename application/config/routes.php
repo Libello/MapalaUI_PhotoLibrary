@@ -48,7 +48,7 @@ $route['category_detail'] = "guest_controller/view_main_gallery";
 $route['gallery'] = "guest_controller/view_main_categories";
 $route['home'] = "guest_controller/view_main_home";
 $route['others'] = "guest_controller/view_main_others";
-$route['detail'] = "guest_controller/view_main_photo_detail";
+$route['detail/(:any)'] = "guest_controller/view_main_photo_detail/$1";
 $route['search'] = "guest_controller/view_main_search";
 //Admin view route
 $route['admin_login'] = "admin_controller/view_login";
@@ -65,16 +65,13 @@ $route['guestToAdmin'] = "admin_controller/guestToAdmin";
 $route['doSearch'] = "guest_controller/searchPhoto";
 //modal +add dalam halaman Master Data
 $route['addPhotographer'] = "admin_controller/addPhotographer";
-//$route['deletePhotographer/:num'] = "admin_controller/deletePhotographer/$id"; <--katanya error
+$route['deletePhotographer/(:any)'] = "admin_controller/deletePhotographer/$1";
 $route['addEditor'] = "admin_controller/addEditor";
+$route['deleteEditor/(:any)'] = "admin_controller/deleteEditor/$1";
 $route['addEvent'] = "admin_controller/addEvent";
+$route['deleteEvent/(:any)'] = "admin_controller/deleteEvent/$1";
 $route['addOwner'] = "admin_controller/addOwner";
-//modal +add dalam halaman Add Photo
-$route['addNewPhoto'] = "admin_controller/addNewPhoto";
-$route['addPhotographerAP'] = "admin_controller/addPhotographerAP";
-$route['addEditorAP'] = "admin_controller/addEditorAP";
-$route['addEventAP'] = "admin_controller/addEventAP";
-$route['addOwnerAP'] = "admin_controller/addOwnerAP";
+$route['deleteOwner/(:any)'] = "admin_controller/deleteOwner/$1";
 
 
 

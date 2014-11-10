@@ -153,7 +153,7 @@
                 echo "</td>";
                 echo "<td class='grid'>";
                   echo "<h4>
-                          <a href=".base_url('/guest_controller/view_main_photo_detail/'.$row['id'].'').">".$row['title']."</a>
+                          <a href=".site_url('detail/'.$row['id'].'').">".$row['title']."</a>
                         </h4>";
                   echo "<span>".$row['photographer']."</span>";
                 echo "</td>";

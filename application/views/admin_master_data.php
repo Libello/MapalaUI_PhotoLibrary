@@ -110,7 +110,7 @@
                     echo "</td>";
                     echo "<td>";
                       echo '
-                        <form method="post" action="admin_controller/deletePhotographer/'.$row['id'].'/">
+                        <form method="post" action='.site_url('deletePhotographer/'.$row['id'].'').'>
                           <a class="pull-left" data-toggle="modal" data-target="#photographer_modal">
                               <button class="btn" id="btn-edit-master">Ubah</button>
                           </a>
@@ -247,7 +247,7 @@
                     echo "</td>";
                     echo "<td>";
                       echo '
-                        <form method="post" action="admin_controller/deleteEvent/'.$row['id'].'/">
+                        <form method="post" action='.site_url('deleteEvent/'.$row['id'].'').'>
                           <a class="pull-left" data-toggle="modal" data-target="#event_modal">
                               <button class="btn" id="btn-edit-master">Ubah</button>
                           </a>
@@ -408,7 +408,7 @@
                     echo "</td>";
                     echo "<td>";
                       echo '
-                        <form method="post" action="admin_controller/deleteEditor/'.$row['id'].'/">
+                        <form method="post" action='.site_url('deleteEditor/'.$row['id'].'').'>
                           <a class="pull-left" data-toggle="modal" data-target="#editor_modal">
                               <button class="btn" id="btn-edit-master">Ubah</button>
                           </a>
@@ -454,7 +454,6 @@
                         <h4 class="modal-title" id="editorLabel">Editor</h4>
                       </div>
                       <div class="modal-body">
-                        <!-- action="<?php //echo site_url('/addEditor');?>/" -->
                         <form class="form-horizontal" id="editormodal" role="form" method="post" action="<?php echo site_url('/addEditor');?>">
                           <div class="form-group">
                             <label for="editor_name" class="col-sm-3 control-label">Nama</label>

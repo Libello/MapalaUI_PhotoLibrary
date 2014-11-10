@@ -107,7 +107,7 @@
           <div class="form-group" id="photo_detail_form">
             <label class="col-sm-2 control-label">ID Foto</label>
             <div class="col-sm-10">
-            <p class="form-control-static">: 00001</p>
+            <p class="form-control-static"><?php echo $id_photo ?></p>
             </div>
             
             <label class="col-sm-2 control-label">Judul</label>
