@@ -101,6 +101,10 @@ textarea {
 	padding-top: 3px;
 }
 
+#loggedin_as .glyphicon-chevron-down {
+	padding-top: 25px;
+}
+
 .col-lg-2 {
 	color: white;
 	padding-top: 0px;
