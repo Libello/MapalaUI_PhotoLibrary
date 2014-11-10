@@ -90,7 +90,7 @@
     public function insertNewPhoto($data) {
 
 
-      $photo_id = $data['photo_idKeg'].'/'.$data['photo_idThn'].'/'.$data['photo_idNo'];
+      $photo_id = $data['photo_idKeg'].'_'.$data['photo_idThn'].'_'.$data['photo_idNo'];
       $taken_date = $data['taken_date'].'/'.$data['taken_month'].'/'.$data['taken_year'];
       $repro_date = $data['repro_date'].'/'.$data['repro_month'].'/'.$data['repro_year'];
       $published_date = $data['published_date'].'/'.$data['published_month'].'/'.$data['published_year'];
