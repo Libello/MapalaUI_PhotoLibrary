@@ -35,8 +35,14 @@ class guest_controller extends CI_Controller {
 	public function view_main_photo_detail($id) {
 		$this->load->model('photo_model');
 		$data_photo = $this->photo_model->getPhotoById($id);
-
-		load_view('main_photo_detail', $data_photo);
+		if($data_photo == null) {
+			show_404();
+		}
+		else {
+			$data['id_photo'] = str_replace("_", "/", $data_photo['id_photo']);
+			load_view('main_photo_detail', $data);
+		}
+	
 	}
 	public function view_main_search() {
 		load_view('main_search',array());

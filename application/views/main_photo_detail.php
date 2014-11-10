@@ -38,7 +38,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="<?php echo site_url('/home');?>"><img src="../assets/ico/home.png" width="100px"></a>
+            <a class="navbar-brand" href="<?php echo site_url('/home');?>"><img src="<?php echo base_url('assets/ico').'/home.png';?>" width="100px"></a>
           </div>
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
@@ -107,7 +107,7 @@
           <div class="form-group" id="photo_detail_form">
             <label class="col-sm-2 control-label">ID Foto</label>
             <div class="col-sm-10">
-            <p class="form-control-static"><?php echo $id_photo ?></p>
+            <p class="form-control-static">: <?php echo $id_photo ?></p>
             </div>
             
             <label class="col-sm-2 control-label">Judul</label>
