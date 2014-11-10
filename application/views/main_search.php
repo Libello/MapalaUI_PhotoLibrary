@@ -43,12 +43,12 @@
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
               <li><a id="nav_name" href="<?php echo site_url('/home');?>">Beranda</a></li>
-              <li class="active"><a id="nav_name" href="<?php echo site_url('/search');?>">Penelusuran</a></li>
+              <li class="active"><a id="nav_name" href="<?php echo site_url('/search');?>"><span class="glyphicon glyphicon-search"></span><br>Penelusuran</a></li>
               <li><a id="nav_name" href="<?php echo site_url('/gallery');?>">Galeri</a></li>
               <li><a id="nav_name" href="<?php echo site_url('/others');?>">Tentang MUIPL</a></li>
               <form class="navbar-form navbar-left" role="search">
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Penelusuran sederhana">
+                  <input type="text" class="form-control" placeholder="Cari koleksi">
                 </div>
                 <button type="submit" class="btn btn-default">Cari</button>
               </form>
@@ -61,19 +61,18 @@
               <ul class="nav navbar-nav">
                 <li class="dropdown">
                   <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" style="width:40px; height:60px;">
-                    <span class=" glyphicon glyphicon-user"></span>
+                    <span class="glyphicon glyphicon-chevron-down"></span>
                   </button>
                   <ul class="dropdown-menu" role="menu">
                     <?php
-                      if($userId = 'admin') {
+                      if($status == 'admin') {
                         echo '<li><a href="'.site_url('/photo_list').'">Halaman Admin</a></li>';
-                        echo '<li><a href="'.site_url('/logout').'">Keluar Admin</a></li>';
+                        echo '<li><a href="'.site_url('/logout').'">Keluar</a></li>';
                       }
                       else { 
-                        echo '<li><a href="'.site_url('/logout').'">Keluar Aja</a></li>';
+                        echo '<li><a href="'.site_url('/logout').'">Keluar</a></li>';
                       }
                     ?>
-                    
                   </ul>
                 </li>
               </ul>
@@ -92,7 +91,7 @@
     <div class="container">
       <div class="starter-template">
         <br>
-        <h1 id="search_header">Penelusuran Lanjutan</h1><hr>
+        <h1 id="search_header">Penelusuran Koleksi</h1><hr>
         <form class="form-horizontal" id="search" role="form" method="post" action="<?php echo site_url('/doSearch');?>/">
           <div class="form-group" id="search_guest">
             <label for="format" class="col-sm-2 control-label">Format:</label>
@@ -129,88 +128,46 @@
                 <option value="bkp">BKP</option>
                 <option value="others">Lainnya</option>
               </select>
-            </div><br><br>
-              
-            <div class="col-sm-2">
-              <select class="form-control">
-                <option>Semua</option>
-                <option selected>Judul</option>
-                <option>Fotografer</option>
-                <option>Kegiatan</option>
-                <option>Tahun</option>
-                <option>Lokasi</option>
-              </select>
-            </div>
-            <div class="col-sm-4"><input type="text" class="form-control" placeholder="Search"></div>
-            <div class="col-sm-2">
-              <select class="form-control">
-                <option>dan</option>
-                <option>atau</option>
-                <option>bukan</option>
-              </select>
             </div>
           </div>
 
-          <div class="form-group">
-            <div class="col-sm-2">
-              <select class="form-control">
-                <option>Semua</option>
-                <option>Judul</option>
-                <option selected>Fotografer</option>
-                <option>Kegiatan</option>
-                <option>Tahun</option>
-                <option>Lokasi</option>
-              </select>
+          <div class="multi-field-wrapper">
+            <div class="multi-fields">
+              <div class="multi-field form-group">
+                <div class="col-sm-2">
+                  <select class="form-control">
+                    <option>Semua</option>
+                    <option selected>Judul</option>
+                    <option>Fotografer</option>
+                    <option>Kegiatan</option>
+                    <option>Lokasi</option>
+                    <option>Tahun</option>
+                    <option>Deskripsi Foto</option>
+                  </select>
+                </div>
+                <div class="col-sm-4"><input type="text" class="form-control"></div>
+                <div class="col-sm-2">
+                  <select class="form-control">
+                    <option>dan</option>
+                    <option>atau</option>
+                    <option>bukan</option>
+                  </select>
+                </div>
+                <button type="button" class="col-sm-1 btn remove-field"><span class="glyphicon glyphicon-remove" id="remove-field"></span></button>
+              </div>
             </div>
-            <div class="col-sm-4"><input type="text" class="form-control" placeholder="Search"></div>
-            <div class="col-sm-2">
-              <select class="form-control">
-                <option>and</option>
-                <option>or</option>
-                <option>not</option>
-              </select>
-            </div>
+            <button type="button" class="col-sm-2 btn add-field"><span class="glyphicon glyphicon-plus"></span> Tambah Kolom</button>    
           </div>
 
-          <div class="form-group">  
-            <div class="col-sm-2">
-              <select class="form-control">
-                <option>All Field</option>
-                <option>Title</option>
-                <option>Photographer</option>
-                <option>Event</option>
-                <option selected>Year</option>
-                <option>Location</option>
-              </select>
-            </div>
-            <div class="col-sm-4"><input type="text" class="form-control" placeholder="Search"></div>
-            <div class="col-sm-2">
-              <select class="form-control">
-                <option>and</option>
-                <option>or</option>
-                <option>not</option>
-              </select>
-            </div>
-          </div>
 
-          <div class="form-group">
-            <div class="col-sm-2">
-              <select class="form-control">
-                <option>All Field</option>
-                <option>Title</option>
-                <option>Photographer</option>
-                <option>Event</option>
-                <option>Year</option>
-                <option selected>Location</option>
-              </select>
-            </div>
-            <div class="col-sm-4"><input type="text" class="form-control" placeholder="Search"></div>
-            <div class="col-sm-2">
+
+            <div class="col-sm-1">
               <button type="submit" class="btn btn-default">Cari</button>
             </div>
           </div>
         </form>
 
+        <br>
         <br>
 
 
@@ -279,5 +236,16 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="<?php echo base_url('assets/js').'/jquery.min.js';?>"></script>
     <script src="<?php echo base_url('assets/js').'/bootstrap.min.js';?>"></script>
+    <script type="text/javascript"> $('.multi-field-wrapper').each(function() {
+    var $wrapper = $('.multi-fields', this);
+    $(".add-field", $(this)).click(function(e) {
+        $('.multi-field:first-child', $wrapper).clone(true).appendTo($wrapper).find('input').val('').focus();
+    });
+    $('.multi-field .remove-field', $wrapper).click(function() {
+        if ($('.multi-field', $wrapper).length > 1)
+            $(this).parent('.multi-field').remove();
+    });
+});
+    </script>
   </body>
 </html>

@@ -85,12 +85,13 @@ textarea {
 	background-color: #101010;
 	height: 90px;
 	color: white;
+	opacity: 0.9;
 }
 
 .active #nav_name:hover{
 	background-color: #101010;
 	height: 90px;
-	color: #cc0000;
+	color: white;
 }
 
 #nav_name:hover {
@@ -234,6 +235,15 @@ textarea {
 
 #photodata_search {
 	padding-top: 10px;
+}
+
+#remove-field:hover {
+	color: #cc0000;
+}
+
+.add-field {
+	width: 170px;
+	text-align: left;
 }
 
 .search_result {

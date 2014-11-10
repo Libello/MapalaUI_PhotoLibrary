@@ -42,13 +42,13 @@
           </div>
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a id="nav_name" href="<?php echo site_url('/home');?>">Beranda</a></li>
+              <li class="active"><a id="nav_name" href="<?php echo site_url('/home');?>"><span class="glyphicon glyphicon-home"></span><br>Beranda</a></li>
               <li><a id="nav_name" href="<?php echo site_url('/search');?>">Penelusuran</a></li>
               <li><a id="nav_name" href="<?php echo site_url('/gallery');?>">Galeri</a></li>
               <li><a id="nav_name" href="<?php echo site_url('/others');?>">Tentang MUIPL</a></li>
               <form class="navbar-form navbar-left" role="search">
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Penelusuran sederhana">
+                  <input type="text" class="form-control" placeholder="Cari koleksi">
                 </div>
                 <button type="submit" class="btn btn-default">Cari</button>
               </form>
@@ -61,11 +61,18 @@
               <ul class="nav navbar-nav">
                 <li class="dropdown">
                   <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" style="width:40px; height:60px;">
-                    <span class="glyphicon glyphicon-user"></span>
+                    <span class="glyphicon glyphicon-chevron-down"></span>
                   </button>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a id="logout" href="<?php echo site_url('/photo_list');?>">Halaman Admin</a></li>
-                    <li><a id="logout" href="<?php echo site_url('/logout');?>">Keluar</a></li>
+                    <?php
+                      if($status == 'admin') {
+                        echo '<li><a href="'.site_url('/photo_list').'">Halaman Admin</a></li>';
+                        echo '<li><a href="'.site_url('/logout').'">Keluar</a></li>';
+                      }
+                      else { 
+                        echo '<li><a href="'.site_url('/logout').'">Keluar</a></li>';
+                      }
+                    ?>
                   </ul>
                 </li>
               </ul>
@@ -132,7 +139,7 @@
           <a href="<?php echo site_url('/others');?>"><img class="img-circle" src="<?php echo base_url('assets/img').'/(3)others.png';?>" alt="Generic placeholder image"></a>
           <h2 id="feature_header"><a href="<?php echo site_url('/others');?>">Tentang MUIPL</a></h2>
           <p id="feature_detail">Ingin tahu asal mula Mapala UI Photo Library dan siapa yang membuatnya? Kamu bisa lihat di sini.</p>
-          <p><a id="btn-featuredetail" href="<?php echo site_url('/others');?>" role="button">Tantang MUIPL &raquo;</a></p>
+          <p><a id="btn-featuredetail" href="<?php echo site_url('/others');?>" role="button">Tentang MUIPL &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
               
