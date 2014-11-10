@@ -158,13 +158,7 @@ class admin_controller extends CI_Controller {
 
 		if(!empty($_POST)) {
 			$data = $this->input->post();
-			$searchBy = $data['field'];
-			if($searchBy == 'all') {
-				$data_photo = $this->photo_model->searchBy($data);
-			}
-			else {
-				$data_photo = $this->photo_model->searchBy($data);
-			}
+			$data_photo = $this->photo_model->searchBy($data);
 		}
 		else {
 			$data_photo = $this->photo_model->getAllPhoto();
