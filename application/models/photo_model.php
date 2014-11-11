@@ -27,23 +27,23 @@
         $this->db->query('CREATE OR REPLACE VIEW viewactivity AS SELECT * FROM photo_record');
       }
       else {
-        $this->db->query('CREATE OR REPLACE VIEW viewactivity AS SELECT * FROM photo_record WHERE activity='.$this->db->escape($data['activity']).'');
+        $this->db->query('CREATE OR REPLACE VIEW viewactivity AS SELECT * FROM photo_record WHERE category='.$this->db->escape($data['activity']).'');
       }
 
       if($data['format'] == 'all') {
         $this->db->query('CREATE OR REPLACE VIEW viewformat AS SELECT * FROM viewactivity');
       }
       else {
-        $this->db->query('CREATE OR REPLACE VIEW viewformat AS SELECT * FROM viewactivity WHERE format='.$this->db->escape($data['format']).'');
+        $this->db->query('CREATE OR REPLACE VIEW viewformat AS SELECT * FROM viewactivity WHERE INSTR(format, '.$this->db->escape($data['format']).') > 0');
       }
 
       if($data['field'] == 'all') {
         $query = $this->db->query('SELECT * FROM viewformat WHERE INSTR(title, '.$this->db->escape($data['inputtext']).') > 0
           OR INSTR(id_photo, '.$this->db->escape($data['inputtext']).') > 0
-          OR INSTR(photographer, '.$this->db->escape($data['inputtext']).') > 0
-          OR INSTR(event, '.$this->db->escape($data['inputtext']).') > 0
-          OR INSTR(year, '.$this->db->escape($data['inputtext']).') > 0
-          OR INSTR(takenlocation, '.$this->db->escape($data['inputtext']).') > 0
+          OR INSTR(name_photographer, '.$this->db->escape($data['inputtext']).') > 0
+          OR INSTR(name_event, '.$this->db->escape($data['inputtext']).') > 0
+          OR INSTR(taken_date, '.$this->db->escape($data['inputtext']).') > 0
+          OR INSTR(taken_location, '.$this->db->escape($data['inputtext']).') > 0
           ');
       }
       else {

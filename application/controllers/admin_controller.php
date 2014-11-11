@@ -158,13 +158,7 @@ class admin_controller extends CI_Controller {
 
 		if(!empty($_POST)) {
 			$data = $this->input->post();
-			$searchBy = $data['field'];
-			if($searchBy == 'all') {
-				$data_photo = $this->photo_model->searchBy($data);
-			}
-			else {
-				$data_photo = $this->photo_model->searchBy($data);
-			}
+			$data_photo = $this->photo_model->searchBy($data);
 		}
 		else {
 			$data_photo = $this->photo_model->getAllPhoto();
@@ -330,58 +324,6 @@ class admin_controller extends CI_Controller {
 	    	show_404();
 	    }
 	}
-	public function addPhotographerAP() {
-		if(!empty($_POST)){
-			$data = $this->input->post();
-			$this->load->model('photographer_model');
-			$success = $this->photographer_model->insertPhotographer($data);
-
-			if($success) {
-				redirect(site_url('add_photo'));
-			}
-	    } else {
-	    	show_404();
-	    }
-	}
-	public function addEditorAP() {
-		if(!empty($_POST)){
-			$data = $this->input->post();
-			$this->load->model('editor_model');
-			$success = $this->editor_model->insertEditor($data);
-
-			if($success) {
-				redirect(site_url('add_photo'));
-			}
-	    } else {
-	    	show_404();
-	    }
-	}
-	public function addEventAP() {
-		if(!empty($_POST)){
-			$data = $this->input->post();
-			$this->load->model('event_model');
-			$success = $this->event_model->insertEvent($data);
-
-			if($success) {
-				redirect(site_url('add_photo'));
-			}
-	    } else {
-	    	show_404();
-	    }
-	}
-	public function addOwnerAP() {
-		if(!empty($_POST)){
-			$data = $this->input->post();
-			$this->load->model('owner_model');
-			$success = $this->owner_model->insertOwner($data);
-
-			if($success) {
-				redirect(site_url('add_photo'));
-			}
-	    } else {
-	    	show_404();
-	    }
-	}
 	public function addNewPhoto() {
 		if(!empty($_POST)){
 			//Set Upload Photo
@@ -410,7 +352,7 @@ class admin_controller extends CI_Controller {
 				$data['name_editor'] = '-';
 				$data['name_owner'] = '-';
 				$data['userfile'] = $datafoto['file_name'];
-				$data['size'] = $datafoto['image_width'].'x'.$datafoto['image_height'];
+				$data['size'] = $datafoto['image_width'].' x '.$datafoto['image_height'];
 
 				if($data['photographer'] != null) {
 					$photographer = $this->photographer_model->getPhotographerById($data['photographer']);
@@ -434,9 +376,7 @@ class admin_controller extends CI_Controller {
 					$errmes['message'] = 'Add new photo success';
 					load_view('admin_addphoto_success',$errmes);
 				}
-			}
-
-			
+			}			
 	    } else {
 	    	show_404();
 	    }

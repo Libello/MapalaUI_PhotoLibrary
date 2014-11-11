@@ -175,38 +175,28 @@
 
         <h1 id="search_header">Hasil Penelusuran</h1><hr>
         <div class="search_result">
-          <div class="media">
-            <a class="pull-left" data-toggle="modal" data-target="#img-result_modal">
-              <img class="media-object" src="../assets/img/Husky.jpg" alt="contoh1" width="150px" id="img-result">
-            </a>
-            <div class="media-body">
-              <a href="<?php echo site_url('/detail');?>" role="button"><h4 class="media-heading">Ini Adalah Judul Foto 1</h4></a>
-              <p>oleh <i> Fotografer</i> | digital, print | Others | <b>Ini Adalah Nama Album</b> | 2014 | Depok, Indonesia</p>
-              <p><a id="btn-photodetail" href="<?php echo site_url('/detail');?>" role="button">Detail &raquo;</a></p>
-            </div>
-          </div>
 
-          <div class="media">
-            <a class="pull-left" data-toggle="modal" data-target="#img-result_modal">
-              <img class="media-object" src="../assets/img/Husky1.jpg" alt="contoh2" width="150px" id="img-result">
-            </a>
-            <div class="media-body">
-              <a id="btn-photodetail" href="<?php echo site_url('/detail');?>" role="button"><h4 class="media-heading">Ini Adalah Judul Foto 2</h4></a>
-              <p>oleh <i> Fotografer</i> | digital | Others | <b>Ini Adalah Nama Album</b> | 2014 | Depok, Indonesia</p>
-              <p><a id="btn-photodetail" href="<?php echo site_url('/detail');?>" role="button">Detail &raquo;</a></p>
-            </div>
-          </div>
-
-          <div class="media">
-            <a class="pull-left" data-toggle="modal" data-target="#img-result_modal">
-              <img class="media-object" src="../assets/img/Husky2.jpg" alt="contoh3" width="150px" id="img-result">
-            </a>
-            <div class="media-body">
-              <a id="btn-photodetail" href="<?php echo site_url('/detail');?>" role="button"><h4 class="media-heading">Ini Adalah Judul Foto 3</h4></a>
-              <p>oleh <i> Fotografer</i> | repro/scan | Others | <b>Ini Adalah Nama Album</b> | 2014 | Depok, Indonesia</p>
-              <p><a id="btn-photodetail" href="<?php echo site_url('/detail');?>" role="button">Detail &raquo;</a></p>
-            </div>
-          </div>
+              
+              
+          <?php
+            if($searchresult == null) {
+              echo "<p> No Result <p>";
+            }
+            else {
+              foreach ($searchresult as $row){
+                echo '<div class="media">;
+                        <a class="pull-left" data-toggle="modal" data-target="#img-result_modal">
+                          <img class="media-object" src="'.base_url('assets/foto').'/'.$row['image'].'" alt="'.$row['image'].'" width="150px" id="img-result">
+                        </a>
+                        <div class="media-body">
+                          <a href="'.site_url('/detail/'.$row['id_photo'].'').'" role="button"><h4 class="media-heading">'.$row['title'].'</h4></a>
+                          <p>oleh <i>'.$row['name_photographer'].'</i> | '.$row['format'].' | '.$row['category'].' | <b>'.$row['name_event'].'</b> | '.$row['taken_date'].' | '.$row['taken_location'].'</p>
+                          <p><a id="btn-photodetail" href="'.site_url('/detail/'.$row['id_photo'].'').'" role="button">Detail &raquo;</a></p>
+                        </div>
+                      </div>';
+              }
+            }
+          ?>
         </div>
 
         <!-- Modal -->
@@ -214,7 +204,7 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-body">
-                <img src="../assets/img/Husky.jpg" class="img-responsive" alt="Responsive image">
+                <?php echo '<img src="'.base_url('assets/foto').'/'.$row['image'].'" class="img-responsive" alt="'.$row['image'].'">';?>
               </div>
             </div>
           </div>

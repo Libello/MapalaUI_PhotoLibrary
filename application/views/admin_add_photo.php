@@ -472,7 +472,9 @@
           <p id="formdetail">Selesai? Silakan klik tombol berikut</p>
 
           <div class="lead">
-            <button class="btn btn-default" type="submit" role="button">Simpan</button> <!--data-toggle="modal" data-target="#save_all"-->
+            <button class="btn btn-default" type="submit" role="button">
+              Simpan
+            </button> <!--data-toggle="modal" data-target="#save_all"-->
           </div>
           <div id="close_button">
             <button type="reset" class="btn" id="btn">

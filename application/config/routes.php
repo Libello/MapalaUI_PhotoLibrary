@@ -63,6 +63,7 @@ $route['doGuestLogin'] = "guest_controller/doLogin";
 $route['logout'] = "admin_controller/logout";
 $route['guestToAdmin'] = "admin_controller/guestToAdmin";
 $route['doSearch'] = "guest_controller/searchPhoto";
+$route['addNewPhoto'] = "admin_controller/addNewPhoto";
 //modal +add dalam halaman Master Data
 $route['addPhotographer'] = "admin_controller/addPhotographer";
 $route['deletePhotographer/(:any)'] = "admin_controller/deletePhotographer/$1";

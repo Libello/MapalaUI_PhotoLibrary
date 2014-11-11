@@ -69,12 +69,12 @@
               <div class="col-sm-2">
                 <select class="form-control" id="search_option" name="field">
                   <option value="all">Semua kolom</option>
-                  <option value="id">ID Foto</option>
+                  <option value="id_photo">ID Foto</option>
                   <option value="title">Judul</option>
-                  <option value="photographer">Fotografer</option>
-                  <option value="event">Kegiatan</option>
-                  <option value="year">Tahun</option>
-                  <option value="location">Lokasi Kegiatan</option>
+                  <option value="name_photographer">Fotografer</option>
+                  <option value="name_event">Kegiatan</option>
+                  <option value="taken_date">Tahun</option>
+                  <option value="taken_location">Lokasi Kegiatan</option>
                 </select>
               </div>
               <div class="col-sm-2">
@@ -95,7 +95,7 @@
                 <select class="form-control" id="search_option" name="format">
                   <option value="all">Semua Format</option>
                   <option value="digital">Digital</option>
-                  <option value="reproscan">Repro / Scan</option>
+                  <option value="repro/scan">Repro / Scan</option>
                   <option value="print">Tercetak</option>
                 </select>
               </div>

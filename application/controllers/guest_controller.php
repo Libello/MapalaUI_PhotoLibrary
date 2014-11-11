@@ -39,13 +39,35 @@ class guest_controller extends CI_Controller {
 			show_404();
 		}
 		else {
-			// $data['id_photo'] = str_replace("_", "/", $data_photo['id_photo']);
 			load_view('main_photo_detail', $data_photo);
 		}
 	
 	}
 	public function view_main_search() {
-		load_view('main_search',array());
+
+		$this->load->model('photo_model');
+		$data_photo = null;
+
+		if(!empty($_POST)) {
+			$data = $this->input->post();
+			$data_photo = $this->photo_model->searchBy($data);
+			$searchresult = array();
+		    $count = 0;
+
+		    foreach ($data_photo as $photo) {
+		    	$photolist[$count]['id'] = $photo['id_photo'];
+				$photolist[$count]['photographer'] = $photo['name_photographer'];
+		    	$photolist[$count]['image'] = $photo['photo_upload'];
+		    	$photolist[$count]['title'] = $photo['title'];
+		    	$photolist[$count]['format'] = $photo['format'];
+		    	$photolist[$count]['last_update'] = $photo['last_update'];
+		    	$count++;
+		    }
+		    load_view_admin('main_search',array('searchresult' => $searchresult));
+		}
+		else {
+			load_view_admin('main_search',array('searchresult' => null));
+		}
 	}
 
 	/**
@@ -79,22 +101,13 @@ class guest_controller extends CI_Controller {
 			$this->load->model('photo_model');
 			$this->load->model('photographer_model');
 
-			$data_photo = null;
-
-			$searchBy = $data['field'];
-			if($searchBy == 'all') {
-				$data_photo = $this->photo_model->searchPhoto($data);
-			}
-			else {
-				$data_photo = $this->photo_model->searchBy($data);
-			}
+			$data_photo = $this->photo_model->searchBy($data);
 
 			$photolist = array();
 		    $count = 0;
 
 		    foreach ($data_photo as $photo) {
-		    	$photographer = $this->photographer_model->getPhotographerById($photo['id_photographer']);
-				$photolist[$count]['photographer'] = $photographer['name'];
+				$photolist[$count]['photographer'] = $photo['name_photographer'];
 		    	$photolist[$count]['image'] = $photo['photo_upload'];
 		    	$photolist[$count]['title'] = $photo['title'];
 		    	$photolist[$count]['format'] = $photo['format'];
