@@ -1,0 +1,62 @@
+Yang belum :
+1. <Penelusuran>
+	- Penelusuran dengan menggunakan input dan field.
+	  (Masih belum kepikiran buat ngasih name yang unik di 	   tiap field yang dinamis).
+
+2. <Detail> 
+	- Halaman edit belum ada.
+	- Lihat rekod dublin core (Dalam bentuk xml?).
+
+3. <Galeri>
+	- Load list kegiatan.
+	- Load foto (Foto ditampilin semua atau ada batasan
+	  jumlah foto tiap page? Kalo ada batasan berarti
+ 	  tambahin index page di bagian bawah < page 1 2 3 >).
+	- Setelah diklik foto redirect ke halaman detail.
+	- Belum ada halaman album tiap kegiatan.
+
+4. <Kotak Search di menu bar>
+	- Fungsi pencariannya belum dipasang. Tinggal ambil 	  	  dan modifikasi sebagian dari isi fungsi searchBy di 	  	  photo_model.
+
+-------------Admin-------------------------------------------
+
+1. <Daftar Foto>
+	- Delete selected photo. Masih ngga ngerti cara kerja 	  	  check/uncheck allnya jadi ngga ngerti cara ambil id 	  	  dari photo yang di checklist.
+	- Ekspor ke csv. Udah dapet referensi cara tapi belum 	  	  dicoba.
+	- Halaman edit belum ada (Sama kaya halaman edit di 	  halaman detail aja).
+
+2. <Tambah Foto>
+	- Tombol muat ulang belum berfungsi. Tinggal tambah 	  	  action panggil route ke halaman add_photo lagi.
+3. <Master Data>
+	- Belum ada modal konfirmasi sebelum menghapus.
+	- Modal buat edit belum berfungsi.
+
+------------Tambahan-----------------------------------------
+
+1. Jika ada input yang tidak diisi ganti dengan suatu nilai '-'    atau '<belum diisi>', jangan null agar saat ditampilkan di    halaman detail atau lainnya tidak jelek. Bisa dirubah dengan    set langsung attribut value di tiap input dengan '-' atau    '<belum diisi>'.
+
+2. Form tambah foto masih terlihat kurang rapi.
+
+3. Nilai set di database dibuat lebih baku (capitalize    diperhatikan) supaya ketika ditampilkan tidak perlu dirubah     lagi.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

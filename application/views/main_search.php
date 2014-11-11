@@ -92,14 +92,14 @@
       <div class="starter-template">
         <br>
         <h1 id="search_header">Penelusuran Koleksi</h1><hr>
-        <form class="form-horizontal" id="search" role="form" method="post" action="<?php echo site_url('/doSearch');?>/">
+        <form class="form-horizontal" id="search" role="form" method="post" action="<?php echo site_url('/search');?>">
           <div class="form-group" id="search_guest">
             <label for="format" class="col-sm-2 control-label">Format:</label>
             <div class="col-sm-2">
               <select class="form-control" id="format" name="format">
                 <option value="all">Semua</option>
                 <option value="digital">Digital</option>
-                <option value="reproscan">Repro / Scan</option>
+                <option value="repro/scan">Repro / Scan</option>
                 <option value="print">Tercetak</option>
               </select>
             </div><br><br>
@@ -109,7 +109,7 @@
               <select class="form-control" id="color" name="color">
                 <option value="all">Semua</option>
                 <option value="color">Berwarna</option>
-                <option value="blackwhite">Hitam & Putih</option>
+                <option value="b&w">Hitam & Putih</option>
                 <option value="sephia">Sephia</option>
               </select>
             </div><br><br>
@@ -125,7 +125,7 @@
                 <option value="paragliding">Paralayang</option>
                 <option value="mountaineering">Daki Gunung</option>
                 <option value="sailing">Layar</option>
-                <option value="bkp">BKP</option>
+                <option value="BKP">BKP</option>
                 <option value="others">Lainnya</option>
               </select>
             </div>
@@ -158,12 +158,8 @@
             </div>
             <button type="button" class="col-sm-2 btn add-field"><span class="glyphicon glyphicon-plus"></span> Tambah Kolom</button>    
           </div>
-
-
-
-            <div class="col-sm-1">
-              <button type="submit" class="btn btn-default">Cari</button>
-            </div>
+          <div class="col-sm-1">
+            <button type="submit" class="btn btn-default">Cari</button>
           </div>
         </form>
 
@@ -189,9 +185,9 @@
                           <img class="media-object" src="'.base_url('assets/foto').'/'.$row['image'].'" alt="'.$row['image'].'" width="150px" id="img-result">
                         </a>
                         <div class="media-body">
-                          <a href="'.site_url('/detail/'.$row['id_photo'].'').'" role="button"><h4 class="media-heading">'.$row['title'].'</h4></a>
-                          <p>oleh <i>'.$row['name_photographer'].'</i> | '.$row['format'].' | '.$row['category'].' | <b>'.$row['name_event'].'</b> | '.$row['taken_date'].' | '.$row['taken_location'].'</p>
-                          <p><a id="btn-photodetail" href="'.site_url('/detail/'.$row['id_photo'].'').'" role="button">Detail &raquo;</a></p>
+                          <a href="'.site_url('/detail/'.$row['id'].'').'" role="button"><h4 class="media-heading">'.$row['title'].'</h4></a>
+                          <p>oleh <i>'.$row['photographer'].'</i> | '.$row['format'].' | '.$row['category'].' | <b>'.$row['event'].'</b> | '.$row['taken_date'].' | '.$row['taken_location'].'</p>
+                          <p><a id="btn-photodetail" href="'.site_url('/detail/'.$row['id'].'').'" role="button">Detail &raquo;</a></p>
                         </div>
                       </div>';
               }

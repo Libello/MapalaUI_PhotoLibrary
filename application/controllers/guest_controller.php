@@ -46,27 +46,32 @@ class guest_controller extends CI_Controller {
 	public function view_main_search() {
 
 		$this->load->model('photo_model');
-		$data_photo = null;
 
 		if(!empty($_POST)) {
 			$data = $this->input->post();
+			$data['field'] = 'all';
+			$data['inputtext'] = '';
 			$data_photo = $this->photo_model->searchBy($data);
 			$searchresult = array();
 		    $count = 0;
 
 		    foreach ($data_photo as $photo) {
-		    	$photolist[$count]['id'] = $photo['id_photo'];
-				$photolist[$count]['photographer'] = $photo['name_photographer'];
-		    	$photolist[$count]['image'] = $photo['photo_upload'];
-		    	$photolist[$count]['title'] = $photo['title'];
-		    	$photolist[$count]['format'] = $photo['format'];
-		    	$photolist[$count]['last_update'] = $photo['last_update'];
+		    	$searchresult[$count]['id'] = $photo['id_photo'];
+				$searchresult[$count]['photographer'] = $photo['name_photographer'];
+		    	$searchresult[$count]['image'] = $photo['photo_upload'];
+		    	$searchresult[$count]['title'] = $photo['title'];
+		    	$searchresult[$count]['event'] = $photo['name_event'];
+		    	$searchresult[$count]['format'] = $photo['format'];
+		    	$searchresult[$count]['category'] = $photo['category'];
+		    	$searchresult[$count]['taken_date'] = $photo['taken_date'];
+		    	$searchresult[$count]['taken_location'] = $photo['taken_location'];
 		    	$count++;
 		    }
-		    load_view_admin('main_search',array('searchresult' => $searchresult));
+		    $date['name'] = 'satria';
+		    load_view('main_search',array('searchresult' => $searchresult, 'name' => $date));
 		}
 		else {
-			load_view_admin('main_search',array('searchresult' => null));
+			load_view('main_search',array('searchresult' => null));
 		}
 	}
 
@@ -93,29 +98,4 @@ class guest_controller extends CI_Controller {
 	public function view_sukses() {
 		load_view('Sukses',array());
 	}
-
-	//Fungsi pencarian foto
-	public function searchPhoto() {
-		if(!empty($_POST)) {
-			$data = $this->input->post();
-			$this->load->model('photo_model');
-			$this->load->model('photographer_model');
-
-			$data_photo = $this->photo_model->searchBy($data);
-
-			$photolist = array();
-		    $count = 0;
-
-		    foreach ($data_photo as $photo) {
-				$photolist[$count]['photographer'] = $photo['name_photographer'];
-		    	$photolist[$count]['image'] = $photo['photo_upload'];
-		    	$photolist[$count]['title'] = $photo['title'];
-		    	$photolist[$count]['format'] = $photo['format'];
-		    	$photolist[$count]['last_update'] = $photo['last_update'];
-		    	$count++;
-		    }
-			load_view_admin('admin_photo_list',array('photolist' => $photolist));
-		}
-	}
-
 }
