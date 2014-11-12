@@ -22,11 +22,7 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
---
--- Stand-in structure for view `activity`
---
-CREATE TABLE IF NOT EXISTS `activity` (
-);
+
 -- --------------------------------------------------------
 
 --
@@ -120,12 +116,6 @@ INSERT INTO `event` (`id_event`, `name`, `location`, `start_year`, `end_year`, `
 
 -- --------------------------------------------------------
 
---
--- Stand-in structure for view `format`
---
-CREATE TABLE IF NOT EXISTS `format` (
-);
--- --------------------------------------------------------
 
 --
 -- Table structure for table `guest_log`
@@ -250,49 +240,7 @@ INSERT INTO `photo_record` (`id_photo`, `title`, `id_photographer`, `name_photog
 
 -- --------------------------------------------------------
 
---
--- Stand-in structure for view `viewactivity`
---
-CREATE TABLE IF NOT EXISTS `viewactivity` (
-);
--- --------------------------------------------------------
 
---
--- Stand-in structure for view `viewformat`
---
-CREATE TABLE IF NOT EXISTS `viewformat` (
-);
--- --------------------------------------------------------
-
---
--- Structure for view `activity`
---
-DROP TABLE IF EXISTS `activity`;
--- in use(#1356 - View 'mui_photo_library.activity' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them)
-
--- --------------------------------------------------------
-
---
--- Structure for view `format`
---
-DROP TABLE IF EXISTS `format`;
--- in use(#1356 - View 'mui_photo_library.activity' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them)
-
--- --------------------------------------------------------
-
---
--- Structure for view `viewactivity`
---
-DROP TABLE IF EXISTS `viewactivity`;
--- in use(#1356 - View 'mui_photo_library.viewactivity' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them)
-
--- --------------------------------------------------------
-
---
--- Structure for view `viewformat`
---
-DROP TABLE IF EXISTS `viewformat`;
--- in use(#1356 - View 'mui_photo_library.viewactivity' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them)
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -166,7 +166,8 @@
             </div>
           </div>
 
-          <!--Checkbox Category-->
+          
+          <!--Select Category-->
           <div class="form-group">
             <label for="category" class="col-sm-2 control-label">Kategori</label>
             <div class="col-sm-3">
@@ -250,10 +251,9 @@
             </div>
           </div>
            
-
-          <!--Button Other Format Location-->
           
 
+        <div id="form-groupGrey">
           <!--Select Editor-->
           <div class="form-group">
             <label for="editor" class="col-sm-2 control-label">Editor</label>
@@ -311,9 +311,11 @@
               </select>
             </div>
           </div>
+        </div>
 
           <!--Published On-->
           <div class="form-group">
+            <br>
             <label for="published_on" class="col-sm-2 control-label">Tempat Publikasi</label>
             <div class="col-sm-9">
               <input type="text" class="form-control" name="published_on" placeholder="Jika foto pernah dipublikasikan, masukan tempat publikasi dalam kolom ini (nama & edisi koran, majalah, maupun link twitter)">
@@ -361,6 +363,8 @@
             </div>
           </div>
 
+          <div id="form-groupGrey">
+            <br>
           <!--Field Notes-->
           <div class="form-group">
             <label for="notes" class="col-sm-2 control-label">Catatan</label>
@@ -463,6 +467,7 @@
 
             </div>
           </div>
+        </div>
 
 
           <hr>

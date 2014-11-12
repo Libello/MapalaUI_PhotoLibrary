@@ -35,12 +35,13 @@
         <br>
         <br>
 
-        <h1 id='adminlogin_header'>Selamat!</h1>
+        <h1 id='adminlogin_header'>Selamat!<br>
         <?php
           if($message != null) {
-            echo "<h1 id='adminlogin_header'>".print_r($message)."</h1>"; 
+            echo $message; 
           }
         ?>
+        </h1>
         <br><br><h4><a href="<?php echo site_url('/add_photo');?>"><span class="glyphicon glyphicon-plus"></span> Tambah data foto lainnya</a>  |  <a href="<?php echo site_url('/photo_list');?>"><span class="glyphicon glyphicon-list-alt"></span> Lihat daftar foto</a></h4>
 
       </div>

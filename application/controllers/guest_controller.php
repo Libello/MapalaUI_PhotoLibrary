@@ -26,6 +26,9 @@ class guest_controller extends CI_Controller {
 	public function view_main_gallery() {
 		load_view('main_gallery',array());
 	}
+	public function view_main_gallery2() {
+		load_view('main_gallery2',array());
+	}
 	public function view_main_home() {
 		load_view('main_home',array());
 	}

@@ -45,6 +45,7 @@ $route['guest_login'] = "guest_controller/view_cover_guest_login";
 $route['contact'] = "guest_controller/view_cover_contact";
 //Main view route
 $route['category_detail'] = "guest_controller/view_main_gallery";
+$route['album_detail'] = "guest_controller/view_main_gallery2";
 $route['gallery'] = "guest_controller/view_main_categories";
 $route['home'] = "guest_controller/view_main_home";
 $route['others'] = "guest_controller/view_main_others";
@@ -53,6 +54,7 @@ $route['search'] = "guest_controller/view_main_search";
 //Admin view route
 $route['admin_login'] = "admin_controller/view_login";
 $route['add_photo'] = "admin_controller/view_add_photo";
+$route['addNewPhoto'] = "admin_controller/addNewPhoto";
 $route['photo_list'] = "admin_controller/view_photo_list";
 $route['master_data'] = "admin_controller/view_master_data";
 $route['guest_log'] = "admin_controller/view_guest_log";

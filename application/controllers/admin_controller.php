@@ -373,7 +373,7 @@ class admin_controller extends CI_Controller {
 				
 				$success = $this->photo_model->insertNewPhoto($data);
 				if($success) {
-					$errmes['message'] = 'Add new photo success';
+					$errmes['message'] = 'Satu foto telah berhasil ditambahkan';
 					load_view('admin_addphoto_success',$errmes);
 				}
 			}			
