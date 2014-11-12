@@ -170,10 +170,7 @@
 
 
         <h1 id="search_header">Hasil Penelusuran</h1><hr>
-        <div class="search_result">
-
-              
-              
+        <div class="search_result">              
           <?php
             if($searchresult == null) {
               echo "<p> No Result <p>";
@@ -181,7 +178,7 @@
             else {
               foreach ($searchresult as $row){
                 echo '<div class="media">;
-                        <a class="pull-left" data-toggle="modal" data-target="#img-result_modal">
+                        <a class="pull-left" data-toggle="modal" data-target="#img-result_modal-'.$row['id'].'">
                           <img class="media-object" src="'.base_url('assets/foto').'/'.$row['image'].'" alt="'.$row['image'].'" width="150px" id="img-result">
                         </a>
                         <div class="media-body">
@@ -190,22 +187,21 @@
                           <p><a id="btn-photodetail" href="'.site_url('/detail/'.$row['id'].'').'" role="button">Detail &raquo;</a></p>
                         </div>
                       </div>';
+
+                // <!-- Modal -->
+                echo '<div class="modal fade" id="img-result_modal-'.$row['id'].'" tabindex="-1" role="dialog" aria-labelledby="img-result_modalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-body">
+                              <img src="'.base_url('assets/foto').'/'.$row['image'].'" class="img-responsive" alt="'.$row['image'].'">
+                            </div>
+                          </div>
+                        </div>
+                      </div>';
               }
             }
           ?>
         </div>
-
-        <!-- Modal -->
-        <div class="modal fade" id="img-result_modal" tabindex="-1" role="dialog" aria-labelledby="img-result_modalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-body">
-                <?php echo '<img src="'.base_url('assets/foto').'/'.$row['image'].'" class="img-responsive" alt="'.$row['image'].'">';?>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
         
