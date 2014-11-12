@@ -134,9 +134,9 @@
           <div class="multi-field-wrapper">
             <div class="multi-fields">
               <div class="multi-field form-group">
-                <div class="col-sm-2">
-                  <select class="form-control">
-                    <option>Semua</option>
+                <div class="col-sm-2 a">
+                  <select class="form-control" name="field">
+                    <option >Semua</option>
                     <option selected>Judul</option>
                     <option>Fotografer</option>
                     <option>Kegiatan</option>
@@ -145,12 +145,12 @@
                     <option>Deskripsi Foto</option>
                   </select>
                 </div>
-                <div class="col-sm-4"><input type="text" class="form-control"></div>
-                <div class="col-sm-2">
-                  <select class="form-control">
-                    <option>dan</option>
-                    <option>atau</option>
-                    <option>bukan</option>
+                <div class="col-sm-4 b"><input type="text" class="form-control" name="inputtext"></div>
+                <div class="col-sm-2 c">
+                  <select class="form-control" name="operate">
+                    <option value="and">dan</option>
+                    <option value="or">atau</option>
+                    <option value="not">bukan</option>
                   </select>
                 </div>
                 <button type="button" class="col-sm-1 btn remove-field"><span class="glyphicon glyphicon-remove" id="remove-field"></span></button>
@@ -158,6 +158,7 @@
             </div>
             <button type="button" class="col-sm-2 btn add-field"><span class="glyphicon glyphicon-plus"></span> Tambah Kolom</button>    
           </div>
+          
           <div class="col-sm-1">
             <button type="submit" class="btn btn-default">Cari</button>
           </div>
@@ -165,9 +166,6 @@
 
         <br>
         <br>
-
-
-
 
         <h1 id="search_header">Hasil Penelusuran</h1><hr>
         <div class="search_result">              
@@ -218,16 +216,19 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="<?php echo base_url('assets/js').'/jquery.min.js';?>"></script>
     <script src="<?php echo base_url('assets/js').'/bootstrap.min.js';?>"></script>
-    <script type="text/javascript"> $('.multi-field-wrapper').each(function() {
-    var $wrapper = $('.multi-fields', this);
-    $(".add-field", $(this)).click(function(e) {
-        $('.multi-field:first-child', $wrapper).clone(true).appendTo($wrapper).find('input').val('').focus();
-    });
-    $('.multi-field .remove-field', $wrapper).click(function() {
-        if ($('.multi-field', $wrapper).length > 1)
+    <script type="text/javascript"> 
+      $('.multi-field-wrapper').each(function() {
+        var $wrapper = $('.multi-fields', this);
+        var $count = 0;
+        $(".add-field", $(this)).click(function(e) {
+            $('.multi-field:first-child', $wrapper).clone(true).appendTo($wrapper).find('input').val($count).focus();
+            $count++;
+        });
+        $('.multi-field .remove-field', $wrapper).click(function() {
+          if ($('.multi-field', $wrapper).length > 1)
             $(this).parent('.multi-field').remove();
-    });
-});
+        });
+      });
     </script>
   </body>
 </html>

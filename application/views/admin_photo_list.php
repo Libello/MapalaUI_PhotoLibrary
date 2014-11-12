@@ -141,29 +141,39 @@
 
           <?php
             foreach ($photolist as $row){
-              echo "<tr>";
-                echo "<td>";
-                  echo "<form name='photolist' action='checkboxes.asp' method='post'><input type='checkbox' name='check_list'>";
-                echo "</td>";
-                echo "<td>";
-                  echo "<a href=".site_url('/edit')."><button class='btn' id='btn-edit'><img src=".base_url('assets/ico').'/edit.png'."></button></a>";
-                echo "</td>";
-                echo "<td>";
-                  echo "<a class='pull-left' data-toggle='modal' data-target='#photo_zoom'><img class='media-object' src=".base_url('assets/foto').'/'.$row['image']." alt='contoh1' width='100px' id='img-result'></a>";
-                echo "</td>";
-                echo "<td class='grid'>";
-                  echo "<h4>
+              echo "<tr>
+                      <td>
+                        <form name='photolist' action='checkboxes.asp' method='post'><input type='checkbox' name='check_list'>
+                      </td>
+                      <td>
+                        <a href=".site_url('/edit')."><button class='btn' id='btn-edit'><img src=".base_url('assets/ico').'/edit.png'."></button></a>
+                      </td>
+                      <td>
+                        <a class='pull-left' data-toggle='modal' data-target='#".$row['id']."'><img class='media-object' src=".base_url('assets/foto').'/'.$row['image']." alt='contoh1' width='100px' id='img-result'></a>
+                      </td>
+                      <td class='grid'>
+                        <h4>
                           <a href=".site_url('detail/'.$row['id'].'').">".$row['title']."</a>
-                        </h4>";
-                  echo "<span>".$row['photographer']."</span>";
-                echo "</td>";
-                echo "<td>";
-                  echo $row['format'];
-                echo "</td>";
-                echo "<td>";
-                  echo $row['last_update'];
-                echo "</td>";
-              echo "</tr>";
+                        </h4>
+                        <span>".$row['photographer']."</span>
+                      </td>
+                      <td>
+                        ".$row['format']."
+                      </td>
+                      <td>
+                        ".$row['last_update']."
+                      </td>
+                    </tr>";
+
+              echo '<div class="modal fade" id="'.$row['id'].'" tabindex="-1" role="dialog" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-body">
+                            <img src="'.base_url('assets/foto').'/'.$row['image'].'" class="img-responsive" alt="'.$row['image'].'">
+                          </div>
+                        </div>
+                      </div>
+                    </div>';
             }
           ?>
           
@@ -175,27 +185,6 @@
           <input class="btn" id="btn-save" type="button" name="Un_CheckAll" value="Kosongkan Semua" onClick="UnCheckAll(document.photolist.check_list)">
           <button class="btn" id="btn-save">Ekspor dalam format CSV</button>
         </div>
-
-
-        
-
-                <div class="modal fade" id="photo_zoom" tabindex="-1" role="dialog" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-body">
-                        <img src="../assets/img/Husky2.jpg" class="img-responsive" alt="Responsive image">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-
-
-
-
-
-
-
       </div>
     </div>
 
@@ -216,13 +205,13 @@
       function CheckAll(chk)
       {
       for (i = 0; i < chk.length; i++)
-      chk[i].checked = true ;
+        chk[i].checked = true ;
       }
 
       function UnCheckAll(chk)
       {
       for (i = 0; i < chk.length; i++)
-      chk[i].checked = false ;
+        chk[i].checked = false ;
       }
     </script>
   </body>

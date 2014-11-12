@@ -70,8 +70,7 @@ class guest_controller extends CI_Controller {
 		    	$searchresult[$count]['taken_location'] = $photo['taken_location'];
 		    	$count++;
 		    }
-		    $date['name'] = 'satria';
-		    load_view('main_search',array('searchresult' => $searchresult, 'name' => $date));
+		    load_view('main_search',array('searchresult' => $searchresult));
 		}
 		else {
 			load_view('main_search',array('searchresult' => null));
