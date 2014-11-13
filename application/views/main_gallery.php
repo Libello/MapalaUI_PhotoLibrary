@@ -95,16 +95,19 @@
         <div class="search_result">
           <div class="media">
             <div class="media-body">
-              <a href="#" role="button"><h4 class="media-heading">Arung Jeram Sungai Lariang dan Telusur Taman Nasional Lore Lindu (TNLL)</h4></a>
-              <p>Sulawesi Tengah | 2014 | Rafting | xxx foto</p>
-              <p><a id="btn-photodetail" href="#" role="button">Lihat album &raquo;</a></p>
-            </div>
-          </div>
-          <div class="media">
-            <div class="media-body">
-              <a href="#" role="button"><h4 class="media-heading">Perjalanan Panjang Gunung Masurai dan Bakti Sosial Mapala UI Berbagi</h4></a>
-              <p>Jambi | 2012 | BKP | xxx foto</p>
-              <p><a id="btn-photodetail" href="#" role="button">Lihat album &raquo;</a></p>
+              <?php
+                if($eventresult == null) {
+                  echo "No result";
+                }
+                else {
+                  foreach ($eventresult as $row){
+                    echo
+                    '<a href="#" role="button"><h4 class="media-heading">'.$row['name'].'</h4></a>
+                    <p>'.$row['location'].' | '.$row['period'].' | '.$row['category'].'</p>
+                    <p><a id="btn-photodetail" href="#" role="button">Lihat album &raquo;</a></p>';
+                  }
+                }
+              ?>
             </div>
           </div>
         </div>
@@ -113,42 +116,34 @@
         <h1 id="search_header">Foto</h1><hr>
 
         <div class="row">
-          <div class="col-xs-6 col-md-3">
-            <a href="#" class="thumbnail">
-              <img src="rafting.jpg" alt="...">
-            </a>
-          </div>
-          <div class="col-xs-6 col-md-3">
-            <a href="#" class="thumbnail">
-              <img src="rafting.jpg" alt="...">
-            </a>
-          </div>
-          <div class="col-xs-6 col-md-3">
-            <a href="#" class="thumbnail">
-              <img src="rafting.jpg" alt="...">
-            </a>
-          </div>
-          <div class="col-xs-6 col-md-3">
-            <a href="#" class="thumbnail">
-              <img src="rafting.jpg" alt="...">
-            </a>
-          </div>
-          <div class="col-xs-6 col-md-3">
-            <a href="#" class="thumbnail">
-              <img src="rafting.jpg" alt="...">
-            </a>
-          </div>
-          <div class="col-xs-6 col-md-3">
-            <a href="#" class="thumbnail">
-              <img src="rafting.jpg" alt="...">
-            </a>
-          </div>
+          <?php
+            if($photoresult == null) {
+              echo "no result";
+            }
+            else {
+              foreach ($photoresult as $row){
+                echo
+                  '<div class="col-xs-6 col-md-3">
+                    <a class="thumbnail" data-toggle="modal" data-target="#'.$row['id'].'" id="img-result">
+                      <img src="'.base_url('assets/foto').'/'.$row['image'].'" alt="'.$row['image'].'">
+                    </a>
+                  </div>';
+                echo '
+                  <div class="modal fade" id="'.$row['id'].'" tabindex="-1" role="dialog" aria-labelledby="img-result_modalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-body">
+                          <img src="'.base_url('assets/foto').'/'.$row['image'].'" class="img-responsive" alt="'.$row['image'].'">
+                          <p><a id="btn-photodetail" href="'.site_url('/detail/'.$row['id'].'').'" role="button">Lihat Detail Foto &raquo;</a></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>';
+              }
+            }
+          ?>
+          
         </div>
-
-
-
-
-
 
 
 

@@ -23,9 +23,44 @@ class guest_controller extends CI_Controller {
 	public function view_main_categories() {
 		load_view('main_categories',array());
 	}
-	public function view_main_gallery() {
-		load_view('main_gallery',array());
+	public function view_main_gallery($category) {
+		$this->load->model('photo_model');
+		$this->load->model('event_model');
+		$data_photo = $this->photo_model->getPhotoByCategory($category);
+		$data_event = $this->event_model->getEventByCategory($category);
+
+		if($data_photo == null) {
+			$photoresult = null;
+		}
+		else {		
+			$photoresult = array();
+		    $count = 0;
+
+		    foreach ($data_photo as $photo) {
+		    	$photoresult[$count]['id'] = $photo['id_photo'];
+		    	$photoresult[$count]['image'] = $photo['photo_upload'];
+		    	$count++;
+		    }
+		}
+		if($data_event == null) {
+			$eventresult = null;
+		}
+		else {		
+			$eventresult = array();
+		    $count = 0;
+
+		    foreach ($data_event as $event) {
+		    	$eventresult[$count]['id'] = $event['id_event'];
+		    	$eventresult[$count]['name'] = $event['name'];
+		    	$eventresult[$count]['location'] = $event['location'];
+		    	$eventresult[$count]['period'] = $event['start_year'].'-'.$event['end_year'];
+		    	$eventresult[$count]['category'] = $event['category'];
+		    	$count++;
+		    }
+		}
+		load_view('main_gallery',array('eventresult' => $eventresult, 'photoresult' => $photoresult));
 	}
+	
 	public function view_main_gallery2() {
 		load_view('main_gallery2',array());
 	}
@@ -55,6 +90,8 @@ class guest_controller extends CI_Controller {
 			$data['field'] = 'all';
 			$data['inputtext'] = '';
 			$data_photo = $this->photo_model->searchBy($data);
+			
+
 			$searchresult = array();
 		    $count = 0;
 
