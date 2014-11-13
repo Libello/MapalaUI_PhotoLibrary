@@ -38,7 +38,7 @@
         <h1 id='adminlogin_header'>Selamat!<br>
         <?php
           if($message != null) {
-            echo $message; 
+            print_r( $message); 
           }
         ?>
         </h1>

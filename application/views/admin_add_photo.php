@@ -124,13 +124,13 @@
             <label for="format" class="col-sm-2 control-label">Format</label>
             <div class="col-sm-2">
               <div class="checkbox">
-                <input type="checkbox" name="format" value="digital"> Digital
+                <input type="checkbox" name="format1" value="Digital"> Digital
               </div>
               <div class="checkbox">
-                <input type="checkbox" name="format" value="repro/scan"> Repro / Scan
+                <input type="checkbox" name="format2" value="Repro / Scan"> Repro / Scan
               </div>
               <div class="checkbox">
-                <input type="checkbox" name="format" value="tercetak"> Tercetak
+                <input type="checkbox" name="format3" value="Tercetak"> Tercetak
               </div>
             </div>
             <p class="col-sm-1 required">*</p>
@@ -141,9 +141,9 @@
             <label for="format" class="col-sm-2 control-label">Warna</label>
             <div class="col-sm-3">
             <select class="form-control" name="color">
-              <option value="berwarna">Berwarna</option>
-              <option value="hitam&putih">Hitam & Putih</option>
-              <option value="sephia">Sephia</option>
+              <option value="Berwarna">Berwarna</option>
+              <option value="Hitam Putih">Hitam & Putih</option>
+              <option value="Sephia">Sephia</option>
             </select>
             </div>
             <p class="col-sm-1 required">*</p>
@@ -172,15 +172,15 @@
             <label for="category" class="col-sm-2 control-label">Kategori</label>
             <div class="col-sm-3">
               <select class="form-control" name="category">
-                <option value="panjat">Panjat</option>
-                <option value="arung jeram">Arung Jeram</option>
-                <option value="telusur gua">Telusur Gua</option>
-                <option value="selam">Selam</option>
-                <option value="paralayang">Paralayang</option>
-                <option value="daki gunung">Daki Gunung</option>
-                <option value="layar">Layar</option>
+                <option value="Panjat">Panjat</option>
+                <option value="Arung Jeram">Arung Jeram</option>
+                <option value="Telusur Gua">Telusur Gua</option>
+                <option value="Selam">Selam</option>
+                <option value="Paralayang">Paralayang</option>
+                <option value="Daki Gunung">Daki Gunung</option>
+                <option value="Layar">Layar</option>
                 <option value="BKP">BKP</option>
-                <option value="lainnya">Lainnya</option>
+                <option value="Lainnya">Lainnya</option>
               </select>
             </div>
             <p class="col-sm-1 required">*</p>
@@ -191,7 +191,7 @@
             <label for="photo_date" class="col-sm-2 control-label">Tanggal Foto</label>
             <div class="col-sm-1">
               <select class="form-control" name="taken_date">
-                <option value="tgl">tgl</option>
+                <option value=" - ">tgl</option>
                 <option disabled>──</option>
                 <?php for ($i = 1; $i <= 31; $i++) : ?>
                   <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
@@ -200,7 +200,7 @@
             </div>
             <div class="col-sm-2">
               <select class="form-control" name="taken_month">
-                <option value="bln">bulan</option>
+                <option value=" - ">bulan</option>
                 <option disabled>────────────</option>
                 <option value="Januari">Januari</option>
                 <option value="Februari">Februari</option>
@@ -218,7 +218,7 @@
             </div>
             <div class="col-sm-2">
               <select class="form-control" name="taken_year">
-                <option value="thn">tahun</option>
+                <option value=" - ">tahun</option>
                 <option disabled>───</option>
                 <?php for ($i = 2017; $i >= 1964; $i--) : ?>
                   <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
@@ -276,7 +276,7 @@
             <label for="repro_date" class="col-sm-2 control-label">Tanggal Reproduksi</label>
             <div class="col-sm-1">
               <select class="form-control" name="repro_date">
-                <option value="tgl">tgl</option>
+                <option value=" - ">tgl</option>
                 <option disabled>──</option>
                 <?php for ($i = 1; $i <= 31; $i++) : ?>
                   <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
@@ -285,7 +285,7 @@
             </div>
             <div class="col-sm-2">
               <select class="form-control" name="repro_month">
-                <option value="bln">bulan</option>
+                <option value=" - ">bulan</option>
                 <option disabled>────────────</option>
                 <option value="Januari">Januari</option>
                 <option value="Februari">Februari</option>
@@ -303,7 +303,7 @@
             </div>
             <div class="col-sm-2">
               <select class="form-control" name="repro_year">
-                <option value="thn">tahun</option>
+                <option value=" - ">tahun</option>
                 <option disabled>───</option>
                 <?php for ($i = 2017; $i >= 1964; $i--) : ?>
                   <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
@@ -327,7 +327,7 @@
             <label for="coverage" class="col-sm-2 control-label">Tanggal Publikasi</label>
             <div class="col-sm-1">
               <select class="form-control" name="published_date">
-                <option value="tgl">tgl</option>
+                <option value=" - ">tgl</option>
                 <option disabled>──</option>
                 <?php for ($i = 1; $i <= 31; $i++) : ?>
                   <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
@@ -336,7 +336,7 @@
             </div>
             <div class="col-sm-2">
               <select class="form-control" name="published_month">
-                <option value="bln">bulan</option>
+                <option value=" - ">bulan</option>
                 <option disabled>────────────</option>
                 <option value="Januari">Januari</option>
                 <option value="Februari">Februari</option>
@@ -354,7 +354,7 @@
             </div>
             <div class="col-sm-2">
               <select class="form-control" name="published_year">
-                <option value="thn">tahun</option>
+                <option value=" - ">tahun</option>
                 <option disabled>───</option>
                 <?php for ($i = 2017; $i >= 1964; $i--) : ?>
                   <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
