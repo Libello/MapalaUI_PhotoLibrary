@@ -304,7 +304,7 @@
                             <label for="event_period" class="col-sm-3 control-label">Periode</label>
                             <div class="col-sm-3">
                               <select class="form-control" name="start_year">
-                                <option selected value="-">thn</option>
+                                <option selected value=" - ">thn</option>
                                 <option disabled>───</option>
                                 <?php for ($i = 2017; $i >= 1960; $i--) : ?>
                                   <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
@@ -314,7 +314,7 @@
                             <div class="col-sm-1">s/d</div>
                             <div class="col-sm-3">
                               <select class="form-control" name="end_year">
-                                <option selected value="-">thn</option>
+                                <option selected value=" - ">thn</option>
                                 <option disabled>───</option>
                                 <?php for ($i = 2017; $i >= 1960; $i--) : ?>
                                   <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
@@ -329,31 +329,31 @@
                             <div class="col-sm-7">
                             <div class="form-group">
                               <div class="checkbox">
-                                <input type="checkbox" name="category" value="panjat"> Panjat</input>
+                                <input type="checkbox" name="category" value="Panjat"> Panjat</input>
                               </div>
                               <div class="checkbox">
-                                <input type="checkbox" name="category" value="arung jeram"> Arung Jeram</input>
+                                <input type="checkbox" name="category" value="Arung Jeram"> Arung Jeram</input>
                               </div>
                               <div class="checkbox">
-                                <input type="checkbox" name="category" value="telusur gua"> Telusur Gua</input>
+                                <input type="checkbox" name="category" value="Telusur Gua"> Telusur Gua</input>
                               </div>
                               <div class="checkbox">
-                                <input type="checkbox" name="category" value="selam"> Selam</input>
+                                <input type="checkbox" name="category" value="Selam"> Selam</input>
                               </div>
                               <div class="checkbox">
-                                <input type="checkbox" name="category" value="layar"> Layar</input>
+                                <input type="checkbox" name="category" value="Layar"> Layar</input>
                               </div>
                               <div class="checkbox">
-                                <input type="checkbox" name="category" value="daki gunung"> Daki Gunung</input>
+                                <input type="checkbox" name="category" value="Daki Gunung"> Daki Gunung</input>
                               </div>
                               <div class="checkbox">
-                                <input type="checkbox" name="category" value="paralayang"> Paralayang</input>
+                                <input type="checkbox" name="category" value="Paralayang"> Paralayang</input>
                               </div>
                               <div class="checkbox">
                                 <input type="checkbox" name="category" value="BKP"> BKP</input>
                               </div>
                               <div class="checkbox">
-                                <input type="checkbox" name="category" value="lainnya"> Lainnya</input>
+                                <input type="checkbox" name="category" value="Lainnya"> Lainnya</input>
                               </div>
                             </div>
                             </div>
@@ -616,16 +616,7 @@
                     </div>
                   </div>
                   <!--Owner Modal-->
-
           </div>
-
-
-
-
-
-
-
-
         </div>
       </div>
     </div>
