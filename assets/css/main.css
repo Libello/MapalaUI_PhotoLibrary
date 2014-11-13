@@ -286,6 +286,10 @@ textarea {
 	cursor: zoom-in;
 }
 
+.pager .active {
+	color: #cc0000;
+}
+
 .panel-title:hover {
 	outline-color: none;
 	border-color: none;

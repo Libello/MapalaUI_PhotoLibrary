@@ -97,13 +97,23 @@
             <div class="media-body">
               <?php
                 if($eventresult == null) {
-                  echo "No result";
+                  echo "Tidak ada koleksi";
                 }
                 else {
                   foreach ($eventresult as $row){
                     echo
                     '<a href="#" role="button"><h4 class="media-heading">'.$row['name'].'</h4></a>
-                    <p>'.$row['location'].' | '.$row['period'].' | '.$row['category'].'</p>
+                    <p>'.$row['location'].' |';
+                  
+
+                    if($row['start_year'] == $row['end_year']) {
+                        echo $row['start_year'];
+                      }
+                      else {
+                        echo "".$row['start_year']." s/d ".$row['end_year']."";
+                      }
+
+                    echo '| '.$row['category'].'</p>
                     <p><a id="btn-photodetail" href="#" role="button">Lihat album &raquo;</a></p>';
                   }
                 }
@@ -118,7 +128,7 @@
         <div class="row">
           <?php
             if($photoresult == null) {
-              echo "no result";
+              echo "Tidak ada koleksi";
             }
             else {
               foreach ($photoresult as $row){

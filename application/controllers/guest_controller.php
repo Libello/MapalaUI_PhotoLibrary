@@ -53,7 +53,8 @@ class guest_controller extends CI_Controller {
 		    	$eventresult[$count]['id'] = $event['id_event'];
 		    	$eventresult[$count]['name'] = $event['name'];
 		    	$eventresult[$count]['location'] = $event['location'];
-		    	$eventresult[$count]['period'] = $event['start_year'].'-'.$event['end_year'];
+		    	$eventresult[$count]['start_year'] = $event['start_year'];
+		    	$eventresult[$count]['end_year'] = $event['end_year'];
 		    	$eventresult[$count]['category'] = $event['category'];
 		    	$count++;
 		    }
