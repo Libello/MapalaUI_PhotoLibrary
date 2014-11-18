@@ -52,10 +52,7 @@
     </div>
 
     <div class="container">
-
       <div class="starter-template">
-
-
 
         <br>
         <ul class="nav nav-tabs" role="tablist">
@@ -110,37 +107,38 @@
                     echo "</td>";
                     echo "<td>";
                       echo '
-                        <form method="post" action='.site_url('deletePhotographer/'.$row['id'].'').'>
-                          <a class="pull-left" data-toggle="modal" data-target="#photographer_modal">
-                              <button class="btn" id="btn-edit-master">Ubah</button>
-                          </a>
-                          <button class="btn" id="btn-edit" data-toggle="modal" data-target="#deletephotographer_modal"><img src="'.base_url('assets/ico/remove.png').'"></button>
-                        </form>
+                        <a class="pull-left" data-toggle="modal" data-target="#photographer_modal">
+                            <button class="btn" id="btn-edit-master">Ubah</button>
+                        </a>
+                        <button class="btn" id="btn-edit" data-toggle="modal" data-target="#deletephotographer_modal-'.$row['id'].'"><img src="'.base_url('assets/ico/remove.png').'"></button>
                       ';
                     echo "</td>";
                   echo "</tr>";
+
+                  // Delete Photographer
+                  echo '
+                    <form method="post" action='.site_url('deletePhotographer/'.$row['id'].'').'>
+                      <div class="modal fade" id="deletephotographer_modal-'.$row['id'].'" tabindex="-1" role="dialog" aria-labelledby="deletephotographerLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-body">
+                              <h1 id="done">Hapus Fotografer?</h1>
+                              <div class="lead" id="btn_modaldelete">
+                                <button type="close" class="btn" id="btn-close" data-dismiss="modal">Keluar</button>
+                                <button type="submit" class="btn" id="btn-save">Hapus</button>
+                              </div>
+                            </div>
+                         </div>
+                        </div>
+                      </div>
+                    </form>
+                  ';
                 }
               ?>             
             </table>
 
-              <!-- Delete Photographer -->
-              <div class="modal fade" id="deleteevent_modal" tabindex="-1" role="dialog" aria-labelledby="deleteeventLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-body">
-                      <h1 id="done">Hapus Fotografer?</h1>
-                      <div class="lead" id="btn_modaldelete">
-                        <button type="close" class="btn" id="btn-close" data-dismiss="modal">Keluar</button>
-                        <button type="submit" class="btn" id="btn-save">Hapus</button>
-                      </div>
-                    </div>
-                 </div>
-                </div>
-              </div>
-              <!-- Delete Photographer -->
-
-              <!--Photographer Modal-->
-              <div class="modal fade" id="photographer_modal" tabindex="-1" role="dialog" aria-labelledby="photographerLabel" aria-hidden="true">
+            <!--Photographer Modal-->
+            <div class="modal fade" id="photographer_modal" tabindex="-1" role="dialog" aria-labelledby="photographerLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -202,8 +200,6 @@
             <!--Photographer Modal-->
           </div>
           
-          
-
           <div class="tab-pane" id="event_tab"><br>
             <h1 id="masterdata_header">Daftar Kegiatan</h1>
             <div id="btn_modalmasterdata">
@@ -220,7 +216,7 @@
                 <td>Pilihan</td>
               </tr>
 
-                <?php
+              <?php
                 foreach ($eventlist as $row){
                   echo "<tr>";
                     echo "<td>";
@@ -247,134 +243,131 @@
                     echo "</td>";
                     echo "<td>";
                       echo '
-                        <form method="post" action='.site_url('deleteEvent/'.$row['id'].'').'>
                           <a class="pull-left" data-toggle="modal" data-target="#event_modal">
                               <button class="btn" id="btn-edit-master">Ubah</button>
                           </a>
-                          <button class="btn" id="btn-edit" data-toggle="modal" data-target="#deleteevent_modal"><img src="'.base_url('assets/ico/remove.png').'"></button>
-                        </form>
+                          <button class="btn" id="btn-edit" data-toggle="modal" data-target="#deleteevent_modal-'.$row['id'].'"><img src="'.base_url('assets/ico/remove.png').'"></button>
                       ';
                     echo "</td>";
                   echo "</tr>";
+
+                  // Delete Event
+                  echo '
+                    <form method="post" action='.site_url('deleteEvent/'.$row['id'].'').'>
+                      <div class="modal fade" id="deleteevent_modal-'.$row['id'].'" tabindex="-1" role="dialog" aria-labelledby="deleteeventLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-body">
+                              <h1 id="done">Hapus Kegiatan?</h1>
+                              <div class="lead" id="btn_modaldelete">
+                                <button type="close" class="btn" id="btn-close" data-dismiss="modal">Keluar</button>
+                                <button type="submit" class="btn" id="btn-save">Hapus</button>
+                              </div>
+                            </div>
+                         </div>
+                        </div>
+                      </div> 
+                    </form>                                 
+                  ';
                 }
               ?>                
             </table>
-
-              <!-- Delete Event -->
-              <div class="modal fade" id="deleteevent_modal" tabindex="-1" role="dialog" aria-labelledby="deleteeventLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-body">
-                      <h1 id="done">Hapus Kegiatan?</h1>
-                      <div class="lead" id="btn_modaldelete">
-                        <button type="close" class="btn" id="btn-close" data-dismiss="modal">Keluar</button>
-                        <button type="submit" class="btn" id="btn-save">Hapus</button>
+            <!--Event Modal-->
+            <div class="modal fade" id="event_modal" tabindex="-1" role="dialog" aria-labelledby="eventLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="eventLabel">Kegiatan</h4>
+                  </div>
+                  <div class="modal-body">
+                    <form class="form-horizontal" role="form" method="post" action="<?php echo site_url('/addEvent');?>/">
+                      <div class="form-group">
+                        <label for="event_name" class="col-sm-3 control-label">Nama</label>
+                        <div class="col-sm-7">
+                          <input type="text" class="form-control" name="event_name" required autofocus>
+                        </div>
                       </div>
-                    </div>
-                 </div>
+
+                      <div class="form-group">
+                        <label for="event_location" class="col-sm-3 control-label">Lokasi</label>
+                        <div class="col-sm-7">
+                          <input type="text" class="form-control" name="location">
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="event_period" class="col-sm-3 control-label">Periode</label>
+                        <div class="col-sm-3">
+                          <select class="form-control" name="start_year">
+                            <option selected value="-">thn</option>
+                            <option disabled>───</option>
+                            <?php for ($i = 2017; $i >= 1960; $i--) : ?>
+                              <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                            <?php endfor; ?>
+                          </select>
+                        </div>
+                        <div class="col-sm-1">s/d</div>
+                        <div class="col-sm-3">
+                          <select class="form-control" name="end_year">
+                            <option selected value="-">thn</option>
+                            <option disabled>───</option>
+                            <?php for ($i = 2017; $i >= 1960; $i--) : ?>
+                              <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                            <?php endfor; ?>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="category" class="col-sm-3 control-label">Kategori</label>
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-7">
+                          <div class="form-group">
+                            <div class="checkbox">
+                              <input type="checkbox" name="category" value="panjat"> Panjat</input>
+                            </div>
+                            <div class="checkbox">
+                              <input type="checkbox" name="category" value="arung jeram"> Arung Jeram</input>
+                            </div>
+                            <div class="checkbox">
+                              <input type="checkbox" name="category" value="telusur gua"> Telusur Gua</input>
+                            </div>
+                            <div class="checkbox">
+                              <input type="checkbox" name="category" value="selam"> Selam</input>
+                            </div>
+                            <div class="checkbox">
+                              <input type="checkbox" name="category" value="layar"> Layar</input>
+                            </div>
+                            <div class="checkbox">
+                              <input type="checkbox" name="category" value="daki gunung"> Daki Gunung</input>
+                            </div>
+                            <div class="checkbox">
+                              <input type="checkbox" name="category" value="paralayang"> Paralayang</input>
+                            </div>
+                            <div class="checkbox">
+                              <input type="checkbox" name="category" value="BKP"> BKP</input>
+                            </div>
+                            <div class="checkbox">
+                              <input type="checkbox" name="category" value="lainnya"> Lainnya</input>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <hr>
+
+                      <div class="lead" id="btn_modalfinish">
+                        <button type="close" class="btn" id="btn-close" data-dismiss="modal">Keluar</button>
+                        <button type="submit" class="btn" id="btn-save">Simpan</button>
+                      </div>
+                    </form>
+                  </div>
                 </div>
               </div>
-              <!-- Delete Event -->
-
-              <!--Event Modal-->
-              <div class="modal fade" id="event_modal" tabindex="-1" role="dialog" aria-labelledby="eventLabel" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="eventLabel">Kegiatan</h4>
-                      </div>
-                      <div class="modal-body">
-                        <form class="form-horizontal" role="form" method="post" action="<?php echo site_url('/addEvent');?>/">
-                          <div class="form-group">
-                            <label for="event_name" class="col-sm-3 control-label">Nama</label>
-                            <div class="col-sm-7">
-                              <input type="text" class="form-control" name="event_name" required autofocus>
-                            </div>
-                          </div>
-
-                          <div class="form-group">
-                            <label for="event_location" class="col-sm-3 control-label">Lokasi</label>
-                            <div class="col-sm-7">
-                              <input type="text" class="form-control" name="location">
-                            </div>
-                          </div>
-
-                          <div class="form-group">
-                            <label for="event_period" class="col-sm-3 control-label">Periode</label>
-                            <div class="col-sm-3">
-                              <select class="form-control" name="start_year">
-                                <option selected value="-">thn</option>
-                                <option disabled>───</option>
-                                <?php for ($i = 2017; $i >= 1960; $i--) : ?>
-                                  <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                                <?php endfor; ?>
-                              </select>
-                            </div>
-                            <div class="col-sm-1">s/d</div>
-                            <div class="col-sm-3">
-                              <select class="form-control" name="end_year">
-                                <option selected value="-">thn</option>
-                                <option disabled>───</option>
-                                <?php for ($i = 2017; $i >= 1960; $i--) : ?>
-                                  <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                                <?php endfor; ?>
-                              </select>
-                            </div>
-                          </div>
-
-                          <div class="form-group">
-                            <label for="category" class="col-sm-3 control-label">Kategori</label>
-                            <div class="col-sm-1"></div>
-                            <div class="col-sm-7">
-                            <div class="form-group">
-                              <div class="checkbox">
-                                <input type="checkbox" name="category" value="panjat"> Panjat</input>
-                              </div>
-                              <div class="checkbox">
-                                <input type="checkbox" name="category" value="arung jeram"> Arung Jeram</input>
-                              </div>
-                              <div class="checkbox">
-                                <input type="checkbox" name="category" value="telusur gua"> Telusur Gua</input>
-                              </div>
-                              <div class="checkbox">
-                                <input type="checkbox" name="category" value="selam"> Selam</input>
-                              </div>
-                              <div class="checkbox">
-                                <input type="checkbox" name="category" value="layar"> Layar</input>
-                              </div>
-                              <div class="checkbox">
-                                <input type="checkbox" name="category" value="daki gunung"> Daki Gunung</input>
-                              </div>
-                              <div class="checkbox">
-                                <input type="checkbox" name="category" value="paralayang"> Paralayang</input>
-                              </div>
-                              <div class="checkbox">
-                                <input type="checkbox" name="category" value="BKP"> BKP</input>
-                              </div>
-                              <div class="checkbox">
-                                <input type="checkbox" name="category" value="lainnya"> Lainnya</input>
-                              </div>
-                            </div>
-                            </div>
-                          </div>
-
-                          <hr>
-
-                          <div class="lead" id="btn_modalfinish">
-                            <button type="close" class="btn" id="btn-close" data-dismiss="modal">Keluar</button>
-                            <button type="submit" class="btn" id="btn-save">Simpan</button>
-                          </div>
-                        </form>
-                      </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!--Event Modal-->
-
+            </div>
           </div>
-
-
+           
           <div class="tab-pane" id="editor_tab"><br>
             <h1 id="masterdata_header">Daftar Editor</h1>
             <div id="btn_modalmasterdata">
@@ -408,107 +401,98 @@
                     echo "</td>";
                     echo "<td>";
                       echo '
-                        <form method="post" action='.site_url('deleteEditor/'.$row['id'].'').'>
-                          <a class="pull-left" data-toggle="modal" data-target="#editor_modal">
-                              <button class="btn" id="btn-edit-master">Ubah</button>
-                          </a>
-                          <button class="btn" id="btn-edit" data-toggle="modal" data-target="#deleteeditor_modal" onclick="return confirm();"><img src="'.base_url('assets/ico/remove.png').'"></button>
-                        </form>
+                        <a class="pull-left" data-toggle="modal" data-target="#editor_modal">
+                            <button class="btn" id="btn-edit-master">Ubah</button>
+                        </a>
+                        <button class="btn" id="btn-edit" data-toggle="modal" data-target="#deleteeditor_modal-'.$row['id'].'"><img src="'.base_url('assets/ico/remove.png').'"></button>
                       ';
                     echo "</td>";
                   echo "</tr>";
+
+                  // Delete Editor
+                  echo '
+                    <form method="post" action='.site_url('deleteEditor/'.$row['id'].'').'>
+                      <div class="modal fade" id="deleteeditor_modal-'.$row['id'].'" tabindex="-1" role="dialog" aria-labelledby="deleteeditorLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-body">
+                              <h1 id="done">Hapus editor?</h1>
+                              <div class="lead" id="btn_modaldelete">
+                                <button type="close" class="btn" id="btn-close" data-dismiss="modal">Keluar</button>
+                                <button type="submit" class="btn" id="btn-save">Hapus</button>
+                              </div>
+                            </div>
+                         </div>
+                        </div>
+                      </div>
+                    </form>                                  
+                  ';
                 }
               ?>             
             </table>
 
-            <script type="text/javascript">
-              function confirm(){
-                return document.forms["edit"];
-              }
-            </script>
-
-              <!-- Delete Editor -->
-              <div class="modal fade" id="deleteeditor_modal" tabindex="-1" role="dialog" aria-labelledby="deleteeditorLabel" aria-hidden="true">
+            <!--Editor Modal-->
+            <div class="modal fade" id="editor_modal" tabindex="-1" role="dialog" aria-labelledby="editorLabel" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
-                    <div class="modal-body">
-                      <h1 id="done">Hapus editor?</h1>
-                      <div class="lead" id="btn_modaldelete">
-                        <form id="edit">
-                          <button type="close" class="btn" id="btn-close" data-dismiss="modal" onclick="return false;">Keluar</button>
-                          <button type="submit" class="btn" id="btn-save" onclick="return true;">Hapus</button>
-                        </form>
-                      </div>
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h4 class="modal-title" id="editorLabel">Editor</h4>
                     </div>
-                 </div>
-                </div>
-              </div>
-              <!-- Delete Editor -->
+                    <div class="modal-body">
+                      <form class="form-horizontal" id="editormodal" role="form" method="post" action="<?php echo site_url('/addEditor');?>">
+                        <div class="form-group">
+                          <label for="editor_name" class="col-sm-3 control-label">Nama</label>
+                          <div class="col-sm-7">
+                            <input type="text" class="form-control" name="editor_name" required autofocus>
+                          </div>
+                        </div>
 
-              <!--Editor Modal-->
-              <div class="modal fade" id="editor_modal" tabindex="-1" role="dialog" aria-labelledby="editorLabel" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="editorLabel">Editor</h4>
-                      </div>
-                      <div class="modal-body">
-                        <form class="form-horizontal" id="editormodal" role="form" method="post" action="<?php echo site_url('/addEditor');?>">
-                          <div class="form-group">
-                            <label for="editor_name" class="col-sm-3 control-label">Nama</label>
-                            <div class="col-sm-7">
-                              <input type="text" class="form-control" name="editor_name" required autofocus>
+                        <div class="form-group">
+                          <label for="editor_membership" class="col-sm-3 control-label">Keanggotaan</label>
+                          <div class="col-sm-7">
+                            <div class="radio">
+                              <label>
+                                <input type="radio" name="editor_membership" value="Mapala UI" checked>
+                                Mapala UI
+                              </label>
+                            </div>
+                            <div class="radio">
+                              <label>
+                                <input type="radio" name="editor_membership" value="Non - Mapala UI">
+                                Non - Mapala UI
+                              </label>
                             </div>
                           </div>
+                        </div>
 
-                          <div class="form-group">
-                            <label for="editor_membership" class="col-sm-3 control-label">Keanggotaan</label>
-                            <div class="col-sm-7">
-                              <div class="radio">
-                                <label>
-                                  <input type="radio" name="editor_membership" value="Mapala UI" checked>
-                                  Mapala UI
-                                </label>
-                              </div>
-                              <div class="radio">
-                                <label>
-                                  <input type="radio" name="editor_membership" value="Non - Mapala UI">
-                                  Non - Mapala UI
-                                </label>
-                              </div>
-                            </div>
+                        <div class="form-group">
+                          <label for="editor_no.M" class="col-sm-3 control-label">No. M</label>
+                          <div class="col-sm-2">
+                            <div class="well well-sm">M-</div>
                           </div>
-
-                          <div class="form-group">
-                            <label for="editor_no.M" class="col-sm-3 control-label">No. M</label>
-                            <div class="col-sm-2">
-                              <div class="well well-sm">M-</div>
-                            </div>
-                            <div class="col-sm-3">
-                              <input type="text" class="form-control" name="no_m" required>
-                            </div>
-                            <div class="col-sm-2">
-                              <div class="well well-sm">-UI</div>
-                            </div>
+                          <div class="col-sm-3">
+                            <input type="text" class="form-control" name="no_m" required>
                           </div>
-                          <br>
-
-                          <hr>
-
-                          <div class="lead" id="btn_modalfinish">
-                            <button type="close" class="btn" id="btn-close" data-dismiss="modal">Keluar</button>
-                            <button type="submit" class="btn" id="btn-save" value="submit" onclick="return validateEditor();">Simpan</button>
+                          <div class="col-sm-2">
+                            <div class="well well-sm">-UI</div>
                           </div>
-                        </form>
-                      </div>
+                        </div>
+                        <br>
+
+                        <hr>
+
+                        <div class="lead" id="btn_modalfinish">
+                          <button type="close" class="btn" id="btn-close" data-dismiss="modal">Keluar</button>
+                          <button type="submit" class="btn" id="btn-save" value="submit" onclick="return validateEditor();">Simpan</button>
+                        </div>
+                      </form>
                     </div>
                   </div>
                 </div>
-                <!--Editor Modal-->
-
+            </div>
+            <!--Editor Modal-->
           </div>
-
 
           <div class="tab-pane" id="owner_tab"><br>
             <h1 id="masterdata_header">Daftar Pemilik Foto</h1>
@@ -551,27 +535,34 @@
                       echo '<a class="pull-left" data-toggle="modal" data-target="#owner_modal">
                               <button class="btn" id="btn-edit-master">Ubah</button>
                             </a>
-                            <button class="btn" id="btn-edit" data-toggle="modal" data-target="#deleteowner_modal"><img src="'.base_url('assets/ico/remove.png').'"></button>';
+                            <button class="btn" id="btn-edit" data-toggle="modal" data-target="#deleteowner_modal-'.$row['id'].'"><img src="'.base_url('assets/ico/remove.png').'"></button>';
                     echo "</td>";
                   echo "</tr>";
+
+
+                  echo '
+                    <form method="post" action='.site_url('deleteOwner/'.$row['id'].'').'>
+                      <div class="modal fade" id="deleteowner_modal-'.$row['id'].'" tabindex="-1" role="dialog" aria-labelledby="deleteownerLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-body">
+                              <h1 id="done">Hapus pemilik foto?</h1>
+                              <div class="lead" id="btn_modaldelete">
+                                <button type="close" class="btn" id="btn-close" data-dismiss="modal">Keluar</button>
+                                <button type="submit" class="btn" id="btn-save">Hapus</button>
+                              </div>
+                            </div>
+                         </div>
+                        </div>
+                      </div>
+                    </form>
+                  ';
                 }
               ?>      
             </table>
 
                 <!-- Delete Owner -->
-                <div class="modal fade" id="deleteowner_modal" tabindex="-1" role="dialog" aria-labelledby="deleteownerLabel" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-body">
-                        <h1 id="done">Hapus pemilik foto?</h1>
-                        <div class="lead" id="btn_modaldelete">
-                          <button type="close" class="btn" id="btn-close" data-dismiss="modal">Keluar</button>
-                          <button type="submit" class="btn" id="btn-save">Hapus</button>
-                        </div>
-                      </div>
-                   </div>
-                  </div>
-                </div>
+                
                 <!-- Delete Owner -->
 
                 <!--Owner Modal-->
@@ -616,16 +607,7 @@
                     </div>
                   </div>
                   <!--Owner Modal-->
-
           </div>
-
-
-
-
-
-
-
-
         </div>
       </div>
     </div>

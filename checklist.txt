@@ -26,8 +26,10 @@ Yang belum :
 	- Ekspor ke csv. Udah dapet referensi cara tapi belum dicoba.
 	- Halaman edit belum ada (Sama kaya halaman edit di halaman detail aja).
 
-2. <Master Data>
-	- Belum ada modal konfirmasi sebelum menghapus.
+2. <Add Photo>
+	- Input format hanya bisa menerima satu nilai. Coba cari cara mengambil value dari chechkbox dengan php.
+
+3. <Master Data>
 	- Modal buat edit belum berfungsi.
 
 ------------------------------------------------------------------Tambahan-------------------------------------------------------

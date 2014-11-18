@@ -324,6 +324,19 @@ class admin_controller extends CI_Controller {
 	    	show_404();
 	    }
 	}
+	public function deleteOwner($id) {
+		if($id == null) {
+			redirect(site_url('photo_list'));
+		}
+		$this->load->model('owner_model');
+		$success = $this->owner_model->deleteOwner($id);
+		if($success) {
+			redirect(site_url('master_data'));
+		} else {
+			$errmes['message'] = $id;
+			load_view('main_admin_login', $errmes);
+		}
+	}
 	public function addNewPhoto() {
 		if(!empty($_POST)){
 			//Set Upload Photo

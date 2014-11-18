@@ -34,5 +34,15 @@
       }
       return $success;
     }
+
+    public function deleteOwner($id) {      
+      $success = false;
+      $this->load->database();
+      $query = $this->db->query('DELETE FROM `mui_photo_library`.`owner` WHERE id_owner='.$this->db->escape($id).'');
+      if($this->db->affected_rows() == 1) {
+        $success = true;
+      }
+      return $success;
+    }
   }
 ?>
