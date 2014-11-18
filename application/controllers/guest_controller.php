@@ -91,28 +91,28 @@ class guest_controller extends CI_Controller {
 			$data['field'] = 'all';
 			$data['inputtext'] = '';
 			$data_photo = $this->photo_model->searchBy($data);
-			
-
-			$searchresult = array();
-		    $count = 0;
-
-		    foreach ($data_photo as $photo) {
-		    	$searchresult[$count]['id'] = $photo['id_photo'];
-				$searchresult[$count]['photographer'] = $photo['name_photographer'];
-		    	$searchresult[$count]['image'] = $photo['photo_upload'];
-		    	$searchresult[$count]['title'] = $photo['title'];
-		    	$searchresult[$count]['event'] = $photo['name_event'];
-		    	$searchresult[$count]['format'] = $photo['format'];
-		    	$searchresult[$count]['category'] = $photo['category'];
-		    	$searchresult[$count]['taken_date'] = $photo['taken_date'];
-		    	$searchresult[$count]['taken_location'] = $photo['taken_location'];
-		    	$count++;
-		    }
-		    load_view('main_search',array('searchresult' => $searchresult));
 		}
 		else {
-			load_view('main_search',array('searchresult' => null));
+			$data_photo = $this->photo_model->getAllPhoto();
 		}
+
+		$searchresult = array();
+		$count = 0;
+
+		foreach ($data_photo as $photo) {
+	    	$searchresult[$count]['id'] = $photo['id_photo'];
+			$searchresult[$count]['photographer'] = $photo['name_photographer'];
+	    	$searchresult[$count]['image'] = $photo['photo_upload'];
+	    	$searchresult[$count]['title'] = $photo['title'];
+	    	$searchresult[$count]['event'] = $photo['name_event'];
+	    	$searchresult[$count]['format'] = $photo['format'];
+	    	$searchresult[$count]['category'] = $photo['category'];
+	    	$searchresult[$count]['taken_date'] = $photo['taken_date'];
+	    	$searchresult[$count]['taken_location'] = $photo['taken_location'];
+	    	$count++;
+	    }
+
+		load_view('main_search',array('searchresult' => $searchresult));
 	}
 
 	/**

@@ -10,7 +10,7 @@
 
     public function getAllPhoto() {
       $this->load->database();
-      $query = $this->db->query('SELECT * FROM photo_record');
+      $query = $this->db->query('SELECT * FROM photo_record GROUP BY last_update DESC');
       return $query->result_array();
     }
 
