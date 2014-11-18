@@ -97,47 +97,47 @@
         <br>
         <div class="row">
           <div class="col-xs-10 col-md-4">
-            <a href="<?php echo site_url('/category_detail');?>" class="thumbnail">
+            <a href="<?php echo site_url('/category_detail/panjat');?>" class="thumbnail">
               <img src="<?php echo base_url('assets/img').'/category1.png';?>"/>
             </a>
           </div>
           <div class="col-xs-10 col-md-4">
-            <a href="<?php echo site_url('/category_detail');?>" class="thumbnail">
+            <a href="<?php echo site_url('/category_detail/arung jeram');?>" class="thumbnail">
               <img src="<?php echo base_url('assets/img').'/category2.png';?>"/>
             </a>
           </div>
           <div class="col-xs-10 col-md-4">
-            <a href="<?php echo site_url('/category_detail');?>" class="thumbnail">
+            <a href="<?php echo site_url('/category_detail/telusur gua');?>" class="thumbnail">
               <img src="<?php echo base_url('assets/img').'/category3.png';?>"/>
             </a>
           </div>
           <div class="col-xs-10 col-md-4">
-            <a href="<?php echo site_url('/category_detail');?>" class="thumbnail">
+            <a href="<?php echo site_url('/category_detail/selam');?>" class="thumbnail">
               <img src="<?php echo base_url('assets/img').'/category4.png';?>"/>
             </a>
           </div>
           <div class="col-xs-10 col-md-4">
-            <a href="<?php echo site_url('/category_detail');?>" class="thumbnail">
+            <a href="<?php echo site_url('/category_detail/paralayang');?>" class="thumbnail">
               <img src="<?php echo base_url('assets/img').'/category5.png';?>"/>
             </a>
           </div>
           <div class="col-xs-10 col-md-4">
-            <a href="<?php echo site_url('/category_detail');?>" class="thumbnail">
+            <a href="<?php echo site_url('/category_detail/daki gunung');?>" class="thumbnail">
               <img src="<?php echo base_url('assets/img').'/category6.png';?>"/>
             </a>
           </div>
           <div class="col-xs-10 col-md-4">
-            <a href="<?php echo site_url('/category_detail');?>" class="thumbnail">
+            <a href="<?php echo site_url('/category_detail/layar');?>" class="thumbnail">
               <img src="<?php echo base_url('assets/img').'/category7.png';?>"/>
             </a>
           </div>
           <div class="col-xs-10 col-md-4">
-            <a href="<?php echo site_url('/category_detail');?>" class="thumbnail">
+            <a href="<?php echo site_url('/category_detail/BKP');?>" class="thumbnail">
               <img src="<?php echo base_url('assets/img').'/category8.png';?>"/>
             </a>
           </div>
           <div class="col-xs-10 col-md-4">
-            <a href="<?php echo site_url('/category_detail');?>" class="thumbnail">
+            <a href="<?php echo site_url('/category_detail/lainnya');?>" class="thumbnail">
               <img src="<?php echo base_url('assets/img').'/category9.png';?>"/>
             </a>
           </div>

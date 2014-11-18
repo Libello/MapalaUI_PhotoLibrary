@@ -80,23 +80,23 @@
               <div class="col-sm-2">
                 <select class="form-control" id="search_option" name="activity">
                   <option value="all">Semua Kategori</option>
-                  <option value="climbing">Panjat</option>
-                  <option value="rafting">Arung Jeram</option>
-                  <option value="caving">Telusur Gua</option>
-                  <option value="diving">Selam</option>
-                  <option value="paragliding">Paralayang</option>
-                  <option value="mountaineering">Daki Gunung</option>
-                  <option value="sailing">Layar</option>
+                  <option value="Panjat">Panjat</option>
+                  <option value="Arung Jeram">Arung Jeram</option>
+                  <option value="Telusur Gua">Telusur Gua</option>
+                  <option value="Selam">Selam</option>
+                  <option value="Paralayang">Paralayang</option>
+                  <option value="Daki Gunung">Daki Gunung</option>
+                  <option value="Layar">Layar</option>
                   <option value="BKP">BKP</option>
-                  <option value="others">Lainnya</option>
+                  <option value="Lainnya">Lainnya</option>
                 </select>
               </div>
               <div class="col-sm-2">
                 <select class="form-control" id="search_option" name="format">
                   <option value="all">Semua Format</option>
-                  <option value="digital">Digital</option>
-                  <option value="repro/scan">Repro / Scan</option>
-                  <option value="print">Tercetak</option>
+                  <option value="Digital">Digital</option>
+                  <option value="Repro / Scan">Repro / Scan</option>
+                  <option value="Tercetak">Tercetak</option>
                 </select>
               </div>
               <button class="btn" id="btn-save" type="submit">Telusur</button>

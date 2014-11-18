@@ -18,6 +18,12 @@
       $query = $this->db->query('SELECT * FROM event WHERE id_event = '.$this->db->escape($id).' LIMIT 1');
       return $query->row_array();
     }
+    public function getEventByCategory($category) {
+      $this->load->database();
+      $query = $this->db->query('SELECT * FROM event WHERE category = '.$this->db->escape($category).'');
+      return $query->result_array();
+    }
+    
     public function insertEvent($data) {
       $event_name = $data['event_name'];
       $location = $data['location'];

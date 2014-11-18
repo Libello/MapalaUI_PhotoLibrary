@@ -171,7 +171,7 @@
         <div class="search_result">              
           <?php
             if($searchresult == null) {
-              echo "<p> No Result <p>";
+              echo "<p> Tidak ada koleksi <p>";
             }
             else {
               foreach ($searchresult as $row){
@@ -200,6 +200,28 @@
             }
           ?>
         </div>
+        <br>
+
+
+        <nav>
+          <ul class="pager">
+            <li class="previous disabled"><a href="#">&larr; Older</a></li>
+            <li class="disabled"><span>&laquo;</span></li>
+            <li class="active"><span>1 <span class="sr-only">(current)</span></span></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">&raquo;</a></li>
+            <li class="next"><a href="#">Newer &rarr;</a></li>
+          </ul>
+        </nav>
+
+
+
+
+
+
       </div>
     </div>
         

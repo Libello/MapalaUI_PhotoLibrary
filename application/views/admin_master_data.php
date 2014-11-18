@@ -320,40 +320,40 @@
                       </div>
 
                       <div class="form-group">
-                        <label for="category" class="col-sm-3 control-label">Kategori</label>
-                        <div class="col-sm-1"></div>
-                        <div class="col-sm-7">
-                          <div class="form-group">
-                            <div class="checkbox">
-                              <input type="checkbox" name="category" value="panjat"> Panjat</input>
+                            <label for="category" class="col-sm-3 control-label">Kategori</label>
+                            <div class="col-sm-1"></div>
+                            <div class="col-sm-7">
+                            <div class="form-group">
+                              <div class="checkbox">
+                                <input type="checkbox" name="category[]" value="Panjat"> Panjat</input>
+                              </div>
+                              <div class="checkbox">
+                                <input type="checkbox" name="category[]" value="Arung Jeram"> Arung Jeram</input>
+                              </div>
+                              <div class="checkbox">
+                                <input type="checkbox" name="category[]" value="Telusur Gua"> Telusur Gua</input>
+                              </div>
+                              <div class="checkbox">
+                                <input type="checkbox" name="category[]" value="Selam"> Selam</input>
+                              </div>
+                              <div class="checkbox">
+                                <input type="checkbox" name="category[]" value="Layar"> Layar</input>
+                              </div>
+                              <div class="checkbox">
+                                <input type="checkbox" name="category[]" value="Daki Gunung"> Daki Gunung</input>
+                              </div>
+                              <div class="checkbox">
+                                <input type="checkbox" name="category[]" value="Paralayang"> Paralayang</input>
+                              </div>
+                              <div class="checkbox">
+                                <input type="checkbox" name="category[]" value="BKP"> BKP</input>
+                              </div>
+                              <div class="checkbox">
+                                <input type="checkbox" name="category[]" value="Lainnya"> Lainnya</input>
+                              </div>
                             </div>
-                            <div class="checkbox">
-                              <input type="checkbox" name="category" value="arung jeram"> Arung Jeram</input>
-                            </div>
-                            <div class="checkbox">
-                              <input type="checkbox" name="category" value="telusur gua"> Telusur Gua</input>
-                            </div>
-                            <div class="checkbox">
-                              <input type="checkbox" name="category" value="selam"> Selam</input>
-                            </div>
-                            <div class="checkbox">
-                              <input type="checkbox" name="category" value="layar"> Layar</input>
-                            </div>
-                            <div class="checkbox">
-                              <input type="checkbox" name="category" value="daki gunung"> Daki Gunung</input>
-                            </div>
-                            <div class="checkbox">
-                              <input type="checkbox" name="category" value="paralayang"> Paralayang</input>
-                            </div>
-                            <div class="checkbox">
-                              <input type="checkbox" name="category" value="BKP"> BKP</input>
-                            </div>
-                            <div class="checkbox">
-                              <input type="checkbox" name="category" value="lainnya"> Lainnya</input>
                             </div>
                           </div>
-                        </div>
-                      </div>
 
                       <hr>
 

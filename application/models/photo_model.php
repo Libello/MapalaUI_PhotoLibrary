@@ -20,6 +20,12 @@
       return $query->row_array();
     }
 
+    public function getPhotoByCategory($category) {
+      $this->load->database();
+      $query = $this->db->query('SELECT * FROM photo_record WHERE category = '.$this->db->escape($category).'');
+      return $query->result_array();
+    }
+
     public function searchBy($data) {
       $this->load->database();
 
