@@ -205,7 +205,7 @@
 
         <nav>
           <ul class="pager">
-            <li class="previous disabled"><a href="#">&larr; Older</a></li>
+            <li class="previous disabled"><a href="#">&larr; Sebelumnya</a></li>
             <li class="disabled"><span>&laquo;</span></li>
             <li class="active"><span>1 <span class="sr-only">(current)</span></span></li>
             <li><a href="#">2</a></li>
@@ -213,7 +213,7 @@
             <li><a href="#">4</a></li>
             <li><a href="#">5</a></li>
             <li><a href="#">&raquo;</a></li>
-            <li class="next"><a href="#">Newer &rarr;</a></li>
+            <li class="next"><a href="#">Berikutnya &rarr;</a></li>
           </ul>
         </nav>
 
@@ -241,10 +241,8 @@
     <script type="text/javascript"> 
       $('.multi-field-wrapper').each(function() {
         var $wrapper = $('.multi-fields', this);
-        var $count = 0;
         $(".add-field", $(this)).click(function(e) {
             $('.multi-field:first-child', $wrapper).clone(true).appendTo($wrapper).find('input').val($count).focus();
-            $count++;
         });
         $('.multi-field .remove-field', $wrapper).click(function() {
           if ($('.multi-field', $wrapper).length > 1)

@@ -289,6 +289,7 @@ class admin_controller extends CI_Controller {
 		if(!empty($_POST)){
 			$data = $this->input->post();
 			$this->load->model('event_model');
+			$data['eventcategory'] = implode(',', $data['category']);
 			$success = $this->event_model->insertEvent($data);
 
 			if($success) {
@@ -366,12 +367,7 @@ class admin_controller extends CI_Controller {
 				$data['name_owner'] = '-';
 				$data['userfile'] = $datafoto['file_name'];
 				$data['size'] = $datafoto['image_width'].' x '.$datafoto['image_height'];
-				$data['format'] = '';
-				for ($i=1; $i < 4; $i++) { 
-					if($data['format'.$i.'']) {
-						$data['format'] = $data['format'].$data['format'.$i.''].'; ';
-					}
-				}
+				$data['formatphoto'] = implode(',', $data['format']);
 
 				if($data['photographer'] != null) {
 					$photographer = $this->photographer_model->getPhotographerById($data['photographer']);

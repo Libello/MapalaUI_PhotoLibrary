@@ -34,7 +34,7 @@
       $success = false;
       $this->load->database();
       $query = $this->db->query('INSERT INTO `mui_photo_library`.`event` (`name`, `location`, `start_year`, `end_year`, `category`) 
-        VALUES ('.$this->db->escape($data['event_name']).','.$this->db->escape($data['location']).','.$this->db->escape($data['start_year']).','.$this->db->escape($data['end_year']).','.$this->db->escape($data['category']).');');
+        VALUES ('.$this->db->escape($data['event_name']).','.$this->db->escape($data['location']).','.$this->db->escape($data['start_year']).','.$this->db->escape($data['end_year']).','.$this->db->escape($data['eventcategory']).');');
       if($this->db->affected_rows() == 1) {
         $success = true;
       }
