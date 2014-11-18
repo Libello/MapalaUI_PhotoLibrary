@@ -88,8 +88,18 @@ class guest_controller extends CI_Controller {
 
 		if(!empty($_POST)) {
 			$data = $this->input->post();
-			$data['field'] = 'all';
-			$data['inputtext'] = '';
+			if($data['searchbox'] == 'true') {
+				$data['field'] = 'all';
+				$data['activity'] = 'all';
+				$data['format'] = 'all';
+			}
+			else {
+				for(var i=0; i<count($data['fieldarr']); i++) {
+					$data['field'.i] = 
+				}
+				$data['field'] = 'all';
+				$data['inputtext'] = '';
+			}
 			$data_photo = $this->photo_model->searchBy($data);
 		}
 		else {

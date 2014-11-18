@@ -46,9 +46,10 @@
               <li><a id="nav_name" href="<?php echo site_url('/search');?>"><br>Penelusuran<br></a></li>
               <li><a id="nav_name" href="<?php echo site_url('/gallery');?>"><br>Galeri<br></a></li>
               <li><a id="nav_name" href="<?php echo site_url('/others');?>"><br>Tentang MUIPL<br></a></li>
-              <form class="navbar-form navbar-left" role="search" id="simple_search">
+              <form class="navbar-form navbar-left" role="search" id="simple_search" method="post" action="<?php echo site_url('/search');?>">
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Cari koleksi">
+                  <input type="text" class="form-control" name="inputtext" placeholder="Cari koleksi" value=""> 
+                  <input type="hidden" name="searchbox" value="true">
                 </div>
                 <button type="submit" class="btn btn-default">Cari</button>
               </form>

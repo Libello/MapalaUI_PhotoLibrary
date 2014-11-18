@@ -16,8 +16,6 @@ Yang belum :
 	- Setelah diklik foto redirect ke halaman detail.
 	- Belum ada halaman album tiap kegiatan.
 
-4. <Kotak Search di menu bar>
-	- Fungsi pencariannya belum dipasang. Tinggal ambil dan modifikasi sebagian dari isi fungsi searchBy di photo_model.
 
 -------------------------------------------------------------------Admin-----------------------------------------------------------
 

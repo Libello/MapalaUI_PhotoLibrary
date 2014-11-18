@@ -46,9 +46,10 @@
               <li class="active"><a id="nav_name" href="<?php echo site_url('/search');?>"><span class="glyphicon glyphicon-search"></span><br>Penelusuran</a></li>
               <li><a id="nav_name" href="<?php echo site_url('/gallery');?>"><br>Galeri<br></a></li>
               <li><a id="nav_name" href="<?php echo site_url('/others');?>"><br>Tentang MUIPL<br></a></li>
-              <form class="navbar-form navbar-left" role="search" id="simple_search">
+              <form class="navbar-form navbar-left" role="search" id="simple_search" method="post" action="<?php echo site_url('/search');?>">
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Cari koleksi">
+                  <input type="text" class="form-control" name="inputtext" placeholder="Cari koleksi" value="">
+                  <input type="hidden" name="searchbox" value="true">
                 </div>
                 <button type="submit" class="btn btn-default">Cari</button>
               </form>
@@ -93,14 +94,15 @@
         <br>
         <h1 id="search_header">Penelusuran Koleksi</h1><hr>
         <form class="form-horizontal" id="search" role="form" method="post" action="<?php echo site_url('/search');?>">
+          <input type="hidden" name="searchbox" value="false">
           <div class="form-group" id="search_guest">
             <label for="format" class="col-sm-2 control-label">Format:</label>
             <div class="col-sm-2">
               <select class="form-control" id="format" name="format">
                 <option value="all">Semua</option>
-                <option value="digital">Digital</option>
-                <option value="repro/scan">Repro / Scan</option>
-                <option value="print">Tercetak</option>
+                <option value="Digital">Digital</option>
+                <option value="Repro / Scan">Repro / Scan</option>
+                <option value="Tercetak">Tercetak</option>
               </select>
             </div><br><br>
 
@@ -108,9 +110,9 @@
             <div class="col-sm-2">
               <select class="form-control" id="color" name="color">
                 <option value="all">Semua</option>
-                <option value="color">Berwarna</option>
-                <option value="b&w">Hitam & Putih</option>
-                <option value="sephia">Sephia</option>
+                <option value="Berwarna">Berwarna</option>
+                <option value="Hitam Putih">Hitam Putih</option>
+                <option value="Sephia">Sephia</option>
               </select>
             </div><br><br>
 
@@ -118,15 +120,15 @@
             <div class="col-sm-2">
               <select class="form-control" id="activity" name="activity">
                 <option value="all">Semua</option>
-                <option value="climbing">Panjat</option>
-                <option value="rafting">Arung Jeram</option>
-                <option value="caving">Telusur Gua</option>
-                <option value="diving">Selam</option>
-                <option value="paragliding">Paralayang</option>
-                <option value="mountaineering">Daki Gunung</option>
-                <option value="sailing">Layar</option>
+                <option value="Panjat">Panjat</option>
+                <option value="Arung Jeram">Arung Jeram</option>
+                <option value="Telusur Gua">Telusur Gua</option>
+                <option value="Selam">Selam</option>
+                <option value="Paralayang">Paralayang</option>
+                <option value="Daki Gunung">Daki Gunung</option>
+                <option value="Layar">Layar</option>
                 <option value="BKP">BKP</option>
-                <option value="others">Lainnya</option>
+                <option value="Lainnya">Lainnya</option>
               </select>
             </div>
           </div>
@@ -135,19 +137,19 @@
             <div class="multi-fields">
               <div class="multi-field form-group">
                 <div class="col-sm-2 a">
-                  <select class="form-control" name="field">
-                    <option >Semua</option>
-                    <option selected>Judul</option>
-                    <option>Fotografer</option>
-                    <option>Kegiatan</option>
-                    <option>Lokasi</option>
-                    <option>Tahun</option>
-                    <option>Deskripsi Foto</option>
+                  <select class="form-control" name="fieldarr[]">
+                    <option value="all">Semua</option>
+                    <option value="title" selected>Judul</option>
+                    <option value="name_photographer">Fotografer</option>
+                    <option value="category">Kegiatan</option>
+                    <option value="taken_location">Lokasi</option>
+                    <option value="taken_date">Tahun</option>
+                    <option value="description">Deskripsi Foto</option>
                   </select>
                 </div>
-                <div class="col-sm-4 b"><input type="text" class="form-control" name="inputtext"></div>
+                <div class="col-sm-4 b"><input type="text" class="form-control" name="inputtextarr[]"></div>
                 <div class="col-sm-2 c">
-                  <select class="form-control" name="operate">
+                  <select class="form-control" name="operatearr[]">
                     <option value="and">dan</option>
                     <option value="or">atau</option>
                     <option value="not">bukan</option>
@@ -217,11 +219,6 @@
           </ul>
         </nav>
 
-
-
-
-
-
       </div>
     </div>
         
@@ -242,7 +239,8 @@
       $('.multi-field-wrapper').each(function() {
         var $wrapper = $('.multi-fields', this);
         $(".add-field", $(this)).click(function(e) {
-            $('.multi-field:first-child', $wrapper).clone(true).appendTo($wrapper).find('input').val($count).focus();
+            $('.multi-field:first-child', $wrapper).clone(true).appendTo($wrapper).find('input').focus();
+            $('.multi-field .remove-field', $wrapper).disabled = true;
         });
         $('.multi-field .remove-field', $wrapper).click(function() {
           if ($('.multi-field', $wrapper).length > 1)
