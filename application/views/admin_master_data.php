@@ -329,31 +329,31 @@
                             <div class="col-sm-7">
                             <div class="form-group">
                               <div class="checkbox">
-                                <input type="checkbox" name="category" value="Panjat"> Panjat</input>
+                                <input type="checkbox" name="category[]" value="Panjat"> Panjat</input>
                               </div>
                               <div class="checkbox">
-                                <input type="checkbox" name="category" value="Arung Jeram"> Arung Jeram</input>
+                                <input type="checkbox" name="category[]" value="Arung Jeram"> Arung Jeram</input>
                               </div>
                               <div class="checkbox">
-                                <input type="checkbox" name="category" value="Telusur Gua"> Telusur Gua</input>
+                                <input type="checkbox" name="category[]" value="Telusur Gua"> Telusur Gua</input>
                               </div>
                               <div class="checkbox">
-                                <input type="checkbox" name="category" value="Selam"> Selam</input>
+                                <input type="checkbox" name="category[]" value="Selam"> Selam</input>
                               </div>
                               <div class="checkbox">
-                                <input type="checkbox" name="category" value="Layar"> Layar</input>
+                                <input type="checkbox" name="category[]" value="Layar"> Layar</input>
                               </div>
                               <div class="checkbox">
-                                <input type="checkbox" name="category" value="Daki Gunung"> Daki Gunung</input>
+                                <input type="checkbox" name="category[]" value="Daki Gunung"> Daki Gunung</input>
                               </div>
                               <div class="checkbox">
-                                <input type="checkbox" name="category" value="Paralayang"> Paralayang</input>
+                                <input type="checkbox" name="category[]" value="Paralayang"> Paralayang</input>
                               </div>
                               <div class="checkbox">
-                                <input type="checkbox" name="category" value="BKP"> BKP</input>
+                                <input type="checkbox" name="category[]" value="BKP"> BKP</input>
                               </div>
                               <div class="checkbox">
-                                <input type="checkbox" name="category" value="Lainnya"> Lainnya</input>
+                                <input type="checkbox" name="category[]" value="Lainnya"> Lainnya</input>
                               </div>
                             </div>
                             </div>

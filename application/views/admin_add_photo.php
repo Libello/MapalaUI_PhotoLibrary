@@ -124,13 +124,13 @@
             <label for="format" class="col-sm-2 control-label">Format</label>
             <div class="col-sm-2">
               <div class="checkbox">
-                <input type="checkbox" name="format1" value="Digital"> Digital
+                <input type="checkbox" name="format[]" value="Digital"> Digital
               </div>
               <div class="checkbox">
-                <input type="checkbox" name="format2" value="Repro / Scan"> Repro / Scan
+                <input type="checkbox" name="format[]" value="Repro / Scan"> Repro / Scan
               </div>
               <div class="checkbox">
-                <input type="checkbox" name="format3" value="Tercetak"> Tercetak
+                <input type="checkbox" name="format[]" value="Tercetak"> Tercetak
               </div>
             </div>
             <p class="col-sm-1 required">*</p>
