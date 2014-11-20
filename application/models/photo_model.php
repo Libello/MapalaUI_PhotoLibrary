@@ -30,7 +30,7 @@
       $this->load->database();
 
       if($data['activity'] == 'all') {
-        $this->db->query('CREATE OR REPLACE VIEW viewactivity AS SELECT * FROM photo_record');
+        $this->db->query('CREATE OR REPLACE VIEW viewactivity AS SELECT * FROM photo_record GROUP BY last_update DESC');
       }
       else {
         $this->db->query('CREATE OR REPLACE VIEW viewactivity AS SELECT * FROM photo_record WHERE category='.$this->db->escape($data['activity']).'');

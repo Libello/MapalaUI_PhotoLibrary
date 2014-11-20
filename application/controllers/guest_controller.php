@@ -107,8 +107,6 @@ class guest_controller extends CI_Controller {
 			}
 			else {
 				// for(var i=0; i<count($data['fieldarr']); i++) {
-				// 	$data['field'.i] = 
-				// }
 				$data['field'] = 'all';
 				$data['inputtext'] = '';
 			}
