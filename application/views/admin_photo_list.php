@@ -128,7 +128,7 @@
                         <a href=".site_url('edit/'.$row['id'].'')."><button class='btn' id='btn-edit2'>Edit</button></a>
                       </td>
                       <td>
-                        <a class='pull-left' data-toggle='modal' data-target='#".$row['id']."'><img class='media-object' src=".base_url('assets/foto').'/'.$row['image']." alt='contoh1' width='110px' id='img-result'></a>
+                        <a class='pull-left' data-toggle='modal' data-target='#".$row['id']."'><img class='thumbnail' src=".base_url('assets/foto').'/'.$row['image']." alt='contoh1' width='110px' id='img-result'></a>
                       </td>
                       <td class='grid'>
                         <h4>
