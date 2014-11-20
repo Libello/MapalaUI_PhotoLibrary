@@ -25,6 +25,7 @@ Yang belum :
 4. <Tambah Foto>
 	- Input ID diberi ketentuan
 	- Ukuran bisa ditambah input sendiri yang tercetak
+	- Gimana caranya supaya bisa ga pake upload foto
 
 -------------------------------------------------------------------Skripsi-----------------------------------------------------------
 
@@ -35,5 +36,5 @@ Yang belum :
 	Class diagram model dan controller
 
 	Screenshot
-	
+
 	Bab 5
