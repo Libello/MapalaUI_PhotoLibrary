@@ -61,7 +61,9 @@
 
         <form class="form-horizontal" role="form" name="add_photo" method="post" enctype="multipart/form-data" action="<?php echo site_url('/editPhoto');?>">
           
-          <img name="userfile" src="<?php echo base_url('assets/foto').'/'.$photo_upload ?>" width="500px">
+          <div class="col-sm-3"></div>
+          <img name="userfile" class="col-sm-6 thumbnail" id="imageEdit" src="<?php echo base_url('assets/foto').'/'.$photo_upload ?>" width="500px">
+          <div class="col-sm-3"></div>
           <!--TOMBOL SELESAI-->
           <div class="form-group" id="savebtn-top">
             <div class="lead pull-right">
