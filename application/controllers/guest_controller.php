@@ -26,6 +26,7 @@ class guest_controller extends CI_Controller {
 	public function view_main_gallery($category) {
 		$this->load->model('photo_model');
 		$this->load->model('event_model');
+		$category = str_replace("_", " ", $category);
 		$data_photo = $this->photo_model->getPhotoByCategory($category);
 		$data_event = $this->event_model->getEventByCategory($category);
 
@@ -50,7 +51,7 @@ class guest_controller extends CI_Controller {
 		    $count = 0;
 
 		    foreach ($data_event as $event) {
-		    	$eventresult[$count]['id'] = $event['id_event'];
+		    	$eventresult[$count]['id_event'] = $event['id_event'];
 		    	$eventresult[$count]['name'] = $event['name'];
 		    	$eventresult[$count]['location'] = $event['location'];
 		    	$eventresult[$count]['start_year'] = $event['start_year'];
@@ -62,9 +63,19 @@ class guest_controller extends CI_Controller {
 		load_view('main_gallery',array('eventresult' => $eventresult, 'photoresult' => $photoresult));
 	}
 	
-	public function view_main_gallery2() {
-		load_view('main_gallery2',array());
+	public function view_main_gallery2($id) {
+		$this->load->model('event_model');
+		$data_event = $this->event_model->getEventById($id);
+
+		if($data_event == null) {
+			show_404();
+		}
+		else {
+			$data_event['name_event'] = $data_event['name'];
+			load_view('main_gallery2', $data_event);
+		}
 	}
+
 	public function view_main_home() {
 		load_view('main_home',array());
 	}
@@ -74,6 +85,7 @@ class guest_controller extends CI_Controller {
 	public function view_main_photo_detail($id) {
 		$this->load->model('photo_model');
 		$data_photo = $this->photo_model->getPhotoById($id);
+
 		if($data_photo == null) {
 			show_404();
 		}
@@ -94,9 +106,9 @@ class guest_controller extends CI_Controller {
 				$data['format'] = 'all';
 			}
 			else {
-				for(var i=0; i<count($data['fieldarr']); i++) {
-					$data['field'.i] = 
-				}
+				// for(var i=0; i<count($data['fieldarr']); i++) {
+				// 	$data['field'.i] = 
+				// }
 				$data['field'] = 'all';
 				$data['inputtext'] = '';
 			}

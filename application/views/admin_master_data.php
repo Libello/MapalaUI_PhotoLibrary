@@ -106,10 +106,8 @@
                       }
                     echo "</td>";
                     echo "<td>";
-                      echo '
-                        <a class="pull-left" data-toggle="modal" data-target="#photographer_modal">
-                            <button class="btn" id="btn-edit-master">Ubah</button>
-                        </a>
+                      echo '                        
+                        <button class="btn" id="btn-edit-master" data-toggle="modal" data-target="#photographer_modal-'.$row['id'].'">Edit</button>
                         <button class="btn" id="btn-edit" data-toggle="modal" data-target="#deletephotographer_modal-'.$row['id'].'"><img src="'.base_url('assets/ico/remove.png').'"></button>
                       ';
                     echo "</td>";
@@ -132,6 +130,69 @@
                         </div>
                       </div>
                     </form>
+                  ';
+
+                  // Edit Photographer Modal
+                  echo '
+                  <div class="modal fade" id="photographer_modal-'.$row['id'].'" tabindex="-1" role="dialog" aria-labelledby="photographerLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                          <h4 class="modal-title" id="photographerLabel">Fotografer</h4>
+                        </div>
+                        <div class="modal-body">
+                          <form class="form-horizontal" id="photographermodal" role="form" method="post" action="'.site_url('/addPhotographer').'">
+                            <div class="form-group">
+                              <label for="photographer_name" class="col-sm-3 control-label">Nama</label>
+                              <div class="col-sm-7">
+                                <input type="text" class="form-control" name="photographer_name" value="'.$row['name'].'" required autofocus>
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="photographer_membership" class="col-sm-3 control-label">Keanggotaan</label>
+                              <div class="col-sm-7">
+                                <div class="radio">
+                                  <label>
+                                    <input type="radio" name="photographer_membership" value="Mapala UI" checked>
+                                    Mapala UI
+                                  </label>
+                                </div>
+                                <div class="radio">
+                                  <label>
+                                    <input type="radio" name="photographer_membership" value="Non - Mapala UI" >
+                                    Non - Mapala UI
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="photographer_no.M" class="col-sm-3 control-label">No. M</label>
+                              <div class="col-sm-2">
+                                <div class="well well-sm">M-</div>
+                              </div>
+                              <div class="col-sm-3">
+                                <input type="text" class="form-control" name="no_m" value="'.$row['no_m'].'" required>
+                              </div>
+                              <div class="col-sm-2">
+                                <div class="well well-sm">-UI</div>
+                              </div>
+                            </div>
+                            <br>
+
+                            <hr>
+
+                            <div class="lead" id="btn_modalfinish">
+                              <button type="close" class="btn" id="btn-close" data-dismiss="modal">Keluar</button>
+                              <button type="submit" class="btn" id="btn-save" onclick="return validatePhotographer();">Simpan</button>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                   ';
                 }
               ?>             
@@ -243,9 +304,7 @@
                     echo "</td>";
                     echo "<td>";
                       echo '
-                          <a class="pull-left" data-toggle="modal" data-target="#event_modal">
-                              <button class="btn" id="btn-edit-master">Ubah</button>
-                          </a>
+                          <button class="btn" id="btn-edit-master" data-toggle="modal" data-target="#event_modal-'.$row['id'].'">Edit</button>
                           <button class="btn" id="btn-edit" data-toggle="modal" data-target="#deleteevent_modal-'.$row['id'].'"><img src="'.base_url('assets/ico/remove.png').'"></button>
                       ';
                     echo "</td>";
@@ -269,9 +328,108 @@
                       </div> 
                     </form>                                 
                   ';
+
+                  // Edit Event Modal
+                  echo '
+                    <div class="modal fade" id="event_modal-'.$row['id'].'" tabindex="-1" role="dialog" aria-labelledby="eventLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="eventLabel">Kegiatan</h4>
+                          </div>
+                          <div class="modal-body">
+                            <form class="form-horizontal" role="form" method="post" action="'.site_url('/addEvent').'">
+                              <div class="form-group">
+                                <label for="event_name" class="col-sm-3 control-label">Nama</label>
+                                <div class="col-sm-7">
+                                  <input type="text" class="form-control" name="event_name" value="'.$row['name'].'" required autofocus>
+                                </div>
+                              </div>
+
+                              <div class="form-group">
+                                <label for="event_location" class="col-sm-3 control-label">Lokasi</label>
+                                <div class="col-sm-7">
+                                  <input type="text" class="form-control" name="location" value="'.$row['location'].'">
+                                </div>
+                              </div>
+
+                              <div class="form-group">
+                                <label for="event_period" class="col-sm-3 control-label">Periode</label>
+                                <div class="col-sm-3">
+                                  <select class="form-control" name="start_year">
+                                    <option selected value="-">thn</option>
+                                    <option disabled>───</option>
+                                    <?php for ($i = 2017; $i >= 1960; $i--) : ?>
+                                      <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                    <?php endfor; ?>
+                                  </select>
+                                </div>
+                                <div class="col-sm-1">s/d</div>
+                                <div class="col-sm-3">
+                                  <select class="form-control" name="end_year">
+                                    <option selected value="-">thn</option>
+                                    <option disabled>───</option>
+                                    <?php for ($i = 2017; $i >= 1960; $i--) : ?>
+                                      <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                    <?php endfor; ?>
+                                  </select>
+                                </div>
+                              </div>
+
+                              <div class="form-group">
+                                    <label for="category" class="col-sm-3 control-label">Kategori</label>
+                                    <div class="col-sm-1"></div>
+                                    <div class="col-sm-7">
+                                    <div class="form-group">
+                                      <div class="checkbox">
+                                        <input type="checkbox" name="category[]" value="Panjat"> Panjat</input>
+                                      </div>
+                                      <div class="checkbox">
+                                        <input type="checkbox" name="category[]" value="Arung Jeram"> Arung Jeram</input>
+                                      </div>
+                                      <div class="checkbox">
+                                        <input type="checkbox" name="category[]" value="Telusur Gua"> Telusur Gua</input>
+                                      </div>
+                                      <div class="checkbox">
+                                        <input type="checkbox" name="category[]" value="Selam"> Selam</input>
+                                      </div>
+                                      <div class="checkbox">
+                                        <input type="checkbox" name="category[]" value="Layar"> Layar</input>
+                                      </div>
+                                      <div class="checkbox">
+                                        <input type="checkbox" name="category[]" value="Daki Gunung"> Daki Gunung</input>
+                                      </div>
+                                      <div class="checkbox">
+                                        <input type="checkbox" name="category[]" value="Paralayang"> Paralayang</input>
+                                      </div>
+                                      <div class="checkbox">
+                                        <input type="checkbox" name="category[]" value="BKP"> BKP</input>
+                                      </div>
+                                      <div class="checkbox">
+                                        <input type="checkbox" name="category[]" value="Lainnya"> Lainnya</input>
+                                      </div>
+                                    </div>
+                                    </div>
+                                  </div>
+
+                              <hr>
+
+                              <div class="lead" id="btn_modalfinish">
+                                <button type="close" class="btn" id="btn-close" data-dismiss="modal">Keluar</button>
+                                <button type="submit" class="btn" id="btn-save">Simpan</button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  ';
                 }
               ?>                
             </table>
+
             <!--Event Modal-->
             <div class="modal fade" id="event_modal" tabindex="-1" role="dialog" aria-labelledby="eventLabel" aria-hidden="true">
               <div class="modal-dialog">
@@ -402,7 +560,7 @@
                     echo "<td>";
                       echo '
                         <a class="pull-left" data-toggle="modal" data-target="#editor_modal">
-                            <button class="btn" id="btn-edit-master">Ubah</button>
+                            <button class="btn" id="btn-edit-master">Edit</button>
                         </a>
                         <button class="btn" id="btn-edit" data-toggle="modal" data-target="#deleteeditor_modal-'.$row['id'].'"><img src="'.base_url('assets/ico/remove.png').'"></button>
                       ';
@@ -533,7 +691,7 @@
                     echo "</td>";
                     echo "<td>";
                       echo '<a class="pull-left" data-toggle="modal" data-target="#owner_modal">
-                              <button class="btn" id="btn-edit-master">Ubah</button>
+                              <button class="btn" id="btn-edit-master">Edit</button>
                             </a>
                             <button class="btn" id="btn-edit" data-toggle="modal" data-target="#deleteowner_modal-'.$row['id'].'"><img src="'.base_url('assets/ico/remove.png').'"></button>';
                     echo "</td>";

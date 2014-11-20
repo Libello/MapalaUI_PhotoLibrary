@@ -103,12 +103,12 @@
             </a>
           </div>
           <div class="col-xs-10 col-md-4">
-            <a href="<?php echo site_url('/category_detail/arung jeram');?>" class="thumbnail">
+            <a href="<?php echo site_url('/category_detail/arung_jeram');?>" class="thumbnail">
               <img src="<?php echo base_url('assets/img').'/category2.png';?>"/>
             </a>
           </div>
           <div class="col-xs-10 col-md-4">
-            <a href="<?php echo site_url('/category_detail/telusur gua');?>" class="thumbnail">
+            <a href="<?php echo site_url('/category_detail/telusur_gua');?>" class="thumbnail">
               <img src="<?php echo base_url('assets/img').'/category3.png';?>"/>
             </a>
           </div>
@@ -123,7 +123,7 @@
             </a>
           </div>
           <div class="col-xs-10 col-md-4">
-            <a href="<?php echo site_url('/category_detail/daki gunung');?>" class="thumbnail">
+            <a href="<?php echo site_url('/category_detail/daki_gunung');?>" class="thumbnail">
               <img src="<?php echo base_url('assets/img').'/category6.png';?>"/>
             </a>
           </div>

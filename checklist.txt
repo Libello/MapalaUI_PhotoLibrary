@@ -3,59 +3,37 @@ Yang belum :
 1. <Penelusuran>
 	- Penelusuran dengan menggunakan input dan field.
 	  (Masih belum kepikiran buat ngasih name yang unik di tiap field yang dinamis).
+	- Jalanin fungsi < page 1 2 3 >
 
-2. <Detail> 
-	- Halaman edit belum ada.
-	- Lihat rekod dublin core (Dalam bentuk xml?).
-
-3. <Galeri>
-	- Load list kegiatan.
-	- Load foto (Foto ditampilin semua atau ada batasan
-	  jumlah foto tiap page? Kalo ada batasan berarti
- 	  tambahin index page di bagian bawah < page 1 2 3 >).
-	- Setelah diklik foto redirect ke halaman detail.
-	- Belum ada halaman album tiap kegiatan.
-
+2. <Galeri>
+	- GetPhotobyEvent belum
 
 -------------------------------------------------------------------Admin-----------------------------------------------------------
 
 1. <Daftar Foto>
-	- Delete selected photo. Masih ngga ngerti cara kerja check/uncheck allnya jadi ngga ngerti cara ambil id dari photo yang di checklist.
 	- Ekspor ke csv. Udah dapet referensi cara tapi belum dicoba.
-	- Halaman edit belum ada (Sama kaya halaman edit di halaman detail aja).
+	- Mungkin bisa ditambah < page 1 2 3 >
 
-2. <Add Photo>
-	- Input format hanya bisa menerima satu nilai. Coba cari cara mengambil value dari chechkbox dengan php.
+2. <Edit> 
+	- Halaman edit belum bisa disave
+	- Fotografer dll ga muncul
+	- Redirect ke halaman sebelumnya
 
 3. <Master Data>
-	- Modal buat edit belum berfungsi.
+	- Modal buat edit masih ga rapi dan belum bisa save, sama kaya yg di halaman edit...
 
-------------------------------------------------------------------Tambahan-------------------------------------------------------
+4. <Tambah Foto>
+	- Input ID diberi ketentuan
+	- Ukuran bisa ditambah input sendiri yang tercetak
 
-1. Jika ada input yang tidak diisi ganti dengan suatu nilai '-' atau '<belum diisi>', jangan null agar saat ditampilkan di halaman detail atau lainnya tidak jelek. Bisa dirubah dengan set langsung attribut value di tiap input dengan '-' atau '<belum diisi>'.
+-------------------------------------------------------------------Skripsi-----------------------------------------------------------
 
-2. Form tambah foto masih terlihat kurang rapi.
+	Liat penjelasan dublin core, sesuai ga sama yang diterapkan sekarang, kayanya di bab 2 masih beda gara-gara kesalahan di awal
 
-3. Nilai set di database dibuat lebih baku (capitalize diperhatikan) supaya ketika ditampilkan tidak perlu dirubah lagi.
+	Cek tujuan aplikasi -->repositori(?), bukan buat pengganti atau hanya katalog aja
 
+	Class diagram model dan controller
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	Screenshot
+	
+	Bab 5

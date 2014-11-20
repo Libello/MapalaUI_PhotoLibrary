@@ -92,22 +92,31 @@
     <div class="container">
       <div class="starter-template">
         <br>
-        <h2 id="search_header">Arung Jeram Sungai Lariang dan Telusur Taman Nasional Lore Lindu (TNLL)</h2><hr>
+        <h2 id="search_header"><?php echo $name_event ?></h2><hr>
           <form class="form-horizontal" role="form">
             <div class="form-group" id="photo_detail_form">
               <label class="col-sm-1 control-label">Lokasi</label>
               <div class="col-sm-11">
-              <p class="form-control-static">: Sulawesi Tengah</p>
+              <p class="form-control-static">: <?php echo $location ?></p>
               </div>
               
               <label class="col-sm-1 control-label">Tahun</label>
               <div class="col-sm-11">
-              <p class="form-control-static">: 2014</p>
+              <p class="form-control-static">: <?php 
+                                                if($start_year == $end_year) {
+                                                  echo $start_year;
+                                                }
+                                                else {
+                                                  echo $start_year." s/d ".$end_year;
+                                                }
+                                              ?>
+
+              </p>
               </div>
 
               <label class="col-sm-1 control-label">Kategori</label>
               <div class="col-sm-11">
-              <p class="form-control-static">: Arung Jeram</p>
+              <p class="form-control-static">: <?php echo $category ?></p>
               </div>
             </div>
           </form>
@@ -115,48 +124,24 @@
           <br>
 
         <div class="row">
-          <div class="col-xs-6 col-md-3">
-            <a href="#" class="thumbnail">
-              <img src="rafting.jpg" alt="...">
-            </a>
-          </div>
-          <div class="col-xs-6 col-md-3">
-            <a href="#" class="thumbnail">
-              <img src="rafting.jpg" alt="...">
-            </a>
-          </div>
-          <div class="col-xs-6 col-md-3">
-            <a href="#" class="thumbnail">
-              <img src="rafting.jpg" alt="...">
-            </a>
-          </div>
-          <div class="col-xs-6 col-md-3">
-            <a href="#" class="thumbnail">
-              <img src="rafting.jpg" alt="...">
-            </a>
-          </div>
-          <div class="col-xs-6 col-md-3">
-            <a href="#" class="thumbnail">
-              <img src="rafting.jpg" alt="...">
-            </a>
-          </div>
-          <div class="col-xs-6 col-md-3">
-            <a href="#" class="thumbnail">
-              <img src="rafting.jpg" alt="...">
-            </a>
-          </div>
+          <?php
+            if($photoresult == null) {
+              echo "Tidak ada koleksi";
+            }
+            else {
+              $id = str_replace("/", "_", $row['id']);
+              foreach ($photoresult as $row){
+                echo '
+                  <div class="col-xs-6 col-md-3">
+                    <a href="'.site_url('/detail/'.$id.'').'" class="thumbnail">
+                      <img src="'.base_url('assets/foto').'/'.$row['image'].'" alt="'.$row['image'].'">
+                    </a>
+                  </div>
+                ';
+              }
+            }
+          ?>
         </div>
-
-
-
-
-
-
-
-
-
-
-
       </div>
     </div>
     <hr>

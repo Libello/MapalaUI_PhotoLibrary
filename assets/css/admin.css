@@ -17,6 +17,11 @@ textarea {
 	src: url("../fonts/AGENCYR.ttf");
 }
 
+@font-face {
+    font-family: 'Lobster 1.4';
+    src: url("../fonts/Lobster 1.4.otf")
+}
+
 
 .navbar {
 	font-family: 'AGENCYR';
@@ -125,6 +130,12 @@ label {
 	text-align: left;
 }
 
+.required-top {
+	font-weight: bolder;
+	font-size: 20px;
+	color: #cc0000;
+}
+
 .required {
 	text-align: left;
 	font-weight: bolder;
@@ -178,11 +189,12 @@ label {
 	color: white;
 }
 
+#savebtn-top {
+	padding-right: 15px;
+}
 
-#done {
-	font-family: 'Lobster 1.4';
-	font-size: 50px;
-	font-weight: bold;
+#savebtn-bottom {
+	padding-top: 18px;
 }
 
 
@@ -207,9 +219,15 @@ td {
     text-align: left;
 }
 
- 
-#btn-edit {
+ #btn-edit {
 	background-color: transparent;
+}
+
+#btn-edit2 {
+	background-color: transparent;
+	color: black;
+	font-size: 20px;
+	font-style: bold;
 }
 
 #btn-edit-master {
@@ -240,7 +258,10 @@ td {
 	font-weight: bold;
 }
 
-
+#done {
+	font-family: 'Lobster 1.4';
+	font-size: : 75px;
+}
 
 #footer {
 	padding-top: 15px;

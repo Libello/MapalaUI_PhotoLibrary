@@ -179,7 +179,7 @@
               foreach ($searchresult as $row){
                 echo '<div class="media">;
                         <a class="pull-left" data-toggle="modal" data-target="#img-result_modal-'.$row['id'].'">
-                          <img class="media-object" src="'.base_url('assets/foto').'/'.$row['image'].'" alt="'.$row['image'].'" width="150px" id="img-result">
+                          <img class="thumbnail" src="'.base_url('assets/foto').'/'.$row['image'].'" alt="'.$row['image'].'" width="170px" id="img-result">
                         </a>
                         <div class="media-body">
                           <a href="'.site_url('/detail/'.$row['id'].'').'" role="button"><h4 class="media-heading">'.$row['title'].'</h4></a>

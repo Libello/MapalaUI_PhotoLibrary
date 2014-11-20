@@ -106,14 +106,33 @@
         <br>
 
         <div id="photodata_button">
+          <button class="btn" id="delete_button" data-toggle="modal" data-target="#deletedata_modal">Hapus Data Terpilih</button>
+          <input class="btn" id="btn-save" type="button" name="Check_All" value="Pilih Semua" onClick="CheckAll(document.photolist.check_list)">
+          <input class="btn" id="btn-save" type="button" name="Un_CheckAll" value="Kosongkan Semua" onClick="UnCheckAll(document.photolist.check_list)">
           <button class="btn" id="btn-save">Ekspor dalam format CSV</button>
         </div>
         <br>
 
+              <!-- Delete Photo Data -->
+              <div class="modal fade" id="deletedata_modal" tabindex="-1" role="dialog" aria-labelledby="deletedataLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-body">
+                      <h1 id="done">Hapus data terpilih?</h1>
+                      <div class="lead" id="btn_modaldelete">
+                        <button type="close" class="btn" id="btn-close" data-dismiss="modal">Keluar</button>
+                        <button type="submit" class="btn" id="btn-save">Hapus</button>
+                      </div>
+                    </div>
+                 </div>
+                </div>
+              </div>
+              <!-- Delete Photo Data -->
 
         <table class="table">
           <tr id="table_header">
-            <td>PILIHAN</td>
+            <td>Hapus</td>
+            <td>UBAH</td>
             <td>FOTO</td>
             <td>JUDUL FOTO</td>            
             <td>FORMAT</td>
@@ -124,11 +143,13 @@
             foreach ($photolist as $row){
               echo "<tr>
                       <td>
-                        <button class='btn' id='btn-edit2' data-toggle='modal' data-target='#deletedata_modal-".$row['id']."'><img src='".base_url('assets/ico/remove.png')."'></button>
-                        <a href=".site_url('edit/'.$row['id'].'')."><button class='btn' id='btn-edit2'>Edit</button></a>
+                        <form name='photolist' action='checkboxes.asp' method='post'><input type='checkbox' name='check_list'></form>
                       </td>
                       <td>
-                        <a class='pull-left' data-toggle='modal' data-target='#".$row['id']."'><img class='media-object' src=".base_url('assets/foto').'/'.$row['image']." alt='contoh1' width='110px' id='img-result'></a>
+                        <a href=".site_url('edit/'.$row['id'].'')."><button class='btn' id='btn-edit'><img src=".base_url('assets/ico').'/edit.png'."></button></a>
+                      </td>
+                      <td>
+                        <a class='pull-left' data-toggle='modal' data-target='#".$row['id']."'><img class='media-object' src=".base_url('assets/foto').'/'.$row['image']." alt='contoh1' width='100px' id='img-result'></a>
                       </td>
                       <td class='grid'>
                         <h4>
@@ -153,30 +174,15 @@
                         </div>
                       </div>
                     </div>';
-
-              echo '
-                    <form method="post" action='.site_url('deletePhotoData/'.$row['id'].'').'>
-                      <div class="modal fade" id="deletedata_modal-'.$row['id'].'" tabindex="-1" role="dialog" aria-labelledby="deleteownerLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-body">
-                              <h1 id="done">Hapus data foto?</h1>
-                              <div class="lead" id="btn_modaldelete">
-                                <button type="close" class="btn" id="btn-close" data-dismiss="modal">Keluar</button>
-                                <button type="submit" class="btn" id="btn-save">Hapus</button>
-                              </div>
-                            </div>
-                         </div>
-                        </div>
-                      </div>
-                    </form>
-                  ';
             }
           ?>
           
         </table>
 
         <div id="photodata_button">
+          <button class="btn" id="delete_button" data-toggle="modal" data-target="#deletedata_modal">Hapus Data Terpilih</button>
+          <input class="btn" id="btn-save" type="button" name="Check_All" value="Pilih Semua" onClick="CheckAll(document.photolist.check_list)">
+          <input class="btn" id="btn-save" type="button" name="Un_CheckAll" value="Kosongkan Semua" onClick="UnCheckAll(document.photolist.check_list)">
           <button class="btn" id="btn-save">Ekspor dalam format CSV</button>
         </div>
       </div>

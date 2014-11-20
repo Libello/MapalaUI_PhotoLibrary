@@ -103,7 +103,7 @@
                 else {
                   foreach ($eventresult as $row){
                     echo
-                    '<a href="#" role="button"><h4 class="media-heading">'.$row['name'].'</h4></a>
+                    '<a href="'.site_url('/album_detail/'.$row['id_event'].'').'" role="button"><h4 class="media-heading">'.$row['name'].'</h4></a>
                     <p>'.$row['location'].' |';
                   
 
@@ -114,8 +114,9 @@
                         echo "".$row['start_year']." s/d ".$row['end_year']."";
                       }
 
-                    echo '| '.$row['category'].'</p>
-                    <p><a id="btn-photodetail" href="#" role="button">Lihat album &raquo;</a></p>';
+                    echo '| '.$row['category'].'</p>';
+
+                    echo '<p><a id="btn-photodetail" href="'.site_url('/album_detail/'.str_replace(" ", "_", $row['id_event']).'').'" role="button">Lihat foto &raquo;</a></p>';
                   }
                 }
               ?>
@@ -133,19 +134,20 @@
             }
             else {
               foreach ($photoresult as $row){
+                $id = $row['id'];
                 echo
                   '<div class="col-xs-6 col-md-3">
-                    <a class="thumbnail" data-toggle="modal" data-target="#'.$row['id'].'" id="img-result">
+                    <a class="thumbnail" data-toggle="modal" data-target="#'.$id.'" id="img-result">
                       <img src="'.base_url('assets/foto').'/'.$row['image'].'" alt="'.$row['image'].'">
                     </a>
                   </div>';
                 echo '
-                  <div class="modal fade" id="'.$row['id'].'" tabindex="-1" role="dialog" aria-labelledby="img-result_modalLabel" aria-hidden="true">
+                  <div class="modal fade" id="'.$id.'" tabindex="-1" role="dialog" aria-labelledby="img-result_modalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-body">
                           <img src="'.base_url('assets/foto').'/'.$row['image'].'" class="img-responsive" alt="'.$row['image'].'">
-                          <p><a id="btn-photodetail" href="'.site_url('/detail/'.$row['id'].'').'" role="button">Lihat Detail Foto &raquo;</a></p>
+                          <p><a id="btn-photodetail2" href="'.site_url('/detail/'.$id.'').'" role="button">Lihat Detail Foto &raquo;</a></p>
                         </div>
                       </div>
                     </div>

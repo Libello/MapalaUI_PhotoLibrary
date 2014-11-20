@@ -20,7 +20,7 @@
     }
     public function getEventByCategory($category) {
       $this->load->database();
-      $query = $this->db->query('SELECT * FROM event WHERE category = '.$this->db->escape($category).'');
+      $query = $this->db->query('SELECT * FROM event WHERE INSTR(category, '.$this->db->escape($category).') > 0');
       return $query->result_array();
     }
     

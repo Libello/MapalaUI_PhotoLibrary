@@ -38,6 +38,7 @@ textarea {
     src: url("../fonts/Lobster 1.4.otf")
 }
 
+
 .btn {
 	background-color: transparent;
 }
@@ -84,7 +85,6 @@ textarea {
 .active #nav_name {
 	background-color: #101010;
 	color: white;
-	opacity: 0.9;
 	height: 80px;
 }
 
@@ -262,6 +262,12 @@ textarea {
 	color: #cc0000;
 }
 
+#btn-photodetail2 {
+	color: #101010;
+	font-size: 20px;
+	font-style: bold;
+	font-family: 'ATypewriterForMe';
+}
 
 
 #search_result .col-sm-2 {

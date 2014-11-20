@@ -108,7 +108,7 @@
           <div class="form-group" id="photo_detail_form">
             <label class="col-sm-2 control-label">ID Foto</label>
             <div class="col-sm-10">
-            <p class="form-control-static">: <?php echo str_replace("_", "/", $id_photo) ?></p>
+            <p class="form-control-static">: <?php echo $id_photo ?></p>
             </div>
             
             <label class="col-sm-2 control-label">Judul</label>
@@ -196,14 +196,17 @@
             <p class="form-control-static">: <?php echo $location_HDD_name.'; '.$location_HDD_folder.'; '.$location_sekret_album ?></p>
             </div>
           </div>
+        </form>
+
 
         <div>
-          <a href="<?php echo site_url('/edit');?>"><button class="btn btn-default">Edit</button></a>
+          <?php
+            if($status == 'admin') {
+              echo '<a href="'.site_url('/edit/'.$id_photo.'').'"><button class="btn btn-default">Edit</button></a>';
+            }
+          ?>
         </div>
         <br>
-        <div>
-          <button class="btn btn-default">Lihat Rekod Dublin Core</button>
-        </div>
 
 
 

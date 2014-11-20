@@ -57,9 +57,23 @@
         </div><br>
         <p class="lead" id="formdetail">Masukkan detail foto pada form di bawah ini.<br>
         * harus diisi</p>
-        <hr>
 
         <form class="form-horizontal" role="form" name="add_photo" method="post" enctype="multipart/form-data" action="<?php echo site_url('/addNewPhoto');?>">
+          
+          <!--TOMBOL SELESAI-->
+          <div class="form-group" id="savebtn-top">
+            <div class="lead pull-right">
+              <button type="reset" class="btn" id="btn-close">
+                Kosongkan
+              </button>
+              <button class="btn btn-default" type="submit" role="button">
+                Simpan
+              </button>
+            </div>
+          </div>
+          <hr>
+
+          
         
           <!--Field ID-->
           <div class="form-group">
@@ -70,7 +84,7 @@
 
             <div class="slash">
               <div class="col-sm-1" id="slash">
-                /
+                -
               </div>
             </div>
 
@@ -80,7 +94,7 @@
 
             <div class="slash">
               <div class="col-sm-1" id="slash">
-                /
+                -
               </div>
             </div>
 
@@ -107,6 +121,7 @@
             <label for="photographer" class="col-sm-2 control-label">Fotografer</label>
             <div class="col-sm-3">
               <select class="form-control" name="photographer">
+                <option value="Tidak diketahui">Tidak diketahui</option>
                 <?php
                   foreach ($photographerlist as $row){
                     echo "<option value=".$row['id'].">";
@@ -219,7 +234,7 @@
             <div class="col-sm-2">
               <select class="form-control" name="taken_year">
                 <option value=" - ">tahun</option>
-                <option disabled>───</option>
+                <option disabled>───────────</option>
                 <?php for ($i = 2017; $i >= 1964; $i--) : ?>
                   <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
                 <?php endfor; ?>
@@ -304,7 +319,7 @@
             <div class="col-sm-2">
               <select class="form-control" name="repro_year">
                 <option value=" - ">tahun</option>
-                <option disabled>───</option>
+                <option disabled>───────────</option>
                 <?php for ($i = 2017; $i >= 1964; $i--) : ?>
                   <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
                 <?php endfor; ?>
@@ -355,7 +370,7 @@
             <div class="col-sm-2">
               <select class="form-control" name="published_year">
                 <option value=" - ">tahun</option>
-                <option disabled>───</option>
+                <option disabled>───────────</option>
                 <?php for ($i = 2017; $i >= 1964; $i--) : ?>
                   <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
                 <?php endfor; ?>
@@ -375,15 +390,15 @@
 
           <!--Field Tag-->
           <div class="form-group">
-            <label for="tag" class="col-sm-2 control-label">Tag</label>
+            <label for="tag" class="col-sm-2 control-label">Subjek</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" name="tag" placeholder="Pisahkan dengan titik koma(;)">
+              <input type="text" class="form-control" name="tag" placeholder="berfungsi seperti tag, pisahkan dengan titik koma(;)">
             </div>
           </div>
 
            <!--Field Other Format Location-->
            <div class="form-group">
-            <label for="tag" class="col-sm-2 control-label">Lokasi Lain</label>
+            <label for="tag" class="col-sm-2 control-label">Lokasi</label>
             <div class="col-sm-7" id="other_location">
 
               <div class="panel-group" id="accordion">
@@ -473,22 +488,16 @@
           <hr>
 
           <!--TOMBOL SELESAI-->
-
-          <p id="formdetail">Selesai? Silakan klik tombol berikut</p>
-
-          <div class="lead">
+          <div class="lead pull-right" id="savebtn-bottom">
+            <button type="reset" class="btn" id="btn-close">
+              Kosongkan
+            </button>
             <button class="btn btn-default" type="submit" role="button">
               Simpan
-            </button> <!--data-toggle="modal" data-target="#save_all"-->
-          </div>
-          <div id="close_button">
-            <button type="reset" class="btn" id="btn">
-              Muat Ulang
             </button>
           </div>
         </form>
-        <!-- Button trigger modal -->
-        
+
 
 
         

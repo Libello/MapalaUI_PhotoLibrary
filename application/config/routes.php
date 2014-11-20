@@ -45,7 +45,7 @@ $route['guest_login'] = "guest_controller/view_cover_guest_login";
 $route['contact'] = "guest_controller/view_cover_contact";
 //Main view route
 $route['category_detail/(:any)'] = "guest_controller/view_main_gallery/$1";
-$route['album_detail'] = "guest_controller/view_main_gallery2";
+$route['album_detail/(:any)'] = "guest_controller/view_main_gallery2/$1";
 $route['gallery'] = "guest_controller/view_main_categories";
 $route['home'] = "guest_controller/view_main_home";
 $route['others'] = "guest_controller/view_main_others";
@@ -58,7 +58,7 @@ $route['addNewPhoto'] = "admin_controller/addNewPhoto";
 $route['photo_list'] = "admin_controller/view_photo_list";
 $route['master_data'] = "admin_controller/view_master_data";
 $route['guest_log'] = "admin_controller/view_guest_log";
-$route['edit'] = "admin_controller/view_edit";
+$route['edit/(:any)'] = "admin_controller/view_edit/$1";
 //Fungsi lain
 $route['doAdminLogin'] = "admin_controller/validate";
 $route['doGuestLogin'] = "guest_controller/doLogin";
@@ -66,6 +66,8 @@ $route['logout'] = "admin_controller/logout";
 $route['guestToAdmin'] = "admin_controller/guestToAdmin";
 $route['doSearch'] = "guest_controller/searchPhoto";
 $route['addNewPhoto'] = "admin_controller/addNewPhoto";
+$route['editPhoto'] = "admin_controller/editPhoto";
+$route['deletePhotoData/(:any)'] = "admin_controller/deletePhotoData/$1";
 //modal +add dalam halaman Master Data
 $route['addPhotographer'] = "admin_controller/addPhotographer";
 $route['deletePhotographer/(:any)'] = "admin_controller/deletePhotographer/$1";

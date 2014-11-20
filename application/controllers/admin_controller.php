@@ -73,8 +73,71 @@ class admin_controller extends CI_Controller {
 		load_view_admin('admin_add_photo',array('photographerlist' => $photographerlist,'editorlist' => $editorlist,'eventlist' => $eventlist,'ownerlist' => $ownerlist));
 	}
 
-	public function view_edit() {
-		load_view_admin('admin_edit',array());
+	public function view_edit($id) {
+		$this->load->model('photo_model');
+		$data_photo = $this->photo_model->getPhotoById($id);
+
+		$this->load->model('photographer_model');
+	    $data_photographer = $this->photographer_model->getAllPhotographer();
+	    $photographerlist = array();
+	    $count_photographer = 0;
+
+	    $this->load->model('editor_model');
+	    $data_editor = $this->editor_model->getAllEditor();
+	    $editorlist = array();
+	    $count_editor = 0;
+
+	    $this->load->model('event_model');
+	    $data_event = $this->event_model->getAllEvent();
+	    $eventlist = array();
+	    $count_event = 0;
+
+	    $this->load->model('owner_model');
+	    $data_owner = $this->owner_model->getAllOwner();
+	    $ownerlist = array();
+	    $count_owner = 0;
+
+	    if($data_photo == null) {
+			show_404();
+		}
+		
+		else {
+				foreach ($data_photographer as $photographer) {
+		    	$photographerlist[$count_photographer]['id'] = $photographer['id_photographer'];  
+		    	$photographerlist[$count_photographer]['name'] = $photographer['name'];
+		    	$photographerlist[$count_photographer]['membership'] = $photographer['membership'];
+		    	$photographerlist[$count_photographer]['no_m'] = $photographer['no.M'];
+		    	$count_photographer++;
+		    }
+
+			foreach ($data_editor as $editor) {
+		    	$editorlist[$count_editor]['id'] = $editor['id_editor'];  
+		    	$editorlist[$count_editor]['name'] = $editor['name'];
+		    	$editorlist[$count_editor]['membership'] = $editor['membership'];
+		    	$editorlist[$count_editor]['no_m'] = $editor['no.M'];
+		    	$count_editor++;
+		    }
+
+		    foreach ($data_event as $event) {
+		    	$eventlist[$count_event]['id'] = $event['id_event'];  
+		    	$eventlist[$count_event]['name'] = $event['name'];
+		    	$eventlist[$count_event]['location'] = $event['location'];
+		    	$eventlist[$count_event]['start_year'] = $event['start_year'];
+		    	$eventlist[$count_event]['end_year'] = $event['end_year'];
+		    	$eventlist[$count_event]['category'] = $event['category'];
+		    	$count_event++;
+		    }
+
+		    foreach ($data_owner as $owner) {
+		    	$ownerlist[$count_owner]['id'] = $owner['id_owner'];  
+		    	$ownerlist[$count_owner]['name'] = $owner['name'];
+		    	$ownerlist[$count_owner]['phone'] = $owner['phone'];
+		    	$ownerlist[$count_owner]['address'] = $owner['address'];
+		    	$count_owner++;
+		    }
+
+			load_view('admin_edit', $data_photo, array('photographerlist' => $photographerlist,'editorlist' => $editorlist,'eventlist' => $eventlist,'ownerlist' => $ownerlist));
+		}
 	}
 
 	public function view_guest_log() {
@@ -289,7 +352,7 @@ class admin_controller extends CI_Controller {
 		if(!empty($_POST)){
 			$data = $this->input->post();
 			$this->load->model('event_model');
-			$data['eventcategory'] = implode(',', $data['category']);
+			$data['eventcategory'] = implode(', ', $data['category']);
 			$success = $this->event_model->insertEvent($data);
 
 			if($success) {
@@ -333,6 +396,19 @@ class admin_controller extends CI_Controller {
 		$success = $this->owner_model->deleteOwner($id);
 		if($success) {
 			redirect(site_url('master_data'));
+		} else {
+			$errmes['message'] = $id;
+			load_view('main_admin_login', $errmes);
+		}
+	}
+	public function deletePhotoData($id) {
+		if($id == null) {
+			redirect(site_url('photo_list'));
+		}
+		$this->load->model('photo_model');
+		$success = $this->photo_model->deletePhotoData($id);
+		if($success) {
+			redirect(site_url('photo_list'));
 		} else {
 			$errmes['message'] = $id;
 			load_view('main_admin_login', $errmes);
@@ -392,6 +468,21 @@ class admin_controller extends CI_Controller {
 					load_view('admin_addphoto_success',$errmes);
 				}
 			}			
+	    } else {
+	    	show_404();
+	    }
+	}
+	public function editPhoto() {
+			
+		if(!empty($_POST)){
+			$data = $this->input->post();
+			$this->load->model('photo_model');
+			$success = $this->photo_model->editPhoto($data);
+
+			if($success) {
+				$errmes['message'] = 'Satu foto telah berhasil diedit';
+				load_view('admin_addphoto_success',$errmes);
+			}
 	    } else {
 	    	show_404();
 	    }
