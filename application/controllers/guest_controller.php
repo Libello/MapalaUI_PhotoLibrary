@@ -104,13 +104,26 @@ class guest_controller extends CI_Controller {
 				$data['field'] = 'all';
 				$data['activity'] = 'all';
 				$data['format'] = 'all';
+				$data_photo = $this->photo_model->searchBy($data);
 			}
 			else {
-				// for(var i=0; i<count($data['fieldarr']); i++) {
-				$data['field'] = 'all';
-				$data['inputtext'] = '';
+				$data['count'] = 0;
+				foreach ($data['fieldarr'] as $field) {
+					$data['field'.$data['count'].''] = $field;
+					$data['count']++;
+				}
+				$data['count'] = 0;
+				foreach ($data['inputtextarr'] as $inputtext) {
+					$data['inputtext'.$data['count'].''] = $inputtext;
+					$data['count']++;
+				}
+				$data['count'] = 0;
+				foreach ($data['operatearr'] as $operate) {
+					$data['operate'.$data['count'].''] = $operate;
+					$data['count']++;
+				}
+				$data_photo = $this->photo_model->searchAdvanced($data);
 			}
-			$data_photo = $this->photo_model->searchBy($data);
 		}
 		else {
 			$data_photo = $this->photo_model->getAllPhoto();
