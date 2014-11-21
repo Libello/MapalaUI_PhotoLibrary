@@ -4,6 +4,7 @@ Yang belum :
 	- Penelusuran dengan menggunakan input dan field.
 	  (Masih belum kepikiran buat ngasih name yang unik di tiap field yang dinamis).
 	- Jalanin fungsi < page 1 2 3 >
+	- Cari Lokasinya foto+event ya sayang...
 
 2. <Galeri>
 	- GetPhotobyEvent belum
@@ -26,8 +27,14 @@ Yang belum :
 	- Input ID diberi ketentuan
 	- Ukuran bisa ditambah input sendiri yang tercetak
 	- Gimana caranya supaya bisa ga pake upload foto
+	- itu fotografer ga bisa ya kalau tidak diketahui?
 
 
+KATEGORI diubah jadi arung_jeram ya valuenya, nanti pas mau ditampilin baru pake replace str_replace("_"," ",)
+
+bikin kaya history atau apa deh yg nunjukin ngeklik apa aja
+
+back to top
 -------------------------------------------------------------------Skripsi-----------------------------------------------------------
 
 	Liat penjelasan dublin core, sesuai ga sama yang diterapkan sekarang, kayanya di bab 2 masih beda gara-gara kesalahan di awal
