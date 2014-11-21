@@ -142,8 +142,6 @@
             foreach ($photolist as $row){
               echo "<tr>
                       <td>
-                        <button class='btn' id='btn-edit2' data-toggle='modal' data-target='#deletedata_modal-".$row['id']."'><img src='".base_url('assets/ico/remove.png')."'></button>
-                        <a href=".site_url('edit/'.$row['id'].'')."><button class='btn' id='btn-edit2'>Edit</button></a>
                       </td>
                       <td>
                         <a class='pull-left' data-toggle='modal' data-target='#".$row['id']."'><img class='thumbnail' src=".base_url('assets/foto').'/'.$row['image']." alt='contoh1' width='110px' id='img-result'></a>

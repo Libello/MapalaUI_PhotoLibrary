@@ -30,13 +30,13 @@
       $this->load->database();
 
       if($data['activity'] == 'all') {
-        $this->db->query('CREATE OR REPLACE VIEW viewactivity AS SELECT * FROM photo_record');
+        $this->db->query('CREATE OR REPLACE VIEW viewactivity AS SELECT * FROM photo_record GROUP BY last_update DESC');
       }
       else {
         $this->db->query('CREATE OR REPLACE VIEW viewactivity AS SELECT * FROM photo_record WHERE category='.$this->db->escape($data['activity']).'');
       }
 
-      if($data['format'] == 'all') {
+      if($data['format'] != 'all') {
         $this->db->query('CREATE OR REPLACE VIEW viewformat AS SELECT * FROM viewactivity');
       }
       else {
@@ -55,6 +55,55 @@
       else {
         $query = $this->db->query('SELECT * FROM viewformat WHERE INSTR('.$data['field'].', '.$this->db->escape($data['inputtext']).') > 0');
       }
+
+      return $query->result_array();
+    }
+
+    public function searchAdvanced($data) {
+      $this->load->database();
+
+      if($data['activity'] == 'all') {
+        $this->db->query('CREATE OR REPLACE VIEW viewactivity AS SELECT * FROM photo_record GROUP BY last_update DESC');
+      }
+      else {
+        $this->db->query('CREATE OR REPLACE VIEW viewactivity AS SELECT * FROM photo_record WHERE category='.$this->db->escape($data['activity']).'');
+      }
+
+      if($data['format'] == 'all') {
+        $this->db->query('CREATE OR REPLACE VIEW viewformat AS SELECT * FROM viewactivity');
+      }
+      else {
+        $this->db->query('CREATE OR REPLACE VIEW viewformat AS SELECT * FROM viewactivity WHERE INSTR(format, '.$this->db->escape($data['format']).') > 0');
+      }
+
+      if($data['color'] == 'all') {
+        $query = $this->db->query('CREATE OR REPLACE VIEW viewcolor AS SELECT * FROM viewformat');
+      }
+      else {
+        $query = $this->db->query('CREATE OR REPLACE VIEW viewcolor AS SELECT * FROM viewformat WHERE INSTR(format, '.$this->db->escape($data['color']).') > 0');
+      }
+
+      if($data['operate0'] == 'not') {
+        $field = $data['field0'];
+        $this->db->query('CREATE OR REPLACE VIEW result0 AS SELECT * FROM viewcolor WHERE INSTR('.$data['field0'].', '.$this->db->escape($data['inputtext0']).') < 1');
+      }
+      else {
+        $this->db->query('CREATE OR REPLACE VIEW result0 AS SELECT * FROM viewcolor WHERE INSTR('.$data['field0'].', '.$this->db->escape($data['inputtext0']).') > 0');
+      }
+
+      for($i = 1; $i < $data['count']; $i++) {
+        if($data['operate'.$i.''] == 'or') {
+          // $this->db->query('INSERT ');
+        }
+        else if($data['operate'.$i.''] == 'not') {
+          $this->db->query('CREATE OR REPLACE VIEW result'.$i.' AS SELECT * FROM result'.$i-1.' WHERE INSTR('.$data['field'.$i.''].', '.$this->db->escape($data['inputtext'.$i.'']).') < 1');
+        }
+        else {
+          $this->db->query('CREATE OR REPLACE VIEW result'.$i.' AS SELECT * FROM result'.$i-1.' WHERE INSTR('.$data['field'.$i.''].', '.$this->db->escape($data['inputtext'.$i.'']).') > 0');
+        }
+      }
+
+      $query = $this->db->query('SELECT * FROM result'.$data['count'].'');
 
       return $query->result_array();
     }
