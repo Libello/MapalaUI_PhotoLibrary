@@ -409,8 +409,11 @@ class admin_controller extends CI_Controller {
 			redirect(site_url('photo_list'));
 		}
 		$this->load->model('photo_model');
+		$data_photo = $this->photo_model->getPhotoById($id);
+		$file_name = $data_photo['photo_upload'];
 		$success = $this->photo_model->deletePhotoData($id);
 		if($success) {
+			delete_files(base_url('assets/foto/'.$file_name.''));
 			redirect(site_url('photo_list'));
 		} else {
 			$errmes['message'] = $id;
@@ -475,6 +478,7 @@ class admin_controller extends CI_Controller {
 	    	show_404();
 	    }
 	}
+
 	public function editPhoto() {
 			
 		if(!empty($_POST)){
@@ -489,5 +493,18 @@ class admin_controller extends CI_Controller {
 	    } else {
 	    	show_404();
 	    }
+	}
+
+	public function toCSV() {
+		$result = mysqli_query($con, 'SELECT * FROM table');
+		$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+		$fp = fopen('file.csv', 'w');
+
+		foreach ($row as $val) {
+		    fputcsv($fp, $val);
+		}
+
+		fclose($fp);
 	}
 }
