@@ -413,10 +413,10 @@ class admin_controller extends CI_Controller {
 		$file_name = $data_photo['photo_upload'];
 		$success = $this->photo_model->deletePhotoData($id);
 		if($success) {
-			delete_files(base_url('assets/foto/'.$file_name.''));
+			unlink('./assets/foto/'.$file_name);
 			redirect(site_url('photo_list'));
 		} else {
-			$errmes['message'] = $id;
+			$errmes['message'] = $id.'; '.$file_name;
 			load_view('main_admin_login', $errmes);
 		}
 	}
@@ -496,15 +496,17 @@ class admin_controller extends CI_Controller {
 	}
 
 	public function toCSV() {
-		$result = mysqli_query($con, 'SELECT * FROM table');
+		$this->load->model('photo_model');
+		$result = $this->photo_model->getAllPhoto();
 		$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-
 		$fp = fopen('file.csv', 'w');
-
 		foreach ($row as $val) {
 		    fputcsv($fp, $val);
 		}
-
 		fclose($fp);
+		$data = file_get_contents("file.csv"); // Read the file's contents
+		$name = 'photo_record.csv';
+
+		force_download($name, $data);
 	}
 }

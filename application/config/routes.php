@@ -68,6 +68,7 @@ $route['doSearch'] = "guest_controller/searchPhoto";
 $route['addNewPhoto'] = "admin_controller/addNewPhoto";
 $route['editPhoto'] = "admin_controller/editPhoto";
 $route['deletePhotoData/(:any)'] = "admin_controller/deletePhotoData/$1";
+$route['export_to_csv'] = "admin_controller/toCSV";
 //modal +add dalam halaman Master Data
 $route['addPhotographer'] = "admin_controller/addPhotographer";
 $route['deletePhotographer/(:any)'] = "admin_controller/deletePhotographer/$1";

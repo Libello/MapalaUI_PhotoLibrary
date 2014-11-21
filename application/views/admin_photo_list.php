@@ -109,7 +109,9 @@
 
 
         <div id="photodata_button" class="col-sm-2">
-          <button class="btn" id="btn-save">Ekspor dalam format CSV</button>
+          <form class="form-horizontal" role="form" method="post" action="<?php echo site_url('/export_to_csv');?>/">
+            <button class="btn" id="btn-save" type="submit">Ekspor dalam format CSV</button>
+          </form>
         </div>
         <div class="col-sm-10" id="photodata_pagination">
           <nav>
