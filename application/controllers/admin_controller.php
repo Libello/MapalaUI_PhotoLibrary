@@ -495,7 +495,7 @@ class admin_controller extends CI_Controller {
 	    }
 	}
 
-	public function toCSV() {
+	public function toCSV2() {
 		$this->load->model('photo_model');
 		$result = $this->photo_model->getAllPhoto();
 		$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -508,5 +508,33 @@ class admin_controller extends CI_Controller {
 		$name = 'photo_record.csv';
 
 		force_download($name, $data);
+	}
+	public function toCSV() {
+		$this->load->model('photo_model');
+		$result = $this->photo_model->getAllPhotoCSV();
+		if (!$result) die('Couldn\'t fetch records');
+		$headers = mysqli_fetch_field($result);
+		foreach($headers as $header) {
+		    $head[] = $header->name;
+		}
+		$fp = fopen('php://output', 'w');
+
+		if ($fp && $result) {
+		    header('Content-Type: text/csv');
+		    header('Content-Disposition: attachment; filename="export.csv"');
+		    header('Pragma: no-cache');
+		    header('Expires: 0');
+		    fputcsv($fp, array_values($head)); 
+		    while ($row = $result->fetch_array(MYSQLI_NUM)) {
+		        fputcsv($fp, array_values($row));
+		    }
+		    die;
+		}	
+
+		fclose($fp);
+		$data = file_get_contents("file.csv"); // Read the file's contents
+		$name = 'photo_record.csv';
+
+		force_download($name, $data);												
 	}
 }
