@@ -22,6 +22,13 @@ textarea {
     src: url("../fonts/Lobster 1.4.otf")
 }
 
+.thumbnail {
+	border-color: #bbb;
+}
+
+#imageEdit {
+	padding: 15px;
+}
 
 .navbar {
 	font-family: 'AGENCYR';
@@ -200,6 +207,11 @@ label {
 
 
 /*LIST DATA FOTO*/
+
+#searchBar {
+	background-color: #eee;
+}
+
 #photodata_search {
 	text-align: left;
 	padding-left: 0px;
@@ -207,8 +219,21 @@ label {
 
 #photodata_button {
 	text-align: left;
+	padding-top: 17px;
 }
 
+.pagination>li>a, .pagination>li>span {
+	color: #403a3a;
+}
+
+.pagination>.active>span, .pagination>.active>span:hover {
+	background-color: #403a3a;
+	border-color: #403a3a;
+}
+
+#photodata_pagination {
+	text-align: right;
+}
 
 #table_header {
 	background-color: #101010;
@@ -247,10 +272,9 @@ td {
     color: #101010;
 }
  
-.grid span:before {
+.grid span-photographer:before {
     content: 'oleh ';
 }
-
 
 .modal-title {
 	font-family: 'AGENCYR';

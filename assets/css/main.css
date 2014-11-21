@@ -38,6 +38,14 @@ textarea {
     src: url("../fonts/Lobster 1.4.otf")
 }
 
+.pagination>li>a, .pagination>li>span {
+	color: #403a3a;
+}
+
+.pagination>.active>span, .pagination>.active>span:hover {
+	background-color: #403a3a;
+	border-color: #403a3a;
+}
 
 .btn {
 	background-color: transparent;
@@ -186,6 +194,10 @@ textarea {
 .media-heading {
 	color: #cc0000;
 	font-weight: bold;
+}
+
+#imageDetail {
+	padding: 15px;
 }
 
 #contact_header {

@@ -55,8 +55,12 @@
         <div class="top">
           <h1 id="formtitle">Data Foto Baru</h1>
         </div><br>
-        <p class="lead" id="formdetail">Masukkan detail foto pada form di bawah ini.<br>
-        * harus diisi</p>
+        <p class="lead" id="formdetail">Masukkan detail foto pada form di bawah ini.</p>
+        <div>
+          <hr>
+            <div id="searchBar"><span class="required-top">*</span><span id="formdetail"> = Harus diisi</span></div>
+          <hr>
+        </div>
 
         <form class="form-horizontal" role="form" name="add_photo" method="post" enctype="multipart/form-data" action="<?php echo site_url('/addNewPhoto');?>">
           

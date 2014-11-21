@@ -56,7 +56,11 @@
           <h1 id="formtitle">Edit Data Foto</h1>
         </div><br>
         <p class="lead" id="formdetail">Form berikut digunakan untuk mengubah data foto.</p>
-        <hr>
+        <div>
+          <hr>
+            <div id="searchBar"><span class="required-top">*</span><span id="formdetail"> = Harus diisi</span></div>
+          <hr>
+        </div>
         
 
         <form class="form-horizontal" role="form" name="add_photo" method="post" enctype="multipart/form-data" action="<?php echo site_url('/editPhoto');?>">

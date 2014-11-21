@@ -126,6 +126,7 @@ class guest_controller extends CI_Controller {
 			$searchresult[$count]['photographer'] = $photo['name_photographer'];
 	    	$searchresult[$count]['image'] = $photo['photo_upload'];
 	    	$searchresult[$count]['title'] = $photo['title'];
+	    	$searchresult[$count]['id_event'] = $photo['id_event'];
 	    	$searchresult[$count]['event'] = $photo['name_event'];
 	    	$searchresult[$count]['format'] = $photo['format'];
 	    	$searchresult[$count]['category'] = $photo['category'];

@@ -177,14 +177,17 @@
             }
             else {
               foreach ($searchresult as $row){
-                echo '<div class="media">;
+                echo '<div class="media">
                         <a class="pull-left" data-toggle="modal" data-target="#img-result_modal-'.$row['id'].'">
                           <img class="thumbnail" src="'.base_url('assets/foto').'/'.$row['image'].'" alt="'.$row['image'].'" width="170px" id="img-result">
                         </a>
                         <div class="media-body">
                           <a href="'.site_url('/detail/'.$row['id'].'').'" role="button"><h4 class="media-heading">'.$row['title'].'</h4></a>
-                          <p>oleh <i>'.$row['photographer'].'</i> | '.$row['format'].' | '.$row['category'].' | <b>'.$row['event'].'</b> | '.$row['taken_date'].' | '.$row['taken_location'].'</p>
-                          <p><a id="btn-photodetail" href="'.site_url('/detail/'.$row['id'].'').'" role="button">Detail &raquo;</a></p>
+                          <a href='.site_url("album_detail/".$row['id_event']."").'>'.$row['event'].'</a>
+                          <p>oleh <i>'.$row['photographer'].'</i> | '.$row['format'].' | '.$row['taken_date'].' | '.$row['taken_location'].'</p>
+                          <span class="glyphicon glyphicon-tag"></span><a href='.site_url("category_detail/".$row['category']."").'>'.$row['category'].'</a>
+                          <br><br>
+                          <p><a id="btn-photodetail" href="'.site_url('/detail/'.$row['id'].'').'" role="button">Detail Foto &raquo;</a></p>
                         </div>
                       </div>';
 
@@ -207,7 +210,7 @@
 
         <nav>
           <ul class="pager">
-            <li class="previous disabled"><a href="#">&larr; Sebelumnya</a></li>
+            <li class="previous disabled"><a href="#">&larr; Terbaru</a></li>
             <li class="disabled"><span>&laquo;</span></li>
             <li class="active"><span>1 <span class="sr-only">(current)</span></span></li>
             <li><a href="#">2</a></li>
@@ -215,7 +218,7 @@
             <li><a href="#">4</a></li>
             <li><a href="#">5</a></li>
             <li><a href="#">&raquo;</a></li>
-            <li class="next"><a href="#">Berikutnya &rarr;</a></li>
+            <li class="next"><a href="#">Terdahulu &rarr;</a></li>
           </ul>
         </nav>
 

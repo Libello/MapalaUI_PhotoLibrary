@@ -138,12 +138,12 @@
 
             <label class="col-sm-2 control-label">Kegiatan</label>
             <div class="col-sm-10">
-            <p class="form-control-static">: <?php echo $name_event ?></p>
+            <p class="form-control-static">: <?php echo "<a href=".site_url('album_detail/'.$id_event.'').">".$name_event."</a>" ?></p>
             </div>
 
             <label class="col-sm-2 control-label">Kategori</label>
             <div class="col-sm-10">
-            <p class="form-control-static">: <?php echo $category ?></p>
+            <p class="form-control-static">: <?php echo "<a href=".site_url('category_detail/'.$category.'').">".$category."</a>" ?></p>
             </div>
 
             <label class="col-sm-2 control-label">Tanggal Foto</label>

@@ -51,7 +51,7 @@
 
           <div class="inner_cover">
             <h1 id="guestlogin_header">Buku Tamu</h1>
-            <p class="detail">Tolong isi dengan <b>nama</b> dan <b>asal institusi/kota</b>-mu <br>terlebih dahulu ya sebelum mulai melihat koleksi :)</p>
+            <p class="detail">Tolong isi dengan <b>nama</b> dan <b>asal institusi/kota</b>-mu <br>terlebih dahulu sebelum mulai melihat koleksi :)</p>
             
             <form class="form-horizontal" id="guest_form" role="form" method="post" action="<?php echo site_url('/doGuestLogin');?>/">
               <div class="form-group">

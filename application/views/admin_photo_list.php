@@ -59,8 +59,9 @@
         </div>
         <br>
         <p class="lead" id="formdetail">Daftar foto yang telah dimasukkan dalam database.</p>
+        <div id="searchBar">
         <hr>
-        <form class="form-horizontal" id="search" role="form" method="post" action="<?php echo site_url('/photo_list');?>/">
+        <form class="form-horizontal" role="form" method="post" action="<?php echo site_url('/photo_list');?>/">
           <div class="form-group" id="photodata_search">
             <label for="Search" class="col-sm-1 control-label">Cari:</label>
               <div class="col-sm-4">
@@ -99,14 +100,31 @@
                   <option value="Tercetak">Tercetak</option>
                 </select>
               </div>
-              <button class="btn" id="btn-save" type="submit">Telusur</button>
+              <button class="btn" id="btn-save" type="submit">Cari</button>
           </div>
         </form>
         <hr>
-        <br>
+      </div>
 
-        <div id="photodata_button">
+
+
+        <div id="photodata_button" class="col-sm-2">
           <button class="btn" id="btn-save">Ekspor dalam format CSV</button>
+        </div>
+        <div class="col-sm-10" id="photodata_pagination">
+          <nav>
+            <ul class="pagination">
+              <li class="previous disabled"><a href="#">&larr; Terbaru</a></li>
+              <li class="disabled"><span>&laquo;</span></li>
+              <li class="active"><span>1 <span class="sr-only">(current)</span></span></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
+              <li><a href="#">&raquo;</a></li>
+              <li class="next"><a href="#">Terdahulu &rarr;</a></li>
+            </ul>
+          </nav>
         </div>
         <br>
 
@@ -134,7 +152,10 @@
                         <h4>
                           <a href=".site_url('detail/'.$row['id'].'').">".$row['title']."</a>
                         </h4>
-                        <span>".$row['photographer']."</span>
+                        <a href=".site_url('album_detail/'.$row['id_event'].'')."><p>".$row['event']."</p></a>
+                        <span-photographer>".$row['photographer']."</span>
+                        <br>
+                        <span class='glyphicon glyphicon-tag'> </span><a href=".site_url('category_detail/'.$row['category'].'').">".$row['category']."</a>                        
                       </td>
                       <td>
                         ".$row['format']."
@@ -173,14 +194,32 @@
                   ';
             }
           ?>
-          
         </table>
+        <hr>
 
-        <div id="photodata_button">
+        <div id="photodata_button" class="col-sm-2">
           <button class="btn" id="btn-save">Ekspor dalam format CSV</button>
         </div>
+        <div class="col-sm-10" id="photodata_pagination">
+          <nav>
+            <ul class="pagination">
+              <li class="previous disabled"><a href="#">&larr; Terbaru</a></li>
+              <li class="disabled"><span>&laquo;</span></li>
+              <li class="active"><span>1 <span class="sr-only">(current)</span></span></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
+              <li><a href="#">&raquo;</a></li>
+              <li class="next"><a href="#">Terdahulu &rarr;</a></li>
+            </ul>
+          </nav>
+        </div>
+
       </div>
     </div>
+    <br>
+    <br>
 
 
     <div id="footer">

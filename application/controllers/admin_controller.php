@@ -235,7 +235,10 @@ class admin_controller extends CI_Controller {
 			$photolist[$count]['photographer'] = $photo['name_photographer'];
 	    	$photolist[$count]['image'] = $photo['photo_upload'];
 	    	$photolist[$count]['title'] = $photo['title'];
+	    	$photolist[$count]['id_event'] = $photo['id_event'];
+	    	$photolist[$count]['event'] = $photo['name_event'];
 	    	$photolist[$count]['format'] = $photo['format'];
+	    	$photolist[$count]['category'] = $photo['category'];
 	    	$photolist[$count]['last_update'] = $photo['last_update'];
 	    	$count++;
 	    }
@@ -437,7 +440,7 @@ class admin_controller extends CI_Controller {
 				$this->load->model('editor_model');
 				$this->load->model('owner_model');
 
-				$data['name_photographer'] = null;
+				$data['name_photographer'] = "Tidak Diketahui";
 				$data['name_event'] = '-';
 				$data['name_editor'] = '-';
 				$data['name_owner'] = '-';
@@ -445,7 +448,7 @@ class admin_controller extends CI_Controller {
 				$data['size'] = $datafoto['image_width'].' x '.$datafoto['image_height'];
 				$data['formatphoto'] = implode(',', $data['format']);
 
-				if($data['photographer'] != null) {
+				if($data['photographer'] != "Tidak Diketahui") {
 					$photographer = $this->photographer_model->getPhotographerById($data['photographer']);
 					$data['name_photographer'] = $photographer['name'];
 				}

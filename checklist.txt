@@ -27,6 +27,9 @@ Yang belum :
 	- Ukuran bisa ditambah input sendiri yang tercetak
 	- Gimana caranya supaya bisa ga pake upload foto
 
+
+KATEGORI diubah jadi arung_jeram aja valuenya, nanti pas mau ditampilin baru pake replace
+
 -------------------------------------------------------------------Skripsi-----------------------------------------------------------
 
 	Liat penjelasan dublin core, sesuai ga sama yang diterapkan sekarang, kayanya di bab 2 masih beda gara-gara kesalahan di awal
