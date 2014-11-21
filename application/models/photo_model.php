@@ -83,27 +83,31 @@
         $query = $this->db->query('CREATE OR REPLACE VIEW viewcolor AS SELECT * FROM viewformat WHERE INSTR(format, '.$this->db->escape($data['color']).') > 0');
       }
 
+      $start = 0;
+      $end = 0;
       if($data['operate0'] == 'not') {
         $field = $data['field0'];
-        $this->db->query('CREATE OR REPLACE VIEW result0 AS SELECT * FROM viewcolor WHERE INSTR('.$data['field0'].', '.$this->db->escape($data['inputtext0']).') < 1');
+        $this->db->query('CREATE OR REPLACE VIEW a'.$start.' AS SELECT * FROM viewcolor WHERE INSTR('.$data['field0'].', '.$this->db->escape($data['inputtext0']).') < 1');
       }
       else {
-        $this->db->query('CREATE OR REPLACE VIEW result0 AS SELECT * FROM viewcolor WHERE INSTR('.$data['field0'].', '.$this->db->escape($data['inputtext0']).') > 0');
+        $this->db->query('CREATE OR REPLACE VIEW a'.$start.' AS SELECT * FROM viewcolor WHERE INSTR('.$data['field0'].', '.$this->db->escape($data['inputtext0']).') > 0');
       }
 
-      for($i = 1; $i < $data['count']; $i++) {
-        if($data['operate'.$i.''] == 'or') {
-          // $this->db->query('INSERT ');
+      for($end = 1; $end < $data['count']; $end++) {
+        if($data['operate'.$end.''] == 'or') {
+          $this->db->query('CREATE OR REPLACE VIEW a'.$end.' AS SELECT * FROM a'.$start.' UNION SELECT * FROM viewcolor WHERE INSTR('.$data['field'.$end.''].', '.$this->db->escape($data['inputtext'.$end.'']).') > 0');
+          
         }
-        else if($data['operate'.$i.''] == 'not') {
-          $this->db->query('CREATE OR REPLACE VIEW result'.$i.' AS SELECT * FROM result'.$i-1.' WHERE INSTR('.$data['field'.$i.''].', '.$this->db->escape($data['inputtext'.$i.'']).') < 1');
+        else if($data['operate'.$end.''] == 'not') {
+          $this->db->query('CREATE OR REPLACE VIEW a'.$end.' AS SELECT * FROM a'.$start.' WHERE INSTR('.$data['field'.$end.''].', '.$this->db->escape($data['inputtext'.$end.'']).') < 1');
         }
         else {
-          $this->db->query('CREATE OR REPLACE VIEW result'.$i.' AS SELECT * FROM result'.$i-1.' WHERE INSTR('.$data['field'.$i.''].', '.$this->db->escape($data['inputtext'.$i.'']).') > 0');
+          $this->db->query('CREATE OR REPLACE VIEW a'.$end.' AS SELECT * FROM a'.$start.' WHERE INSTR('.$data['field'.$end.''].', '.$this->db->escape($data['inputtext'.$end.'']).') > 0');
         }
+        $start++;
       }
 
-      $query = $this->db->query('SELECT * FROM result'.$data['count'].'');
+      $query = $this->db->query('SELECT * FROM a'.$start.'');
 
       return $query->result_array();
     }
