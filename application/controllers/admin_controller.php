@@ -5,7 +5,7 @@ class admin_controller extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->helper(array('form', 'url', 'csv'));
+		$this->load->helper(array('form', 'url'));
 	}
 
 	/**
@@ -218,9 +218,16 @@ class admin_controller extends CI_Controller {
 
 		$this->load->model('photo_model');
 		$data_photo = null;
+		$data_search = null;
 
 		if(!empty($_POST)) {
 			$data = $this->input->post();
+
+			$data_search['activity'] = $data['activity'];
+			$data_search['format'] = $data['format'];
+			$data_search['field'] = $data['field'];
+			$data_search['inputtext'] = $data['inputtext'];
+
 			$data_photo = $this->photo_model->searchBy($data);
 		}
 		else {
@@ -243,7 +250,7 @@ class admin_controller extends CI_Controller {
 	    	$count++;
 	    }
 
-		load_view_admin('admin_photo_list',array('photolist' => $photolist));
+		load_view_admin('admin_photo_list',array('photolist' => $photolist, 'data_search' => $data_search));
 	}
 
 
@@ -497,7 +504,14 @@ class admin_controller extends CI_Controller {
 
 	public function toCSV() {
 		$this->load->model('photo_model');
-		$query = $this->photo_model->getAllPhotoCSV();
+		$data = $this->input->post();
+		if($data['flag'] == 'aaa') {
+			$query = $this->photo_model->getAllPhotoCSV();
+			
+		}
+		else {
+			$query = $this->photo_model->searchBy($data);
+		}
 		$result = $query->result_array();
 		$fp = fopen('php://output', 'w');
 
@@ -519,35 +533,4 @@ class admin_controller extends CI_Controller {
 
 		force_download($name, $data);												
 	}
-
-	function create_csv(){
-		$this->load->model('photo_model');
-		$this->load->database();
-		// $query = $this->photo_model->getAllPhotoCSV();
-		$query = $this->db->query('SELECT * FROM photo_record GROUP BY last_update DESC');
-        $num = $query->num_fields();
-        $var =array();
-        $i=1;
-        $fname="";
-        while($i <= $num){
-            $test = $i;
-            $value = $this->input->post($test);
-
-            if($value != ''){
-                $fname= $fname." ".$value;
-                array_push($var, $value);
-
-            }
-            $i++;
-        }
-
-        $fname = trim($fname);
-
-        $fname=str_replace(' ', ',', $fname);
-
-        $this->db->select($fname);
-        $quer = $this->db->get('photo_record');
-        query_to_csv($quer,TRUE,'Products_'.date('dMy').''.$num.'.csv');
-        //query_to_csv($query,TRUE,'Products_'.date('dMy').'.csv');  
-    }
 }

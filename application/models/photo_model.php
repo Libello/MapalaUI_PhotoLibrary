@@ -62,7 +62,12 @@
         $query = $this->db->query('SELECT * FROM viewformat WHERE INSTR('.$data['field'].', '.$this->db->escape($data['inputtext']).') > 0');
       }
 
-      return $query->result_array();
+      if($data['flag'] == 'bbb') {
+        return $query;
+      }
+      else {
+        return $query->result_array();
+      }
     }
 
     public function searchAdvanced($data) {
