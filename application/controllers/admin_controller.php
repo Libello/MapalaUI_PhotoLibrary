@@ -5,7 +5,7 @@ class admin_controller extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->helper(array('form', 'url'));
+		$this->load->helper(array('form', 'url', 'csv'));
 	}
 
 	/**
@@ -495,46 +495,59 @@ class admin_controller extends CI_Controller {
 	    }
 	}
 
-	public function toCSV2() {
-		$this->load->model('photo_model');
-		$result = $this->photo_model->getAllPhoto();
-		$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-		$fp = fopen('file.csv', 'w');
-		foreach ($row as $val) {
-		    fputcsv($fp, $val);
-		}
-		fclose($fp);
-		$data = file_get_contents("file.csv"); // Read the file's contents
-		$name = 'photo_record.csv';
-
-		force_download($name, $data);
-	}
 	public function toCSV() {
 		$this->load->model('photo_model');
-		$result = $this->photo_model->getAllPhotoCSV();
-		if (!$result) die('Couldn\'t fetch records');
-		$headers = mysqli_fetch_field($result);
-		foreach($headers as $header) {
-		    $head[] = $header->name;
-		}
+		$query = $this->photo_model->getAllPhotoCSV();
+		$result = $query->result_array();
 		$fp = fopen('php://output', 'w');
 
-		if ($fp && $result) {
-		    header('Content-Type: text/csv');
-		    header('Content-Disposition: attachment; filename="export.csv"');
-		    header('Pragma: no-cache');
-		    header('Expires: 0');
-		    fputcsv($fp, array_values($head)); 
-		    while ($row = $result->fetch_array(MYSQLI_NUM)) {
-		        fputcsv($fp, array_values($row));
-		    }
-		    die;
-		}	
+		$this->output->set_content_type('application/csv');
+		$this->output->set_header('Content-Disposition: attachment; filename="photo_record.csv"');
+		$this->output->set_header('Expires: 0');
+		$this->output->set_header('Pragma: no-cache');
 
+		fputcsv($fp, $query->list_fields());
+
+		if ($fp && $result) {			
+		   foreach ($result as $row) {
+		      fputcsv($fp, $row);
+		   }
+		}
 		fclose($fp);
-		$data = file_get_contents("file.csv"); // Read the file's contents
+		$data = file_get_contents('php://output'); // Read the file's contents
 		$name = 'photo_record.csv';
 
 		force_download($name, $data);												
 	}
+
+	function create_csv(){
+		$this->load->model('photo_model');
+		$this->load->database();
+		// $query = $this->photo_model->getAllPhotoCSV();
+		$query = $this->db->query('SELECT * FROM photo_record GROUP BY last_update DESC');
+        $num = $query->num_fields();
+        $var =array();
+        $i=1;
+        $fname="";
+        while($i <= $num){
+            $test = $i;
+            $value = $this->input->post($test);
+
+            if($value != ''){
+                $fname= $fname." ".$value;
+                array_push($var, $value);
+
+            }
+            $i++;
+        }
+
+        $fname = trim($fname);
+
+        $fname=str_replace(' ', ',', $fname);
+
+        $this->db->select($fname);
+        $quer = $this->db->get('photo_record');
+        query_to_csv($quer,TRUE,'Products_'.date('dMy').''.$num.'.csv');
+        //query_to_csv($query,TRUE,'Products_'.date('dMy').'.csv');  
+    }
 }

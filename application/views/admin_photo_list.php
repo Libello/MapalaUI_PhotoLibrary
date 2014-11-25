@@ -133,6 +133,7 @@
 
         <table class="table">
           <tr id="table_header">
+            <td>NO</td>
             <td>PILIHAN</td>
             <td>FOTO</td>
             <td>JUDUL FOTO</td>            
@@ -141,10 +142,14 @@
           </tr>
 
           <?php
+            $count = 1;
             foreach ($photolist as $row){
               echo "<tr>
                       <td>
-                      <button class='btn' id='btn-edit2' data-toggle='modal' data-target='#deletedata_modal-".$row['id']."'><img src='".base_url('assets/ico/remove.png')."'></button>
+                        ".$count++.".
+                      </td>
+                      <td>
+                        <button class='btn' id='btn-edit2' data-toggle='modal' data-target='#deletedata_modal-".$row['id']."'><img src='".base_url('assets/ico/remove.png')."'></button>
                         <a href=".site_url('edit/'.$row['id'].'')."><button class='btn' id='btn-edit2'>Edit</button></a>
                       </td>
                       <td>
