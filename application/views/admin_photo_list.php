@@ -114,8 +114,15 @@
 
 
 
+<<<<<<< HEAD
         <div id="photodata_button" class="pull-left">
           <button class="btn" id="btn-save">Ekspor dalam format CSV</button>
+=======
+        <div id="photodata_button" class="col-sm-2">
+          <form class="form-horizontal" role="form" method="post" action="<?php echo site_url('/export_to_csv');?>/">
+            <button class="btn" id="btn-save" type="submit">Ekspor dalam format CSV</button>
+          </form>
+>>>>>>> bb7e9115c5cb76d4a2262d8793fec15a52951f35
         </div>
         <div class="pull-right" id="photodata_pagination">
           <nav>
@@ -137,6 +144,7 @@
 
         <table class="table">
           <tr id="table_header">
+            <td>NO</td>
             <td>PILIHAN</td>
             <td>FOTO</td>
             <td>JUDUL FOTO</td>            
@@ -145,6 +153,7 @@
           </tr>
 
           <?php
+<<<<<<< HEAD
             if($photolist == null) {
               echo "<tr>
                       <td>No Result<td>
@@ -155,6 +164,16 @@
               echo "<tr>
                       <td>
                       <button class='btn' id='btn-edit2' data-toggle='modal' data-target='#deletedata_modal-".$row['id']."'><img src='".base_url('assets/ico/remove.png')."'></button>
+=======
+            $count = 1;
+            foreach ($photolist as $row){
+              echo "<tr>
+                      <td>
+                        ".$count++.".
+                      </td>
+                      <td>
+                        <button class='btn' id='btn-edit2' data-toggle='modal' data-target='#deletedata_modal-".$row['id']."'><img src='".base_url('assets/ico/remove.png')."'></button>
+>>>>>>> bb7e9115c5cb76d4a2262d8793fec15a52951f35
                         <a href=".site_url('edit/'.$row['id'].'')."><button class='btn' id='btn-edit2'>Edit</button></a>
                       </td>
                       <td>

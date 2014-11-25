@@ -14,6 +14,12 @@
       return $query->result_array();
     }
 
+    public function getAllPhotoCSV() {
+      $this->load->database();
+      $query = $this->db->query('SELECT * FROM photo_record GROUP BY last_update DESC');
+      return $query;
+    }
+
     public function getPhotoById($id) {
       $this->load->database();
       $query = $this->db->query('SELECT * FROM photo_record WHERE id_photo = '.$this->db->escape($id).' LIMIT 1');
