@@ -32,6 +32,12 @@
       return $query->result_array();
     }
 
+    public function getPhotoByEvent($id_event) {
+      $this->load->database();
+      $query = $this->db->query('SELECT * FROM photo_record WHERE INSTR(id_event, '.$this->db->escape($id_event).') > 0');
+      return $query->result_array();
+    }
+
     public function searchBy($data) {
       $this->load->database();
 

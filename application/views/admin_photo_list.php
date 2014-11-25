@@ -107,9 +107,15 @@
         <hr>
       </div>
 
+      <div>
+        <button class="btn btn-default disabled" id="searchBy"><span class="glyphicon glyphicon-tag"></span> Semua Foto</button>
+        <button class="btn btn-default disabled" id="searchBy"><span class="glyphicon glyphicon-tag"></span> Semua Kategori</button>
+        <button class="btn btn-default disabled" id="searchBy"><span class="glyphicon glyphicon-tag"></span> Semua Format</button>
+      </div><br><br>
 
 
-        <div id="photodata_button" class="col-sm-2">
+
+        <div id="photodata_button" class="pull-left">
           <form class="form-horizontal" role="form" method="post" action="<?php echo site_url('/export_to_csv');?>/">
             <?php
               if($data_search == null) {
@@ -126,7 +132,7 @@
             <button class="btn" id="btn-save" type="submit">Ekspor dalam format CSV</button>
           </form>
         </div>
-        <div class="col-sm-10" id="photodata_pagination">
+        <div class="pull-right" id="photodata_pagination">
           <nav>
             <ul class="pagination">
               <li class="previous disabled"><a href="#">&larr; Terbaru</a></li>
@@ -172,7 +178,7 @@
                         <h4>
                           <a href=".site_url('detail/'.$row['id'].'').">".$row['title']."</a>
                         </h4>
-                        <a href=".site_url('album_detail/'.$row['id_event'].'')."><p>".$row['event']."</p></a>
+                        <a href=".site_url('event_detail/'.$row['id_event'].'')."><p>".$row['event']."</p></a>
                         <span-photographer>".$row['photographer']."</span>
                         <br>
                         <span class='glyphicon glyphicon-tag'> </span><a href=".site_url('category_detail/'.$row['category'].'').">".$row['category']."</a>                        
@@ -217,7 +223,7 @@
         </table>
         <hr>
 
-        <div id="photodata_button" class="col-sm-2">
+        <div id="photodata_button" class="pull-left">
           <form class="form-horizontal" role="form" method="post" action="<?php echo site_url('/export_to_csv');?>/">
             <?php
               if($data_search == null) {
@@ -234,7 +240,7 @@
             <button class="btn" id="btn-save" type="submit">Ekspor dalam format CSV</button>
           </form>
         </div>
-        <div class="col-sm-10" id="photodata_pagination">
+        <div class="pull-right" id="photodata_pagination">
           <nav>
             <ul class="pagination">
               <li class="previous disabled"><a href="#">&larr; Terbaru</a></li>
