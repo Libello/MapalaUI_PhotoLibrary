@@ -75,25 +75,25 @@ class admin_controller extends CI_Controller {
 
 	public function view_edit($id) {
 		$this->load->model('photo_model');
-		$data_photo = $this->photo_model->getPhotoById($id);
-
 		$this->load->model('photographer_model');
-	    $data_photographer = $this->photographer_model->getAllPhotographer();
+		$this->load->model('editor_model');
+		$this->load->model('event_model');
+		$this->load->model('owner_model');
+		$data_photo = $this->photo_model->getPhotoById($id);
+		$data_photographer = $this->photographer_model->getAllPhotographer();
+		$data_editor = $this->editor_model->getAllEditor();
+		$data_event = $this->event_model->getAllEvent();
+		$data_owner = $this->owner_model->getAllOwner();
+	    
 	    $photographerlist = array();
 	    $count_photographer = 0;
-
-	    $this->load->model('editor_model');
-	    $data_editor = $this->editor_model->getAllEditor();
+	    
 	    $editorlist = array();
 	    $count_editor = 0;
-
-	    $this->load->model('event_model');
-	    $data_event = $this->event_model->getAllEvent();
+	    
 	    $eventlist = array();
 	    $count_event = 0;
-
-	    $this->load->model('owner_model');
-	    $data_owner = $this->owner_model->getAllOwner();
+	    
 	    $ownerlist = array();
 	    $count_owner = 0;
 
@@ -136,7 +136,7 @@ class admin_controller extends CI_Controller {
 		    	$count_owner++;
 		    }
 
-			load_view('admin_edit', $data_photo, array('photographerlist' => $photographerlist,'editorlist' => $editorlist,'eventlist' => $eventlist,'ownerlist' => $ownerlist));
+			load_view('admin_edit', $data_photo);
 		}
 	}
 
@@ -217,7 +217,6 @@ class admin_controller extends CI_Controller {
 	public function view_photo_list() {
 
 		$this->load->model('photo_model');
-		$data_photo = null;
 
 		if(!empty($_POST)) {
 			$data = $this->input->post();

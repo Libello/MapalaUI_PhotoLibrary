@@ -92,6 +92,10 @@
     <div class="container">
       <div class="starter-template">
         <br>
+        <ol class="breadcrumb">
+          <li><a href="<?php echo site_url('/home');?>">Beranda</a></li>
+          <li class="active">Penelusuran</li>
+        </ol>
         <h1 id="search_header">Penelusuran Koleksi</h1><hr>
         <form class="form-horizontal" id="search" role="form" method="post" action="<?php echo site_url('/search');?>">
           <input type="hidden" name="searchbox" value="false">
@@ -169,7 +173,13 @@
         <br>
         <br>
 
-        <h1 id="search_header">Hasil Penelusuran</h1><hr>
+        <h1 id="search_header">Hasil Penelusuran</h1>
+        <button class="pull-left btn btn-default disabled" id="searchBy"><span class="glyphicon glyphicon-tag"></span> Semua Format</button>
+        <button class="pull-left btn btn-default disabled" id="searchBy"><span class="glyphicon glyphicon-tag"></span> Semua Warna</button>
+        <button class="pull-left btn btn-default disabled" id="searchBy"><span class="glyphicon glyphicon-tag"></span> Semua Kategori</button>
+        <button class="pull-left btn btn-default disabled" id="searchBy"><span class="glyphicon glyphicon-tag"></span> Semua Foto</button>
+        <br><hr>
+
         <div class="search_result">              
           <?php
             if($searchresult == null) {
@@ -183,11 +193,12 @@
                         </a>
                         <div class="media-body">
                           <a href="'.site_url('/detail/'.$row['id'].'').'" role="button"><h4 class="media-heading">'.$row['title'].'</h4></a>
-                          <a href='.site_url("album_detail/".$row['id_event']."").'>'.$row['event'].'</a>
-                          <p>oleh <i>'.$row['photographer'].'</i> | '.$row['format'].' | '.$row['taken_date'].' | '.$row['taken_location'].'</p>
-                          <span class="glyphicon glyphicon-tag"></span><a href='.site_url("category_detail/".$row['category']."").'>'.$row['category'].'</a>
-                          <br><br>
+                          <a href='.site_url("event_detail/".$row['id_event']."").'>'.$row['event'].'</a><br>
+                          oleh <i>'.$row['photographer'].'</i>
                           <p><a id="btn-photodetail" href="'.site_url('/detail/'.$row['id'].'').'" role="button">Detail Foto &raquo;</a></p>
+                          <span class="glyphicon glyphicon-tag"></span><a href='.site_url("category_detail/".$row['category']."").'>'.$row['category'].'</a>
+                          
+                          
                         </div>
                       </div>';
 
@@ -197,6 +208,7 @@
                           <div class="modal-content">
                             <div class="modal-body">
                               <img src="'.base_url('assets/foto').'/'.$row['image'].'" class="img-responsive" alt="'.$row['image'].'">
+                              <p><a id="btn-photodetail2" href="'.site_url('/detail/'.$row['id'].'').'" role="button">Lihat Detail Foto &raquo;</a></p>
                             </div>
                           </div>
                         </div>

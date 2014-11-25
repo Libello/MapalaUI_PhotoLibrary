@@ -92,22 +92,30 @@
     <div class="container">
       <div class="starter-template">
         <br>
-        <h2 id="search_header"><?php echo $name_event ?></h2><hr>
+        
+        <ol class="breadcrumb">
+          <li><a href="<?php echo site_url('/home');?>">Beranda</a></li>
+          <li><a href="<?php echo site_url('/gallery');?>">Galeri</a></li>
+          <li><a href="<?php echo site_url('/category_detail/'.$category.'');?>"><?php echo $category;?></a></li>
+          <li class="active"><?php echo $data_event['name'] ?></li>
+        </ol>
+
+        <h2 id="search_header"><?php echo $data_event['name'] ?></h2><hr>
           <form class="form-horizontal" role="form">
             <div class="form-group" id="photo_detail_form">
               <label class="col-sm-1 control-label">Lokasi</label>
               <div class="col-sm-11">
-              <p class="form-control-static">: <?php echo $location ?></p>
+              <p class="form-control-static">: <?php echo $data_event['location'] ?></p>
               </div>
               
               <label class="col-sm-1 control-label">Tahun</label>
               <div class="col-sm-11">
               <p class="form-control-static">: <?php 
-                                                if($start_year == $end_year) {
-                                                  echo $start_year;
+                                                if($data_event['start_year'] == $data_event['end_year']) {
+                                                  echo $data_event['start_year'];
                                                 }
                                                 else {
-                                                  echo $start_year." s/d ".$end_year;
+                                                  echo $data_event['start_year']." s/d ".$data_event['end_year'];
                                                 }
                                               ?>
 
@@ -116,7 +124,7 @@
 
               <label class="col-sm-1 control-label">Kategori</label>
               <div class="col-sm-11">
-              <p class="form-control-static">: <?php echo $category ?></p>
+              <p class="form-control-static">: <?php echo $data_event['category'] ?></p>
               </div>
             </div>
           </form>
@@ -125,26 +133,35 @@
 
         <div class="row">
           <?php
-            if($photoresult == null) {
+            if($photolist == null) {
               echo "Tidak ada koleksi";
             }
-            else {
-              $id = str_replace("/", "_", $row['id']);
-              foreach ($photoresult as $row){
-                echo '
-                  <div class="col-xs-6 col-md-3">
-                    <a href="'.site_url('/detail/'.$id.'').'" class="thumbnail">
+            else {              
+              foreach ($photolist as $row){
+                $id = $row['id'];
+                echo
+                  '<div class="col-xs-6 col-md-3">
+                    <a class="thumbnail" data-toggle="modal" data-target="#'.$id.'" id="img-result">
                       <img src="'.base_url('assets/foto').'/'.$row['image'].'" alt="'.$row['image'].'">
                     </a>
-                  </div>
-                ';
+                  </div>';
+                echo '
+                  <div class="modal fade" id="'.$id.'" tabindex="-1" role="dialog" aria-labelledby="img-result_modalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-body">
+                          <img src="'.base_url('assets/foto').'/'.$row['image'].'" class="img-responsive" alt="'.$row['image'].'">
+                          <p><a id="btn-photodetail2" href="'.site_url('/detail/'.$id.'').'" role="button">Lihat Detail Foto &raquo;</a></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>';
               }
             }
           ?>
         </div>
-      </div>
 
-      <nav>
+        <nav>
           <ul class="pagination">
             <li class="disabled"><span>&laquo;</span></li>
             <li class="active"><span>1 <span class="sr-only">(current)</span></span></li>
@@ -156,6 +173,7 @@
           </ul>
         </nav>
         
+      </div>        
     </div>
     <hr>
 

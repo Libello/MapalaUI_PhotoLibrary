@@ -13,9 +13,9 @@
       $query = $this->db->query('SELECT * FROM event');
       return $query->result_array();
     }
-    public function getEventById($id) {
+    public function getEventById($id_event) {
       $this->load->database();
-      $query = $this->db->query('SELECT * FROM event WHERE id_event = '.$this->db->escape($id).' LIMIT 1');
+      $query = $this->db->query('SELECT * FROM event WHERE id_event = '.$this->db->escape($id_event).' LIMIT 1');
       return $query->row_array();
     }
     public function getEventByCategory($category) {

@@ -26,6 +26,12 @@
       return $query->result_array();
     }
 
+    public function getPhotoByEvent($id_event) {
+      $this->load->database();
+      $query = $this->db->query('SELECT * FROM photo_record WHERE INSTR(id_event, '.$this->db->escape($id_event).') > 0');
+      return $query->result_array();
+    }
+
     public function searchBy($data) {
       $this->load->database();
 
@@ -36,7 +42,7 @@
         $this->db->query('CREATE OR REPLACE VIEW viewactivity AS SELECT * FROM photo_record WHERE category='.$this->db->escape($data['activity']).'');
       }
 
-      if($data['format'] != 'all') {
+      if($data['format'] == 'all') {
         $this->db->query('CREATE OR REPLACE VIEW viewformat AS SELECT * FROM viewactivity');
       }
       else {
@@ -55,6 +61,9 @@
       else {
         $query = $this->db->query('SELECT * FROM viewformat WHERE INSTR('.$data['field'].', '.$this->db->escape($data['inputtext']).') > 0');
       }
+
+      $this->db->query('DROP VIEW viewactivity');
+      $this->db->query('DROP VIEW viewformat');
 
       return $query->result_array();
     }

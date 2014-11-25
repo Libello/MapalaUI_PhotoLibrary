@@ -105,13 +105,19 @@
         </form>
         <hr>
       </div>
+        <div>
+          <button class="btn btn-default disabled" id="searchBy"><span class="glyphicon glyphicon-tag"></span> Semua Foto</button>
+          <button class="btn btn-default disabled" id="searchBy"><span class="glyphicon glyphicon-tag"></span> Semua Kategori</button>
+          <button class="btn btn-default disabled" id="searchBy"><span class="glyphicon glyphicon-tag"></span> Semua Format</button>
+        </div><br><br>
+      
 
 
 
-        <div id="photodata_button" class="col-sm-2">
+        <div id="photodata_button" class="pull-left">
           <button class="btn" id="btn-save">Ekspor dalam format CSV</button>
         </div>
-        <div class="col-sm-10" id="photodata_pagination">
+        <div class="pull-right" id="photodata_pagination">
           <nav>
             <ul class="pagination">
               <li class="previous disabled"><a href="#">&larr; Terbaru</a></li>
@@ -139,18 +145,26 @@
           </tr>
 
           <?php
+            if($photolist == null) {
+              echo "<tr>
+                      <td>No Result<td>
+                    <tr>
+              ";
+            }
             foreach ($photolist as $row){
               echo "<tr>
                       <td>
+                      <button class='btn' id='btn-edit2' data-toggle='modal' data-target='#deletedata_modal-".$row['id']."'><img src='".base_url('assets/ico/remove.png')."'></button>
+                        <a href=".site_url('edit/'.$row['id'].'')."><button class='btn' id='btn-edit2'>Edit</button></a>
                       </td>
                       <td>
-                        <a class='pull-left' data-toggle='modal' data-target='#".$row['id']."'><img class='thumbnail' src=".base_url('assets/foto').'/'.$row['image']." alt='contoh1' width='110px' id='img-result'></a>
+                        <a class='pull-left' data-toggle='modal' data-target='#".$row['id']."' style='cursor:zoom-in'><img class='thumbnail' src=".base_url('assets/foto').'/'.$row['image']." alt='contoh1' width='110px' id='img-result'></a>
                       </td>
                       <td class='grid'>
                         <h4>
                           <a href=".site_url('detail/'.$row['id'].'').">".$row['title']."</a>
                         </h4>
-                        <a href=".site_url('album_detail/'.$row['id_event'].'')."><p>".$row['event']."</p></a>
+                        <a href=".site_url('event_detail/'.$row['id_event'].'')."><p>".$row['event']."</p></a>
                         <span-photographer>".$row['photographer']."</span>
                         <br>
                         <span class='glyphicon glyphicon-tag'> </span><a href=".site_url('category_detail/'.$row['category'].'').">".$row['category']."</a>                        
@@ -195,10 +209,10 @@
         </table>
         <hr>
 
-        <div id="photodata_button" class="col-sm-2">
+        <div id="photodata_button" class="pull-left">
           <button class="btn" id="btn-save">Ekspor dalam format CSV</button>
         </div>
-        <div class="col-sm-10" id="photodata_pagination">
+        <div class="pull-right" id="photodata_pagination">
           <nav>
             <ul class="pagination">
               <li class="previous disabled"><a href="#">&larr; Terbaru</a></li>
