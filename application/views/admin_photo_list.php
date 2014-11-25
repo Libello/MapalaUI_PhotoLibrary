@@ -218,7 +218,21 @@
         <hr>
 
         <div id="photodata_button" class="col-sm-2">
-          <button class="btn" id="btn-save">Ekspor dalam format CSV</button>
+          <form class="form-horizontal" role="form" method="post" action="<?php echo site_url('/export_to_csv');?>/">
+            <?php
+              if($data_search == null) {
+                echo '<input type="hidden" name="flag" value="aaa"/>';
+              } 
+              else {
+                echo '<input type="hidden" name="flag" value="bbb"/>';
+                echo '<input type="hidden" name="activity" value="'.$data_search['activity'].'"/>';
+                echo '<input type="hidden" name="format" value="'.$data_search['format'].'"/>';
+                echo '<input type="hidden" name="inputtext" value="'.$data_search['inputtext'].'"/>';
+                echo '<input type="hidden" name="field" value="'.$data_search['field'].'"/>';
+              }
+            ?>
+            <button class="btn" id="btn-save" type="submit">Ekspor dalam format CSV</button>
+          </form>
         </div>
         <div class="col-sm-10" id="photodata_pagination">
           <nav>
