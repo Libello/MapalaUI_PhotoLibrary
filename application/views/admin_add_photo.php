@@ -125,7 +125,6 @@
             <label for="photographer" class="col-sm-2 control-label">Fotografer</label>
             <div class="col-sm-3">
               <select class="form-control" name="photographer">
-                <option value="Tidak diketahui">Tidak diketahui</option>
                 <?php
                   foreach ($photographerlist as $row){
                     echo "<option value=".$row['id'].">";
@@ -493,6 +492,9 @@
 
           <!--TOMBOL SELESAI-->
           <div class="lead pull-right" id="savebtn-bottom">
+            <a class="btn" id="btn-close" href="#top">
+              <span class="glyphicon glyphicon-arrow-up"></span> Kembali ke Atas
+            </a>
             <button type="reset" class="btn" id="btn-close">
               Kosongkan
             </button>
@@ -514,7 +516,9 @@
 
     <div id="footer">
       <div class="container">
-        <p class="text-muted">Mapala UI Photo Library © 2014 oleh <a href="http://twitter.com/nadafadhila">@nadafadhila</a><br><a href="http://getbootstrap.com">Bootstrap</a></p>
+        <p class="text-muted">
+          Mapala UI Photo Library © 2014 oleh <a href="http://twitter.com/nadafadhila">@nadafadhila</a><br>
+          <a href="http://getbootstrap.com">Bootstrap</a></p>
       </div>
     </div>
     <!-- /.container -->

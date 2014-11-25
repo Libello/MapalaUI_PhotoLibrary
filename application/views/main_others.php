@@ -90,7 +90,12 @@
     </div>
 
     <div class="container">
-      <div class="starter-template"><br>
+      <div class="starter-template">
+        <br>
+        <ol class="breadcrumb">
+          <li><a href="<?php echo site_url('/home');?>">Beranda</a></li>
+          <li class="active">Tentang MUIPL</li>
+        </ol>
         <br>
 
         <!-- Nav tabs -->

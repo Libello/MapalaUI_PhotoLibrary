@@ -1,40 +1,28 @@
 Yang belum :
 
 1. <Penelusuran>
-	- Penelusuran dengan menggunakan input dan field.
-	  (Masih belum kepikiran buat ngasih name yang unik di tiap field yang dinamis).
-	- Jalanin fungsi < page 1 2 3 >
 	- Cari Lokasinya foto+event ya sayang...
-
-2. <Galeri>
-	- GetPhotobyEvent belum
+	- Kasih sesuatu yang ngasih tau kalau pencarian berdasarkan...
 
 -------------------------------------------------------------------Admin-----------------------------------------------------------
 
 1. <Daftar Foto>
 	- Ekspor ke csv. Udah dapet referensi cara tapi belum dicoba.
-	- Mungkin bisa ditambah < page 1 2 3 >
 
 2. <Edit> 
 	- Halaman edit belum bisa disave
 	- Fotografer dll ga muncul
-	- Redirect ke halaman sebelumnya
 
 3. <Master Data>
 	- Modal buat edit masih ga rapi dan belum bisa save, sama kaya yg di halaman edit...
 
 4. <Tambah Foto>
 	- Input ID diberi ketentuan
-	- Ukuran bisa ditambah input sendiri yang tercetak
 	- Gimana caranya supaya bisa ga pake upload foto
-	- itu fotografer ga bisa ya kalau tidak diketahui?
 
+Breadcrumb
+Pagination
 
-KATEGORI diubah jadi arung_jeram ya valuenya, nanti pas mau ditampilin baru pake replace str_replace("_"," ",)
-
-bikin kaya history atau apa deh yg nunjukin ngeklik apa aja
-
-back to top
 -------------------------------------------------------------------Skripsi-----------------------------------------------------------
 
 	Liat penjelasan dublin core, sesuai ga sama yang diterapkan sekarang, kayanya di bab 2 masih beda gara-gara kesalahan di awal
@@ -43,6 +31,4 @@ back to top
 
 	Class diagram model dan controller
 
-	Screenshot
-
-	Bab 5
+	daftar tabel dan gambar?

@@ -93,13 +93,18 @@
       <div class="starter-template">
         <br>
 
+        <h1 id="search_header">Detail Foto</h1>
+        <a class="pull-left" onclick="goBack()" style="cursor:pointer"> 
+          « Kembali ke halaman sebelumnya
+        </a>
+        <br>
+        <hr>
 
-
-
-
-
-
-        <h1 id="search_header">Detail Foto</h1><hr>
+        <script type="text/javascript">
+          function goBack() {
+            window.history.back()
+          }
+        </script>
 
         <form class="form-horizontal" role="form">
           <img src=<?php echo base_url('assets/foto').'/'.$photo_upload ?> width="1000px">
@@ -138,12 +143,12 @@
 
             <label class="col-sm-2 control-label">Kegiatan</label>
             <div class="col-sm-10">
-            <p class="form-control-static">: <?php echo "<a href=".site_url('album_detail/'.$id_event.'').">".$name_event."</a>" ?></p>
+            <p class="form-control-static">: <?php echo "<a href=".site_url('event_detail/'.$id_event.'').">".$name_event."</a>" ?></p>
             </div>
 
             <label class="col-sm-2 control-label">Kategori</label>
             <div class="col-sm-10">
-            <p class="form-control-static">: <?php echo "<a href=".site_url('category_detail/'.$category.'').">".$category."</a>" ?></p>
+            <p class="form-control-static">: <?php echo "<a href=".site_url('category_detail/'.$category.'').">".$category."</a>" ?>
             </div>
 
             <label class="col-sm-2 control-label">Tanggal Foto</label>
@@ -198,14 +203,16 @@
           </div>
         </form>
 
-
         <div>
           <?php
             if($status == 'admin') {
-              echo '<a href="'.site_url('/edit/'.$id_photo.'').'"><button class="btn btn-default">Edit</button></a>';
+              echo '<br><a href="'.site_url('/edit/'.$id_photo.'').'"><button class="btn btn-default">Edit</button></a>';
             }
           ?>
         </div>
+
+        <br>
+        <a onclick="goBack()" style="cursor:pointer">« Kembali ke halaman sebelumnya</a>
         <br>
 
 

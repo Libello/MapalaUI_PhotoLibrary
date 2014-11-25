@@ -71,7 +71,7 @@
           <!--TOMBOL SELESAI-->
           <div class="form-group" id="savebtn-top">
             <div class="lead pull-right">
-              <button class="btn" id="btn-close">
+              <button class="btn" id="btn-close" type="button" onclick="goBack()">
                 Kembali
               </button>
               <button class="btn btn-default" type="submit" role="button">
@@ -497,7 +497,10 @@
 
           <!--TOMBOL SELESAI-->
           <div class="lead pull-right" id="savebtn-bottom">
-            <button class="btn" id="btn-close">
+            <a class="btn" id="btn-close" href="#top">
+              <span class="glyphicon glyphicon-arrow-up"></span> Kembali ke Atas
+            </a>
+            <button class="btn" id="btn-close" type="button" onclick="goBack()">
               Kembali
             </button>
             <button class="btn btn-default" type="submit" role="button">
@@ -505,6 +508,12 @@
             </button>
           </div>
         </form>
+
+        <script type="text/javascript">
+          function goBack() {
+            window.history.back()
+          }
+        </script>
 
 
 

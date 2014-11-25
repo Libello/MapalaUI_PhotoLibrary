@@ -30,6 +30,11 @@ textarea {
 	padding: 15px;
 }
 
+#searchBy {
+	color: #101010;
+	margin-left: 5px;
+}
+
 .navbar {
 	font-family: 'AGENCYR';
 	font-size: 21px;
@@ -135,6 +140,10 @@ label {
 
 .radio {
 	text-align: left;
+}
+
+#footer a {
+	color: black;
 }
 
 .required-top {

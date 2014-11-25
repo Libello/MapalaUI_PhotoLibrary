@@ -13,6 +13,11 @@
       $query = $this->db->query('SELECT * FROM editor');
       return $query->result_array();
     }
+    public function getEditorById($id) {
+      $this->load->database();
+      $query = $this->db->query('SELECT * FROM editor WHERE id_editor = '.$this->db->escape($id).' LIMIT 1');
+      return $query->row_array();
+    }
     public function insertEditor($data) {
       $editor_name = $data['editor_name'];
       $editor_membership = $data['editor_membership'];
@@ -31,11 +36,6 @@
         $success = true;
       }
       return $success;
-    }
-    public function getEditorById($id) {
-      $this->load->database();
-      $query = $this->db->query('SELECT * FROM editor WHERE id_editor = '.$this->db->escape($id).' LIMIT 1');
-      return $query->row_array();
     }
     public function deleteEditor($id) {      
       $success = false;

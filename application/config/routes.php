@@ -45,7 +45,7 @@ $route['guest_login'] = "guest_controller/view_cover_guest_login";
 $route['contact'] = "guest_controller/view_cover_contact";
 //Main view route
 $route['category_detail/(:any)'] = "guest_controller/view_main_gallery/$1";
-$route['album_detail/(:any)'] = "guest_controller/view_main_gallery2/$1";
+$route['event_detail/(:any)'] = "guest_controller/view_main_gallery2/$1";
 $route['gallery'] = "guest_controller/view_main_categories";
 $route['home'] = "guest_controller/view_main_home";
 $route['others'] = "guest_controller/view_main_others";

@@ -92,7 +92,14 @@
     <div class="container">
       <div class="starter-template">
         <br>
-        <h1 id="search_header">Kegiatan</h1><hr>
+
+        <ol class="breadcrumb">
+          <li><a href="<?php echo site_url('/home');?>">Beranda</a></li>
+          <li><a href="<?php echo site_url('/gallery');?>">Galeri</a></li>
+          <li class="active"><?php echo $category;?></li>
+        </ol>
+
+        <h1 id="search_header">Kegiatan <?php echo $category;?></h1><hr>
         <div class="search_result">
           <div class="media">
             <div class="media-body">
@@ -103,7 +110,9 @@
                 else {
                   foreach ($eventresult as $row){
                     echo
-                    '<a href="'.site_url('/album_detail/'.$row['id_event'].'').'" role="button"><h4 class="media-heading">'.$row['name'].'</h4></a>
+                    
+                    '<a href="'.site_url('/event_detail/'.$row['id_event'].'').'" role="button"><h4 class="media-heading">'.$row['name'].'</h4></a>
+                    
                     <p>'.$row['location'].' |';
                   
 
@@ -114,9 +123,9 @@
                         echo "".$row['start_year']." s/d ".$row['end_year']."";
                       }
 
-                    echo '| '.$row['category'].'</p>';
+                    echo '| '.$row['category'].'</p>
 
-                    echo '<p><a id="btn-photodetail" href="'.site_url('/album_detail/'.str_replace(" ", "_", $row['id_event']).'').'" role="button">Lihat foto &raquo;</a></p>';
+                    <p><a id="btn-photodetail" href="'.site_url('/event_detail/'.$row['id_event'].'').'" role="button">Lihat foto &raquo;</a></p>';
                   }
                 }
               ?>

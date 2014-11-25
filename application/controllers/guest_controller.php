@@ -26,6 +26,7 @@ class guest_controller extends CI_Controller {
 	public function view_main_gallery($category) {
 		$this->load->model('photo_model');
 		$this->load->model('event_model');
+
 		$category = str_replace("_", " ", $category);
 		$data_photo = $this->photo_model->getPhotoByCategory($category);
 		$data_event = $this->event_model->getEventByCategory($category);
@@ -40,6 +41,7 @@ class guest_controller extends CI_Controller {
 		    foreach ($data_photo as $photo) {
 		    	$photoresult[$count]['id'] = $photo['id_photo'];
 		    	$photoresult[$count]['image'] = $photo['photo_upload'];
+		    	$photoresult[$count]['category'] = $photo['category'];
 		    	$count++;
 		    }
 		}
@@ -60,20 +62,34 @@ class guest_controller extends CI_Controller {
 		    	$count++;
 		    }
 		}
-		load_view('main_gallery',array('eventresult' => $eventresult, 'photoresult' => $photoresult));
+		load_view('main_gallery',array('eventresult' => $eventresult, 'photoresult' => $photoresult, 'category' => $category));
 	}
 	
-	public function view_main_gallery2($id) {
+	public function view_main_gallery2($id_event) {
+		$this->load->model('photo_model');
 		$this->load->model('event_model');
-		$data_event = $this->event_model->getEventById($id);
+		$data_event = $this->event_model->getEventById($id_event);
+		$data_photo = $this->photo_model->getPhotoByEvent($id_event);
+		$category = "Panjat";
 
-		if($data_event == null) {
-			show_404();
-		}
-		else {
-			$data_event['name_event'] = $data_event['name'];
-			load_view('main_gallery2', $data_event);
-		}
+		$photolist = array();
+		$count = 0;
+
+		foreach ($data_photo as $photo) {
+	    	$photolist[$count]['id'] = $photo['id_photo'];
+			$photolist[$count]['photographer'] = $photo['name_photographer'];
+	    	$photolist[$count]['image'] = $photo['photo_upload'];
+	    	$photolist[$count]['title'] = $photo['title'];
+	    	$photolist[$count]['id_event'] = $photo['id_event'];
+	    	$photolist[$count]['event'] = $photo['name_event'];
+	    	$photolist[$count]['format'] = $photo['format'];
+	    	$photolist[$count]['category'] = $photo['category'];
+	    	$photolist[$count]['taken_date'] = $photo['taken_date'];
+	    	$photolist[$count]['taken_location'] = $photo['taken_location'];
+	    	$count++;
+	    }
+
+		load_view('main_gallery2',array('photolist' => $photolist, 'data_event' => $data_event, 'category' => $category));
 	}
 
 	public function view_main_home() {
@@ -89,6 +105,8 @@ class guest_controller extends CI_Controller {
 		if($data_photo == null) {
 			show_404();
 		}
+	
+
 		else {
 			load_view('main_photo_detail', $data_photo);
 		}

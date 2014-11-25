@@ -92,62 +92,58 @@
     <div class="container">
       <div class="starter-template-home">
 
+        <ol class="breadcrumb" id="breadcrumbHome">
+          <li class="active">Beranda</li>
+        </ol>
 
-    <!-- Carousel
-    ================================================== -->
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-      </ol>
-      <div class="carousel-inner">
-        <div class="item active">
-          <img src="<?php echo base_url('assets/img').'/(C)MapalaUI.png';?>" alt="First slide">
-        </div>
-        <div class="item">
-          <img src="<?php echo base_url('assets/img').'/(C)Budi.png';?>" alt="Second slide">
-        </div>
-      </div>
-      <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-      <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-    </div><!-- /.carousel -->
+        <!-- Carousel
+        ================================================== -->
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="item active">
+              <img src="<?php echo base_url('assets/img').'/(C)MapalaUI.png';?>" alt="First slide">
+            </div>
+            <div class="item">
+              <img src="<?php echo base_url('assets/img').'/(C)Budi.png';?>" alt="Second slide">
+            </div>
+          </div>
+          <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+          <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+        </div><!-- /.carousel -->
 
-    
-
-
-
-    <!-- Marketing messaging and featurettes
-    ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
-
-    <div class="container_marketing">
-      <!-- Three columns of text below the carousel -->
-      <div class="row">
-        <div class="col-lg-4">
-          <a href="<?php echo site_url('/search');?>"><img class="img-circle" src="<?php echo base_url('assets/img').'/(1)search.png';?>" alt="Generic placeholder image"></a>
-          <h2 id="feature_header"><a href="<?php echo site_url('/search');?>">Penelusuran Lanjutan</a></h2>
-          <p id="feature_detail">Kamu dapat mencari foto berdasarkan judul, fotografer, aktivitas, tahun maupun ruas lainnya dengan memasukan kata kunci sesuai dengan kebutuhanmu.</p>
-          <p><a id="btn-featuredetail" href="<?php echo site_url('/search');?>" role="button">Mulai Penelusuran &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <a href="<?php echo site_url('/gallery');?>"><img class="img-circle" src="<?php echo base_url('assets/img').'/(2)categories.png';?>" alt="Generic placeholder image"></a>
-          <h2 id="feature_header"><a href="<?php echo site_url('/gallery');?>">Galeri Foto</a></h2>
-          <p id="feature_detail">Bingung dengan kata kunci? Lihat saja foto berdasarkan kategori yang telah disediakan.</p>
-          <p><a id="btn-featuredetail" href="<?php echo site_url('/gallery');?>" role="button">Lihat kategori &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <a href="<?php echo site_url('/others');?>"><img class="img-circle" src="<?php echo base_url('assets/img').'/(3)others.png';?>" alt="Generic placeholder image"></a>
-          <h2 id="feature_header"><a href="<?php echo site_url('/others');?>">Tentang MUIPL</a></h2>
-          <p id="feature_detail">Ingin tahu asal mula Mapala UI Photo Library dan siapa yang membuatnya? Kamu bisa lihat di sini.</p>
-          <p><a id="btn-featuredetail" href="<?php echo site_url('/others');?>" role="button">Tentang MUIPL &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-      </div><!-- /.row -->
-              
-        
-      </div>
-    </div>
-
+        <!-- Marketing messaging and featurettes
+        ================================================== -->
+        <!-- Wrap the rest of the page in another container to center all the content. -->
+        <div class="container_marketing">
+          <!-- Three columns of text below the carousel -->
+          <div class="row">
+            <div class="col-lg-4">
+              <a href="<?php echo site_url('/search');?>"><img class="img-circle" src="<?php echo base_url('assets/img').'/(1)search.png';?>" alt="Generic placeholder image"></a>
+              <h2 id="feature_header"><a href="<?php echo site_url('/search');?>">Penelusuran Lanjutan</a></h2>
+              <p id="feature_detail">Kamu dapat mencari foto berdasarkan judul, fotografer, aktivitas, tahun maupun ruas lainnya dengan memasukan kata kunci sesuai dengan kebutuhanmu.</p>
+              <p><a id="btn-featuredetail" href="<?php echo site_url('/search');?>" role="button">Mulai Penelusuran &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+              <a href="<?php echo site_url('/gallery');?>"><img class="img-circle" src="<?php echo base_url('assets/img').'/(2)categories.png';?>" alt="Generic placeholder image"></a>
+              <h2 id="feature_header"><a href="<?php echo site_url('/gallery');?>">Galeri Foto</a></h2>
+              <p id="feature_detail">Bingung dengan kata kunci? Lihat saja foto berdasarkan kategori yang telah disediakan.</p>
+              <p><a id="btn-featuredetail" href="<?php echo site_url('/gallery');?>" role="button">Lihat kategori &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+              <a href="<?php echo site_url('/others');?>"><img class="img-circle" src="<?php echo base_url('assets/img').'/(3)others.png';?>" alt="Generic placeholder image"></a>
+              <h2 id="feature_header"><a href="<?php echo site_url('/others');?>">Tentang MUIPL</a></h2>
+              <p id="feature_detail">Ingin tahu asal mula Mapala UI Photo Library dan siapa yang membuatnya? Kamu bisa lihat di sini.</p>
+              <p><a id="btn-featuredetail" href="<?php echo site_url('/others');?>" role="button">Tentang MUIPL &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+          </div><!-- /.row -->
+        </div><!-- /.container_marketing -->
+      </div><!-- /.starter-template-home -->
+    </div><!-- /.container -->
     
     <div id="footer">
       <div class="container">
