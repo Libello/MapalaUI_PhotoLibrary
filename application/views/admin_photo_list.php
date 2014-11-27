@@ -208,7 +208,7 @@
                         <div class="modal-dialog">
                           <div class="modal-content">
                             <div class="modal-body">
-                              <h1 id="done">Hapus '.$row['title'].'?</h1>
+                              <h1 id="done">Hapus <span style="color:#887c7c">'.$row['title'].'</span>?</h1>
                               <div class="lead" id="btn_modaldelete">
                                 <button type="submit" class="btn" id="btn-save">Hapus</button>
                                 <button type="close" class="btn" id="btn-close" data-dismiss="modal">Keluar</button>                                
