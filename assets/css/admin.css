@@ -26,6 +26,12 @@ textarea {
 	border-color: #bbb;
 }
 
+#btn-photodetail {
+	font-family: 'AGENCYR';
+	font-size: 20px;
+	color: #101010;
+}
+
 #imageEdit {
 	padding: 15px;
 }

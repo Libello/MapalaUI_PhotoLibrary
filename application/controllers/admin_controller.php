@@ -284,20 +284,6 @@ class admin_controller extends CI_Controller {
 	    }
 	}
 
-	public function guestToAdmin() {
-		$ci=& get_instance();
-    	$userId = $ci->session->userdata('idGuest');
-    	if($userId == 'admin') {
-			redirect(site_url('/photo_list'));
-		}
-		elseif ($userId == false) {
-		 	show_404();
-		}
-		else {
-			redirect(site_url('/admin_login'));
-		}
-	}
-
 	public function logout(){
 		$ci=& get_instance();
 	    delete_cookie("Guest");

@@ -196,6 +196,7 @@
                         <div class="modal-content">
                           <div class="modal-body">
                             <img src="'.base_url('assets/foto').'/'.$row['image'].'" class="img-responsive" alt="'.$row['image'].'">
+                            <p><a id="btn-photodetail" href="'.site_url('/detail/'.$row['id'].'').'" role="button">Lihat Detail Foto &raquo;</a></p>
                           </div>
                         </div>
                       </div>
@@ -207,10 +208,10 @@
                         <div class="modal-dialog">
                           <div class="modal-content">
                             <div class="modal-body">
-                              <h1 id="done">Hapus data foto?</h1>
+                              <h1 id="done">Hapus '.$row['title'].'?</h1>
                               <div class="lead" id="btn_modaldelete">
-                                <button type="close" class="btn" id="btn-close" data-dismiss="modal">Keluar</button>
                                 <button type="submit" class="btn" id="btn-save">Hapus</button>
+                                <button type="close" class="btn" id="btn-close" data-dismiss="modal">Keluar</button>                                
                               </div>
                             </div>
                          </div>

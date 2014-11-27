@@ -184,10 +184,4 @@ class guest_controller extends CI_Controller {
 	    	show_404();
 	    }
 	}
-	public function view_gagal() {
-		load_view('Gagal',array());
-	}
-	public function view_sukses() {
-		load_view('Sukses',array());
-	}
 }
