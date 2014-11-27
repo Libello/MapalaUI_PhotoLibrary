@@ -42,7 +42,7 @@
           }
         ?>
         </h1>
-        <br><br><h4><a href="<?php echo site_url('/add_photo');?>"><span class="glyphicon glyphicon-plus"></span> Tambah data foto lainnya</a>  |  <a href="<?php echo site_url('/photo_list');?>"><span class="glyphicon glyphicon-list-alt"></span> Lihat daftar foto</a></h4>
+        <br><br><p><a href="<?php echo site_url('/add_photo');?>" id="successMsg" class="btn"><span class="glyphicon glyphicon-plus"></span> Tambah data foto lainnya</a><br><br>atau<br><br><a href="<?php echo site_url('/photo_list');?>" class="btn" id="successMsg"><span class="glyphicon glyphicon-list-alt"></span> Lihat daftar foto</a></p>
 
       </div>
     </div>

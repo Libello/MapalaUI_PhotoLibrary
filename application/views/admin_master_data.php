@@ -128,10 +128,10 @@
                         <div class="modal-dialog">
                           <div class="modal-content">
                             <div class="modal-body">
-                              <h1 id="done">Hapus Fotografer?</h1>
+                              <h1 id="done">Hapus <span style="color:#887c7c">'.$row['name'].'</span>?</h1>
                               <div class="lead" id="btn_modaldelete">
-                                <button type="close" class="btn" id="btn-close" data-dismiss="modal">Keluar</button>
                                 <button type="submit" class="btn" id="btn-save">Hapus</button>
+                                <button type="close" class="btn" id="btn-close" data-dismiss="modal">Keluar</button>
                               </div>
                             </div>
                          </div>
@@ -332,10 +332,10 @@
                         <div class="modal-dialog">
                           <div class="modal-content">
                             <div class="modal-body">
-                              <h1 id="done">Hapus Kegiatan?</h1>
+                              <h1 id="done">Hapus <span style="color:#887c7c">'.$row['name'].'</span>?</h1>
                               <div class="lead" id="btn_modaldelete">
-                                <button type="close" class="btn" id="btn-close" data-dismiss="modal">Keluar</button>
                                 <button type="submit" class="btn" id="btn-save">Hapus</button>
+                                <button type="close" class="btn" id="btn-close" data-dismiss="modal">Keluar</button>
                               </div>
                             </div>
                          </div>
@@ -596,10 +596,10 @@
                         <div class="modal-dialog">
                           <div class="modal-content">
                             <div class="modal-body">
-                              <h1 id="done">Hapus editor?</h1>
+                              <h1 id="done">Hapus <span style="color:#887c7c">'.$row['name'].'</span>?</h1>
                               <div class="lead" id="btn_modaldelete">
-                                <button type="close" class="btn" id="btn-close" data-dismiss="modal">Keluar</button>
                                 <button type="submit" class="btn" id="btn-save">Hapus</button>
+                                <button type="close" class="btn" id="btn-close" data-dismiss="modal">Keluar</button>                                
                               </div>
                             </div>
                          </div>
@@ -732,10 +732,10 @@
                         <div class="modal-dialog">
                           <div class="modal-content">
                             <div class="modal-body">
-                              <h1 id="done">Hapus pemilik foto?</h1>
+                              <h1 id="done">Hapus <span style="color:#887c7c">'.$row['name'].'</span>?</h1>
                               <div class="lead" id="btn_modaldelete">
-                                <button type="close" class="btn" id="btn-close" data-dismiss="modal">Keluar</button>
                                 <button type="submit" class="btn" id="btn-save">Hapus</button>
+                                <button type="close" class="btn" id="btn-close" data-dismiss="modal">Keluar</button>                                
                               </div>
                             </div>
                          </div>

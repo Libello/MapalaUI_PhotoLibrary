@@ -7,6 +7,11 @@ body {
   text-align: center;
 }
 
+@font-face {
+	font-family: 'AGENCYR';
+	src: url("../fonts/AGENCYR.ttf");
+}
+
 .starter-template-home {
   padding: 60px 0px;
   text-align: center;
@@ -31,6 +36,12 @@ body {
 #searchBy{
 	color: #101010;
 	margin-right: 5px;
+}
+
+#successMsg{
+	font-family: 'AGENCYR';
+	font-size: 20px;
+	color: #887c7c;
 }
 
 textarea {

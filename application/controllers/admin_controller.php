@@ -2,8 +2,7 @@
 
 class admin_controller extends CI_Controller {
 
-	function __construct()
-	{
+	function __construct(){
 		parent::__construct();
 		$this->load->helper(array('form', 'url'));
 	}
@@ -275,19 +274,6 @@ class admin_controller extends CI_Controller {
 	    } else {
 	    	show_404();
 	    }
-	}
-	public function guestToAdmin() {
-		$ci=& get_instance();
-    	$userId = $ci->session->userdata('idGuest');
-    	if($userId == 'admin') {
-			redirect(site_url('/photo_list'));
-		}
-		elseif ($userId == false) {
-		 	show_404();
-		}
-		else {
-			redirect(site_url('/admin_login'));
-		}
 	}
 	public function logout(){
 		$ci=& get_instance();
