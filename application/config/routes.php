@@ -37,6 +37,8 @@
 | in the URL cannot be matched to a valid route.
 |
 */
+$route['searching'] = "search";
+$route['ajax'] = "search/ajax";
 
 //Cover view route
 $route['404_override'] = "guest_controller/view_404me";

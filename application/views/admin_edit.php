@@ -66,7 +66,7 @@
         <form class="form-horizontal" role="form" name="add_photo" method="post" enctype="multipart/form-data" action="<?php echo site_url('/editPhoto');?>">
           
           <div class="col-sm-3"></div>
-          <img name="userfile" class="col-sm-6 thumbnail" id="imageEdit" src="<?php echo base_url('assets/foto').'/'.$photo_upload ?>" width="500px">
+          <img name="userfile" class="col-sm-6 thumbnail" id="imageEdit" src="<?php echo base_url('assets/foto').'/'.$data_photo["photo_upload"] ?>" width="500px">
           <div class="col-sm-3"></div>
           <!--TOMBOL SELESAI-->
           <div class="form-group" id="savebtn-top">
@@ -88,7 +88,8 @@
           <div class="form-group">
             <label for="photo_id" class="col-sm-2 control-label">ID Foto</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" name="photo_id" value="<?php echo $id_photo ?>" disabled>
+              <input type="text" class="form-control" value="<?php echo $data_photo["id_photo"] ?>" disabled>
+              <input type="hidden" class="form-control" name="photo_id" value="<?php echo $data_photo["id_photo"] ?>">
             </div>
           </div>
 
@@ -96,7 +97,7 @@
           <div class="form-group">
             <label for="title" class="col-sm-2 control-label">Judul</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" name="title" value="<?php echo $title ?>" required>
+              <input type="text" class="form-control" name="title" value="<?php echo $data_photo["title"] ?>" required>
             </div>
             <p class="col-sm-1 required">*</label>
           </div>
@@ -106,7 +107,7 @@
             <label for="photographer" class="col-sm-2 control-label">Fotografer</label>
             <div class="col-sm-3">
               <select class="form-control" name="photographer">
-                <option value="<?php echo $id_photographer ?>"><?php echo $name_photographer ?></option>
+                <option value="<?php echo $data_photo["id_photographer"] ?>"><?php echo $data_photo["name_photographer"] ?></option>
                 <option disabled>──────────────────────</option>
                 <option value="Tidak diketahui">Tidak diketahui</option>
                 <?php
@@ -116,7 +117,7 @@
                     echo "</option>";
                   }
                 ?>
-            </select>
+              </select>
             </div>
             <p class="col-sm-1 required">*</p>
           </div>
@@ -126,13 +127,13 @@
             <label for="format" class="col-sm-2 control-label">Format</label>
             <div class="col-sm-2">
               <div class="checkbox">
-                <input type="checkbox" name="format[]" value="Digital"> Digital
+                <input type="checkbox" name="format[]" value="Digital" <?php if(strpos($data_photo['format'],'Digital') !== false) echo 'checked'?>> Digital
               </div>
               <div class="checkbox">
-                <input type="checkbox" name="format[]" value="Repro / Scan"> Repro / Scan
+                <input type="checkbox" name="format[]" value="Repro / Scan" <?php if(strpos($data_photo['format'],'Repro / Scan') !== false) echo 'checked'?>> Repro / Scan
               </div>
               <div class="checkbox">
-                <input type="checkbox" name="format[]" value="Tercetak"> Tercetak
+                <input type="checkbox" name="format[]" value="Tercetak" <?php if(strpos($data_photo['format'],'Tercetak') !== false) echo 'checked'?>> Tercetak
               </div>
             </div>
             <p class="col-sm-1 required">*</p>
@@ -143,7 +144,7 @@
             <label for="format" class="col-sm-2 control-label">Warna</label>
             <div class="col-sm-3">
             <select class="form-control" name="color">
-              <option value="<?php echo $color ?>"><?php echo $color ?></option>
+              <option value="<?php echo $data_photo["color"] ?>"><?php echo $data_photo["color"] ?></option>
               <option disabled>──────────────────────</option>
               <option value="Berwarna">Berwarna</option>
               <option value="Hitam Putih">Hitam & Putih</option>
@@ -158,7 +159,7 @@
             <label for="event" class="col-sm-2 control-label">Kegiatan</label>
             <div class="col-sm-9">
               <select class="form-control" name="event">
-                <option value="<?php echo $id_event ?>"><?php echo $name_event ?></option>
+                <option value="<?php echo $data_photo["id_event"] ?>"><?php echo $data_photo["name_event"] ?></option>
                 <option disabled>──────────────────────────────────────────────────────────────────────────────</option>
                 <option value="-">...</option>
                 <?php
@@ -178,7 +179,7 @@
             <label for="category" class="col-sm-2 control-label">Kategori</label>
             <div class="col-sm-3">
               <select class="form-control" name="category">
-                <option value="<?php echo $category ?>"><?php echo $category ?></option>
+                <option value="<?php echo $data_photo["category"] ?>"><?php echo $data_photo["category"] ?></option>
                 <option disabled>──────────────────────</option>
                 <option value="Panjat">Panjat</option>
                 <option value="Arung Jeram">Arung Jeram</option>
@@ -197,57 +198,91 @@
           <!--Date Taken-->
           <div class="form-group">
             <label for="taken_date" class="col-sm-2 control-label">Tanggal Foto</label>
-            <?php
-              if($taken_date == ' - / - / - ') {
+            <div class="row">
+              <?php
+                $taken_date = explode("/",$data_photo["taken_date"]);
                 echo '<div class="col-sm-1">
-                      <select class="form-control" name="taken_date">
-                        <option value=" - ">tgl</option>
-                        <option disabled>───</option>';
-                        for ($i = 1; $i <= 31; $i++) echo '<option value="'.$i.'">'.$i.'</option>';
-
+                      <select class="form-control" name="taken_date">';
+                      if ($taken_date[0] == '-') {
+                        echo '
+                          <option value=" - " selected>tgl</option>
+                          <option disabled>───</option>
+                        ';
+                      }
+                      else {
+                        echo'
+                          <option value=" - ">tgl</option>
+                          <option disabled>───</option>
+                        ';
+                      }
+                      for ($i = 1; $i <= 31; $i++) {
+                        if($taken_date[0] == $i) {
+                          echo '<option value="'.$i.'" selected>'.$i.'</option>';
+                        }
+                        else {
+                          echo '<option value="'.$i.'">'.$i.'</option>';
+                        }
+                      }
                 echo '</select>
                     </div>
                     <div class="col-sm-2">
-                      <select class="form-control" name="taken_month">
-                        <option value=" - ">bulan</option>
-                        <option disabled>────────────</option>
-                        <option value="Januari">Januari</option>
-                        <option value="Februari">Februari</option>
-                        <option value="Maret">Maret</option>
-                        <option value="April">April</option>
-                        <option value="Mei">Mei</option>
-                        <option value="Juni">Juni</option>
-                        <option value="Juli">Juli</option>
-                        <option value="Agustus">Augustus</option>
-                        <option value="September">September</option>
-                        <option value="Oktober">Oktober</option>
-                        <option value="Nopember">Nopember</option>
-                        <option value="Desember">Desember</option>
-                      </select>
+                      <select class="form-control" name="taken_month">';
+                      if($taken_date[1] == '-') {
+                        echo '
+                          <option value=" - " selected>bulan</option>
+                          <option disabled>─────────────</option>
+                        ';
+                      }
+                      else {
+                        echo '
+                          <option value=" - ">bulan</option>
+                          <option disabled>─────────────</option>
+                        ';
+                      }
+                      $bulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","Nopember","Desember");
+                      foreach ($bulan as $key) {
+                        if($taken_date[1] == $key) {
+                          echo '<option value="'.$key.'" selected>'.$key.'</option>';
+                        }
+                        else {
+                          echo '<option value="'.$key.'">'.$key.'</option>';
+                        }
+                      }
+                echo '</select>
                     </div>
                     <div class="col-sm-2">
-                      <select class="form-control" name="taken_year">
-                        <option value=" - ">tahun</option>
-                        <option disabled>────────────</option>
-                        <?php for ($i = 2017; $i >= 1964; $i--) : ?>
-                          <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                        <?php endfor; ?>
-                      </select>
+                      <select class="form-control" name="taken_year">';
+                      if ($taken_date[2] == '-') {
+                        echo '
+                          <option value=" - " selected>tahun</option>
+                          <option disabled>───</option>
+                        ';
+                      }
+                      else {
+                        echo'
+                          <option value=" - ">tahun</option>
+                          <option disabled>───</option>
+                        ';
+                      }
+                      for ($i = 2017; $i >= 1964; $i--) {
+                        if($taken_date[2] == $i) {
+                          echo '<option value="'.$i.'" selected>'.$i.'</option>';
+                        }
+                        else {
+                          echo '<option value="'.$i.'">'.$i.'</option>';
+                        }
+                      }
+                echo '</select>
                     </div>';
-              }
-              else {
-                echo '<div class="col-sm-4">
-                  <input type="text" class="form-control" name="takendate" value="'.$taken_date.'" required>
-                </div>';
-              }
-            ?>
+              ?>
+            </div>
           </div>
 
           <!--Taken Location-->
           <div class="form-group">
             <label for="coverage" class="col-sm-2 control-label">Lokasi dalam Foto (Spesifik)</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" name="taken_location" value="<?php echo $taken_location ?>">
+              <input type="text" class="form-control" name="taken_location" value="<?php echo $data_photo["taken_location"] ?>">
             </div>
           </div>
 
@@ -255,7 +290,7 @@
           <div class="form-group">
             <label for="description" class="col-sm-2 control-label">Deskripsi Foto</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" rows="3" name="photo_description" value="<?php echo $description ?>">
+              <input type="text" class="form-control" rows="3" name="photo_description" value="<?php echo $data_photo["description"] ?>">
             </div>
           </div>
            
@@ -267,7 +302,7 @@
             <label for="editor" class="col-sm-2 control-label">Editor</label>
             <div class="col-sm-3">
               <select class="form-control" name="editor">
-                <option value="<?php echo $id_editor ?>"><?php echo $name_editor ?></option>
+                <option value="<?php echo $data_photo["id_editor"] ?>" selected><?php echo $data_photo["name_editor"] ?></option>
                 <option disabled>──────────────────────</option>
                 <option value="-">...</option>
                 <?php
@@ -284,47 +319,84 @@
           <!--Repro Date-->
           <div class="form-group">
             <label for="repro_date" class="col-sm-2 control-label">Tanggal Reproduksi</label>
-            <?php
-              if($repro_date == ' - / - / - ') {
+            <div class="row">
+              <?php
+                $reprodate = explode("/",$data_photo["repro_date"]);
                 echo '<div class="col-sm-1">
-                      <select class="form-control" name="repro_date">
-                        <option value=" - ">tgl</option>
-                        <option disabled>───</option>';
-                        for ($i = 1; $i <= 31; $i++) echo '<option value="'.$i.'">'.$i.'</option>';
+                      <select class="form-control" name="repro_date">';
+                      if ($reprodate[0] == '-') {
+                        echo '
+                          <option value=" - " selected>tgl</option>
+                          <option disabled>───</option>
+                        ';
+                      }
+                      else {
+                        echo'
+                          <option value=" - ">tgl</option>
+                          <option disabled>───</option>
+                        ';
+                      }
+                      for ($i = 1; $i <= 31; $i++) {
+                        if($reprodate[0] == $i) {
+                          echo '<option value="'.$i.'" selected>'.$i.'</option>';
+                        }
+                        else {
+                          echo '<option value="'.$i.'">'.$i.'</option>';
+                        }
+                      }
                 echo '</select>
                     </div>
                     <div class="col-sm-2">
-                      <select class="form-control" name="repro_month">
-                        <option value=" - ">bulan</option>
-                        <option disabled>────────────</option>
-                        <option value="Januari">Januari</option>
-                        <option value="Februari">Februari</option>
-                        <option value="Maret">Maret</option>
-                        <option value="April">April</option>
-                        <option value="Mei">Mei</option>
-                        <option value="Juni">Juni</option>
-                        <option value="Juli">Juli</option>
-                        <option value="Agustus">Augustus</option>
-                        <option value="September">September</option>
-                        <option value="Oktober">Oktober</option>
-                        <option value="Nopember">Nopember</option>
-                        <option value="Desember">Desember</option>
-                      </select>
+                      <select class="form-control" name="repro_month">';
+                      if($reprodate[1] == '-') {
+                        echo '
+                          <option value=" - " selected>bulan</option>
+                          <option disabled>─────────────</option>
+                        ';
+                      }
+                      else {
+                        echo '
+                          <option value=" - ">bulan</option>
+                          <option disabled>─────────────</option>
+                        ';
+                      }
+                      $bulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","Nopember","Desember");
+                      foreach ($bulan as $key) {
+                        if($reprodate[1] == $key) {
+                          echo '<option value="'.$key.'" selected>'.$key.'</option>';
+                        }
+                        else {
+                          echo '<option value="'.$key.'">'.$key.'</option>';
+                        }
+                      }
+                echo '</select>
                     </div>
                     <div class="col-sm-2">
-                      <select class="form-control" name="repro_year">
-                        <option value=" - ">tahun</option>
-                        <option disabled>────────────</option>';
-                        for ($i = 2017; $i >= 1964; $i--) echo '<option value="'.$i.'">'.$i.'</option>';
+                      <select class="form-control" name="repro_year">';
+                      if ($reprodate[2] == '-') {
+                        echo '
+                          <option value=" - " selected>tahun</option>
+                          <option disabled>───</option>
+                        ';
+                      }
+                      else {
+                        echo'
+                          <option value=" - ">tahun</option>
+                          <option disabled>───</option>
+                        ';
+                      }
+                      for ($i = 2017; $i >= 1964; $i--) {
+                        if($reprodate[2] == $i) {
+                          echo '<option value="'.$i.'" selected>'.$i.'</option>';
+                        }
+                        else {
+                          echo '<option value="'.$i.'">'.$i.'</option>';
+                        }
+                      }
                 echo '</select>
                     </div>';
-              }
-              else {
-                echo '<div class="col-sm-4">
-                  <input type="text" class="form-control" name="reprodate" value="'.$repro_date.'" required>
-                </div>';
-              }
-            ?>
+              ?>
+            </div>
           </div>
         </div>
 
@@ -334,54 +406,91 @@
             <br>
             <label for="published_on" class="col-sm-2 control-label">Tempat Publikasi</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" name="published_on" value="<?php echo $published_on ?>">
+              <input type="text" class="form-control" name="published_on" value="<?php echo $data_photo["published_on"] ?>">
             </div>
           </div>
           
           <!--Published Date-->
           <div class="form-group">
             <label for="coverage" class="col-sm-2 control-label">Tanggal Publikasi</label>
-            <?php
-              if($published_date == ' - / - / - ') {
+            <div class="row">
+              <?php
+                $published_date = explode("/",$data_photo["published_date"]);
                 echo '<div class="col-sm-1">
-                      <select class="form-control" name="published_date">
-                        <option value=" - ">tgl</option>
-                        <option disabled>───</option>';
-                        for ($i = 1; $i <= 31; $i++) echo '<option value="'.$i.'">'.$i.'</option>';
+                      <select class="form-control" name="published_date">';
+                      if ($published_date[0] == '-') {
+                        echo '
+                          <option value=" - " selected>tgl</option>
+                          <option disabled>───</option>
+                        ';
+                      }
+                      else {
+                        echo'
+                          <option value=" - ">tgl</option>
+                          <option disabled>───</option>
+                        ';
+                      }
+                      for ($i = 1; $i <= 31; $i++) {
+                        if($published_date[0] == $i) {
+                          echo '<option value="'.$i.'" selected>'.$i.'</option>';
+                        }
+                        else {
+                          echo '<option value="'.$i.'">'.$i.'</option>';
+                        }
+                      }
                 echo '</select>
                     </div>
                     <div class="col-sm-2">
-                      <select class="form-control" name="published_month">
-                        <option value=" - ">bulan</option>
-                        <option disabled>─────────────</option>
-                        <option value="Januari">Januari</option>
-                        <option value="Februari">Februari</option>
-                        <option value="Maret">Maret</option>
-                        <option value="April">April</option>
-                        <option value="Mei">Mei</option>
-                        <option value="Juni">Juni</option>
-                        <option value="Juli">Juli</option>
-                        <option value="Agustus">Augustus</option>
-                        <option value="September">September</option>
-                        <option value="Oktober">Oktober</option>
-                        <option value="Nopember">Nopember</option>
-                        <option value="Desember">Desember</option>
-                      </select>
+                      <select class="form-control" name="published_month">';
+                      if($published_date[1] == '-') {
+                        echo '
+                          <option value=" - " selected>bulan</option>
+                          <option disabled>─────────────</option>
+                        ';
+                      }
+                      else {
+                        echo '
+                          <option value=" - ">bulan</option>
+                          <option disabled>─────────────</option>
+                        ';
+                      }
+                      $bulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","Nopember","Desember");
+                      foreach ($bulan as $key) {
+                        if($published_date[1] == $key) {
+                          echo '<option value="'.$key.'" selected>'.$key.'</option>';
+                        }
+                        else {
+                          echo '<option value="'.$key.'">'.$key.'</option>';
+                        }
+                      }
+                echo '</select>
                     </div>
                     <div class="col-sm-2">
-                      <select class="form-control" name="published_year">
-                        <option value=" - ">tahun</option>
-                        <option disabled>────────────</option>';
-                        for ($i = 2017; $i >= 1964; $i--) echo '<option value="'.$i.'">'.$i.'</option>';
+                      <select class="form-control" name="published_year">';
+                      if ($published_date[2] == '-') {
+                        echo '
+                          <option value=" - " selected>tahun</option>
+                          <option disabled>───</option>
+                        ';
+                      }
+                      else {
+                        echo'
+                          <option value=" - ">tahun</option>
+                          <option disabled>───</option>
+                        ';
+                      }
+                      for ($i = 2017; $i >= 1964; $i--) {
+                        if($published_date[2] == $i) {
+                          echo '<option value="'.$i.'" selected>'.$i.'</option>';
+                        }
+                        else {
+                          echo '<option value="'.$i.'">'.$i.'</option>';
+                        }
+                      }
                 echo '</select>
                     </div>';
-              }
-              else {
-                echo '<div class="col-sm-4">
-                  <input type="text" class="form-control" name="publisheddate" value="'.$published_date.'" required>
-                </div>';
-              }
-            ?>
+              ?>
+            </div>
           </div>
 
           <div id="form-groupGrey">
@@ -390,7 +499,7 @@
           <div class="form-group">
             <label for="notes" class="col-sm-2 control-label">Catatan</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" name="notes" value="<?php echo $notes ?>">
+              <input type="text" class="form-control" name="notes" value="<?php echo $data_photo["notes"] ?>">
             </div>
           </div>
 
@@ -398,7 +507,7 @@
           <div class="form-group">
             <label for="tag" class="col-sm-2 control-label">Subjek</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" name="tag" value="<?php echo $tag ?>">
+              <input type="text" class="form-control" name="tag" value="<?php echo $data_photo["tag"] ?>">
             </div>
           </div>
 
@@ -424,14 +533,14 @@
                       <div class="form-group">
                         <label for="harddisk_name" class="col-sm-3 control-label" id="other_locationLabel">Nama Hard Disk</label>
                         <div class="col-sm-8">
-                          <input type="text" class="form-control" name="HDD_name" value="<?php echo $location_HDD_name ?>">
+                          <input type="text" class="form-control" name="HDD_name" value="<?php echo $data_photo["location_HDD_name"] ?>">
                         </div>
                       </div>
 
                       <div class="form-group">
                         <label for="HDD_folder" class="col-sm-3 control-label" id="other_locationLabel">Folder</label>
                         <div class="col-sm-8">
-                          <input type="text" class="form-control" name="HDD_folder" value="<?php echo $location_HDD_folder ?>">
+                          <input type="text" class="form-control" name="HDD_folder" value="<?php echo $data_photo["location_HDD_folder"] ?>">
                         </div>
                       </div>
                       <hr>
@@ -444,7 +553,7 @@
                       <div class="form-group">
                         <label for="sekretariat_album" class="col-sm-3 control-label" id="other_locationLabel">Nama Album</label>
                         <div class="col-sm-8">
-                          <input type="text" class="form-control" name="sekretariat_album" value="<?php echo $location_sekret_album ?>">
+                          <input type="text" class="form-control" name="sekretariat_album" value="<?php echo $data_photo["location_sekret_album"] ?>">
                         </div>
                       </div>
                       <hr>
@@ -458,7 +567,7 @@
                         <label for="owner" class="col-sm-3 control-label" id="other_locationLabel">Pemilik Foto</label>
                         <div class="col-sm-8">
                           <select class="form-control" name="owner">
-                            <option value="<?php echo $id_owner ?>"><?php echo $name_owner ?></option>
+                            <option value="<?php echo $data_photo["id_owner"] ?>"><?php echo $data_photo["name_owner"] ?></option>
                             <option disabled>───────────────────────────────────</option>
                             <option value="-">...</option>
                             <?php
@@ -467,7 +576,7 @@
                                   echo $row['name'];
                                 echo "</option>";
                               }
-                            ?>
+                            ?> 
                           </select>
                         </div>
                       </div>
@@ -480,7 +589,7 @@
 
                       <div class="form-group">
                         <div class="col-sm-12">
-                          <input type="text" class="form-control" name="other_notes" value="<?php echo $location_notes ?>">
+                          <input type="text" class="form-control" name="other_notes" value="<?php echo $data_photo["location_notes"] ?>">
                         </div>
                       </div>
                     </div>

@@ -191,7 +191,7 @@
             <p class="form-control-static">: <?php echo $notes ?></p>
             </div>
 
-            <label class="col-sm-2 control-label">Tag</label>
+            <label class="col-sm-2 control-label">Subjek</label>
             <div class="col-sm-10">
             <p class="form-control-static">: <?php echo $tag ?></p>
             </div>

@@ -132,7 +132,7 @@
                     echo "</option>";
                   }
                 ?>
-            </select>
+              </select>
             </div>
             <p class="col-sm-1 required">*</p>
           </div>

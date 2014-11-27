@@ -53,13 +53,13 @@
 
     <div class="container">
       <div class="starter-template">
-
+        <?php $tabactive = 'owner'?>
         <br>
         <ul class="nav nav-tabs" role="tablist">
-          <li class="active"><a href="#photographer_tab" role="tab" data-toggle="tab">Fotografer</a></li>
-          <li><a href="#event_tab" role="tab" data-toggle="tab">Kegiatan</a></li>
-          <li><a href="#editor_tab" role="tab" data-toggle="tab">Editor</a></li>
-          <li><a href="#owner_tab" role="tab" data-toggle="tab">Pemilik Foto</a></li>
+          <li <?php if($tabactive == 'photographer') echo 'class="active"';?>><a href="#photographer_tab" role="tab" data-toggle="tab">Fotografer</a></li>
+          <li <?php if($tabactive == 'event') echo 'class="active"';?>><a href="#event_tab" role="tab" data-toggle="tab">Kegiatan</a></li>
+          <li <?php if($tabactive == 'editor') echo 'class="active"';?>><a href="#editor_tab" role="tab" data-toggle="tab">Editor</a></li>
+          <li <?php if($tabactive == 'owner') echo 'class="active"';?>><a href="#owner_tab" role="tab" data-toggle="tab">Pemilik Foto</a></li>
         </ul>
         <script type="text/javascript">
           $(".nav-tabs").click(function() {
@@ -69,7 +69,15 @@
         </script>
 
         <div class="tab-content">
-          <div class="tab-pane active" id="photographer_tab"><br>
+
+          <?php 
+            if($tabactive == 'photographer') {
+              echo '<div class="tab-pane active" id="photographer_tab"><br>';
+            }
+            else {
+              echo '<div class="tab-pane" id="photographer_tab"><br>';
+            }
+          ?>
             <h1 id="masterdata_header">Daftar Fotografer</h1>
             <div id="btn_modalmasterdata">
               <button class="btn" data-toggle="modal" data-target="#photographer_modal">
@@ -142,7 +150,7 @@
                           <h4 class="modal-title" id="photographerLabel">Fotografer</h4>
                         </div>
                         <div class="modal-body">
-                          <form class="form-horizontal" id="photographermodal" role="form" method="post" action="'.site_url('/addPhotographer').'">
+                          <form class="form-horizontal" id="photographermodal" role="form" method="post" action="'.site_url('/editPhotographer').'">
                             <div class="form-group">
                               <label for="photographer_name" class="col-sm-3 control-label">Nama</label>
                               <div class="col-sm-7">
@@ -184,7 +192,7 @@
 
                             <hr>
 
-                            <div class="lead" id="btn_modalfinish">
+                            <div class="lead form-group" id="btn_modalfinish">
                               <button type="close" class="btn" id="btn-close" data-dismiss="modal">Keluar</button>
                               <button type="submit" class="btn" id="btn-save" onclick="return validatePhotographer();">Simpan</button>
                             </div>
@@ -261,7 +269,14 @@
             <!--Photographer Modal-->
           </div>
           
-          <div class="tab-pane" id="event_tab"><br>
+          <?php 
+            if($tabactive == 'event') {
+              echo '<div class="tab-pane active" id="event_tab"><br>';
+            }
+            else {
+              echo '<div class="tab-pane" id="event_tab"><br>';
+            }
+          ?>
             <h1 id="masterdata_header">Daftar Kegiatan</h1>
             <div id="btn_modalmasterdata">
               <button class="btn" data-toggle="modal" data-target="#event_modal">
@@ -339,7 +354,7 @@
                             <h4 class="modal-title" id="eventLabel">Kegiatan</h4>
                           </div>
                           <div class="modal-body">
-                            <form class="form-horizontal" role="form" method="post" action="'.site_url('/addEvent').'">
+                            <form class="form-horizontal" role="form" method="post" action="'.site_url('/editEvent').'">
                               <div class="form-group">
                                 <label for="event_name" class="col-sm-3 control-label">Nama</label>
                                 <div class="col-sm-7">
@@ -526,7 +541,14 @@
             </div>
           </div>
            
-          <div class="tab-pane" id="editor_tab"><br>
+          <?php 
+            if($tabactive == 'editor') {
+              echo '<div class="tab-pane active" id="editor_tab"><br>';
+            }
+            else {
+              echo '<div class="tab-pane" id="editor_tab"><br>';
+            }
+          ?>
             <h1 id="masterdata_header">Daftar Editor</h1>
             <div id="btn_modalmasterdata">
               <button class="btn" data-toggle="modal" data-target="#editor_modal">
@@ -651,8 +673,14 @@
             </div>
             <!--Editor Modal-->
           </div>
-
-          <div class="tab-pane" id="owner_tab"><br>
+          <?php 
+            if($tabactive == 'owner') {
+              echo '<div class="tab-pane active" id="owner_tab"><br>';
+            }
+            else {
+              echo '<div class="tab-pane" id="owner_tab"><br>';
+            }
+          ?>
             <h1 id="masterdata_header">Daftar Pemilik Foto</h1>
             <div id="btn_modalmasterdata">
               <button class="btn" data-toggle="modal" data-target="#owner_modal">
@@ -718,10 +746,6 @@
                 }
               ?>      
             </table>
-
-                <!-- Delete Owner -->
-                
-                <!-- Delete Owner -->
 
                 <!--Owner Modal-->
                 <div class="modal fade" id="owner_modal" tabindex="-1" role="dialog" aria-labelledby="ownerLabel" aria-hidden="true">
