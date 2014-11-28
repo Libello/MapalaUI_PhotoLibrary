@@ -43,7 +43,13 @@
 
           <div class="mastfoot">
             <div class="inner">
-              <p><b>Mapala UI Photo Library</b> © 2014 oleh <a href="http://www.twitter.com/nadafadhila">@nadafadhila</a></p>
+              <p>
+                <a onclick="goBack()" style="cursor:pointer"> 
+                  « Kembali ke halaman sebelumnya
+                </a>
+                <br>
+                <b>Mapala UI Photo Library</b> © 2014 oleh <a href="http://www.twitter.com/nadafadhila">@nadafadhila</a>
+              </p>
             </div>
           </div>
 
@@ -60,5 +66,10 @@
     <script src="<?php echo base_url('assets/js').'/bootstrap.min.js';?>"></script>
     <script src="<?php echo base_url('assets/js').'/docs.min.js';?>"></script>
     <script src="tooltip.js">$('#example').tooltip(options)</script>
+    <script type="text/javascript">
+          function goBack() {
+            window.history.back()
+          }
+    </script>
   </body>
 </html>
