@@ -23,7 +23,6 @@
       $query = $this->db->query('SELECT * FROM event WHERE INSTR(category, '.$this->db->escape($category).') > 0');
       return $query->result_array();
     }
-    
     public function insertEvent($data) {
       $event_name = $data['event_name'];
       $location = $data['location'];
@@ -48,6 +47,22 @@
         $success = true;
       }
       return $success;
+    }
+    public function editEvent($data) {
+      // $success = false;
+      // $this->load->database();
+      // $this->db->query('UPDATE event
+      //                   SET `name` = "'.$data['event_name'].'",
+      //                       `location` = "'.$data['location'].'",
+      //                       `start_year` = "'.$data['start_year'].'",
+      //                       `end_year` = "'.$data['end_year'].'",
+      //                       `category` = "'.$data['end_year'].'"
+      //                   WHERE id_event = "'.$data['eventcategory'].'"');
+      // if($this->db->affected_rows() == 1) {
+      //   $success = true;
+      // }
+      // return $success;
+      return true;
     }
   }
 ?>

@@ -370,7 +370,12 @@ class admin_controller extends CI_Controller {
 		if(!empty($_POST)){
 			$data = $this->input->post();
 			$this->load->model('event_model');
-			$data['eventcategory'] = implode(', ', $data['category']);
+			if(!empty($data['category'])) {
+				$data['eventcategory'] = implode(', ', $data['category']);
+			}
+			else {
+				$data['eventcategory'] = '';
+			}
 			$success = $this->event_model->insertEvent($data);
 
 			if($success) {
@@ -397,12 +402,19 @@ class admin_controller extends CI_Controller {
 		if(!empty($_POST)){
 			$data = $this->input->post();
 			$this->load->model('event_model');
-			$data['eventcategory'] = implode(', ', $data['category']);
+			if(!empty($data['category'])) {
+				$data['eventcategory'] = implode(', ', $data['category']);
+			}
+			else {
+				$data['eventcategory'] = null;
+			}
 			$success = $this->event_model->editEvent($data);
 
 			if($success) {
 				redirect(site_url('master_data'));
-			}
+			} else {
+		    	show_404();
+		    }
 	    } else {
 	    	show_404();
 	    }
@@ -574,7 +586,6 @@ class admin_controller extends CI_Controller {
 		$data = $this->input->post();
 		if($data['flag'] == 'aaa') {
 			$query = $this->photo_model->getAllPhotoCSV();
-			
 		}
 		else {
 			$query = $this->photo_model->searchBy($data);

@@ -109,19 +109,23 @@ class guest_controller extends CI_Controller {
 
 		else {
 			load_view('main_photo_detail', $data_photo);
-		}
-	
+		}	
 	}
 	public function view_main_search() {
 
 		$this->load->model('photo_model');
+		$searchby = array();
 
 		if(!empty($_POST)) {
+			$searchby['post'] = true;
 			$data = $this->input->post();
+			$data['flag'] = 'guest';
+			$fieldarray = array();
 			if($data['searchbox'] == 'true') {
 				$data['field'] = 'all';
 				$data['activity'] = 'all';
 				$data['format'] = 'all';
+				$data['color'] = 'all';
 				$data_photo = $this->photo_model->searchBy($data);
 			}
 			else {
@@ -142,8 +146,12 @@ class guest_controller extends CI_Controller {
 				}
 				$data_photo = $this->photo_model->searchAdvanced($data);
 			}
+			$searchby['activity'] = $data['activity'];
+			$searchby['format'] = $data['format'];
+			$searchby['color'] = $data['color'];
 		}
 		else {
+			$searchby['post'] = false;
 			$data_photo = $this->photo_model->getAllPhoto();
 		}
 
@@ -164,7 +172,7 @@ class guest_controller extends CI_Controller {
 	    	$count++;
 	    }
 
-		load_view('main_search',array('searchresult' => $searchresult));
+		load_view('main_search',array('searchresult' => $searchresult, 'searchby' => $searchby));
 	}
 
 	/**
