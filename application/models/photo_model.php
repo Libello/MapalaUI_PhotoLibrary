@@ -136,16 +136,17 @@
 
       $success = false;
       $this->load->database();
-      $query = $this->db->query('INSERT INTO `mui_photo_library`.`photo_record` (`id_photo`, `title`, `id_photographer`, `format`,
-        `size`, `color`, `id_event`, `category`, `taken_date`, `taken_location`, `description`, `id_editor`, `repro_date`, 
-        `published_on`, `published_date`, `notes`, `tag`, `location_HDD_name`, `location_HDD_folder`, `location_sekret_album`, 
-        `id_owner`, `location_notes`, `photo_upload`, `name_photographer`, `name_event`, `name_editor`, `name_owner`, `location_event`) 
-        VALUES ('.$photo_id.','.$data['title'].','.$data['photographer'].','.$data['formatphoto'].','.$data['size'].',
-          '.$data['color'].','.$data['event'].','.$data['category'].','.$taken_date.','.$data['taken_location'].',
-          '.$data['photo_description'].','.$data['editor'].','.$repro_date.','.$data['published_on'].',
-          '.$published_date.','.$data['notes'].','.$data['tag'].','.$data['HDD_name'].','.$data['HDD_folder'].',
-          '.$data['sekretariat_album'].','.$data['owner'].','.$data['other_notes'].','.$data['userfile'].',
-          '.$data['name_photographer'].','.$data['name_event'].','.$data['name_editor'].','.$data['name_owner'].','.$data['location_event'].');');
+
+      $query = $this->db->query('INSERT INTO `mui_photo_library`.`photo_record` (`id_photo`, `title`, `id_photographer`, `format`, `size`, `color`, `id_event`, `category`, `taken_date`, `taken_location`, 
+        `description`, `id_editor`, `repro_date`, `published_on`, `published_date`, `notes`, `tag`, `location_HDD_name`, `location_HDD_folder`, `location_sekret_album`, `id_owner`, `location_notes`, 
+        `photo_upload`, `name_photographer`, `name_event`, `name_editor`, `name_owner`, `location_event`) 
+        VALUES ('.$this->db->escape($photo_id).','.$this->db->escape($data['title']).','.$this->db->escape($data['photographer']).','.$this->db->escape($data['formatphoto']).','.$this->db->escape($data['size']).',
+          '.$this->db->escape($data['color']).','.$this->db->escape($data['event']).','.$this->db->escape($data['category']).','.$this->db->escape($taken_date).','.$this->db->escape($data['taken_location']).',
+          '.$this->db->escape($data['photo_description']).','.$this->db->escape($data['editor']).','.$this->db->escape($repro_date).','.$this->db->escape($data['published_on']).',
+          '.$this->db->escape($published_date).','.$this->db->escape($data['notes']).','.$this->db->escape($data['tag']).','.$this->db->escape($data['HDD_name']).','.$this->db->escape($data['HDD_folder']).',
+          '.$this->db->escape($data['sekretariat_album']).','.$this->db->escape($data['owner']).','.$this->db->escape($data['other_notes']).','.$this->db->escape($data['userfile']).',
+          '.$this->db->escape($data['name_photographer']).','.$this->db->escape($data['name_event']).','.$this->db->escape($data['name_editor']).','.$this->db->escape($data['name_owner']).','.$this->db->escape($data['location_event']).');');
+
       if($this->db->affected_rows() == 1) {
         $success = true;
       }

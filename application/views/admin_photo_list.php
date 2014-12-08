@@ -108,10 +108,17 @@
       </div>
 
       <div>
-        <button class="btn btn-default disabled" id="searchBy"><span class="glyphicon glyphicon-tag"></span> Semua Foto</button>
-        <button class="btn btn-default disabled" id="searchBy"><span class="glyphicon glyphicon-tag"></span> Semua Kategori</button>
-        <button class="btn btn-default disabled" id="searchBy"><span class="glyphicon glyphicon-tag"></span> Semua Format</button>
-      </div><br><br>
+        <?php
+          if($data_search != null) {
+            echo '
+              <button class="btn btn-default disabled" id="searchBy"><span class="glyphicon glyphicon-tag"></span>'.$data_search['activity'].'</button>
+              <button class="btn btn-default disabled" id="searchBy"><span class="glyphicon glyphicon-tag"></span>'.$data_search['format'].'</button>
+              <button class="btn btn-default disabled" id="searchBy"><span class="glyphicon glyphicon-tag"></span>'.$data_search['field'].' : '.$data_search['inputtext'].'</button>
+            ';
+          }
+        ?>
+      </div>
+      <br><br>
 
 
 

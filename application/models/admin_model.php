@@ -13,13 +13,14 @@ class admin_model extends CI_Model {
     $success = true;
     $exist = true;
 
-    //cek apa username ada. CASE INSENSITIVE.
+    //cek apa username ada 
     $query = $this->db->query('SELECT * FROM admin WHERE name = '.$this->db->escape($data['admin_name']).' LIMIT 1');
     $row = $query->row_array();
     if($row != null) {
-      if (strcmp($row['password'],$data['admin_password'])!=0) {
+      if (strcmp($row['password'],$data['admin_password'])!=0 || strcmp($row['name'],$data['admin_name'])!=0) {
         $success = false;
-      } else {
+      } 
+      else {
         $id = 'admin';
 
         $cookiedata = array(

@@ -53,7 +53,7 @@
 
     <div class="container">
       <div class="starter-template">
-        <?php $tabactive = 'owner'?>
+        <?php $tabactive = 'event'?>
         <br>
         <ul class="nav nav-tabs" role="tablist">
           <li <?php if($tabactive == 'photographer') echo 'class="active"';?>><a href="#photographer_tab" role="tab" data-toggle="tab">Fotografer</a></li>
@@ -139,9 +139,22 @@
                       </div>
                     </form>
                   ';
+                }
+              ?>             
+            </table>
 
-                  // Edit Photographer Modal
-                  echo '
+            <!-- Edit Photographer -->
+            <?php 
+              foreach($photographerlist as $row) {
+                if($row["membership"]  == "Mapala UI") {
+                  $inputmapala = '<input type="radio" name="photographer_membership" value="Mapala UI" checked>';
+                  $inputnonmapala = '<input type="radio" name="photographer_membership" value="Non - Mapala UI">';
+                }
+                else {
+                  $inputnonmapala = '<input type="radio" name="photographer_membership" value="Non - Mapala UI" checked>';
+                  $inputmapala = '<input type="radio" name="photographer_membership" value="Mapala UI">';
+                }
+                echo '
                   <div class="modal fade" id="photographer_modal-'.$row['id'].'" tabindex="-1" role="dialog" aria-labelledby="photographerLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
@@ -154,6 +167,7 @@
                             <div class="form-group">
                               <label for="photographer_name" class="col-sm-3 control-label">Nama</label>
                               <div class="col-sm-7">
+                                <input type="hidden" name="id_photographer" value="'.$row['id'].'">
                                 <input type="text" class="form-control" name="photographer_name" value="'.$row['name'].'" required autofocus>
                               </div>
                             </div>
@@ -163,13 +177,13 @@
                               <div class="col-sm-7">
                                 <div class="radio">
                                   <label>
-                                    <input type="radio" name="photographer_membership" value="Mapala UI" checked>
+                                    '.$inputmapala.'
                                     Mapala UI
                                   </label>
                                 </div>
                                 <div class="radio">
                                   <label>
-                                    <input type="radio" name="photographer_membership" value="Non - Mapala UI" >
+                                    '.$inputnonmapala.'
                                     Non - Mapala UI
                                   </label>
                                 </div>
@@ -188,23 +202,21 @@
                                 <div class="well well-sm">-UI</div>
                               </div>
                             </div>
-                            <br>
 
                             <hr>
 
-                            <div class="lead form-group" id="btn_modalfinish">
+                            <div class="lead" id="btn_modalfinish">
                               <button type="close" class="btn" id="btn-close" data-dismiss="modal">Keluar</button>
-                              <button type="submit" class="btn" id="btn-save" onclick="return validatePhotographer();">Simpan</button>
+                              <button type="submit" class="btn" id="btn-save">Simpan</button>
                             </div>
                           </form>
                         </div>
                       </div>
                     </div>
                   </div>
-                  ';
-                }
-              ?>             
-            </table>
+                ';
+              }
+            ?>
 
             <!--Photographer Modal-->
             <div class="modal fade" id="photographer_modal" tabindex="-1" role="dialog" aria-labelledby="photographerLabel" aria-hidden="true">
@@ -293,7 +305,7 @@
               </tr>
 
               <?php
-                foreach ($eventlist as $row){
+                foreach($eventlist as $row) {
                   echo "<tr>";
                     echo "<td>";
                       echo $row['name'];
@@ -343,107 +355,134 @@
                       </div> 
                     </form>                                 
                   ';
-
-                  // Edit Event Modal
-                  echo '
-                    <div class="modal fade" id="event_modal-'.$row['id'].'" tabindex="-1" role="dialog" aria-labelledby="eventLabel" aria-hidden="true">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title" id="eventLabel">Kegiatan</h4>
-                          </div>
-                          <div class="modal-body">
-                            <form class="form-horizontal" role="form" method="post" action="'.site_url('/editEvent').'">
-                              <div class="form-group">
-                                <label for="event_name" class="col-sm-3 control-label">Nama</label>
-                                <div class="col-sm-7">
-                                  <input type="text" class="form-control" name="event_name" value="'.$row['name'].'" required autofocus>
-                                </div>
-                              </div>
-
-                              <div class="form-group">
-                                <label for="event_location" class="col-sm-3 control-label">Lokasi</label>
-                                <div class="col-sm-7">
-                                  <input type="text" class="form-control" name="location" value="'.$row['location'].'">
-                                </div>
-                              </div>
-
-                              <div class="form-group">
-                                <label for="event_period" class="col-sm-3 control-label">Periode</label>
-                                <div class="col-sm-3">
-                                  <select class="form-control" name="start_year">
-                                    <option selected value="-">thn</option>
-                                    <option disabled>───</option>
-                                    <?php for ($i = 2017; $i >= 1960; $i--) : ?>
-                                      <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                                    <?php endfor; ?>
-                                  </select>
-                                </div>
-                                <div class="col-sm-1">s/d</div>
-                                <div class="col-sm-3">
-                                  <select class="form-control" name="end_year">
-                                    <option selected value="-">thn</option>
-                                    <option disabled>───</option>
-                                    <?php for ($i = 2017; $i >= 1960; $i--) : ?>
-                                      <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                                    <?php endfor; ?>
-                                  </select>
-                                </div>
-                              </div>
-
-                              <div class="form-group">
-                                    <label for="category" class="col-sm-3 control-label">Kategori</label>
-                                    <div class="col-sm-1"></div>
-                                    <div class="col-sm-7">
-                                    <div class="form-group">
-                                      <div class="checkbox">
-                                        <input type="checkbox" name="category[]" value="Panjat"> Panjat</input>
-                                      </div>
-                                      <div class="checkbox">
-                                        <input type="checkbox" name="category[]" value="Arung Jeram"> Arung Jeram</input>
-                                      </div>
-                                      <div class="checkbox">
-                                        <input type="checkbox" name="category[]" value="Telusur Gua"> Telusur Gua</input>
-                                      </div>
-                                      <div class="checkbox">
-                                        <input type="checkbox" name="category[]" value="Selam"> Selam</input>
-                                      </div>
-                                      <div class="checkbox">
-                                        <input type="checkbox" name="category[]" value="Layar"> Layar</input>
-                                      </div>
-                                      <div class="checkbox">
-                                        <input type="checkbox" name="category[]" value="Daki Gunung"> Daki Gunung</input>
-                                      </div>
-                                      <div class="checkbox">
-                                        <input type="checkbox" name="category[]" value="Paralayang"> Paralayang</input>
-                                      </div>
-                                      <div class="checkbox">
-                                        <input type="checkbox" name="category[]" value="BKP"> BKP</input>
-                                      </div>
-                                      <div class="checkbox">
-                                        <input type="checkbox" name="category[]" value="Lainnya"> Lainnya</input>
-                                      </div>
-                                    </div>
-                                    </div>
-                                  </div>
-
-                              <hr>
-
-                              <div class="lead" id="btn_modalfinish">
-                                <button type="close" class="btn" id="btn-close" data-dismiss="modal">Keluar</button>
-                                <button type="submit" class="btn" id="btn-save">Simpan</button>
-                              </div>
-                            </form>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                  ';
                 }
               ?>                
             </table>
+
+            <!--Edit Event Modal-->
+            <?php 
+              foreach($eventlist as $row) {
+                echo '
+                  <div class="modal fade" id="event_modal-'.$row['id'].'" tabindex="-1" role="dialog" aria-labelledby="eventLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                          <h4 class="modal-title" id="eventLabel">Kegiatan</h4>
+                        </div>
+                        <div class="modal-body">
+                          <form class="form-horizontal" role="form" method="post" action="'.site_url('/editEvent').'">
+                            <div class="form-group">
+                              <label for="event_name" class="col-sm-3 control-label">Nama</label>
+                              <div class="col-sm-7">
+                                <input type="hidden" name="id_event" value="'.$row['id'].'">
+                                <input type="text" class="form-control" name="event_name" value="'.$row['name'].'" required autofocus>
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="event_location" class="col-sm-3 control-label">Lokasi</label>
+                              <div class="col-sm-7">
+                                <input type="text" class="form-control" name="location" value="'.$row['location'].'">
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="event_period" class="col-sm-3 control-label">Periode</label>
+                              <div class="col-sm-3">
+                                <select class="form-control" name="start_year">';
+                                  if($row['start_year'] == '-') {
+                                    echo '<option value="-" selected >Tahun mulai</option>
+                                          <option disabled>───</option>
+                                    ';
+                                  }
+                                  else {
+                                    echo '<option value="-">Tahun mulai</option>
+                                          <option disabled>───</option>
+                                    ';
+                                  }
+                                  for ($i = 2017; $i >= 1960; $i--) {
+                                    if($row['start_year'] == $i) {
+                                      echo '<option value="'.$i.'" selected>'.$i.'</option>';
+                                    }
+                                    else {
+                                      echo '<option value="'.$i.'">'.$i.'</option>';
+                                    }
+                                  }                                    
+                echo '          </select>
+                              </div>
+                              <div class="col-sm-1">s/d</div>
+                              <div class="col-sm-3">
+                                <select class="form-control" name="end_year">';
+                                  if($row['end_year'] == '-') {
+                                    echo '<option value="-" selected >Tahun selesai</option>
+                                          <option disabled>───</option>
+                                    ';
+                                  }
+                                  else {
+                                    echo '<option value="-">Tahun selesai</option>
+                                          <option disabled>───</option>
+                                    ';
+                                  }
+                                  for ($i = 2017; $i >= 1960; $i--) {
+                                    if($row['end_year'] == $i) {
+                                      echo '<option value="'.$i.'" selected>'.$i.'</option>';
+                                    }
+                                    else {
+                                      echo '<option value="'.$i.'">'.$i.'</option>';
+                                    }
+                                  }                                    
+                echo '          </select>
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="category" class="col-sm-3 control-label">Kategori</label>
+                              <div class="col-sm-8">
+                                <div class="checkbox">
+                                  <input type="checkbox" name="category[]" value="Panjat">Panjat</input>
+                                </div>
+                                <div class="checkbox">
+                                  <input type="checkbox" name="category[]" value="Arung Jeram">Arung Jeram</input>
+                                </div>
+                                <div class="checkbox">
+                                  <input type="checkbox" name="category[]" value="Telusur Gua">Telusur Gua</input>
+                                </div>
+                                <div class="checkbox">
+                                  <input type="checkbox" name="category[]" value="Selam">Selam</input>
+                                </div>
+                                <div class="checkbox">
+                                  <input type="checkbox" name="category[]" value="Layar">Layar</input>
+                                </div>
+                                <div class="checkbox">
+                                  <input type="checkbox" name="category[]" value="Daki Gunung">Daki Gunung</input>
+                                </div>
+                                <div class="checkbox">
+                                  <input type="checkbox" name="category[]" value="Paralayang">Paralayang</input>
+                                </div>
+                                <div class="checkbox">
+                                  <input type="checkbox" name="category[]" value="BKP">BKP</input>
+                                </div>
+                                <div class="checkbox">
+                                  <input type="checkbox" name="category[]" value="Lainnya">Lainnya</input>
+                                </div>
+                              </div>
+                            </div>
+
+                            <hr>
+
+                            <div class="lead" id="btn_modalfinish">
+                              <button type="close" class="btn" id="btn-close" data-dismiss="modal">Keluar</button>
+                              <button type="submit" class="btn" id="btn-save">Simpan</button>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ';
+              }
+            ?>
 
             <!--Event Modal-->
             <div class="modal fade" id="event_modal" tabindex="-1" role="dialog" aria-labelledby="eventLabel" aria-hidden="true">
@@ -473,7 +512,7 @@
                         <label for="event_period" class="col-sm-3 control-label">Periode</label>
                         <div class="col-sm-3">
                           <select class="form-control" name="start_year">
-                            <option selected value="-">thn</option>
+                            <option selected value="-">Tahun mulai</option>
                             <option disabled>───</option>
                             <?php for ($i = 2017; $i >= 1960; $i--) : ?>
                               <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
@@ -483,7 +522,7 @@
                         <div class="col-sm-1">s/d</div>
                         <div class="col-sm-3">
                           <select class="form-control" name="end_year">
-                            <option selected value="-">thn</option>
+                            <option selected value="-">Tahun selesai</option>
                             <option disabled>───</option>
                             <?php for ($i = 2017; $i >= 1960; $i--) : ?>
                               <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
@@ -493,40 +532,37 @@
                       </div>
 
                       <div class="form-group">
-                            <label for="category" class="col-sm-3 control-label">Kategori</label>
-                            <div class="col-sm-1"></div>
-                            <div class="col-sm-7">
-                            <div class="form-group">
-                              <div class="checkbox">
-                                <input type="checkbox" name="category[]" value="Panjat"> Panjat</input>
-                              </div>
-                              <div class="checkbox">
-                                <input type="checkbox" name="category[]" value="Arung Jeram"> Arung Jeram</input>
-                              </div>
-                              <div class="checkbox">
-                                <input type="checkbox" name="category[]" value="Telusur Gua"> Telusur Gua</input>
-                              </div>
-                              <div class="checkbox">
-                                <input type="checkbox" name="category[]" value="Selam"> Selam</input>
-                              </div>
-                              <div class="checkbox">
-                                <input type="checkbox" name="category[]" value="Layar"> Layar</input>
-                              </div>
-                              <div class="checkbox">
-                                <input type="checkbox" name="category[]" value="Daki Gunung"> Daki Gunung</input>
-                              </div>
-                              <div class="checkbox">
-                                <input type="checkbox" name="category[]" value="Paralayang"> Paralayang</input>
-                              </div>
-                              <div class="checkbox">
-                                <input type="checkbox" name="category[]" value="BKP"> BKP</input>
-                              </div>
-                              <div class="checkbox">
-                                <input type="checkbox" name="category[]" value="Lainnya"> Lainnya</input>
-                              </div>
-                            </div>
-                            </div>
+                        <label for="category" class="col-sm-3 control-label">Kategori</label>
+                        <div class="col-sm-8">
+                          <div class="checkbox">
+                            <input type="checkbox" name="category[]" value=" Panjat"> Panjat</input>
                           </div>
+                          <div class="checkbox">
+                            <input type="checkbox" name="category[]" value=" Arung Jeram"> Arung Jeram</input>
+                          </div>
+                          <div class="checkbox">
+                            <input type="checkbox" name="category[]" value=" Telusur Gua"> Telusur Gua</input>
+                          </div>
+                          <div class="checkbox">
+                            <input type="checkbox" name="category[]" value=" Selam"> Selam</input>
+                          </div>
+                          <div class="checkbox">
+                            <input type="checkbox" name="category[]" value=" Layar"> Layar</input>
+                          </div>
+                          <div class="checkbox">
+                            <input type="checkbox" name="category[]" value=" Daki Gunung"> Daki Gunung</input>
+                          </div>
+                          <div class="checkbox">
+                            <input type="checkbox" name="category[]" value=" Paralayang"> Paralayang</input>
+                          </div>
+                          <div class="checkbox">
+                            <input type="checkbox" name="category[]" value=" BKP"> BKP</input>
+                          </div>
+                          <div class="checkbox">
+                            <input type="checkbox" name="category[]" value=" Lainnya"> Lainnya</input>
+                          </div>
+                        </div>
+                      </div>
 
                       <hr>
 

@@ -174,10 +174,15 @@
         <br>
 
         <h1 id="search_header">Hasil Penelusuran</h1>
-        <button class="pull-left btn btn-default disabled" id="searchBy"><span class="glyphicon glyphicon-tag"></span> Semua Format</button>
-        <button class="pull-left btn btn-default disabled" id="searchBy"><span class="glyphicon glyphicon-tag"></span> Semua Warna</button>
-        <button class="pull-left btn btn-default disabled" id="searchBy"><span class="glyphicon glyphicon-tag"></span> Semua Kategori</button>
-        <button class="pull-left btn btn-default disabled" id="searchBy"><span class="glyphicon glyphicon-tag"></span> Semua Foto</button>
+        <?php 
+          if($searchby['post'] == true) {
+            echo '
+              <button class="pull-left btn btn-default disabled" id="searchBy"><span class="glyphicon glyphicon-tag">Format : '.$searchby['format'].'</span></button>
+              <button class="pull-left btn btn-default disabled" id="searchBy"><span class="glyphicon glyphicon-tag">Warna : '.$searchby['color'].'</span></button>
+              <button class="pull-left btn btn-default disabled" id="searchBy"><span class="glyphicon glyphicon-tag">Kategori : '.$searchby['activity'].'</span></button>
+            ';
+          }
+        ?>
         <br><hr>
 
         <div class="search_result">              

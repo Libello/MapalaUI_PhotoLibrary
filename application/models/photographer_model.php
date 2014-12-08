@@ -46,5 +46,17 @@
       }
       return $success;
     }
+    public function editPhotographer($data) {
+      $this->load->database();
+      $this->db->query('UPDATE photographer
+                        SET `name` = "'.$data['photographer_name'].'",
+                            `membership` = "'.$data['photographer_membership'].'",
+                            `no.M` = "'.$data['no_m'].'"
+                        WHERE id_photographer = "'.$data['id_photographer'].'"');
+      if($this->db->affected_rows() == 1) {
+        return true;
+      }
+      return false;
+    }
   }
 ?>
