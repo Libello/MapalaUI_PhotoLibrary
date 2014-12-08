@@ -6,7 +6,7 @@ class guest_controller extends CI_Controller {
 	 * Berikut adalah fungsi-fungsi untuk memanggil view
 	 */
 	public function index() {
-		show_404();
+		$this->load->view('404me');
 	}
 	public function view_cover_contact() {
 		$this->load->view('cover_contact');
@@ -123,7 +123,8 @@ class guest_controller extends CI_Controller {
 				$data['activity'] = 'all';
 				$data['format'] = 'all';
 				$data_photo = $this->photo_model->searchBy($data);
-			}
+			} 
+			//kok ga ada yang warna? Ini buat apa?
 			else {
 				$data['count'] = 0;
 				foreach ($data['fieldarr'] as $field) {
@@ -157,10 +158,7 @@ class guest_controller extends CI_Controller {
 	    	$searchresult[$count]['title'] = $photo['title'];
 	    	$searchresult[$count]['id_event'] = $photo['id_event'];
 	    	$searchresult[$count]['event'] = $photo['name_event'];
-	    	$searchresult[$count]['format'] = $photo['format'];
 	    	$searchresult[$count]['category'] = $photo['category'];
-	    	$searchresult[$count]['taken_date'] = $photo['taken_date'];
-	    	$searchresult[$count]['taken_location'] = $photo['taken_location'];
 	    	$count++;
 	    }
 

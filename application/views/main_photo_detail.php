@@ -143,7 +143,7 @@
 
             <label class="col-sm-2 control-label">Kegiatan</label>
             <div class="col-sm-10">
-            <p class="form-control-static">: <?php echo "<a href=".site_url('event_detail/'.$id_event.'').">".$name_event."</a>" ?></p>
+            <p class="form-control-static">: <?php echo "<a href=".site_url('event_detail/'.$id_event.'').">".$name_event."</a>, ".$location_event."" ?></p>
             </div>
 
             <label class="col-sm-2 control-label">Kategori</label>

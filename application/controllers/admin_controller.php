@@ -8,7 +8,7 @@ class admin_controller extends CI_Controller {
 	}
 	
 	public function index() {
-		show_404();
+		$this->load->view('404me');
 	}
 
 	// View Function
@@ -475,6 +475,7 @@ class admin_controller extends CI_Controller {
 
 				$data['name_photographer'] = "Tidak Diketahui";
 				$data['name_event'] = '-';
+				$data['location_event'] = '-';
 				$data['name_editor'] = '-';
 				$data['name_owner'] = '-';
 				$data['userfile'] = $datafoto['file_name'];
@@ -487,7 +488,8 @@ class admin_controller extends CI_Controller {
 				}
 				if($data['event'] != '-') {
 					$event = $this->event_model->getEventById($data['event']);
-					$data['name_event'] = $event['name'];					
+					$data['name_event'] = $event['name'];
+					$data['location_event'] = $event['location'];					
 				}
 				if($data['editor'] != '-') {
 					$editor = $this->editor_model->getEditorById($data['editor']);
@@ -583,7 +585,7 @@ class admin_controller extends CI_Controller {
 		$fp = fopen('php://output', 'w');
 
 		$this->output->set_content_type('text/csv');
-		$this->output->set_header('Content-Disposition: attachment; filename="photo_record.csv"');
+		$this->output->set_header('Content-Disposition: attachment; filename="Daftar_Foto_MapalaUI.csv"');
 		$this->output->set_header('Expires: 0');
 		$this->output->set_header('Pragma: no-cache');
 		fputcsv($fp, $query->list_fields());

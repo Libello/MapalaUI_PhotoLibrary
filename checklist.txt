@@ -1,34 +1,20 @@
 Yang belum :
 
 1. <Penelusuran>
-	- Cari Lokasinya foto+event ya sayang...
-	- Kasih sesuatu yang ngasih tau kalau pencarian berdasarkan...
+	- Cari Lokasinya foto+event
+	- Pencarian berdasarkan...
 
--------------------------------------------------------------------Admin-----------------------------------------------------------
-
-1. <Daftar Foto>
-	- Ekspor ke csv. Udah dapet referensi cara tapi belum dicoba.
-
-2. <Edit> 
-	- Halaman edit belum bisa disave
-	- Fotografer dll ga muncul
-
-3. <Master Data>
-	- Modal buat edit masih ga rapi dan belum bisa save, sama kaya yg di halaman edit...
-
-4. <Tambah Foto>
-	- Input ID diberi ketentuan
-	- Gimana caranya supaya bisa ga pake upload foto
+Root?
+Login ga case sensitive, emamg gitu?
 
 Breadcrumb
 Pagination
 
 -------------------------------------------------------------------Skripsi-----------------------------------------------------------
 
-	Liat penjelasan dublin core, sesuai ga sama yang diterapkan sekarang, kayanya di bab 2 masih beda gara-gara kesalahan di awal
+Keamanan
+Ketentuan penomoran
 
-	Cek tujuan aplikasi -->repositori(?), bukan buat pengganti atau hanya katalog aja
-
-	Class diagram model dan controller
-
-	daftar tabel dan gambar?
+Masih ada yang ga nyaman diakses
+Edit foto supaya bisa unggah
+Kasih pencarian di master data

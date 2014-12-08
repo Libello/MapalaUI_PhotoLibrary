@@ -520,7 +520,7 @@
                 <div class="panel panel-default">
                   <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
                   <div class="panel-heading">
-                    <p id="if_explanation_modal">Kolom ini diisi jika foto memiliki duplikat, format tercetak, atau dapat pula dijadikan tempat mencatat lokasi foto sementara sebelum diunggah</p>
+                    <p id="if_explanation_modal">Kolom ini diisi jika foto yang dideskripsikan tidak memiliki file gambar yang dapat diunggah, atau memiliki duplikat dalam harddisk dan/atau format tercetak.</p>
                   </div>
                   </a>
                   <div id="collapseOne" class="panel-collapse collapse">
