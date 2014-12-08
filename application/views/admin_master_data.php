@@ -139,17 +139,22 @@
                       </div>
                     </form>
                   ';
+                }
+              ?>             
+            </table>
 
-                  // Edit Photographer Modal
-                  if($row["membership"]  == "Mapala UI") {
-                    $inputmapala = '<input type="radio" name="photographer_membership" value="Mapala UI" checked>';
-                    $inputnonmapala = '<input type="radio" name="photographer_membership" value="Non - Mapala UI">';
-                  }
-                  else {
-                    $inputnonmapala = '<input type="radio" name="photographer_membership" value="Non - Mapala UI" checked>';
-                    $inputmapala = '<input type="radio" name="photographer_membership" value="Mapala UI">';
-                  }
-                  echo '
+            <!-- Edit Photographer -->
+            <?php 
+              foreach($photographerlist as $row) {
+                if($row["membership"]  == "Mapala UI") {
+                  $inputmapala = '<input type="radio" name="photographer_membership" value="Mapala UI" checked>';
+                  $inputnonmapala = '<input type="radio" name="photographer_membership" value="Non - Mapala UI">';
+                }
+                else {
+                  $inputnonmapala = '<input type="radio" name="photographer_membership" value="Non - Mapala UI" checked>';
+                  $inputmapala = '<input type="radio" name="photographer_membership" value="Mapala UI">';
+                }
+                echo '
                   <div class="modal fade" id="photographer_modal-'.$row['id'].'" tabindex="-1" role="dialog" aria-labelledby="photographerLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
@@ -197,23 +202,21 @@
                                 <div class="well well-sm">-UI</div>
                               </div>
                             </div>
-                            <br>
 
                             <hr>
 
-                            <div class="lead form-group" id="btn_modalfinish">
+                            <div class="lead" id="btn_modalfinish">
                               <button type="close" class="btn" id="btn-close" data-dismiss="modal">Keluar</button>
-                              <button type="submit" class="btn" id="btn-save" onclick="return validatePhotographer();">Simpan</button>
+                              <button type="submit" class="btn" id="btn-save">Simpan</button>
                             </div>
                           </form>
                         </div>
                       </div>
                     </div>
                   </div>
-                  ';
-                }
-              ?>             
-            </table>
+                ';
+              }
+            ?>
 
             <!--Photographer Modal-->
             <div class="modal fade" id="photographer_modal" tabindex="-1" role="dialog" aria-labelledby="photographerLabel" aria-hidden="true">
