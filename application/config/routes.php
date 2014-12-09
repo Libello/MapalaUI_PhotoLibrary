@@ -77,11 +77,14 @@ $route['deletePhotographer/(:any)'] = "admin_controller/deletePhotographer/$1";
 $route['editPhotographer'] = "admin_controller/editPhotographer";
 $route['addEditor'] = "admin_controller/addEditor";
 $route['deleteEditor/(:any)'] = "admin_controller/deleteEditor/$1";
+$route['editEditor'] = "admin_controller/editEditor";
 $route['addEvent'] = "admin_controller/addEvent";
 $route['deleteEvent/(:any)'] = "admin_controller/deleteEvent/$1";
 $route['editEvent'] = "admin_controller/editEvent";
 $route['addOwner'] = "admin_controller/addOwner";
 $route['deleteOwner/(:any)'] = "admin_controller/deleteOwner/$1";
+$route['editOwner'] = "admin_controller/editOwner";
+
 
 
 

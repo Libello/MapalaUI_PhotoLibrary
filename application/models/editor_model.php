@@ -46,5 +46,17 @@
       }
       return $success;
     }
+    public function editEditor($data) {
+      $this->load->database();
+      $this->db->query('UPDATE editor
+                        SET `name` = "'.$data['editor_name'].'",
+                            `membership` = "'.$data['editor_membership'].'",
+                            `no.M` = "'.$data['no_m'].'"
+                        WHERE id_editor = "'.$data['id_editor'].'"');
+      if($this->db->affected_rows() == 1) {
+        return true;
+      }
+      return false;
+    }
   }
 ?>

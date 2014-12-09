@@ -280,6 +280,7 @@ class admin_controller extends CI_Controller {
 	    delete_cookie("Guest");
 	    $ci->session->unset_userdata('idGuest');
 	    $ci->session->sess_destroy();
+	    unset($ci->session->userdata); 
 	    redirect(base_url());
 	}
 
@@ -408,14 +409,18 @@ class admin_controller extends CI_Controller {
 			else {
 				$data['eventcategory'] = null;
 			}
+
 			$success = $this->event_model->editEvent($data);
 
 			if($success) {
 				redirect(site_url('master_data'));
-			} else {
-		    	show_404();
+			} 
+			else {
+				redirect(site_url('photo_list'));
+		    	// show_404();
 		    }
-	    } else {
+	    } 
+	    else {
 	    	show_404();
 	    }
 	}

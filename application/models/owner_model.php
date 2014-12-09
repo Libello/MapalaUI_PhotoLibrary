@@ -44,5 +44,17 @@
       }
       return $success;
     }
+    public function editOwner($data) {
+      $this->load->database();
+      $this->db->query('UPDATE owner
+                        SET `name` = "'.$data['owner_name'].'",
+                            `phone` = "'.$data['owner_phone'].'",
+                            `address` = "'.$data['owner_address'].'"
+                        WHERE id_owner = "'.$data['id_owner'].'"');
+      if($this->db->affected_rows() == 1) {
+        return true;
+      }
+      return false;
+    }
   }
 ?>

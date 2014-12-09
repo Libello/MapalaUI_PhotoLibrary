@@ -160,7 +160,7 @@
                       <div class="modal-content">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                          <h4 class="modal-title" id="photographerLabel">Fotografer</h4>
+                          <h4 class="modal-title" id="photographerLabel">Edit Fotografer</h4>
                         </div>
                         <div class="modal-body">
                           <form class="form-horizontal" id="photographermodal" role="form" method="post" action="'.site_url('/editPhotographer').'">
@@ -224,7 +224,7 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="photographerLabel">Fotografer</h4>
+                    <h4 class="modal-title" id="photographerLabel">Tambah Fotografer</h4>
                   </div>
                   <div class="modal-body">
                     <form class="form-horizontal" id="photographermodal" role="form" method="post" action="<?php echo site_url('/addPhotographer');?>/">
@@ -281,6 +281,11 @@
             <!--Photographer Modal-->
           </div>
           
+
+
+
+          <!-- EVENT -->
+
           <?php 
             if($tabactive == 'event') {
               echo '<div class="tab-pane active" id="event_tab"><br>';
@@ -361,21 +366,21 @@
 
             <!--Edit Event Modal-->
             <?php 
-              foreach($eventlist as $row) {
+              foreach ($eventlist as $row) {
                 echo '
                   <div class="modal fade" id="event_modal-'.$row['id'].'" tabindex="-1" role="dialog" aria-labelledby="eventLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                          <h4 class="modal-title" id="eventLabel">Kegiatan</h4>
+                          <h4 class="modal-title" id="eventLabel">Edit Kegiatan</h4>
                         </div>
                         <div class="modal-body">
-                          <form class="form-horizontal" role="form" method="post" action="'.site_url('/editEvent').'">
+                          <form class="form-horizontal" role="form" method="post" action="'.site_url('/editEvent').'"/">
                             <div class="form-group">
                               <label for="event_name" class="col-sm-3 control-label">Nama</label>
                               <div class="col-sm-7">
-                                <input type="hidden" name="id_event" value="'.$row['id'].'">
+                                <input type="hidden" name="event_id" value="'.$row['id'].'">
                                 <input type="text" class="form-control" name="event_name" value="'.$row['name'].'" required autofocus>
                               </div>
                             </div>
@@ -408,7 +413,7 @@
                                     else {
                                       echo '<option value="'.$i.'">'.$i.'</option>';
                                     }
-                                  }                                    
+                                  } 
                 echo '          </select>
                               </div>
                               <div class="col-sm-1">s/d</div>
@@ -431,7 +436,7 @@
                                     else {
                                       echo '<option value="'.$i.'">'.$i.'</option>';
                                     }
-                                  }                                    
+                                  }  
                 echo '          </select>
                               </div>
                             </div>
@@ -440,31 +445,31 @@
                               <label for="category" class="col-sm-3 control-label">Kategori</label>
                               <div class="col-sm-8">
                                 <div class="checkbox">
-                                  <input type="checkbox" name="category[]" value="Panjat">Panjat</input>
+                                  <input type="checkbox" name="category[]" value=" Panjat"> Panjat</input>
                                 </div>
                                 <div class="checkbox">
-                                  <input type="checkbox" name="category[]" value="Arung Jeram">Arung Jeram</input>
+                                  <input type="checkbox" name="category[]" value=" Arung Jeram"> Arung Jeram</input>
                                 </div>
                                 <div class="checkbox">
-                                  <input type="checkbox" name="category[]" value="Telusur Gua">Telusur Gua</input>
+                                  <input type="checkbox" name="category[]" value=" Telusur Gua"> Telusur Gua</input>
                                 </div>
                                 <div class="checkbox">
-                                  <input type="checkbox" name="category[]" value="Selam">Selam</input>
+                                  <input type="checkbox" name="category[]" value=" Selam"> Selam</input>
                                 </div>
                                 <div class="checkbox">
-                                  <input type="checkbox" name="category[]" value="Layar">Layar</input>
+                                  <input type="checkbox" name="category[]" value=" Layar"> Layar</input>
                                 </div>
                                 <div class="checkbox">
-                                  <input type="checkbox" name="category[]" value="Daki Gunung">Daki Gunung</input>
+                                  <input type="checkbox" name="category[]" value=" Daki Gunung"> Daki Gunung</input>
                                 </div>
                                 <div class="checkbox">
-                                  <input type="checkbox" name="category[]" value="Paralayang">Paralayang</input>
+                                  <input type="checkbox" name="category[]" value=" Paralayang"> Paralayang</input>
                                 </div>
                                 <div class="checkbox">
-                                  <input type="checkbox" name="category[]" value="BKP">BKP</input>
+                                  <input type="checkbox" name="category[]" value=" BKP"> BKP</input>
                                 </div>
                                 <div class="checkbox">
-                                  <input type="checkbox" name="category[]" value="Lainnya">Lainnya</input>
+                                  <input type="checkbox" name="category[]" value=" Lainnya"> Lainnya</input>
                                 </div>
                               </div>
                             </div>
@@ -490,7 +495,7 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="eventLabel">Kegiatan</h4>
+                    <h4 class="modal-title" id="eventLabel">Tambah Kegiatan</h4>
                   </div>
                   <div class="modal-body">
                     <form class="form-horizontal" role="form" method="post" action="<?php echo site_url('/addEvent');?>/">
@@ -577,6 +582,12 @@
             </div>
           </div>
            
+
+
+
+
+
+           <!-- EDITOR -->
           <?php 
             if($tabactive == 'editor') {
               echo '<div class="tab-pane active" id="editor_tab"><br>';
@@ -617,9 +628,7 @@
                     echo "</td>";
                     echo "<td>";
                       echo '
-                        <a class="pull-left" data-toggle="modal" data-target="#editor_modal">
-                            <button class="btn" id="btn-edit-master">Edit</button>
-                        </a>
+                        <a class="pull-left" data-toggle="modal" data-target="#editor_modal-'.$row['id'].'"><button class="btn" id="btn-edit-master">Edit</button></a>
                         <button class="btn" id="btn-edit" data-toggle="modal" data-target="#deleteeditor_modal-'.$row['id'].'"><img src="'.base_url('assets/ico/remove.png').'"></button>
                       ';
                     echo "</td>";
@@ -647,68 +656,144 @@
               ?>             
             </table>
 
-            <!--Editor Modal-->
-            <div class="modal fade" id="editor_modal" tabindex="-1" role="dialog" aria-labelledby="editorLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                      <h4 class="modal-title" id="editorLabel">Editor</h4>
-                    </div>
-                    <div class="modal-body">
-                      <form class="form-horizontal" id="editormodal" role="form" method="post" action="<?php echo site_url('/addEditor');?>">
-                        <div class="form-group">
-                          <label for="editor_name" class="col-sm-3 control-label">Nama</label>
-                          <div class="col-sm-7">
-                            <input type="text" class="form-control" name="editor_name" required autofocus>
-                          </div>
+            <!-- Edit Editor -->
+            <?php 
+              foreach($editorlist as $row) {
+                if($row["membership"]  == "Mapala UI") {
+                  $inputmapala = '<input type="radio" name="editor_membership" value="Mapala UI" checked>';
+                  $inputnonmapala = '<input type="radio" name="editor_membership" value="Non - Mapala UI">';
+                }
+                else {
+                  $inputnonmapala = '<input type="radio" name="editor_membership" value="Non - Mapala UI" checked>';
+                  $inputmapala = '<input type="radio" name="editor_membership" value="Mapala UI">';
+                }
+                echo '
+                  <div class="modal fade" id="editor_modal-'.$row['id'].'" tabindex="-1" role="dialog" aria-labelledby="editorLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                          <h4 class="modal-title" id="editorLabel">Edit Editor</h4>
                         </div>
-
-                        <div class="form-group">
-                          <label for="editor_membership" class="col-sm-3 control-label">Keanggotaan</label>
-                          <div class="col-sm-7">
-                            <div class="radio">
-                              <label>
-                                <input type="radio" name="editor_membership" value="Mapala UI" checked>
-                                Mapala UI
-                              </label>
+                        <div class="modal-body">
+                          <form class="form-horizontal" id="editormodal" role="form" method="post" action="'.site_url('/editEditor').'">
+                            <div class="form-group">
+                              <label for="editor_name" class="col-sm-3 control-label">Nama</label>
+                              <div class="col-sm-7">
+                                <input type="hidden" name="id_editor" value="'.$row['id'].'">
+                                <input type="text" class="form-control" name="editor_name" value="'.$row['name'].'" required autofocus>
+                              </div>
                             </div>
-                            <div class="radio">
-                              <label>
-                                <input type="radio" name="editor_membership" value="Non - Mapala UI">
-                                Non - Mapala UI
-                              </label>
+
+                            <div class="form-group">
+                              <label for="editor_membership" class="col-sm-3 control-label">Keanggotaan</label>
+                              <div class="col-sm-7">
+                                <div class="radio">
+                                  <label>
+                                    '.$inputmapala.'
+                                    Mapala UI
+                                  </label>
+                                </div>
+                                <div class="radio">
+                                  <label>
+                                    '.$inputnonmapala.'
+                                    Non - Mapala UI
+                                  </label>
+                                </div>
+                              </div>
                             </div>
-                          </div>
-                        </div>
 
-                        <div class="form-group">
-                          <label for="editor_no.M" class="col-sm-3 control-label">No. M</label>
-                          <div class="col-sm-2">
-                            <div class="well well-sm">M-</div>
-                          </div>
-                          <div class="col-sm-3">
-                            <input type="text" class="form-control" name="no_m" required>
-                          </div>
-                          <div class="col-sm-2">
-                            <div class="well well-sm">-UI</div>
-                          </div>
-                        </div>
-                        <br>
+                            <div class="form-group">
+                              <label for="editor_no.M" class="col-sm-3 control-label">No. M</label>
+                              <div class="col-sm-2">
+                                <div class="well well-sm">M-</div>
+                              </div>
+                              <div class="col-sm-3">
+                                <input type="text" class="form-control" name="no_m" value="'.$row['no_m'].'" required>
+                              </div>
+                              <div class="col-sm-2">
+                                <div class="well well-sm">-UI</div>
+                              </div>
+                            </div>
 
-                        <hr>
+                            <hr>
 
-                        <div class="lead" id="btn_modalfinish">
-                          <button type="close" class="btn" id="btn-close" data-dismiss="modal">Keluar</button>
-                          <button type="submit" class="btn" id="btn-save" value="submit" onclick="return validateEditor();">Simpan</button>
+                            <div class="lead" id="btn_modalfinish">
+                              <button type="close" class="btn" id="btn-close" data-dismiss="modal">Keluar</button>
+                              <button type="submit" class="btn" id="btn-save">Simpan</button>
+                            </div>
+                          </form>
                         </div>
-                      </form>
+                      </div>
                     </div>
                   </div>
+                ';
+              }
+            ?>
+
+            <!--Editor Modal-->
+            <div class="modal fade" id="editor_modal" tabindex="-1" role="dialog" aria-labelledby="editorLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="editorLabel">Tambah Editor</h4>
+                  </div>
+                  <div class="modal-body">
+                    <form class="form-horizontal" id="editormodal" role="form" method="post" action="<?php echo site_url('/addEditor');?>">
+                      <div class="form-group">
+                        <label for="editor_name" class="col-sm-3 control-label">Nama</label>
+                        <div class="col-sm-7">
+                          <input type="text" class="form-control" name="editor_name" required autofocus>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="editor_membership" class="col-sm-3 control-label">Keanggotaan</label>
+                        <div class="col-sm-7">
+                          <div class="radio">
+                            <label>
+                              <input type="radio" name="editor_membership" value="Mapala UI" checked>
+                              Mapala UI
+                            </label>
+                          </div>
+                          <div class="radio">
+                            <label>
+                              <input type="radio" name="editor_membership" value="Non - Mapala UI">
+                              Non - Mapala UI
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="editor_no.M" class="col-sm-3 control-label">No. M</label>
+                        <div class="col-sm-2">
+                          <div class="well well-sm">M-</div>
+                        </div>
+                        <div class="col-sm-3">
+                          <input type="text" class="form-control" name="no_m" required/>
+                        </div>
+                        <div class="col-sm-2">
+                          <div class="well well-sm">-UI</div>
+                        </div>
+                      </div>
+                      <br>
+
+                      <hr>
+
+                      <div class="lead" id="btn_modalfinish">
+                        <button type="close" class="btn" id="btn-close" data-dismiss="modal">Keluar</button>
+                        <button type="submit" class="btn" id="btn-save" value="submit" onclick="return validateEditor();">Simpan</button>
+                      </div>
+                    </form>
+                  </div>
                 </div>
+              </div>
             </div>
             <!--Editor Modal-->
           </div>
+          
           <?php 
             if($tabactive == 'owner') {
               echo '<div class="tab-pane active" id="owner_tab"><br>';
@@ -754,9 +839,7 @@
                       }
                     echo "</td>";
                     echo "<td>";
-                      echo '<a class="pull-left" data-toggle="modal" data-target="#owner_modal">
-                              <button class="btn" id="btn-edit-master">Edit</button>
-                            </a>
+                      echo '<a class="pull-left" data-toggle="modal" data-target="#owner_modal-'.$row['id'].'"><button class="btn" id="btn-edit-master">Edit</button></a>
                             <button class="btn" id="btn-edit" data-toggle="modal" data-target="#deleteowner_modal-'.$row['id'].'"><img src="'.base_url('assets/ico/remove.png').'"></button>';
                     echo "</td>";
                   echo "</tr>";
@@ -783,13 +866,63 @@
               ?>      
             </table>
 
+            <!-- Edit Owner -->
+            <?php 
+              foreach($ownerlist as $row) {
+                echo '
+                  <div class="modal fade" id="owner_modal-'.$row['id'].'" tabindex="-1" role="dialog" aria-labelledby="ownerLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                          <h4 class="modal-title" id="ownerLabel">Edit Pemilik Foto</h4>
+                        </div>
+                        <div class="modal-body">
+                          <form class="form-horizontal" id="ownermodal" role="form" method="post" action="'.site_url('/editOwner').'">
+                            <div class="form-group">
+                              <label for="owner_name" class="col-sm-3 control-label">Nama</label>
+                              <div class="col-sm-7">
+                                <input type="hidden" name="id_owner" value="'.$row['id'].'">
+                                <input type="text" class="form-control" name="owner_name" value="'.$row['name'].'" required autofocus>
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="owner_phone" class="col-sm-3 control-label">No. Telepon</label>
+                              <div class="col-sm-7">
+                                <input type="text" class="form-control" name="owner_phone" value="'.$row['phone'].'">
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="owner_address" class="col-sm-3 control-label">Alamat</label>
+                              <div class="col-sm-7">
+                                <textarea class="form-control" rows="3" name="owner_address">'.$row['address'].'</textarea>
+                              </div>
+                            </div>
+
+                            <hr>
+
+                            <div class="lead" id="btn_modalfinish">
+                              <button type="close" class="btn" id="btn-close" data-dismiss="modal">Keluar</button>
+                              <button type="submit" class="btn" id="btn-save">Simpan</button>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ';
+              }
+            ?>
+
                 <!--Owner Modal-->
                 <div class="modal fade" id="owner_modal" tabindex="-1" role="dialog" aria-labelledby="ownerLabel" aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="ownerLabel">Pemilik Foto</h4>
+                        <h4 class="modal-title" id="ownerLabel">Tambah Pemilik Foto</h4>
                       </div>
                       <div class="modal-body">
                         <form class="form-horizontal" role="form" method="post" action="<?php echo site_url('/addOwner');?>/">

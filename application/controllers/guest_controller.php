@@ -15,7 +15,7 @@ class guest_controller extends CI_Controller {
 		$this->load->view('cover_guest_login');
 	}
 	public function view_cover_welcome() {
-		$this->load->view('cover_welcome',array());
+		load_view('cover_welcome',array());
 	}
 	public function view_404me() {
 		$this->load->view('404me',array());

@@ -15,7 +15,9 @@ if ( ! function_exists('load_view'))
         $ci->load->view($viewname);
       }
       else {
-        redirect(base_url());
+        // redirect(base_url());
+        $ci->load->vars($data);
+        $ci->load->view('cover_welcome');
       }
     } 
     else {
