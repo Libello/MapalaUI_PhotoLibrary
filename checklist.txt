@@ -1,20 +1,17 @@
 Yang belum :
 
-1. <Penelusuran>
+1. <Penelusuran dan Photo List>
 	- Cari Lokasinya foto+event
-	- Pencarian berdasarkan...
+	- Pencarian berdasarkan... untuk kolom yang dinamis (Hal. Penelusuran)
+2. <Master Data>
+	- Non mapala UI ga boleh ngisi nomor M
 
-Root?
-Login ga case sensitive, emamg gitu?
+Root, yang akses localhost/mapalaUI_photolibrary itu...
 
-Breadcrumb
-Pagination
+Breadcrumb belum bener
+Pagination belum dikerjain
+
+Kan nama event, fotografer dll dipost ketika tambah foto, kalau data event dll itu diubah, data foto berubah juga ga? Ngga ya?
 
 -------------------------------------------------------------------Skripsi-----------------------------------------------------------
 
-Keamanan
-Ketentuan penomoran
-
-Masih ada yang ga nyaman diakses
-Edit foto supaya bisa unggah
-Kasih pencarian di master data

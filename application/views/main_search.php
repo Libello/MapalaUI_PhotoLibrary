@@ -177,9 +177,37 @@
         <?php 
           if($searchby['post'] == true) {
             echo '
-              <button class="pull-left btn btn-default disabled" id="searchBy"><span class="glyphicon glyphicon-tag">Format : '.$searchby['format'].'</span></button>
-              <button class="pull-left btn btn-default disabled" id="searchBy"><span class="glyphicon glyphicon-tag">Warna : '.$searchby['color'].'</span></button>
-              <button class="pull-left btn btn-default disabled" id="searchBy"><span class="glyphicon glyphicon-tag">Kategori : '.$searchby['activity'].'</span></button>
+              <button class="pull-left btn btn-default disabled" id="searchBy"><span class="glyphicon glyphicon-tag"></span>';
+              if($searchby['format'] == "all") {
+                echo ' Semua Format';
+              }
+              else {
+                echo ' Format: '.$searchby['format'].'';
+              }
+            echo '
+              </button>
+              <button class="pull-left btn btn-default disabled" id="searchBy"><span class="glyphicon glyphicon-tag"></span>';
+              if($searchby['color'] == "all") {
+                echo ' Semua Warna';
+              }
+              else {
+                echo ' Warna: '.$searchby['color'].'';
+              }
+            echo '
+              </button>
+              <button class="pull-left btn btn-default disabled" id="searchBy"><span class="glyphicon glyphicon-tag"></span>';
+              if($searchby['activity'] == "all") {
+                echo ' Semua Kategori';
+              }
+              else {
+                echo ' Kategori: '.$searchby['activity'].'';
+              }
+            echo '
+              </button>';
+          }
+          else {
+            echo '
+              <button class="pull-left btn btn-default disabled" id="searchBy"><span class="glyphicon glyphicon-tag"></span> Semua Koleksi</button>
             ';
           }
         ?>

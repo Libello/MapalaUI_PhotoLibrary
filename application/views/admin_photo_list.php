@@ -69,7 +69,7 @@
               </div>
               <div class="col-sm-2">
                 <select class="form-control" id="search_option" name="field">
-                  <option value="all">Semua kolom</option>
+                  <option value="all">Semua Kolom</option>
                   <option value="id_photo">ID Foto</option>
                   <option value="title">Judul</option>
                   <option value="name_photographer">Fotografer</option>
@@ -111,9 +111,40 @@
         <?php
           if($data_search != null) {
             echo '
-              <button class="btn btn-default disabled" id="searchBy"><span class="glyphicon glyphicon-tag"></span>'.$data_search['activity'].'</button>
-              <button class="btn btn-default disabled" id="searchBy"><span class="glyphicon glyphicon-tag"></span>'.$data_search['format'].'</button>
-              <button class="btn btn-default disabled" id="searchBy"><span class="glyphicon glyphicon-tag"></span>'.$data_search['field'].' : '.$data_search['inputtext'].'</button>
+              <button class="btn btn-default disabled" id="searchBy"><span class="glyphicon glyphicon-tag"></span>'; 
+              if($data_search['field'] != "all") {
+                if($data_search['field'] == 'id_photo') {echo ' ID Foto';}
+                if($data_search['field'] == 'title') {echo ' Judul';}
+                if($data_search['field'] == 'name_photographer') {echo ' Fotografer';}
+                if($data_search['field'] == 'name_event') {echo ' Kegiatan';}
+                if($data_search['field'] == 'taken_date') {echo ' Tahun';}
+                if($data_search['field'] == 'taken_location') {echo ' Lokasi';}
+              } 
+              else {
+                echo ' Semua Kolom';
+              } 
+              echo ': '.$data_search['inputtext'].'</button>
+              <button class="btn btn-default disabled" id="searchBy"><span class="glyphicon glyphicon-tag"></span>'; 
+              if($data_search['activity'] != "all") {
+                echo ' '.$data_search['activity'].'';
+              }
+              else {
+                echo ' Semua Kategori';
+              } 
+              echo'</button>
+              <button class="btn btn-default disabled" id="searchBy"><span class="glyphicon glyphicon-tag"></span>'; 
+              if($data_search['format'] != "all") {
+                echo ' '.$data_search['format'].'';
+              } 
+              else {
+                echo ' Semua Format';
+              } 
+              echo'</button>
+            ';
+          }
+          else {
+            echo '
+              <button class="btn btn-default disabled" id="searchBy"><span class="glyphicon glyphicon-tag"></span> Semua Koleksi</button>
             ';
           }
         ?>

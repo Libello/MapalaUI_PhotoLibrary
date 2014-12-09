@@ -94,7 +94,7 @@
         $query = $this->db->query('CREATE OR REPLACE VIEW viewcolor AS SELECT * FROM viewformat');
       }
       else {
-        $query = $this->db->query('CREATE OR REPLACE VIEW viewcolor AS SELECT * FROM viewformat WHERE INSTR(format, '.$this->db->escape($data['color']).') > 0');
+        $query = $this->db->query('CREATE OR REPLACE VIEW viewcolor AS SELECT * FROM viewformat WHERE INSTR(color, '.$this->db->escape($data['color']).') > 0');
       }
 
       $start = 0;
