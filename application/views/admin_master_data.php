@@ -443,35 +443,19 @@
 
                             <div class="form-group">
                               <label for="category" class="col-sm-3 control-label">Kategori</label>
-                              <div class="col-sm-8">
-                                <div class="checkbox">
-                                  <input type="checkbox" name="category[]" value=" Panjat"> Panjat</input>
-                                </div>
-                                <div class="checkbox">
-                                  <input type="checkbox" name="category[]" value=" Arung Jeram"> Arung Jeram</input>
-                                </div>
-                                <div class="checkbox">
-                                  <input type="checkbox" name="category[]" value=" Telusur Gua"> Telusur Gua</input>
-                                </div>
-                                <div class="checkbox">
-                                  <input type="checkbox" name="category[]" value=" Selam"> Selam</input>
-                                </div>
-                                <div class="checkbox">
-                                  <input type="checkbox" name="category[]" value=" Layar"> Layar</input>
-                                </div>
-                                <div class="checkbox">
-                                  <input type="checkbox" name="category[]" value=" Daki Gunung"> Daki Gunung</input>
-                                </div>
-                                <div class="checkbox">
-                                  <input type="checkbox" name="category[]" value=" Paralayang"> Paralayang</input>
-                                </div>
-                                <div class="checkbox">
-                                  <input type="checkbox" name="category[]" value=" BKP"> BKP</input>
-                                </div>
-                                <div class="checkbox">
-                                  <input type="checkbox" name="category[]" value=" Lainnya"> Lainnya</input>
-                                </div>
-                              </div>
+                              <div class="col-sm-8">';
+                                $arr = array('Panjat','Arung Jeram','Telusur Gua','Selam','Layar','Daki Gunung','Paralayang','BKP','Lainnya');
+                                for($i=0; $i < 9; $i++) {
+                                  echo '<div class="checkbox">';
+                                  if(strpos($row['category'],$arr[$i]) !== false) {
+                                    echo '<input type="checkbox" name="category[]" value="'.$arr[$i].'" checked>'.$arr[$i].'</input>';
+                                  }
+                                  else {
+                                    echo '<input type="checkbox" name="category[]" value="'.$arr[$i].'">'.$arr[$i].'</input>';
+                                  }
+                                  echo '</div>';
+                                }
+                echo '        </div>
                             </div>
 
                             <hr>
@@ -539,33 +523,16 @@
                       <div class="form-group">
                         <label for="category" class="col-sm-3 control-label">Kategori</label>
                         <div class="col-sm-8">
-                          <div class="checkbox">
-                            <input type="checkbox" name="category[]" value=" Panjat"> Panjat</input>
-                          </div>
-                          <div class="checkbox">
-                            <input type="checkbox" name="category[]" value=" Arung Jeram"> Arung Jeram</input>
-                          </div>
-                          <div class="checkbox">
-                            <input type="checkbox" name="category[]" value=" Telusur Gua"> Telusur Gua</input>
-                          </div>
-                          <div class="checkbox">
-                            <input type="checkbox" name="category[]" value=" Selam"> Selam</input>
-                          </div>
-                          <div class="checkbox">
-                            <input type="checkbox" name="category[]" value=" Layar"> Layar</input>
-                          </div>
-                          <div class="checkbox">
-                            <input type="checkbox" name="category[]" value=" Daki Gunung"> Daki Gunung</input>
-                          </div>
-                          <div class="checkbox">
-                            <input type="checkbox" name="category[]" value=" Paralayang"> Paralayang</input>
-                          </div>
-                          <div class="checkbox">
-                            <input type="checkbox" name="category[]" value=" BKP"> BKP</input>
-                          </div>
-                          <div class="checkbox">
-                            <input type="checkbox" name="category[]" value=" Lainnya"> Lainnya</input>
-                          </div>
+                        <?php
+                          $arr = array('Panjat','Arung Jeram','Telusur Gua','Selam','Layar','Daki Gunung','Paralayang','BKP','Lainnya');
+                          for($i=0; $i < 9; $i++) {
+                            echo '
+                              <div class="checkbox">
+                              <input type="checkbox" name="category[]" value="'.$arr[$i].'">'.$arr[$i].'</input>
+                              </div>'
+                            ;
+                          }
+                        ?>
                         </div>
                       </div>
 
@@ -583,11 +550,7 @@
           </div>
            
 
-
-
-
-
-           <!-- EDITOR -->
+          <!-- EDITOR -->
           <?php 
             if($tabactive == 'editor') {
               echo '<div class="tab-pane active" id="editor_tab"><br>';

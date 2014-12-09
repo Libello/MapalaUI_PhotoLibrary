@@ -181,15 +181,12 @@
               <select class="form-control" name="category">
                 <option value="<?php echo $data_photo["category"] ?>"><?php echo $data_photo["category"] ?></option>
                 <option disabled>──────────────────────</option>
-                <option value="Panjat">Panjat</option>
-                <option value="Arung Jeram">Arung Jeram</option>
-                <option value="Telusur Gua">Telusur Gua</option>
-                <option value="Selam">Selam</option>
-                <option value="Paralayang">Paralayang</option>
-                <option value="Daki Gunung">Daki Gunung</option>
-                <option value="Layar">Layar</option>
-                <option value="BKP">BKP</option>
-                <option value="Lainnya">Lainnya</option>
+                <?php 
+                  $arr = array("Panjat","Arung Jeram","Telusur Gua","Selam","Paralayang","Daki Gunung","Layar","BKP","Lainnya");
+                  for($i=0; $i < 9; $i++) {
+                    echo '<option value="'.$arr[$i].'">'.$arr[$i].'</option>';
+                  }
+                ?>
               </select>
             </div>
             <p class="col-sm-1 required">*</p>
