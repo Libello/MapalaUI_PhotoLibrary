@@ -109,23 +109,20 @@
                 }
                 else {
                   foreach ($eventresult as $row){
-                    echo
-                    
-                    '<a href="'.site_url('/event_detail/'.$row['id_event'].'').'" role="button"><h4 class="media-heading">'.$row['name'].'</h4></a>
-                    
-                    <p>'.$row['location'].' |';
+                    echo '
+                      <a href="'.site_url('/event_detail/'.$row['id_event'].'?category='.$category.'').'" role="button"><h4 class="media-heading">'.$row['name'].'</h4></a>
+                      <p>'.$row['location'].' |';
                   
-
-                    if($row['start_year'] == $row['end_year']) {
+                      if($row['start_year'] == $row['end_year']) {
                         echo $row['start_year'];
                       }
                       else {
                         echo "".$row['start_year']." s/d ".$row['end_year']."";
                       }
 
-                    echo '| '.$row['category'].'</p>
-
-                    <p><a id="btn-photodetail" href="'.site_url('/event_detail/'.$row['id_event'].'').'" role="button">Lihat foto &raquo;</a></p>';
+                    echo '
+                      | '.$row['category'].'</p>
+                      <p><a id="btn-photodetail" href="'.site_url('/event_detail/'.$row['id_event'].'').'" role="button">Lihat foto &raquo;</a></p>';
                   }
                 }
               ?>

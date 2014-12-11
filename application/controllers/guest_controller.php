@@ -69,8 +69,12 @@ class guest_controller extends CI_Controller {
 		$this->load->model('photo_model');
 		$this->load->model('event_model');
 		$data_event = $this->event_model->getEventById($id_event);
+		if($data_event == null) {
+			redirect(site_url('404_override'));
+		}
 		$data_photo = $this->photo_model->getPhotoByEvent($id_event);
-		$category = "Panjat";
+		$data = $this->input->get();
+		$category = $data['category'];
 
 		$photolist = array();
 		$count = 0;
@@ -105,8 +109,6 @@ class guest_controller extends CI_Controller {
 		if($data_photo == null) {
 			show_404();
 		}
-	
-
 		else {
 			load_view('main_photo_detail', $data_photo);
 		}	
@@ -126,15 +128,19 @@ class guest_controller extends CI_Controller {
 				$data['activity'] = 'all';
 				$data['format'] = 'all';
 				$data['color'] = 'all';
+				$searchby['fieldarr'] = array('Kata kunci');
+				$searchby['inputtextarr'] = array($data['inputtext']);
+				$searchby['operatearr'] = '';
+				$searchby['searchbyCount'] = 1;
 				$data_photo = $this->photo_model->searchBy($data);
-			} 
-			//kok ga ada yang warna? Ini buat apa?
+			}
 			else {
 				$data['count'] = 0;
 				foreach ($data['fieldarr'] as $field) {
 					$data['field'.$data['count'].''] = $field;
 					$data['count']++;
 				}
+				$searchby['searchbyCount'] = $data['count'];
 				$data['count'] = 0;
 				foreach ($data['inputtextarr'] as $inputtext) {
 					$data['inputtext'.$data['count'].''] = $inputtext;
@@ -145,6 +151,9 @@ class guest_controller extends CI_Controller {
 					$data['operate'.$data['count'].''] = $operate;
 					$data['count']++;
 				}
+				$searchby['fieldarr'] = $data['fieldarr'];
+				$searchby['inputtextarr'] = $data['inputtextarr'];
+				$searchby['operatearr'] = $data['operatearr'];
 				$data_photo = $this->photo_model->searchAdvanced($data);
 			}
 			$searchby['activity'] = $data['activity'];

@@ -75,7 +75,7 @@
                   <option value="name_photographer">Fotografer</option>
                   <option value="name_event">Kegiatan</option>
                   <option value="taken_date">Tahun</option>
-                  <option value="taken_location">Lokasi Kegiatan</option>
+                  <option value="taken_location">Lokasi</option>
                 </select>
               </div>
               <div class="col-sm-2">
@@ -260,6 +260,11 @@
             }
           ?>
         </table>
+        <?php 
+          if($photolist == null) {
+            echo 'Tidak ada koleksi';
+          }
+        ?>
         <hr>
 
         <div id="photodata_button" class="pull-left">

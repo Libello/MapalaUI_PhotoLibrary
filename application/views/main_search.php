@@ -204,6 +204,19 @@
               }
             echo '
               </button>';
+
+            for($i=0; $i<$searchby['searchbyCount']; $i++) {
+              echo '
+                <button class="pull-left btn btn-default disabled" id="searchBy"><span class="glyphicon glyphicon-tag"></span>';
+                if($searchby['fieldarr'][$i] == 'title') {echo ' Judul : '.$searchby['inputtextarr'][0].'';}
+                if($searchby['fieldarr'][$i] == 'name_photographer') {echo ' Fotografer : '.$searchby['inputtextarr'][0].'';}
+                if($searchby['fieldarr'][$i] == 'category') {echo ' Kegiatan : '.$searchby['inputtextarr'][0].'';}
+                if($searchby['fieldarr'][$i] == 'taken_location') {echo ' Lokasi : '.$searchby['inputtextarr'][0].'';}
+                if($searchby['fieldarr'][$i] == 'taken_date') {echo ' Tahun : '.$searchby['inputtextarr'][0].'';}
+                if($searchby['fieldarr'][$i] == 'description') {echo ' Deskripsi Foto : '.$searchby['inputtextarr'][0].'';}
+                else {echo ' '.$searchby['fieldarr'][$i].' : '.$searchby['inputtextarr'][$i].'';}
+              echo  '</button>';
+            }
           }
           else {
             echo '

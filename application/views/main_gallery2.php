@@ -97,7 +97,7 @@
           <li><a href="<?php echo site_url('/home');?>">Beranda</a></li>
           <li><a href="<?php echo site_url('/gallery');?>">Galeri</a></li>
           <li><a href="<?php echo site_url('/category_detail/'.$category.'');?>"><?php echo $category;?></a></li>
-          <li class="active"><?php echo $data_event['name'] ?></li>
+          <li class="active"><?php if($data_event != null){echo $data_event['name'];} ?></li>
         </ol>
 
         <h2 id="search_header"><?php echo $data_event['name'] ?></h2><hr>

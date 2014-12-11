@@ -60,10 +60,17 @@
           OR INSTR(name_event, '.$this->db->escape($data['inputtext']).') > 0
           OR INSTR(taken_date, '.$this->db->escape($data['inputtext']).') > 0
           OR INSTR(taken_location, '.$this->db->escape($data['inputtext']).') > 0
+          OR INSTR(location_event, '.$this->db->escape($data['inputtext']).') > 0
           ');
       }
       else {
-        $query = $this->db->query('SELECT * FROM viewformat WHERE INSTR('.$data['field'].', '.$this->db->escape($data['inputtext']).') > 0');
+        if($data['field'] == 'taken_location') {
+          $query = $this->db->query('SELECT * FROM viewformat WHERE INSTR(taken_location, '.$this->db->escape($data['inputtext']).') > 0
+            OR INSTR(location_event, '.$this->db->escape($data['inputtext']).') > 0');
+        }
+        else {
+          $query = $this->db->query('SELECT * FROM viewformat WHERE INSTR('.$data['field'].', '.$this->db->escape($data['inputtext']).') > 0');
+        }
       }
 
       if($data['flag'] == 'bbb') {
@@ -101,22 +108,51 @@
       $end = 0;
       if($data['operate0'] == 'not') {
         $field = $data['field0'];
-        $this->db->query('CREATE OR REPLACE VIEW a'.$start.' AS SELECT * FROM viewcolor WHERE INSTR('.$data['field0'].', '.$this->db->escape($data['inputtext0']).') < 1');
+        if($field == 'taken_location') {
+          $this->db->query('CREATE OR REPLACE VIEW a'.$start.' AS SELECT * FROM viewcolor WHERE INSTR(taken_location, '.$this->db->escape($data['inputtext0']).') < 1
+            OR INSTR(location_event, '.$this->db->escape($data['inputtext0']).') < 1');
+        }
+        else {
+          $this->db->query('CREATE OR REPLACE VIEW a'.$start.' AS SELECT * FROM viewcolor WHERE INSTR('.$data['field0'].', '.$this->db->escape($data['inputtext0']).') < 1');
+        }
       }
       else {
-        $this->db->query('CREATE OR REPLACE VIEW a'.$start.' AS SELECT * FROM viewcolor WHERE INSTR('.$data['field0'].', '.$this->db->escape($data['inputtext0']).') > 0');
+        if($data['field0'] == 'taken_location') {
+          $this->db->query('CREATE OR REPLACE VIEW a'.$start.' AS SELECT * FROM viewcolor WHERE INSTR(taken_location, '.$this->db->escape($data['inputtext0']).') > 0
+            OR INSTR(location_event, '.$this->db->escape($data['inputtext0']).') > 0');
+        }
+        else {
+          $this->db->query('CREATE OR REPLACE VIEW a'.$start.' AS SELECT * FROM viewcolor WHERE INSTR('.$data['field0'].', '.$this->db->escape($data['inputtext0']).') > 0');
+        }
       }
 
       for($end = 1; $end < $data['count']; $end++) {
         if($data['operate'.$end.''] == 'or') {
-          $this->db->query('CREATE OR REPLACE VIEW a'.$end.' AS SELECT * FROM a'.$start.' UNION SELECT * FROM viewcolor WHERE INSTR('.$data['field'.$end.''].', '.$this->db->escape($data['inputtext'.$end.'']).') > 0');
-          
+          if($data['field'.$end.''] == 'taken_location') {
+            $this->db->query('CREATE OR REPLACE VIEW a'.$end.' AS SELECT * FROM a'.$start.' UNION SELECT * FROM viewcolor WHERE INSTR(taken_location, '.$this->db->escape($data['inputtext'.$end.'']).') > 0
+              OR INSTR(location_event, '.$this->db->escape($data['inputtext'.$end.'']).') > 0');
+          }
+          else{
+            $this->db->query('CREATE OR REPLACE VIEW a'.$end.' AS SELECT * FROM a'.$start.' UNION SELECT * FROM viewcolor WHERE INSTR('.$data['field'.$end.''].', '.$this->db->escape($data['inputtext'.$end.'']).') > 0');
+          }
         }
         else if($data['operate'.$end.''] == 'not') {
-          $this->db->query('CREATE OR REPLACE VIEW a'.$end.' AS SELECT * FROM a'.$start.' WHERE INSTR('.$data['field'.$end.''].', '.$this->db->escape($data['inputtext'.$end.'']).') < 1');
+          if($data['field'.$end.''] == 'taken_location') {
+            $this->db->query('CREATE OR REPLACE VIEW a'.$end.' AS SELECT * FROM a'.$start.' WHERE INSTR(taken_location, '.$this->db->escape($data['inputtext'.$end.'']).') < 1
+              OR INSTR(location_event, '.$this->db->escape($data['inputtext'.$end.'']).') < 1');
+          }
+          else{
+            $this->db->query('CREATE OR REPLACE VIEW a'.$end.' AS SELECT * FROM a'.$start.' WHERE INSTR('.$data['field'.$end.''].', '.$this->db->escape($data['inputtext'.$end.'']).') < 1');
+          }
         }
         else {
-          $this->db->query('CREATE OR REPLACE VIEW a'.$end.' AS SELECT * FROM a'.$start.' WHERE INSTR('.$data['field'.$end.''].', '.$this->db->escape($data['inputtext'.$end.'']).') > 0');
+          if($data['field'.$end.''] == 'taken_location') {
+            $this->db->query('CREATE OR REPLACE VIEW a'.$end.' AS SELECT * FROM a'.$start.' WHERE INSTR(taken_location, '.$this->db->escape($data['inputtext'.$end.'']).') > 0
+              OR INSTR(location_event, '.$this->db->escape($data['inputtext'.$end.'']).') > 0');
+          }
+          else{
+            $this->db->query('CREATE OR REPLACE VIEW a'.$end.' AS SELECT * FROM a'.$start.' WHERE INSTR('.$data['field'.$end.''].', '.$this->db->escape($data['inputtext'.$end.'']).') > 0');
+          }
         }
         $start++;
       }
