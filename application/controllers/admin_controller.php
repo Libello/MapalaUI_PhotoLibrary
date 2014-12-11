@@ -211,10 +211,8 @@ class admin_controller extends CI_Controller {
 		load_view_admin('admin_master_data', array('photographerlist' => $photographerlist,'editorlist' => $editorlist,'eventlist' => $eventlist,'ownerlist' => $ownerlist));
 	}
 	public function view_photo_list() {
-		$this->load->model('photo_model');
-		$this->load->model('photographer_model');
-		$this->load->model('event_model');
 
+		$this->load->model('photo_model');
 		$data_photo = null;
 		$data_search = null;
 
@@ -236,19 +234,12 @@ class admin_controller extends CI_Controller {
 	    $count = 0;
 
 	    foreach ($data_photo as $photo) {
-	    	if($photo['id_event'] == 0) {
-	    		$photolist[$count]['event'] = '-';
-	    	}
-	    	else {
-	    		$event = $this->event_model->getEventById($photo['id_event']);
-	    		$photolist[$count]['event'] = $event['name'];
-	    	}
 	    	$photolist[$count]['id'] = $photo['id_photo'];
-	    	$photographer = $this->photographer_model->getPhotographerById($photo['id_photographer']);
-			$photolist[$count]['photographer'] = $photographer['name'];
+			$photolist[$count]['photographer'] = $photo['name_photographer'];
 	    	$photolist[$count]['image'] = $photo['photo_upload'];
 	    	$photolist[$count]['title'] = $photo['title'];
 	    	$photolist[$count]['id_event'] = $photo['id_event'];
+	    	$photolist[$count]['event'] = $photo['name_event'];
 	    	$photolist[$count]['format'] = $photo['format'];
 	    	$photolist[$count]['category'] = $photo['category'];
 	    	$photolist[$count]['last_update'] = $photo['last_update'];
@@ -493,10 +484,37 @@ class admin_controller extends CI_Controller {
 				$datafoto = $this->upload->data();
 				$data = $this->input->post();
 				$this->load->model('photo_model');
+				$this->load->model('photographer_model');
+				$this->load->model('event_model');
+				$this->load->model('editor_model');
+				$this->load->model('owner_model');
 
+				$data['name_photographer'] = "Tidak Diketahui";
+				$data['name_event'] = '-';
+				$data['location_event'] = '-';
+				$data['name_editor'] = '-';
+				$data['name_owner'] = '-';
 				$data['userfile'] = $datafoto['file_name'];
 				$data['size'] = $datafoto['image_width'].' x '.$datafoto['image_height'];
 				$data['formatphoto'] = implode(',', $data['format']);
+
+				if($data['photographer'] != "Tidak Diketahui") {
+					$photographer = $this->photographer_model->getPhotographerById($data['photographer']);
+					$data['name_photographer'] = $photographer['name'];
+				}
+				if($data['event'] != '-') {
+					$event = $this->event_model->getEventById($data['event']);
+					$data['name_event'] = $event['name'];
+					$data['location_event'] = $event['location'];					
+				}
+				if($data['editor'] != '-') {
+					$editor = $this->editor_model->getEditorById($data['editor']);
+					$data['name_editor'] = $editor['name'];					
+				}
+				if($data['owner'] != '-') {
+					$owner = $this->owner_model->getOwnerById($data['owner']);
+					$data['name_owner'] = $owner['name'];
+				}
 				
 				$success = $this->photo_model->insertNewPhoto($data);
 				if($success) {
@@ -513,8 +531,36 @@ class admin_controller extends CI_Controller {
 		if(!empty($_POST)){
 			$data = $this->input->post();
 			$this->load->model('photo_model');
+			$this->load->model('photographer_model');
+			$this->load->model('event_model');
+			$this->load->model('editor_model');
+			$this->load->model('owner_model');
+
+			$data['name_photographer'] = "Tidak Diketahui";
+			$data['name_event'] = '-';
+			$data['name_editor'] = '-';
+			$data['name_owner'] = '-';
 			$data['formatphoto'] = implode(',', $data['format']);
+
+			if($data['photographer'] != "Tidak Diketahui") {
+				$photographer = $this->photographer_model->getPhotographerById($data['photographer']);
+				$data['name_photographer'] = $photographer['name'];
+			}
+			if($data['event'] != 0) {
+				$event = $this->event_model->getEventById($data['event']);
+				$data['name_event'] = $event['name'];					
+			}
+			if($data['editor'] != 0) {
+				$editor = $this->editor_model->getEditorById($data['editor']);
+				$data['name_editor'] = $editor['name'];					
+			}
+			if($data['owner'] != 0) {
+				$owner = $this->owner_model->getOwnerById($data['owner']);
+				$data['name_owner'] = $owner['name'];
+			}
+
 			$success = $this->photo_model->editPhoto($data);
+
 			if($success) {
 				$errmes['message'] = 'Satu foto telah berhasil diedit';
 				load_view('admin_addphoto_success',$errmes);

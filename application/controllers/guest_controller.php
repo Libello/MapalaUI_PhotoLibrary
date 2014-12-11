@@ -77,9 +77,18 @@ class guest_controller extends CI_Controller {
 
 		foreach ($data_photo as $photo) {
 	    	$photolist[$count]['id'] = $photo['id_photo'];
+			$photolist[$count]['photographer'] = $photo['name_photographer'];
 	    	$photolist[$count]['image'] = $photo['photo_upload'];
+	    	$photolist[$count]['title'] = $photo['title'];
+	    	$photolist[$count]['id_event'] = $photo['id_event'];
+	    	$photolist[$count]['event'] = $photo['name_event'];
+	    	$photolist[$count]['format'] = $photo['format'];
+	    	$photolist[$count]['category'] = $photo['category'];
+	    	$photolist[$count]['taken_date'] = $photo['taken_date'];
+	    	$photolist[$count]['taken_location'] = $photo['taken_location'];
 	    	$count++;
 	    }
+
 		load_view('main_gallery2',array('photolist' => $photolist, 'data_event' => $data_event, 'category' => $category));
 	}
 
@@ -91,43 +100,20 @@ class guest_controller extends CI_Controller {
 	}
 	public function view_main_photo_detail($id) {
 		$this->load->model('photo_model');
-		$this->load->model('photographer_model');
-		$this->load->model('event_model');
-		$this->load->model('editor_model');
-		$this->load->model('owner_model');
-
 		$data_photo = $this->photo_model->getPhotoById($id);
 
 		if($data_photo == null) {
 			show_404();
 		}
-		else {
-			$photographer = $this->photographer_model->getPhotographerById($data_photo['id_photographer']);
-			$data_photo['name_photographer'] = $photographer['name'];
-			if($data_photo['id_event'] == 0) {
-				$data_photo['name_event'] = '';
-				$data_photo['location_event'] = '';
-			}
-			else {
-				$event = $this->event_model->getEventById($data_photo['id_event']);
-				$data_photo['name_event'] = $event['name'];
-				$data_photo['location_event'] = $event['location'];
-			}
-			if($data_photo['id_editor'] == 0) {
-				$data_photo['name_editor'] = '';
-			}
-			else {
-				$editor = $this->editor_model->getEditorById($data_photo['id_editor']);
-				$data_photo['name_editor'] = $editor['name'];
-			}
+	
 
+		else {
 			load_view('main_photo_detail', $data_photo);
 		}	
 	}
 	public function view_main_search() {
+
 		$this->load->model('photo_model');
-		$this->load->model('photographer_model');
-		$this->load->model('event_model');
 		$searchby = array();
 
 		if(!empty($_POST)) {
@@ -141,7 +127,8 @@ class guest_controller extends CI_Controller {
 				$data['format'] = 'all';
 				$data['color'] = 'all';
 				$data_photo = $this->photo_model->searchBy($data);
-			}
+			} 
+			//kok ga ada yang warna? Ini buat apa?
 			else {
 				$data['count'] = 0;
 				foreach ($data['fieldarr'] as $field) {
@@ -174,18 +161,11 @@ class guest_controller extends CI_Controller {
 
 		foreach ($data_photo as $photo) {
 	    	$searchresult[$count]['id'] = $photo['id_photo'];
-	    	$photographer = $this->photographer_model->getPhotographerById($photo['id_photographer']);
-			$searchresult[$count]['photographer'] = $photographer['name'];
+			$searchresult[$count]['photographer'] = $photo['name_photographer'];
 	    	$searchresult[$count]['image'] = $photo['photo_upload'];
 	    	$searchresult[$count]['title'] = $photo['title'];
-	    	if($photo['id_event'] == 0) {
-	    		$searchresult[$count]['event'] = '-';
-	    	}
-	    	else {
-	    		$event = $this->event_model->getEventById($photo['id_event']);
-	    		$searchresult[$count]['event'] = $event['name'];
-	    	}
 	    	$searchresult[$count]['id_event'] = $photo['id_event'];
+	    	$searchresult[$count]['event'] = $photo['name_event'];
 	    	$searchresult[$count]['category'] = $photo['category'];
 	    	$count++;
 	    }
