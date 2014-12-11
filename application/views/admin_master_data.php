@@ -53,7 +53,6 @@
 
     <div class="container">
       <div class="starter-template">
-        <?php $tabactive = 'event'?>
         <br>
         <ul class="nav nav-tabs" role="tablist">
           <li <?php if($tabactive == 'photographer') echo 'class="active"';?>><a href="#photographer_tab" role="tab" data-toggle="tab">Fotografer</a></li>

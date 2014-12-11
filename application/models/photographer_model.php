@@ -53,7 +53,7 @@
                             `membership` = "'.$data['photographer_membership'].'",
                             `no.M` = "'.$data['no_m'].'"
                         WHERE id_photographer = "'.$data['id_photographer'].'"');
-      if($this->db->affected_rows() == 1) {
+      if($this->db->affected_rows() >= 0) {
         return true;
       }
       return false;

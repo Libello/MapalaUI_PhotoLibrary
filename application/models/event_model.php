@@ -57,7 +57,7 @@
                             `end_year` = "'.$data['end_year'].'",
                             `category` = "'.$data['eventcategory'].'"
                         WHERE id_event = "'.$data['event_id'].'"');
-      if($this->db->affected_rows() == 1) {
+      if($this->db->affected_rows() >= 0) {
         return true;
       }
       return false;

@@ -51,7 +51,7 @@
                             `phone` = "'.$data['owner_phone'].'",
                             `address` = "'.$data['owner_address'].'"
                         WHERE id_owner = "'.$data['id_owner'].'"');
-      if($this->db->affected_rows() == 1) {
+      if($this->db->affected_rows() >= 0) {
         return true;
       }
       return false;

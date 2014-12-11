@@ -208,7 +208,12 @@ class admin_controller extends CI_Controller {
 	    	$count_owner++;
 	    }
 
-		load_view_admin('admin_master_data', array('photographerlist' => $photographerlist,'editorlist' => $editorlist,'eventlist' => $eventlist,'ownerlist' => $ownerlist));
+	    $tabactive = 'photographer';
+	    if($this->input->get()) {
+	    	$tabactive = $this->input->get('tab');
+	    }
+
+		load_view_admin('admin_master_data', array('tabactive' => $tabactive,'photographerlist' => $photographerlist,'editorlist' => $editorlist,'eventlist' => $eventlist,'ownerlist' => $ownerlist));
 	}
 	public function view_photo_list() {
 
@@ -292,7 +297,7 @@ class admin_controller extends CI_Controller {
 			$success = $this->photographer_model->insertPhotographer($data);
 
 			if($success) {
-				redirect(site_url('master_data'));
+				redirect(site_url('master_data?tab=photographer'));
 			}
 	    } else {
 	    	show_404();
@@ -306,9 +311,9 @@ class admin_controller extends CI_Controller {
 			$successphotographer = $this->photographer_model->editPhotographer($data);
 			$successphoto = $this->photo_model->updateDataPhotographer($data);
 
-			if($successphotographer) {
-				if($successphoto) {
-					redirect(site_url('master_data'));
+			if($successphotographer == true) {
+				if($successphoto == true) {
+					redirect(site_url('master_data?tab=photographer'));
 				}
 			}
 	    } else {
@@ -322,7 +327,7 @@ class admin_controller extends CI_Controller {
 		$this->load->model('photographer_model');
 		$success = $this->photographer_model->deletePhotographer($id);
 		if($success) {
-			redirect(site_url('master_data'));
+			redirect(site_url('master_data?tab=photographer'));
 		} else {
 			$errmes['message'] = $id;
 			load_view('main_admin_login', $errmes);
@@ -337,7 +342,7 @@ class admin_controller extends CI_Controller {
 			$success = $this->editor_model->insertEditor($data);
 
 			if($success) {
-				redirect(site_url('master_data'));
+				redirect(site_url('master_data?tab=editor'));
 			}
 	    } else {
 	    	show_404();
@@ -350,7 +355,7 @@ class admin_controller extends CI_Controller {
 		$this->load->model('editor_model');
 		$success = $this->editor_model->deleteEditor($id);
 		if($success) {
-			redirect(site_url('master_data'));
+			redirect(site_url('master_data?tab=editor'));
 		} else {
 			$errmes['message'] = $id;
 			load_view('main_admin_login', $errmes);
@@ -362,11 +367,11 @@ class admin_controller extends CI_Controller {
 			$this->load->model('editor_model');
 			$this->load->model('photo_model');
 			$successeditor = $this->editor_model->editEditor($data);
-			$successphoto = $this->photo_model->updateDataPhotographer($data);
+			$successphoto = $this->photo_model->updateDataEditor($data);
 
 			if($successeditor) {
 				if($successphoto) {
-					redirect(site_url('master_data'));
+					redirect(site_url('master_data?tab=editor'));
 				}
 			}
 	    } else {
@@ -388,7 +393,7 @@ class admin_controller extends CI_Controller {
 			$success = $this->event_model->insertEvent($data);
 
 			if($success) {
-				redirect(site_url('master_data'));
+				redirect(site_url('master_data?tab=event'));
 			}
 	    } else {
 	    	show_404();
@@ -401,7 +406,7 @@ class admin_controller extends CI_Controller {
 		$this->load->model('event_model');
 		$success = $this->event_model->deleteEvent($id);
 		if($success) {
-			redirect(site_url('master_data'));
+			redirect(site_url('master_data?tab=event'));
 		} else {
 			$errmes['message'] = $id;
 			load_view('main_admin_login', $errmes);
@@ -420,11 +425,11 @@ class admin_controller extends CI_Controller {
 			}
 
 			$successevent = $this->event_model->editEvent($data);
-			$successphoto = $this->photo_model->updateDataPhotographer($data);
+			$successphoto = $this->photo_model->updateDataEvent($data);
 
 			if($successevent) {
 				if($successphoto) {
-					redirect(site_url('master_data'));
+					redirect(site_url('master_data?tab=event'));
 				}
 			}
 			else {
@@ -444,7 +449,7 @@ class admin_controller extends CI_Controller {
 			$success = $this->owner_model->insertOwner($data);
 
 			if($success) {
-				redirect(site_url('master_data'));
+				redirect(site_url('master_data?tab=owner'));
 			}
 	    } else {
 	    	show_404();
@@ -457,7 +462,7 @@ class admin_controller extends CI_Controller {
 		$this->load->model('owner_model');
 		$success = $this->owner_model->deleteOwner($id);
 		if($success) {
-			redirect(site_url('master_data'));
+			redirect(site_url('master_data?tab=owner'));
 		} else {
 			$errmes['message'] = $id;
 			load_view('main_admin_login', $errmes);
@@ -469,11 +474,11 @@ class admin_controller extends CI_Controller {
 			$this->load->model('owner_model');
 			$this->load->model('photo_model');
 			$successowner = $this->owner_model->editOwner($data);
-			$successphoto = $this->photo_model->updateDataPhotographer($data);
+			$successphoto = $this->photo_model->updateDataOwner($data);
 
 			if($successowner) {
 				if($successphoto) {
-					redirect(site_url('master_data'));
+					redirect(site_url('master_data?tab=owner'));
 				}
 			}
 	    } else {
