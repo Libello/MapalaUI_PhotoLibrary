@@ -132,6 +132,24 @@ class admin_controller extends CI_Controller {
 		    	$count_owner++;
 		    }
 
+		    $photographer = $this->photographer_model->getPhotographerById($data_photo['id_photographer']);
+		    $data_photo['name_photographer'] = $photographer['name'];
+		    $data_photo['name_event'] = '';
+		    $data_photo['name_editor'] = '';
+		    $data_photo['name_owner'] = '';
+
+		    if($data_photo['id_event'] != 0) {
+		    	$event = $this->event_model->getEventById($data_photo['id_event']);
+		    	$data_photo['name_event'] = $event['name'];
+		    }
+		    if($data_photo['id_editor'] != 0) {
+		    	$editor = $this->editor_model->getEditorById($data_photo['id_editor']);
+		    	$data_photo['name_editor'] = $editor['name'];
+		    }
+		    if($data_photo['id_owner'] != 0) {
+		    	$owner = $this->owner_model->getOwnerById($data_photo['id_owner']);
+		    	$data_photo['name_owner'] = $owner['name'];
+		    }
 
 			load_view('admin_edit', array('photographerlist' => $photographerlist
 				, 'data_photo' => $data_photo,'editorlist' => $editorlist,'eventlist' => $eventlist
