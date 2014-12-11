@@ -184,6 +184,46 @@
       }
       return $success;
     }
+    public function updateDataPhotographer($data) {
+      $this->load->database();
+      $this->db->query('UPDATE photo_record
+                        SET `name_photographer` = "'.$data['photographer_name'].'"
+                        WHERE id_photographer = "'.$data['id_photographer'].'"');
+      if($this->db->affected_rows() >= 0) {
+        return true;
+      }
+      return false;
+    }
+    public function updateDataEvent($data) {
+      $this->load->database();
+      $this->db->query('UPDATE photo_record
+                        SET `name_event` = "'.$data['event_name'].'"
+                        WHERE id_event = "'.$data['event_id'].'"');
+      if($this->db->affected_rows() >= 0) {
+        return true;
+      }
+      return false;
+    }
+    public function updateDataEditor($data) {
+      $this->load->database();
+      $this->db->query('UPDATE photo_record
+                        SET `name_editor` = "'.$data['editor_name'].'"
+                        WHERE id_editor = "'.$data['id_editor'].'"');
+      if($this->db->affected_rows() >= 0) {
+        return true;
+      }
+      return false;
+    }
+    public function updateDataOwner($data) {
+      $this->load->database();
+      $this->db->query('UPDATE photo_record
+                        SET `name_owner` = "'.$data['owner_name'].'"
+                        WHERE id_owner = "'.$data['id_owner'].'"');
+      if($this->db->affected_rows() >= 0) {
+        return true;
+      }
+      return false;
+    }
   }
 ?>
 

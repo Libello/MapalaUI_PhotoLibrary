@@ -302,10 +302,14 @@ class admin_controller extends CI_Controller {
 		if(!empty($_POST)){
 			$data = $this->input->post();
 			$this->load->model('photographer_model');
-			$success = $this->photographer_model->editPhotographer($data);
+			$this->load->model('photo_model');
+			$successphotographer = $this->photographer_model->editPhotographer($data);
+			$successphoto = $this->photo_model->updateDataPhotographer($data);
 
-			if($success) {
-				redirect(site_url('master_data'));
+			if($successphotographer) {
+				if($successphoto) {
+					redirect(site_url('master_data'));
+				}
 			}
 	    } else {
 	    	show_404();
@@ -356,10 +360,14 @@ class admin_controller extends CI_Controller {
 		if(!empty($_POST)){
 			$data = $this->input->post();
 			$this->load->model('editor_model');
-			$success = $this->editor_model->editEditor($data);
+			$this->load->model('photo_model');
+			$successeditor = $this->editor_model->editEditor($data);
+			$successphoto = $this->photo_model->updateDataPhotographer($data);
 
-			if($success) {
-				redirect(site_url('master_data'));
+			if($successeditor) {
+				if($successphoto) {
+					redirect(site_url('master_data'));
+				}
 			}
 	    } else {
 	    	show_404();
@@ -403,6 +411,7 @@ class admin_controller extends CI_Controller {
 		if(!empty($_POST)){
 			$data = $this->input->post();
 			$this->load->model('event_model');
+			$this->load->model('photo_model');
 			if(!empty($data['category'])) {
 				$data['eventcategory'] = implode(',', $data['category']);
 			}
@@ -410,11 +419,14 @@ class admin_controller extends CI_Controller {
 				$data['eventcategory'] = "-";
 			}
 
-			$success = $this->event_model->editEvent($data);
+			$successevent = $this->event_model->editEvent($data);
+			$successphoto = $this->photo_model->updateDataPhotographer($data);
 
-			if($success) {
-				redirect(site_url('master_data'));
-			} 
+			if($successevent) {
+				if($successphoto) {
+					redirect(site_url('master_data'));
+				}
+			}
 			else {
 		    	show_404();
 		    }
@@ -455,10 +467,14 @@ class admin_controller extends CI_Controller {
 		if(!empty($_POST)){
 			$data = $this->input->post();
 			$this->load->model('owner_model');
-			$success = $this->owner_model->editOwner($data);
+			$this->load->model('photo_model');
+			$successowner = $this->owner_model->editOwner($data);
+			$successphoto = $this->photo_model->updateDataPhotographer($data);
 
-			if($success) {
-				redirect(site_url('master_data'));
+			if($successowner) {
+				if($successphoto) {
+					redirect(site_url('master_data'));
+				}
 			}
 	    } else {
 	    	show_404();
