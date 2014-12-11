@@ -34,13 +34,6 @@
       $query = $this->db->query('SELECT * FROM photo_record WHERE INSTR(id_event, '.$this->db->escape($id_event).') > 0');
       return $query->result_array();
     }
-    public function createViewSearch() {
-      $this->load->database();
-      $query = $this->db->query('SELECT * FROM photo_record GROUP BY last_update DESC');
-      $data_photo = $query->result_array();
-      $this->db->query('CREATE base as SELECT * FROM photo_record GROUP BY last_update DESC');
-      $this->db->query('ALTER TABLE base DROP COLUMN title');
-    }
 
     // Search Function
     public function searchBy($data) {
@@ -106,7 +99,6 @@
 
       $start = 0;
       $end = 0;
-
       if($data['operate0'] == 'not') {
         $field = $data['field0'];
         $this->db->query('CREATE OR REPLACE VIEW a'.$start.' AS SELECT * FROM viewcolor WHERE INSTR('.$data['field0'].', '.$this->db->escape($data['inputtext0']).') < 1');

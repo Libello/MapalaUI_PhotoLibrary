@@ -104,16 +104,19 @@ class guest_controller extends CI_Controller {
 		else {
 			$photographer = $this->photographer_model->getPhotographerById($data_photo['id_photographer']);
 			$data_photo['name_photographer'] = $photographer['name'];
-			$data_photo['name_editor'] = '';
-			$data_photo['name_event'] = '';
-			$data_photo['location_event'] = '';
-
-			if($data_photo['id_event'] != 0) {
+			if($data_photo['id_event'] == 0) {
+				$data_photo['name_event'] = '';
+				$data_photo['location_event'] = '';
+			}
+			else {
 				$event = $this->event_model->getEventById($data_photo['id_event']);
 				$data_photo['name_event'] = $event['name'];
 				$data_photo['location_event'] = $event['location'];
 			}
-			if($data_photo['id_editor'] != 0) {
+			if($data_photo['id_editor'] == 0) {
+				$data_photo['name_editor'] = '';
+			}
+			else {
 				$editor = $this->editor_model->getEditorById($data_photo['id_editor']);
 				$data_photo['name_editor'] = $editor['name'];
 			}
@@ -121,7 +124,6 @@ class guest_controller extends CI_Controller {
 			load_view('main_photo_detail', $data_photo);
 		}	
 	}
-
 	public function view_main_search() {
 		$this->load->model('photo_model');
 		$this->load->model('photographer_model');
@@ -176,8 +178,10 @@ class guest_controller extends CI_Controller {
 			$searchresult[$count]['photographer'] = $photographer['name'];
 	    	$searchresult[$count]['image'] = $photo['photo_upload'];
 	    	$searchresult[$count]['title'] = $photo['title'];
-	    	$searchresult[$count]['event'] = '';
-	    	if($photo['id_event'] != 0) {
+	    	if($photo['id_event'] == 0) {
+	    		$searchresult[$count]['event'] = '-';
+	    	}
+	    	else {
 	    		$event = $this->event_model->getEventById($photo['id_event']);
 	    		$searchresult[$count]['event'] = $event['name'];
 	    	}
