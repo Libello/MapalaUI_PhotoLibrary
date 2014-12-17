@@ -35,14 +35,14 @@
         <br>
         <br>
 
-        <h1 id='adminlogin_header'>Selamat!<br>
+        <h1 id='adminlogin_header'>Selamat,<br>
         <?php
           if($message != null) {
             print_r( $message); 
           }
         ?>
         </h1>
-        <br><br><p><a href="<?php echo site_url('/add_photo');?>" id="successMsg" class="btn"><span class="glyphicon glyphicon-plus"></span> Tambah data foto lainnya</a><br><br>atau<br><br><a href="<?php echo site_url('/photo_list');?>" class="btn" id="successMsg"><span class="glyphicon glyphicon-list-alt"></span> Lihat daftar foto</a></p>
+        <br><br><p><a href="<?php echo site_url('/add_photo');?>" id="successMsg" class="btn"><span class="glyphicon glyphicon-plus"></span> Tambah data foto baru</a><br><br>atau<br><br><a href="<?php echo site_url('/photo_list');?>" class="btn" id="successMsg"><span class="glyphicon glyphicon-list-alt"></span> Lihat daftar foto</a></p>
 
       </div>
     </div>

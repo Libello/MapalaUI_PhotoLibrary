@@ -583,7 +583,7 @@ class admin_controller extends CI_Controller {
 			$success = $this->photo_model->editPhoto($data);
 
 			if($success) {
-				$errmes['message'] = 'Satu foto telah berhasil diedit';
+				$errmes['message'] = 'Satu foto telah berhasil diubah!';
 				load_view('admin_addphoto_success',$errmes);
 			}
 	    } else {
